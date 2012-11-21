@@ -9,11 +9,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 
-<<<<<<< HEAD
 namespace TRODS
-=======
-namespace WindowsGame1
->>>>>>> dbe5e2d6b9d276a4df39ba573662c0a416bd4772
 {
     class Sprite
     {
@@ -39,13 +35,8 @@ namespace WindowsGame1
             set { _direction = value; }
         }
 
-<<<<<<< HEAD
         private float _vitesse;
         public float Vitesse
-=======
-        private int _vitesse;
-        public int Vitesse
->>>>>>> dbe5e2d6b9d276a4df39ba573662c0a416bd4772
         {
             get { return _vitesse; }
             set { _vitesse = value; }
@@ -57,11 +48,7 @@ namespace WindowsGame1
         private float _relativeWidth;
         private float _relativeHeight;
 
-<<<<<<< HEAD
         public Sprite(Rectangle aposition, int windowWidth = 0, int windowHeight = 0)
-=======
-        public Sprite(Rectangle aposition,int windowWidth=0,int windowHeight=0)
->>>>>>> dbe5e2d6b9d276a4df39ba573662c0a416bd4772
         {
             _position = aposition;
             _direction = new Vector2();
@@ -84,7 +71,6 @@ namespace WindowsGame1
         }
         public void Update(float elapsedTime)
         {
-<<<<<<< HEAD
             _position.X += (int)(_vitesse * _direction.X * elapsedTime);
             _position.Y += (int)(_vitesse * _direction.Y * elapsedTime);
         }
@@ -93,22 +79,11 @@ namespace WindowsGame1
             spriteBatch.Draw(_texture, _position, Color.White);
         }
         public void DrawWith(SpriteBatch spriteBatch, Color color, int X, int Y)
-=======
-            _position.X += _vitesse * (int)_direction.X * (int)elapsedTime;
-            _position.Y += _vitesse * (int)_direction.Y * (int)elapsedTime;
-        }
-        public virtual void Draw(SpriteBatch spriteBatch)
-        {
-            spriteBatch.Draw(_texture, _position, Color.White);
-        }
-        public virtual void DrawWith(SpriteBatch spriteBatch,Color color,int X,int Y)
->>>>>>> dbe5e2d6b9d276a4df39ba573662c0a416bd4772
         {
             spriteBatch.Draw(_texture,
                             new Rectangle(X, Y, _position.Width, _position.Height),
                             color);
         }
-<<<<<<< HEAD
         public void DrawWith(SpriteBatch spriteBatch, Color color)
         {
             spriteBatch.Draw(_texture, _position, color);
@@ -128,13 +103,6 @@ namespace WindowsGame1
             else
                 _isRelativePos = false;
         }
-=======
-        public virtual void DrawWith(SpriteBatch spriteBatch, Color color)
-        {
-            spriteBatch.Draw(_texture,_position,color);
-        }
-
->>>>>>> dbe5e2d6b9d276a4df39ba573662c0a416bd4772
         public void windowResized(Rectangle rect)
         {
             if (_isRelativePos)
@@ -146,12 +114,9 @@ namespace WindowsGame1
                     (int)(_relativeHeight * rect.Height));
             }
         }
-<<<<<<< HEAD
         public void Dispose()
         {
             _texture.Dispose();
         }
-=======
->>>>>>> dbe5e2d6b9d276a4df39ba573662c0a416bd4772
     }
 }
