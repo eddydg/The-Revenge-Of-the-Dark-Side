@@ -25,6 +25,12 @@ namespace TRODS
         private enum Selection { Play = 0, Exit = 1 };
         private List<Sprite> menuItems;
 
+        /// A implementer : Animations d'entree/sortie
+        /*private enum Action { Normal, In, Out };
+        private Action action;
+        private Sprite entryRayon;
+        private int actionAvancement;*/
+
         private static Vector2 decalage = new Vector2(10, 0); // De l'item selectionne
         private static int amplitudeVibrationSelection = 5;
         private int windowHeight;
