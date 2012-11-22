@@ -188,6 +188,8 @@ namespace TRODS
             wallpaper.windowResized(rect);
             foreach (Sprite s in menuItems)
                 s.windowResized(rect);
+            wallpaperText.windowResized(rect);
+            nuages.windowResized(rect);
             windowWidth = rect.Width;
             windowHeight = rect.Height;
             // La souris n'est pas redimensionnee

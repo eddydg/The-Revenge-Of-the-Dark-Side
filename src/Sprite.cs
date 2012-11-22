@@ -105,10 +105,11 @@ namespace TRODS
         /**
 		* Dessine le sprite avec des parametres specifiques
 		* */
-        public void DrawWith(SpriteBatch spriteBatch, Color color)
-        {
-            spriteBatch.Draw(_texture, _position, color);
-        }
+         public void DrawWith(SpriteBatch spriteBatch, Color color,float rotate=0,Vector2 origin=new Vector2(),int alpha=255)
+         {
+             spriteBatch.Draw(_texture, _position,_position, color, rotate, origin, new SpriteEffects(), alpha);
+         }
+
 
         /**
 		* Active la fonction du Sprite qui lui
