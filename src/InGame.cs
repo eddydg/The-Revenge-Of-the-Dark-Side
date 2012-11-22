@@ -11,6 +11,11 @@ using Microsoft.Xna.Framework.Media;
  
 namespace TRODS
 {
+    /**
+	* Classe de test temporaire
+	* Ingame sera la classe qui contiendra le moteur de jeu
+	* ( La plus bg des classes les plus importantes )
+	* */
     class InGame : AbstractScene
     {
         private Sprite black;
