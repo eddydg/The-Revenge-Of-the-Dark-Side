@@ -39,7 +39,11 @@ namespace TRODS
         public float Vitesse
         {
             get { return _vitesse; }
-            set { _vitesse = value; }
+            set
+            {
+                _vitesse = value;
+                _relativeSpeed = _vitesse / _position.Width;
+            }
         }
 
         private bool _isRelativePos;
@@ -47,6 +51,7 @@ namespace TRODS
         private float _relativePosY;
         private float _relativeWidth;
         private float _relativeHeight;
+        private float _relativeSpeed;
 
         /**
 		* Si les 2 derniers parametres sont donnes,
@@ -66,6 +71,7 @@ namespace TRODS
                 _relativeWidth = (float)aposition.Width / (float)windowWidth;
                 _relativeHeight = (float)aposition.Height / (float)windowHeight;
                 _isRelativePos = true;
+                _relativeSpeed = 0;
             }
             else
                 _isRelativePos = false;
@@ -145,6 +151,7 @@ namespace TRODS
                     (int)(_relativePosY * rect.Height),
                     (int)(_relativeWidth * rect.Width),
                     (int)(_relativeHeight * rect.Height));
+                _vitesse = _relativeSpeed * _position.Width;
             }
         }
         /**

@@ -21,9 +21,11 @@ namespace TRODS
         private Sprite black;
         private Sprite nuages;
         private KeyboardState kb;
+        private Rectangle windowSize;
 
-        public InGame(Rectangle windowSize)
+        public InGame(Rectangle wnewWindowSize)
         {
+            windowSize = wnewWindowSize;
             black = new Sprite(new Rectangle(0, 0, windowSize.Width, windowSize.Height), windowSize.Width, windowSize.Height);
             nuages = new Sprite(new Rectangle(0,0,windowSize.Width*3,windowSize.Height), windowSize.Width, windowSize.Height);
             nuages.Direction = new Vector2(-1, 0);
@@ -58,9 +60,19 @@ namespace TRODS
         }
         public override void HandleInput(KeyboardState newKeyboardState, MouseState newMouseState, Game1 parent)
         {
+            if (parent.Window.ClientBounds != windowSize)
+            {
+                windowSize = parent.Window.ClientBounds;
+                windowResized(windowSize);
+            }
             if (!newKeyboardState.IsKeyDown(Keys.Escape) && kb.IsKeyDown(Keys.Escape))
                 parent.SwitchScene(Scene.MainMenu);
             kb = newKeyboardState;
+        }
+        private void windowResized(Rectangle rect)
+        {
+            black.windowResized(rect);
+            nuages.windowResized(rect);
         }
     }
 }
