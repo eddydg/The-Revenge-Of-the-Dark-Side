@@ -25,11 +25,9 @@ namespace TRODS
         private enum Selection { Play = 0, Exit = 1 };
         private List<Sprite> menuItems;
 
-        /// <summary>
-        /// Decalage de l'item selectionne
-        /// </summary>
         private static Vector2 decalage = new Vector2(10, 0);
         private static int amplitudeVibrationSelection = 5;
+        private float relativeAmplitudeVibrationSelection;
         private int windowHeight;
         private int windowWidth;
 
@@ -44,6 +42,7 @@ namespace TRODS
             nuages.Direction = new Vector2(-1, 0);
             nuages.Vitesse = 0.1f; // 1f = 1000 px/sec
             mouse = new Sprite(new Rectangle(-100, -100, 30,50));
+            relativeAmplitudeVibrationSelection = (float)amplitudeVibrationSelection / (float)(windowHeight + windowWidth);
 
             menuItems = new List<Sprite>();
             menuItems.Add(new Sprite(new Rectangle(155, 400, 110, 55), windowWidth, windowHeight)); // play
@@ -198,6 +197,7 @@ namespace TRODS
             nuages.windowResized(rect);
             windowWidth = rect.Width;
             windowHeight = rect.Height;
+            amplitudeVibrationSelection = (int)(relativeAmplitudeVibrationSelection * (windowWidth + windowHeight));
             // La souris n'est pas redimensionnee
         }
     }
