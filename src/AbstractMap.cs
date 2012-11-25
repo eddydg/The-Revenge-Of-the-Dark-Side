@@ -78,18 +78,18 @@ namespace TRODS
         }
 
         /// <summary>
-        /// 
+        /// Constructeur
         /// </summary>
-        /// <param name="windowSize"></param>
-        /// <param name="elementsBackground"></param>
-        /// <param name="elementsMainground"></param>
-        /// <param name="elementsForeground"></param>
-        /// <param name="mapDimensions"></param>
-        /// <param name="vuePosition"></param>
-        /// <param name="upperVisitableLimit"></param>
-        /// <param name="lowerVisitableLimit"></param>
-        /// <param name="leftVisitableLimit"></param>
-        /// <param name="rightVisitableLimit"></param>
+        /// <param name="windowSize">Dimensions de la fenetre</param>
+        /// <param name="elementsBackground">Textures d'arriere plan</param>
+        /// <param name="elementsMainground">Textures de la lane</param>
+        /// <param name="elementsForeground">Textures de premier plan</param>
+        /// <param name="mapDimensions">Dimension de la map</param>
+        /// <param name="vuePosition">Position du point de vue sur la map</param>
+        /// <param name="upperVisitableLimit">Limite visitable superieure</param>
+        /// <param name="lowerVisitableLimit">Limite visitable inferieure</param>
+        /// <param name="leftVisitableLimit">Limite visitable gauche</param>
+        /// <param name="rightVisitableLimit">Limite visitable droite</param>
         public AbstractMap(Rectangle windowSize,
                             List<Sprite> elementsBackground, List<Sprite> elementsMainground, List<Sprite> elementsForeground,
                             Rectangle mapDimensions, Vector2 vuePosition,
@@ -118,6 +118,7 @@ namespace TRODS
         {
             spriteBatch.Begin();
             DrawForeground(spriteBatch);
+            DrawMainground(spriteBatch);
             DrawBackground(spriteBatch);
             spriteBatch.End();
         }
@@ -132,20 +133,30 @@ namespace TRODS
             spriteBatch.Begin();
             DrawForeground(spriteBatch);
             // PERSONNAGE.DRAW
+            DrawMainground(spriteBatch);
             DrawBackground(spriteBatch);
             spriteBatch.End();
         }
 
         /// <summary>
-        /// Dessine le contenu graphique de l'arriere plan et de la lane
+        /// Dessine le contenu graphique de l'arriere plan
         /// spriteBatch.Begin et spriteBatch.End non declares
         /// </summary>
         /// <param name="spriteBatch">Instance du gestionnaire de dessin de XNA</param>
         public virtual void DrawBackground(SpriteBatch spriteBatch)
         {
-            foreach (Sprite e in _elementsMainground)
-                e.Draw(spriteBatch);
             foreach (Sprite e in _elementsBackground)
+                e.Draw(spriteBatch);
+        }
+
+        /// <summary>
+        /// Dessine le contenu graphique de la lane
+        /// spriteBatch.Begin et spriteBatch.End non declares
+        /// </summary>
+        /// <param name="spriteBatch">Instance du gestionnaire de dessin de XNA</param>
+        public virtual void DrawMainground(SpriteBatch spriteBatch)
+        {
+            foreach (Sprite e in _elementsMainground)
                 e.Draw(spriteBatch);
         }
 
@@ -161,7 +172,7 @@ namespace TRODS
         }
 
         /// <summary>
-        /// Fonction gerant le ouvement du point de vue sur la map
+        /// Fonction gerant le mouvement du point de vue sur la map
         /// </summary>
         /// <param name="destination">Vecteur representant le deplacement voulu</param>
         /// <returns>Destination possible</returns>

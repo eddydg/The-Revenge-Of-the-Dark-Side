@@ -17,10 +17,6 @@ namespace TRODS
     abstract class AbstractScene
     {
         /// <summary>
-        /// Reference de la classe principale Game1
-        /// </summary>
-        private Game1 _parent;
-        /// <summary>
         /// Charge le contenu des textures
         /// </summary>
         /// <param name="content">Instance du gestionnaire de contenu de XNA</param>
