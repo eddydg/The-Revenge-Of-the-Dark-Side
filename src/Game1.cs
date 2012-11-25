@@ -11,13 +11,9 @@ using Microsoft.Xna.Framework.Media;
  
 namespace TRODS
 {
-    public enum Scene
-    {
-        MainMenu=0,InGame=1
-    };
-    /**
-	* Classe principale du jeu
-	* */
+    /// <summary>
+    /// Classe principale de XNA
+    /// </summary>
     public class Game1 : Microsoft.Xna.Framework.Game
     {
         GraphicsDeviceManager graphics;
@@ -92,13 +88,10 @@ namespace TRODS
             }
         }
 
-        /**
-		* Changement de scene
-		* Fonction appelee depuis
-		* l'interieur des scenes
-		* auxquelles this a ete
-		* passe en parametre
-		* */
+        /// <summary>
+        /// Changement de scene
+        /// </summary>
+        /// <param name="s">Nouvelle scene</param>
         public void SwitchScene(Scene s)
         {
             currentScene = s;

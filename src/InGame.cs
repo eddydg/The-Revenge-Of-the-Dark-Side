@@ -11,11 +11,11 @@ using Microsoft.Xna.Framework.Media;
  
 namespace TRODS
 {
-    /**
-	* Classe de test temporaire
-	* Ingame sera la classe qui contiendra le moteur de jeu
-	* ( La plus bg des classes les plus importantes )
-	* */
+    /// <summary>
+    /// Classe de test temporaire
+	/// qui contiendra le moteur de jeu
+	/// ( La plus bg des classes les plus importantes )
+    /// </summary>
     class InGame : AbstractScene
     {
         private Sprite black;
@@ -69,6 +69,11 @@ namespace TRODS
                 parent.SwitchScene(Scene.MainMenu);
             kb = newKeyboardState;
         }
+        /// <summary>
+        /// Fonction adaptant les textures au
+        /// redimensionnement de la fenetre
+        /// </summary>
+        /// <param name="rect">Nouvelle dimension de la fenetre obtenue par *Game1*.Window.ClientBounds()</param>
         private void windowResized(Rectangle rect)
         {
             black.windowResized(rect);

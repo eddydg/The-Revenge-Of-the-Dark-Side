@@ -25,7 +25,10 @@ namespace TRODS
         private enum Selection { Play = 0, Exit = 1 };
         private List<Sprite> menuItems;
 
-        private static Vector2 decalage = new Vector2(10, 0); // De l'item selectionne
+        /// <summary>
+        /// Decalage de l'item selectionne
+        /// </summary>
+        private static Vector2 decalage = new Vector2(10, 0);
         private static int amplitudeVibrationSelection = 5;
         private int windowHeight;
         private int windowWidth;
@@ -134,7 +137,7 @@ namespace TRODS
             spriteBatch.Begin();
             int i = 0;
             wallpaper.Draw(spriteBatch);
-
+            
             Rectangle np = nuages.Position;
             nuages.Draw(spriteBatch);
             if (np.X + np.Width < windowWidth)
@@ -164,9 +167,10 @@ namespace TRODS
             spriteBatch.End();
         }
 
-        /**
-		* Appelee lorsque le joueur a selectionne une action
-		* */
+        /// <summary>
+        /// Gestion de l'evenement de selection
+        /// </summary>
+        /// <param name="parent">Reference de la classe Game1 parent</param>
         private void selectionEvent(Game1 parent)
         {
             selectionChangeSon.Play();
@@ -180,9 +184,11 @@ namespace TRODS
                     break;
             }
         }
-        /**
-		* Appelee au redimensionnement de la fenetre
-		* */
+        /// <summary>
+        /// Fonction adaptant les textures au
+        /// redimensionnement de la fenetre
+        /// </summary>
+        /// <param name="rect">Nouvelle dimension de la fenetre obtenue par *Game1*.Window.ClientBounds()</param>
         private void windowResized(Rectangle rect)
         {
             wallpaper.windowResized(rect);

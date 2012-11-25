@@ -53,12 +53,15 @@ namespace TRODS
         private float _relativeHeight;
         private float _relativeSpeed;
 
-        /**
-		* Si les 2 derniers parametres sont donnes,
-		* le Sprite d'adapte automatiquement aux
-		* redimensionnements de la fenetre par
-		* l'appel de windowResized()
-		* */
+        /// <summary>
+        /// Si les 2 derniers parametres sont donnes,
+		/// le Sprite d'adapte automatiquement aux
+		/// redimensionnements de la fenetre par
+		/// l'appel de windowResized()
+        /// </summary>
+        /// <param name="aposition">Dimenson du Sprite dans la fenetre</param>
+        /// <param name="windowWidth">Largeur de la fenetre</param>
+        /// <param name="windowHeight">Hauteur de la fenetre</param>
         public Sprite(Rectangle aposition, int windowWidth = 0, int windowHeight = 0)
         {
             _position = aposition;
@@ -77,52 +80,66 @@ namespace TRODS
                 _isRelativePos = false;
         }
 
-        /**
-		* Charge la texture
-		* */
+        /// <summary>
+        /// Chargement de la texture
+        /// </summary>
+        /// <param name="content">Gertionnaire de contenu de XNA</param>
+        /// <param name="assetName">Nom de la texture</param>
         public virtual void LoadContent(ContentManager content, string assetName)
         {
             _texture = content.Load<Texture2D>(assetName);
         }
-        /**
-		* Met a jour la position du Sprite
-		* */
+        /// <summary>
+        /// Met a jour la position du sprite
+        /// </summary>
+        /// <param name="elapsedTime">Temps ecoule depuis le dernier appel de la fonction</param>
         public void Update(float elapsedTime)
         {
             _position.X += (int)(_vitesse * _direction.X * elapsedTime);
             _position.Y += (int)(_vitesse * _direction.Y * elapsedTime);
         }
-        /**
-		* Dessine le Sprite
-		* */
+        /// <summary>
+        /// Dessine le Sprite avec ses parametres par defaut
+        /// </summary>
+        /// <param name="spriteBatch">Gestionnaire de dessin XNA</param>
         public void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Draw(_texture, _position, Color.White);
         }
-        /**
-		* Dessine le sprite avec des parametres specifiques
-		* */
+        /// <summary>
+        /// Dessine le Sprite avec des parametres specfiques
+        /// </summary>
+        /// <param name="spriteBatch">Gestionnaire de dessin XNA</param>
+        /// <param name="color">Coloration de la texture</param>
+        /// <param name="X">Absisse</param>
+        /// <param name="Y">Ordonee</param>
         public void DrawWith(SpriteBatch spriteBatch, Color color, int X, int Y)
         {
             spriteBatch.Draw(_texture,
                             new Rectangle(X, Y, _position.Width, _position.Height),
                             color);
         }
-        /**
-		* Dessine le sprite avec des parametres specifiques
-		* */
+        /// <summary>
+        /// Dessine le Sprite avec des parametres specfiques
+        /// </summary>
+        /// <param name="spriteBatch">Gestionnaire de dessin XNA</param>
+        /// <param name="color">Coloration de la texture</param>
+        /// <param name="rotate">Angle de rotation en radians</param>
+        /// <param name="origin">Origine de la rotation</param>
+        /// <param name="alpha">Transparente alpha (0:transparent - 255:opaque)</param>
          public void DrawWith(SpriteBatch spriteBatch, Color color,float rotate=0,Vector2 origin=new Vector2(),int alpha=255)
          {
              spriteBatch.Draw(_texture, _position,_position, color, rotate, origin, new SpriteEffects(), alpha);
          }
 
 
-        /**
-		* Active la fonction du Sprite qui lui
-		* permet de s'adapter automatiquement
-		* au redimensionnement de la fenetre
-		* par l'appel de windowResized()
-		* */
+        /// <summary>
+        /// Active l'adaptation automatique de la texture
+        /// au redomensionnement de la fenetre
+        /// </summary>
+        /// <param name="aposition">Position actuelle du Sprite</param>
+        /// <param name="windowWidth">Largeur de la fenetre</param>
+        /// <param name="windowHeight">Hauteur de la fenetre</param>
         public void setRelatvePos(Rectangle aposition, int windowWidth, int windowHeight)
         {
             _position = aposition;
@@ -137,11 +154,11 @@ namespace TRODS
             else
                 _isRelativePos = false;
         }
-        /**
-		* Prends en parametres le rectangle
-		* representant a position de la fenetre
-		* et adapte la taille du Sprite
-		* */
+        /// <summary>
+        /// Adapte la taille et la position de la texture
+        /// et la vitesse a celle de la fenetre
+        /// </summary>
+        /// <param name="rect"></param>
         public void windowResized(Rectangle rect)
         {
             if (_isRelativePos)
@@ -154,9 +171,9 @@ namespace TRODS
                 _vitesse = _relativeSpeed * _position.Width;
             }
         }
-        /**
-		* Relache les ressources
-		*/
+        /// <summary>
+        /// Libere les textures
+        /// </summary>
         public void Dispose()
         {
             _texture.Dispose();

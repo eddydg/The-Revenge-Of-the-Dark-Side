@@ -7,9 +7,12 @@ namespace EugLib
 {
     public static class Tools
     {
-        /**Prends en Parametres une chaine de caracteres
-		* Retourne la liste de toutes les chaines separees par des espaces
-		* */
+        /// <summary>
+        /// Prends en Parametres une chaine de caracteres
+		/// Retourne la liste de toutes les chaines separees par des espaces
+        /// </summary>
+        /// <param name="args"></param>
+        /// <returns></returns>
         public static List<string> toArgv(string args)
         {
             List<string> ret = new List<string>();
@@ -36,12 +39,14 @@ namespace EugLib
     }
     public class FileStream
     {
-        /**
-		* Prends en parametre un nom de fichiers
-		* Renvoie le contenu du fichier
-		* Renvoie une chaine vide et cree le fichier
-		* si il n'existait pas
-		* */
+        /// <summary>
+        /// Prends en parametre un nom de fichiers
+		/// Renvoie le contenu du fichier
+		/// Renvoie une chaine vide et cree le fichier
+		/// si il n'existait pas
+        /// </summary>
+        /// <param name="name">Nom du fichier</param>
+        /// <returns>Contenu du fichier</returns>
         public static string readFile(string name)
         {
             try
@@ -67,11 +72,13 @@ namespace EugLib
                 return "";
             }
         }
-        /**
-		* Prends en parametres le nom et une chaine de caracteres
-		* Ecrit la chaine de caracteres dans le fichier
-		* Cree le fichier si il n'existe pas
-		* */
+        /// <summary>
+        /// Prends en parametres le nom et une chaine de caracteres
+		/// Ecrit la chaine de caracteres dans le fichier
+		/// Cree le fichier si il n'existe pas
+        /// </summary>
+        /// <param name="name">Nom du fichier</param>
+        /// <param name="content">Contenu du fichier</param>
         public static void writeFile(string name, string content)
         {
             try
@@ -98,19 +105,17 @@ namespace EugLib
                 Console.WriteLine("FileStream.writeFile : Erreur lors de l'ecriture dans le fichier " + name);
             }
         }
-        /**
-		* Prends en parametre un objet
-		* Ecrit le contenu de objet.ToString()
-		* dans le fichier stdout.txt dans
-		* le repertoire de l'executable
-		* */
+        /// <summary>
+        /// Ajoute l'element a la fin du fichier stdout.txt
+        /// </summary>
+        /// <param name="content">content.ToString() sera ecrit a la fin du fichier</param>
         public static void toStdOut(Object content)
         {
             writeFile("stdout.txt", readFile("stdout.txt") + System.Environment.NewLine + content.ToString());
         }
-        /**
-		* Cree le fichier stdout.txt ou le vide
-		* */
+        /// <summary>
+        /// Cree le fichier stdout.txt ou le vide
+        /// </summary>
         public static void clearStdOut()
         {
             writeFile("stdout.txt", "");

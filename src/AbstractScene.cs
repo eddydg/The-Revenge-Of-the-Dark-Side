@@ -11,35 +11,44 @@ using Microsoft.Xna.Framework.Media;
  
 namespace TRODS
 {
-    /**
-	* Classe dont heriteront toutes les scenes
-	* du jeu
-	* */
+    /// <summary>
+    /// Classe dont heriteront toutes les scenes du jeu
+    /// </summary>
     abstract class AbstractScene
     {
-        /**
-		* Charge le contenu graphique etc...
-		* */
+        /// <summary>
+        /// Reference de la classe principale Game1
+        /// </summary>
+        private Game1 _parent;
+        /// <summary>
+        /// Charge le contenu des textures
+        /// </summary>
+        /// <param name="content">Instance du gestionnaire de contenu de XNA</param>
         public virtual void LoadContent(ContentManager content)
         {
         }
-        /**
-		* Gere les entrees de clavier ou de souris
-		* */
+        /// <summary>
+        /// Gere les entrees de clavier ou de souris
+        /// </summary>
+        /// <param name="newKeyboardState">Nouvel etat du clavier</param>
+        /// <param name="newMouseState">Nouvel etat de la souris</param>
+        /// <param name="parent">Reference de la classe parent</param>
         public virtual void HandleInput(KeyboardState newKeyboardState, MouseState newMouseState, Game1 parent)
         {
         }
-        /**
-		* Met a jour la partie dynamique des variables
-		* elapsedTime represente le temps ecoule depuis
-		* le dernier appel a la fonction
-		* */
+        /// <summary>
+        /// Met a jour la partie dynamique des variables
+        /// elapsedTime represente le temps ecoule depuis
+        /// le dernier appel a la fonction
+        /// </summary>
+        /// <param name="elapsedTime">Temps ecoule depuis le dernier appel de la fonction</param>
         public virtual void Update(float elapsedTime)
         {
         }
-        /**
-		* Dessine le contenu graphique
-		* */
+        /// <summary>
+        /// Dessine le contenu graphique
+        /// </summary>
+        /// <param name="spriteBatch">Instance du gestionnaire de dessin de XNA</param>
         public virtual void Draw(SpriteBatch spriteBatch)
         {
         }
