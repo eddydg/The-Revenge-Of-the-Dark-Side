@@ -19,54 +19,54 @@ namespace TRODS
         /// <summary>
         /// Liste des elements de decor
         /// </summary>
-        private List<Sprite> _elementsBackground;
+        protected List<Sprite> _elementsBackground;
 
         /// <summary>
         /// Liste des elements de la lane
         /// </summary>
-        private List<Sprite> _elementsMainground;
+        protected List<Sprite> _elementsMainground;
 
         /// <summary>
         /// Liste des elements de premier plan
         /// </summary>
-        private List<Sprite> _elementsForeground;
+        protected List<Sprite> _elementsForeground;
 
         /// <summary>
         /// Taille de la fenetre sur l'ecran
         /// </summary>
-        private Rectangle _windowSize;
+        protected Rectangle _windowSize;
 
         /// <summary>
         /// Taille et position de la map
         /// </summary>
-        private Rectangle _mapDimension;
+        protected Rectangle _mapDimension;
 
         /// <summary>
         /// Position actulle du point de vue
         /// </summary>
-        private Vector2 _vuePosition;
+        protected Vector2 _vuePosition;
 
         /// <summary>
         /// Liste de Vecteurs delimitant la hauteur
         /// maximale visitable de la map
         /// </summary>
-        private List<Vector2> _upperVisitableLimit;
+        protected List<Vector2> _upperVisitableLimit;
 
         /// <summary>
         /// Liste de Vecteurs delimitant la hauteur
         /// minimale visitable de la map
         /// </summary>
-        private List<Vector2> _lowerVisitableLimit;
+        protected List<Vector2> _lowerVisitableLimit;
 
         /// <summary>
         /// Abcisse minimale visitable de la map
         /// </summary>
-        private int _leftVisitableLimit;
+        protected int _leftVisitableLimit;
 
         /// <summary>
         /// Abcisse maximale visitable de la map
         /// </summary>
-        private int _rightVisitableLimit;
+        protected int _rightVisitableLimit;
 
         /// <summary>
         /// Constructeur Par defaut
