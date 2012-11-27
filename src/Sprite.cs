@@ -48,12 +48,6 @@ namespace TRODS
         private float _relativeWidth;
         private float _relativeHeight;
 
-        /**
-         * Si les 2 derniers parametres sont donnes,
-         * le Sprite d'adapte automatiquement aux 
-         * redimensionnements de la fenetre par 
-         * l'appel de windowResized()
-         * */
         public Sprite(Rectangle aposition, int windowWidth = 0, int windowHeight = 0)
         {
             _position = aposition;
@@ -71,51 +65,30 @@ namespace TRODS
                 _isRelativePos = false;
         }
 
-        /**
-         * Charge la texture
-         * */
         public virtual void LoadContent(ContentManager content, string assetName)
         {
             _texture = content.Load<Texture2D>(assetName);
         }
-        /**
-         * Met a jour la position du Sprite
-         * */
         public void Update(float elapsedTime)
         {
             _position.X += (int)(_vitesse * _direction.X * elapsedTime);
             _position.Y += (int)(_vitesse * _direction.Y * elapsedTime);
         }
-        /**
-         * Dessine le Sprite
-         * */
         public void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Draw(_texture, _position, Color.White);
         }
-        /**
-         * Dessine le sprite avec des parametres specifiques
-         * */
         public void DrawWith(SpriteBatch spriteBatch, Color color, int X, int Y)
         {
             spriteBatch.Draw(_texture,
                             new Rectangle(X, Y, _position.Width, _position.Height),
                             color);
         }
-        /**
-         * Dessine le sprite avec des parametres specifiques
-         * */
         public void DrawWith(SpriteBatch spriteBatch, Color color)
         {
             spriteBatch.Draw(_texture, _position, color);
         }
 
-        /**
-         * Active la fonction du Sprite qui lui
-         * permet de s'adapter automatiquement 
-         * au redimensionnement de la fenetre
-         * par l'appel de windowResized()
-         * */
         public void setRelatvePos(Rectangle aposition, int windowWidth, int windowHeight)
         {
             _position = aposition;
@@ -130,11 +103,6 @@ namespace TRODS
             else
                 _isRelativePos = false;
         }
-        /**
-         * Prends en parametres le rectangle
-         * representant a position de la fenetre
-         * et adapte la taille du Sprite
-         * */
         public void windowResized(Rectangle rect)
         {
             if (_isRelativePos)
@@ -146,9 +114,6 @@ namespace TRODS
                     (int)(_relativeHeight * rect.Height));
             }
         }
-        /**
-         * Relache les ressources
-         */
         public void Dispose()
         {
             _texture.Dispose();

@@ -15,9 +15,6 @@ namespace TRODS
     {
         MainMenu=0,InGame=1
     };
-    /**
-     * Classe principale du jeu
-     * */
     public class Game1 : Microsoft.Xna.Framework.Game
     {
         GraphicsDeviceManager graphics;
@@ -92,17 +89,9 @@ namespace TRODS
             }
         }
 
-        /**
-         * Changement de scene
-         * Fonction appelee depuis 
-         * l'interieur des scenes 
-         * auxquelles this a ete
-         * passe en parametre
-         * */
         public void SwitchScene(Scene s)
         {
             currentScene = s;
-            // Gestion des sauvegardes etc a implementer
         }
     }
 }

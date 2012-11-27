@@ -17,15 +17,13 @@ namespace TRODS
         private Sprite wallpaperText;
         private Sprite nuages;
         private Sprite mouse;
-
         private KeyboardState keyboardState;
         private MouseState mousestate;
         private SoundEffect selectionChangeSon;
         private Selection selection;
         private enum Selection { Play = 0, Exit = 1 };
         private List<Sprite> menuItems;
-
-        private static Vector2 decalage = new Vector2(10, 0); // De l'item selectionne
+        private static Vector2 decalage = new Vector2(10, 0);
         private static int amplitudeVibrationSelection = 5;
         private int windowHeight;
         private int windowWidth;
@@ -39,7 +37,7 @@ namespace TRODS
             wallpaperText = new Sprite(new Rectangle(0, 0, windowWidth, windowHeight), windowWidth, windowHeight);
             nuages = new Sprite(new Rectangle(0, 0, windowWidth*3, windowHeight), windowWidth, windowHeight);
             nuages.Direction = new Vector2(-1, 0);
-            nuages.Vitesse = 0.1f;   // 1f = 1000 px/sec
+            nuages.Vitesse = 0.1f;
             mouse = new Sprite(new Rectangle(-100, -100, 30,50));
 
             menuItems = new List<Sprite>();
@@ -164,9 +162,6 @@ namespace TRODS
             spriteBatch.End();
         }
 
-        /**
-         * Appelee lorsque le joueur a selectionne une action
-         * */
         private void selectionEvent(Game1 parent)
         {
             selectionChangeSon.Play();
@@ -180,9 +175,6 @@ namespace TRODS
                     break;
             }
         }
-        /**
-         * Appelee au redimensionnement de la fenetre
-         * */
         private void windowResized(Rectangle rect)
         {
             wallpaper.windowResized(rect);
@@ -190,7 +182,6 @@ namespace TRODS
                 s.windowResized(rect);
             windowWidth = rect.Width;
             windowHeight = rect.Height;
-            // La souris n'est pas redimensionnee
         }
     }
 }
