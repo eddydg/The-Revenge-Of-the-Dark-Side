@@ -7,7 +7,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Kucher\Desktop\Documents\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menuCursor.xnb</Output>
+      <Output>C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menuCursor.xnb</Output>
       <Time>2012-11-18T00:49:48.8269513+01:00</Time>
     </Item>
     <Item>
@@ -16,7 +16,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Kucher\Desktop\Documents\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menuTextExit.xnb</Output>
+      <Output>C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menuTextExit.xnb</Output>
       <Time>2012-11-18T00:49:48.8425509+01:00</Time>
     </Item>
     <Item>
@@ -25,7 +25,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Kucher\Desktop\Documents\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menuTextPlay.xnb</Output>
+      <Output>C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menuTextPlay.xnb</Output>
       <Time>2012-11-18T00:49:48.8425509+01:00</Time>
     </Item>
     <Item>
@@ -34,7 +34,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Kucher\Desktop\Documents\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menuWallpaperText.xnb</Output>
+      <Output>C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menuWallpaperText.xnb</Output>
       <Time>2012-11-20T21:32:24.4473265+01:00</Time>
     </Item>
     <Item>
@@ -43,7 +43,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Kucher\Desktop\Documents\TRODS\TRODS\TRODS\bin\x86\Debug\Content\wallpaper.xnb</Output>
+      <Output>C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\wallpaper.xnb</Output>
       <Time>2012-11-20T21:32:24.4473265+01:00</Time>
     </Item>
     <Item>
@@ -52,17 +52,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Kucher\Desktop\Documents\TRODS\TRODS\TRODS\bin\x86\Debug\Content\nuages1.xnb</Output>
+      <Output>C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\nuages1.xnb</Output>
       <Time>2012-11-20T21:35:53.299471+01:00</Time>
-    </Item>
-    <Item>
-      <Source>nuages2.png</Source>
-      <Name>nuages2</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Kucher\Desktop\Documents\TRODS\TRODS\TRODS\bin\x86\Debug\Content\nuages2.xnb</Output>
-      <Time>2012-11-25T17:32:09.2045427+01:00</Time>
     </Item>
     <Item>
       <Source>black.png</Source>
@@ -70,17 +61,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Kucher\Desktop\Documents\TRODS\TRODS\TRODS\bin\x86\Debug\Content\black.xnb</Output>
+      <Output>C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\black.xnb</Output>
       <Time>2012-11-20T22:08:48.5279205+01:00</Time>
-    </Item>
-    <Item>
-      <Source>menuSelectionSound.wma</Source>
-      <Name>menuSelectionSound</Name>
-      <Importer>WmaImporter</Importer>
-      <Processor>SoundEffectProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Kucher\Desktop\Documents\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menuSelectionSound.xnb</Output>
-      <Time>2012-11-18T00:49:48.8113511+01:00</Time>
     </Item>
     <Item>
       <Source>rayom.png</Source>
@@ -88,8 +70,26 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Kucher\Desktop\Documents\TRODS\TRODS\TRODS\bin\x86\Debug\Content\rayom.xnb</Output>
+      <Output>C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\rayom.xnb</Output>
       <Time>2012-11-21T22:34:46.7173904+01:00</Time>
+    </Item>
+    <Item>
+      <Source>nuages2.png</Source>
+      <Name>nuages2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\nuages2.xnb</Output>
+      <Time>2012-11-25T17:32:09.2045427+01:00</Time>
+    </Item>
+    <Item>
+      <Source>menuSelectionSound.wma</Source>
+      <Name>menuSelectionSound</Name>
+      <Importer>WmaImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menuSelectionSound.xnb</Output>
+      <Time>2012-11-18T00:49:48.8113511+01:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
@@ -97,10 +97,10 @@
       <TargetProfile>HiDef</TargetProfile>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>C:\Users\Kucher\Desktop\Documents\TRODS\TRODS\TRODSContent\</RootDirectory>
-      <LoggerRootDirectory>C:\Users\Kucher\Desktop\Documents\TRODS\TRODS\TRODS\</LoggerRootDirectory>
-      <IntermediateDirectory>C:\Users\Kucher\Desktop\Documents\TRODS\TRODS\TRODSContent\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>C:\Users\Kucher\Desktop\Documents\TRODS\TRODS\TRODS\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODSContent\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODSContent\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>
