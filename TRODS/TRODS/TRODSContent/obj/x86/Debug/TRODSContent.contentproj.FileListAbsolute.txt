@@ -1,0 +1,2 @@
+C:\Users\Kucher\Desktop\Documents\Dropbox\Fichiers\C#\TRODS\TRODS\TRODS\TRODSContent\obj\x86\Debug\TRODSContent.contentprojResolveAssemblyReference.cache
+C:\Users\Kucher\Desktop\Documents\TRODS\TRODS\TRODSContent\obj\x86\Debug\TRODSContent.contentprojResolveAssemblyReference.cache
