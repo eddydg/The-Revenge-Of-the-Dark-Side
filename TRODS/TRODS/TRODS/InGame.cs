@@ -21,21 +21,24 @@ namespace TRODS
         private KeyboardState kb;
         private Rectangle windowSize;
 
+        private Map1 map;
+        private float vitesse;
+
         public InGame(Rectangle wnewWindowSize)
         {
             windowSize = wnewWindowSize;
+            map = new Map1(windowSize);
+            vitesse = 2;
         }
 
         public override void LoadContent(ContentManager content)
         {
+            map.LoadContent(content);
         }
 
         public override void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Begin();
-
-
-            spriteBatch.End();
+            map.Draw(spriteBatch);
         }
 
         public override void Update(float elapsedTime)
@@ -51,6 +54,12 @@ namespace TRODS
             }
             if (!newKeyboardState.IsKeyDown(Keys.Escape) && kb.IsKeyDown(Keys.Escape))
                 parent.SwitchScene(Scene.MainMenu);
+
+            if (newKeyboardState.IsKeyDown(Keys.Right))
+                map.Moving(new Vector2(1, 0) * vitesse);
+            if (newKeyboardState.IsKeyDown(Keys.Left))
+                map.Moving(new Vector2(-1, 0) * vitesse);
+
             kb = newKeyboardState;
         }
 

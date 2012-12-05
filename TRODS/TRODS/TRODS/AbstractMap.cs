@@ -75,6 +75,12 @@ namespace TRODS
         /// Obtenue pat *Game*.Window.ClientBounds()</param>
         public AbstractMap(Rectangle windowSize)
         {
+            _windowSize = windowSize;
+            _elementsBackground = new List<Sprite>();
+            _elementsForeground = new List<Sprite>();
+            _elementsMainground = new List<Sprite>();
+            _upperVisitableLimit = new List<Vector2>();
+            _lowerVisitableLimit = new List<Vector2>();
         }
 
         /// <summary>
@@ -124,7 +130,7 @@ namespace TRODS
         }
 
         /// <summary>
-        /// Dessine le contenu graphique de l'arriere plan et de la lane
+        /// Dessine le contenu graphique de l'arriere plan,de la lane et du personnage
         /// </summary>
         /// <param name="spriteBatch">Instance du gestionnaire de dessin de XNA</param>
         /// <param name="personnage">Reference du personnage</param>
