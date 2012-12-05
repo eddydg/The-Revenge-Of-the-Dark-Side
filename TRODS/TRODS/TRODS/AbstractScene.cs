@@ -48,5 +48,11 @@ namespace TRODS
         public virtual void Draw(SpriteBatch spriteBatch)
         {
         }
+        /// <summary>
+        /// Fonction a appeler avant de changer de scene
+        /// </summary>
+        public virtual void EndScene()
+        {
+        }
     }
 }

@@ -30,10 +30,8 @@ namespace TRODS
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
 
-            /*graphics.PreferredBackBufferHeight = 480;
-			graphics.PreferredBackBufferWidth = 800;
-			graphics.ApplyChanges();*/
             this.Window.AllowUserResizing = true;
+
 
             scenes = new Dictionary<Scene, AbstractScene>();
             currentScene = Scene.MainMenu;

@@ -29,6 +29,7 @@ namespace TRODS
         public override void LoadContent(ContentManager content)
         {
         }
+
         public override void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Begin();
@@ -36,9 +37,11 @@ namespace TRODS
 
             spriteBatch.End();
         }
+
         public override void Update(float elapsedTime)
         {
         }
+
         public override void HandleInput(KeyboardState newKeyboardState, MouseState newMouseState, Game1 parent)
         {
             if (parent.Window.ClientBounds != windowSize)
@@ -50,6 +53,7 @@ namespace TRODS
                 parent.SwitchScene(Scene.MainMenu);
             kb = newKeyboardState;
         }
+
         /// <summary>
         /// Fonction adaptant les textures au
         /// redimensionnement de la fenetre

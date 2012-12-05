@@ -89,6 +89,7 @@ namespace TRODS
         {
             _texture = content.Load<Texture2D>(assetName);
         }
+
         /// <summary>
         /// Met a jour la position du sprite
         /// </summary>
@@ -98,6 +99,7 @@ namespace TRODS
             _position.X += (int)(_vitesse * _direction.X * elapsedTime);
             _position.Y += (int)(_vitesse * _direction.Y * elapsedTime);
         }
+
         /// <summary>
         /// Dessine le Sprite avec ses parametres par defaut
         /// </summary>

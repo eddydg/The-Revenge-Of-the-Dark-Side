@@ -78,7 +78,7 @@ namespace TRODS
         }
 
         /// <summary>
-        /// Constructeur
+        /// Constructeur de test
         /// </summary>
         /// <param name="windowSize">Dimensions de la fenetre</param>
         /// <param name="elementsBackground">Textures d'arriere plan</param>
@@ -111,7 +111,7 @@ namespace TRODS
         public override void Update(float elapsedTime)
         {
             // A implementer :
-            // Mouvements independants du joueur : Moteur a particules
+            // Mouvements independants du joueur : Moteur a particules, environnement
         }
 
         public override void Draw(SpriteBatch spriteBatch)
