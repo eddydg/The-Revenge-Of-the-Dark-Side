@@ -1,0 +1,6 @@
+C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TestProj\TestProj\TestProj\bin\x86\Debug\TestProj.exe
+C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TestProj\TestProj\TestProj\bin\x86\Debug\TestProj.pdb
+C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TestProj\TestProj\TestProj\obj\x86\Debug\TestProj.csprojResolveAssemblyReference.cache
+C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TestProj\TestProj\TestProj\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TestProj\TestProj\TestProj\obj\x86\Debug\TestProj.exe
+C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TestProj\TestProj\TestProj\obj\x86\Debug\TestProj.pdb
