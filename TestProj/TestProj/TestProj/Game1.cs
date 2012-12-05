@@ -15,6 +15,7 @@ namespace TestProj
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+        AnimatedSprite personnage;
 
         public Game1()
         {
@@ -28,6 +29,7 @@ namespace TestProj
         protected override void LoadContent()
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
+            personnage = new AnimatedSprite(Content.Load<Texture2D>("Wind_Walk"), 6, 4, 35);
         }
         protected override void UnloadContent()
         {
@@ -35,10 +37,14 @@ namespace TestProj
         protected override void Update(GameTime gameTime)
         {
             base.Update(gameTime);
+            personnage.Next(gameTime.ElapsedGameTime.Milliseconds);
         }
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
+
+            personnage.Draw(spriteBatch, new Vector2(Mouse.GetState().X, Mouse.GetState().Y));
+
             base.Draw(gameTime);
         }
     }
