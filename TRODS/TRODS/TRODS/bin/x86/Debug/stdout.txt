@@ -1,0 +1,32 @@
+
+Loading ressources error.
+System.NullReferenceException: La référence d'objet n'est pas définie à une instance d'un objet.
+   à TRODS.Game1.LoadContent() dans C:\Users\Kucher\Desktop\Documents\Dropbox\Fichiers\C#\TRODS\TRODS\TRODS\TRODS\Game1.cs:ligne 57
+System.ArgumentNullException: This method does not accept null for this parameter.
+Nom du paramètre : texture
+   à Microsoft.Xna.Framework.Graphics.SpriteBatch.InternalDraw(Texture2D texture, Vector4& destination, Boolean scaleDestination, Nullable`1& sourceRectangle, Color color, Single rotation, Vector2& origin, SpriteEffects effects, Single depth)
+   à Microsoft.Xna.Framework.Graphics.SpriteBatch.Draw(Texture2D texture, Rectangle destinationRectangle, Color color)
+   à TRODS.Sprite.Draw(SpriteBatch spriteBatch) dans C:\Users\Kucher\Desktop\Documents\Dropbox\Fichiers\C#\TRODS\TRODS\TRODS\TRODS\Sprite.cs:ligne 79
+   à TRODS.MainMenu.Draw(SpriteBatch spriteBatch) dans C:\Users\Kucher\Desktop\Documents\Dropbox\Fichiers\C#\TRODS\TRODS\TRODS\TRODS\MainMenu.cs:ligne 120
+   à TRODS.Game1.Draw(GameTime gameTime) dans C:\Users\Kucher\Desktop\Documents\Dropbox\Fichiers\C#\TRODS\TRODS\TRODS\TRODS\Game1.cs:ligne 88
+System.ArgumentNullException: This method does not accept null for this parameter.
+Nom du paramètre : texture
+   à Microsoft.Xna.Framework.Graphics.SpriteBatch.InternalDraw(Texture2D texture, Vector4& destination, Boolean scaleDestination, Nullable`1& sourceRectangle, Color color, Single rotation, Vector2& origin, SpriteEffects effects, Single depth)
+   à Microsoft.Xna.Framework.Graphics.SpriteBatch.Draw(Texture2D texture, Rectangle destinationRectangle, Color color)
+   à TRODS.Sprite.Draw(SpriteBatch spriteBatch) dans C:\Users\Kucher\Desktop\Documents\Dropbox\Fichiers\C#\TRODS\TRODS\TRODS\TRODS\Sprite.cs:ligne 79
+   à TRODS.MainMenu.Draw(SpriteBatch spriteBatch) dans C:\Users\Kucher\Desktop\Documents\Dropbox\Fichiers\C#\TRODS\TRODS\TRODS\TRODS\MainMenu.cs:ligne 120
+   à TRODS.Game1.Draw(GameTime gameTime) dans C:\Users\Kucher\Desktop\Documents\Dropbox\Fichiers\C#\TRODS\TRODS\TRODS\TRODS\Game1.cs:ligne 88
+System.ArgumentNullException: This method does not accept null for this parameter.
+Nom du paramètre : texture
+   à Microsoft.Xna.Framework.Graphics.SpriteBatch.InternalDraw(Texture2D texture, Vector4& destination, Boolean scaleDestination, Nullable`1& sourceRectangle, Color color, Single rotation, Vector2& origin, SpriteEffects effects, Single depth)
+   à Microsoft.Xna.Framework.Graphics.SpriteBatch.Draw(Texture2D texture, Rectangle destinationRectangle, Color color)
+   à TRODS.Sprite.Draw(SpriteBatch spriteBatch) dans C:\Users\Kucher\Desktop\Documents\Dropbox\Fichiers\C#\TRODS\TRODS\TRODS\TRODS\Sprite.cs:ligne 79
+   à TRODS.MainMenu.Draw(SpriteBatch spriteBatch) dans C:\Users\Kucher\Desktop\Documents\Dropbox\Fichiers\C#\TRODS\TRODS\TRODS\TRODS\MainMenu.cs:ligne 120
+   à TRODS.Game1.Draw(GameTime gameTime) dans C:\Users\Kucher\Desktop\Documents\Dropbox\Fichiers\C#\TRODS\TRODS\TRODS\TRODS\Game1.cs:ligne 84
+System.ArgumentNullException: This method does not accept null for this parameter.
+Nom du paramètre : texture
+   à Microsoft.Xna.Framework.Graphics.SpriteBatch.InternalDraw(Texture2D texture, Vector4& destination, Boolean scaleDestination, Nullable`1& sourceRectangle, Color color, Single rotation, Vector2& origin, SpriteEffects effects, Single depth)
+   à Microsoft.Xna.Framework.Graphics.SpriteBatch.Draw(Texture2D texture, Rectangle destinationRectangle, Color color)
+   à TRODS.Sprite.Draw(SpriteBatch spriteBatch) dans C:\Users\Kucher\Desktop\Documents\Dropbox\Fichiers\C#\TRODS\TRODS\TRODS\TRODS\Sprite.cs:ligne 79
+   à TRODS.MainMenu.Draw(SpriteBatch spriteBatch) dans C:\Users\Kucher\Desktop\Documents\Dropbox\Fichiers\C#\TRODS\TRODS\TRODS\TRODS\MainMenu.cs:ligne 120
+   à TRODS.Game1.Draw(GameTime gameTime) dans C:\Users\Kucher\Desktop\Documents\Dropbox\Fichiers\C#\TRODS\TRODS\TRODS\TRODS\Game1.cs:ligne 84
