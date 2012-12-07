@@ -8,37 +8,26 @@ using Microsoft.Xna.Framework.GamerServices;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
- 
+
 namespace TRODS
 {
     class Sprite
     {
-        private Texture2D _texture;
-        public Texture2D Texture
-        {
-            get { return _texture; }
-            set { _texture = value; }
-        }
-
+        public Texture2D Texture { get; set; }
         private Rectangle _position;
         public Rectangle Position
         {
             get { return _position; }
             set { _position = value; }
         }
-
-
-        private Vector2 _direction;
-        public Vector2 Direction
-        {
-            get { return _direction; }
-            set { _direction = value; }
-        }
-
+        public Vector2 Direction { get; set; }
         private float _vitesse;
         public float Vitesse
         {
-            get { return _vitesse; }
+            get
+            {
+                return _vitesse;
+            }
             set
             {
                 _vitesse = value;
@@ -55,24 +44,24 @@ namespace TRODS
 
         /// <summary>
         /// Si les 2 derniers parametres sont donnes,
-		/// le Sprite d'adapte automatiquement aux
-		/// redimensionnements de la fenetre par
-		/// l'appel de windowResized()
+        /// le Sprite d'adapte automatiquement aux
+        /// redimensionnements de la fenetre par
+        /// l'appel de windowResized()
         /// </summary>
-        /// <param name="aposition">Dimenson du Sprite dans la fenetre</param>
+        /// <param name="a_position">Dimenson du Sprite dans la fenetre</param>
         /// <param name="windowWidth">Largeur de la fenetre</param>
         /// <param name="windowHeight">Hauteur de la fenetre</param>
-        public Sprite(Rectangle aposition, int windowWidth = 0, int windowHeight = 0)
+        public Sprite(Rectangle a_position, int windowWidth = 0, int windowHeight = 0)
         {
-            _position = aposition;
-            _direction = new Vector2();
+            _position = a_position;
+            Direction = new Vector2();
             _vitesse = 0;
             if (windowWidth > 0 && windowHeight > 0)
             {
-                _relativePosX = (float)aposition.X / (float)windowWidth;
-                _relativePosY = (float)aposition.Y / (float)windowHeight;
-                _relativeWidth = (float)aposition.Width / (float)windowWidth;
-                _relativeHeight = (float)aposition.Height / (float)windowHeight;
+                _relativePosX = (float)a_position.X / (float)windowWidth;
+                _relativePosY = (float)a_position.Y / (float)windowHeight;
+                _relativeWidth = (float)a_position.Width / (float)windowWidth;
+                _relativeHeight = (float)a_position.Height / (float)windowHeight;
                 _isRelativePos = true;
                 _relativeSpeed = 0;
             }
@@ -87,17 +76,16 @@ namespace TRODS
         /// <param name="assetName">Nom de la texture</param>
         public virtual void LoadContent(ContentManager content, string assetName)
         {
-            _texture = content.Load<Texture2D>(assetName);
+            Texture = content.Load<Texture2D>(assetName);
         }
 
         /// <summary>
-        /// Met a jour la position du sprite
+        /// Met a jour la _position du sprite
         /// </summary>
         /// <param name="elapsedTime">Temps ecoule depuis le dernier appel de la fonction</param>
         public void Update(float elapsedTime)
         {
-            _position.X += (int)(_vitesse * _direction.X * elapsedTime);
-            _position.Y += (int)(_vitesse * _direction.Y * elapsedTime);
+            _position = new Rectangle((int)(_vitesse * Direction.X * elapsedTime), (int)(_vitesse * Direction.Y * elapsedTime), _position.Width, _position.Height);
         }
 
         /// <summary>
@@ -106,7 +94,7 @@ namespace TRODS
         /// <param name="spriteBatch">Gestionnaire de dessin XNA</param>
         public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(_texture, _position, Color.White);
+            spriteBatch.Draw(Texture, _position, Color.White);
         }
         /// <summary>
         /// Dessine le Sprite avec des parametres specfiques
@@ -117,7 +105,7 @@ namespace TRODS
         /// <param name="Y">Ordonee</param>
         public void DrawWith(SpriteBatch spriteBatch, Color color, int X, int Y)
         {
-            spriteBatch.Draw(_texture,
+            spriteBatch.Draw(Texture,
                             new Rectangle(X, Y, _position.Width, _position.Height),
                             color);
         }
@@ -129,36 +117,36 @@ namespace TRODS
         /// <param name="rotate">Angle de rotation en radians</param>
         /// <param name="origin">Origine de la rotation</param>
         /// <param name="alpha">Transparente alpha (0:transparent - 255:opaque)</param>
-         public void DrawWith(SpriteBatch spriteBatch, Color color,float rotate=0,Vector2 origin=new Vector2(),int alpha=255)
-         {
-             spriteBatch.Draw(_texture, _position,_position, color, rotate, origin, new SpriteEffects(), alpha);
-         }
+        public void DrawWith(SpriteBatch spriteBatch, Color color, float rotate = 0, Vector2 origin = new Vector2(), int alpha = 255)
+        {
+            spriteBatch.Draw(Texture, _position, _position, color, rotate, origin, new SpriteEffects(), alpha);
+        }
 
 
         /// <summary>
         /// Active l'adaptation automatique de la texture
         /// au redomensionnement de la fenetre
         /// </summary>
-        /// <param name="aposition">Position actuelle du Sprite</param>
+        /// <param name="a_position">_position actuelle du Sprite</param>
         /// <param name="windowWidth">Largeur de la fenetre</param>
         /// <param name="windowHeight">Hauteur de la fenetre</param>
-        public void setRelatvePos(Rectangle aposition, int windowWidth, int windowHeight)
+        public void setRelatvePos(Rectangle a_position, int windowWidth, int windowHeight)
         {
-            _position = aposition;
+            _position = a_position;
             if (windowWidth > 0 && windowHeight > 0)
             {
-                _relativePosX = (float)aposition.X / (float)windowWidth;
-                _relativePosY = (float)aposition.Y / (float)windowHeight;
-                _relativeWidth = (float)aposition.Width / (float)windowWidth;
-                _relativeHeight = (float)aposition.Height / (float)windowHeight;
+                _relativePosX = (float)a_position.X / (float)windowWidth;
+                _relativePosY = (float)a_position.Y / (float)windowHeight;
+                _relativeWidth = (float)a_position.Width / (float)windowWidth;
+                _relativeHeight = (float)a_position.Height / (float)windowHeight;
                 _isRelativePos = true;
             }
             else
                 _isRelativePos = false;
         }
         /// <summary>
-        /// Adapte la taille et la position de la texture
-        /// et la vitesse a celle de la fenetre
+        /// Adapte la taille et la _position de la texture
+        /// et la _vitesse a celle de la fenetre
         /// </summary>
         /// <param name="rect"></param>
         public void windowResized(Rectangle rect)
@@ -178,7 +166,7 @@ namespace TRODS
         /// </summary>
         public void Dispose()
         {
-            _texture.Dispose();
+            Texture.Dispose();
         }
     }
 }
