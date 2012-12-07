@@ -85,7 +85,7 @@ namespace TRODS
             }
             if (newMouseState.MiddleButton == ButtonState.Pressed && _mouseState.MiddleButton != ButtonState.Pressed)
             {
-                sprites.Add(new AnimatedSprite(new Rectangle(newMouseState.X - _windowSize.Width / 5 / 2, newMouseState.Y - _windowSize.Width / 5 / 2, _windowSize.Width / 5, _windowSize.Width / 5), _windowSize, 5,5, 15));
+                sprites.Add(new AnimatedSprite(new Rectangle(newMouseState.X - _windowSize.Width / 6 / 2, newMouseState.Y - _windowSize.Width / 6 / 2, _windowSize.Width / 6, _windowSize.Width / 6), _windowSize, 5,5, 15));
                 sprites.Last<AnimatedSprite>().LoadContent(parent.Content, "explosion3");
             }
 
