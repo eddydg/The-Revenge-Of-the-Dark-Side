@@ -9,8 +9,7 @@ namespace TestProj
 {
     class AnimatedSprite
     {
-        //public variables
-        private Texture2D sprite { get; set; }
+        public Texture2D sprite { get; set; }
         /// <summary>
         /// Obtient ou définit le nombre de lignes dans la sprite.
         /// </summary>
@@ -26,7 +25,14 @@ namespace TestProj
         /// <summary>
         /// Obtient ou définit la position suivant Y de l'image.
         /// </summary>
-        public int YPos { get; set; }
+        public int YPos { get; set; }       
+        /// <summary>
+        /// Vitesse d'animation de la Sprite (en images/secondes).
+        /// </summary>
+        public int speed { get; set; }
+
+        private double speedCount;
+        public int actualPicture { get; set; }
         /// <summary>
         /// numéro de la première image de l'animation.
         /// </summary>
@@ -35,14 +41,6 @@ namespace TestProj
         /// numéro de la dernière image de l'animation.
         /// </summary>
         public int lastPicture { get; set; }
-        /// <summary>
-        /// Vitesse d'animation de la Sprite (en images/secondes).
-        /// </summary>
-        public int speed { get; set; }
-
-        //private variables
-        private double speedCount;
-        private int actualPicture { get; set; }
 
         /// <summary>
         /// constructeur de base de la classe AnimatedSprite.
@@ -96,6 +94,14 @@ namespace TestProj
             YPos = y;
         }
 
+        public void SetPictures(int first, int last)
+        {
+            firstPicture = first - 1;
+            lastPicture = last - 1;
+            actualPicture = firstPicture;
+            speedCount = 0;
+        }
+
         /// <summary>
         /// Passe à l'image suivante de la sprite en gerant la vitesse de l'animation
         /// Cette fonction doit donc etre appelé à chaque Update() dans le main.
@@ -107,9 +113,18 @@ namespace TestProj
             speedCount++;            
             if (elapsedTime!= 0 && speedCount >= (1000 / elapsedTime) / (float)speed)
             {
-                actualPicture = (actualPicture == lastPicture)? firstPicture : actualPicture + 1;
+                if (actualPicture == lastPicture)
+                    actualPicture = firstPicture;
+                else
+                    actualPicture = actualPicture + 1;
+                //actualPicture = (actualPicture == lastPicture)? firstPicture : actualPicture + 1;
                 speedCount = 0;
             }
+        }
+
+        public bool IsEnd()
+        {
+            return actualPicture == lastPicture;
         }
 
         /// <summary>
