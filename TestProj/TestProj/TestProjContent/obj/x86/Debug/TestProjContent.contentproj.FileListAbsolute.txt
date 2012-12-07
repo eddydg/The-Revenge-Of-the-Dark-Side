@@ -1,3 +1,0 @@
-C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TestProj\TestProj\TestProjContent\obj\x86\Debug\TestProjContent.contentprojResolveAssemblyReference.cache
-D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TestProj\TestProj\TestProjContent\obj\x86\Debug\TestProjContent.contentprojResolveAssemblyReference.cache
-C:\Users\Nicomplex\Documents\Visual Studio 2010\Projects\TRODS\The-Revenge-Of-the-Dark-Side\TestProj\TestProj\TestProjContent\obj\x86\Debug\ResolveAssemblyReference.cache
