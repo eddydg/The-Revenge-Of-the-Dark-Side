@@ -75,7 +75,7 @@ namespace TRODS
 
             if (newMouseState.LeftButton == ButtonState.Pressed && _mouseState.LeftButton != ButtonState.Pressed)
             {
-                sprites.Add(new AnimatedSprite(new Rectangle(newMouseState.X - _windowSize.Width / 5 / 2, newMouseState.Y - _windowSize.Width / 5 / 2, _windowSize.Width / 5, _windowSize.Width / 5), _windowSize, 8, 6, 25));
+                sprites.Add(new AnimatedSprite(new Rectangle(newMouseState.X - _windowSize.Width / 3 / 2, newMouseState.Y - _windowSize.Width / 3 / 2, _windowSize.Width / 3, _windowSize.Width / 3), _windowSize, 8, 6, 25));
                 sprites.Last<AnimatedSprite>().LoadContent(parent.Content,"explosion1");
             }
             if (newMouseState.RightButton == ButtonState.Pressed && _mouseState.RightButton != ButtonState.Pressed)
@@ -85,8 +85,9 @@ namespace TRODS
             }
             if (newMouseState.MiddleButton == ButtonState.Pressed && _mouseState.MiddleButton != ButtonState.Pressed)
             {
-                sprites.Add(new AnimatedSprite(new Rectangle(newMouseState.X - _windowSize.Width / 6 / 2, newMouseState.Y - _windowSize.Width / 6 / 2, _windowSize.Width / 6, _windowSize.Width / 6), _windowSize, 5,5, 15));
-                sprites.Last<AnimatedSprite>().LoadContent(parent.Content, "explosion3");
+                sprites.Add(new AnimatedSprite(new Rectangle(newMouseState.X - _windowSize.Width / 6 / 2, newMouseState.Y - _windowSize.Width / 6 / 2, _windowSize.Width / 6, _windowSize.Width / 6), _windowSize, 8,4, 15));
+                sprites.Last<AnimatedSprite>().SetPictureBounds(1, 3);
+                sprites.Last<AnimatedSprite>().LoadContent(parent.Content, "effet1");
             }
 
             _keyboardState = newKeyboardState;

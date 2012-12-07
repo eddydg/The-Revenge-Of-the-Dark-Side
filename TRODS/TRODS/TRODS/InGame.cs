@@ -8,13 +8,13 @@ using Microsoft.Xna.Framework.GamerServices;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
- 
+
 namespace TRODS
 {
     /// <summary>
     /// Classe de test temporaire
-	/// qui contiendra le moteur de jeu
-	/// ( La plus bg des classes les plus importantes )
+    /// qui contiendra le moteur de jeu
+    /// ( La plus bg des classes les plus importantes )
     /// </summary>
     class InGame : AbstractScene
     {
@@ -75,8 +75,8 @@ namespace TRODS
 
             if (newMouseState.LeftButton == ButtonState.Pressed && _mouseState.LeftButton != ButtonState.Pressed)
             {
-                sprites.Add(new AnimatedSprite(new Rectangle(newMouseState.X - _windowSize.Width / 5 / 2, newMouseState.Y - _windowSize.Width / 5 / 2, _windowSize.Width / 5, _windowSize.Width / 5), _windowSize, 8, 6, 25));
-                sprites.Last<AnimatedSprite>().LoadContent(parent.Content,"explosion1");
+                sprites.Add(new AnimatedSprite(new Rectangle(newMouseState.X - _windowSize.Width / 3 / 2, newMouseState.Y - _windowSize.Width / 3 / 2, _windowSize.Width / 3, _windowSize.Width / 3), _windowSize, 8, 6, 25));
+                sprites.Last<AnimatedSprite>().LoadContent(parent.Content, "explosion1");
             }
             if (newMouseState.RightButton == ButtonState.Pressed && _mouseState.RightButton != ButtonState.Pressed)
             {
