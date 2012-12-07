@@ -59,3 +59,85 @@ System.InvalidOperationException: Begin must be called successfully before a Dra
    à TRODS.AbstractMap.Draw(SpriteBatch spriteBatch) dans C:\Users\kuchera\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\AbstractMap.cs:ligne 126
    à TRODS.InGame.Draw(SpriteBatch spriteBatch) dans C:\Users\kuchera\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\InGame.cs:ligne 41
    à TRODS.Game1.Draw(GameTime gameTime) dans C:\Users\kuchera\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\Game1.cs:ligne 80
+0
+16,6667
+16,6667
+16,6667
+16,6667
+16,6667
+16,6667
+16,6667
+16,6667
+16,6667
+16,6667
+16,6667
+16,6667
+16,6667
+16,6667
+16,6667
+16,6667
+16,6667
+16,6667
+16,6667
+16,6667
+16,6667
+16,6667
+16,6667
+16,6667
+16,6667
+16,6667
+16,6667
+16,6667
+16,6667
+16,6667
+16,6667
+16,6667
+16,6667
+16,6667
+16,6667
+16,6667
+16,6667
+16,6667
+16,6667
+16,6667
+16,6667
+16,6667
+16,6667
+16,6667
+16,6667
+16,6667
+16,6667
+16,6667
+16,6667
+16,6667
+16,6667
+16,6667
+16,6667
+16,6667
+16,6667
+16,6667
+16,6667
+16,6667
+16,6667
+16,6667
+16,6667
+16,6667
+16,6667
+16,6667
+16,6667
+16,6667
+16,6667
+16,6667
+16,6667
+16,6667
+16,6667
+16,6667
+16,6667
+16,6667
+16,6667
+System.InvalidOperationException: Begin must be called successfully before a Draw can be called.
+   à Microsoft.Xna.Framework.Graphics.SpriteBatch.InternalDraw(Texture2D texture, Vector4& destination, Boolean scaleDestination, Nullable`1& sourceRectangle, Color color, Single rotation, Vector2& origin, SpriteEffects effects, Single depth)
+   à Microsoft.Xna.Framework.Graphics.SpriteBatch.Draw(Texture2D texture, Rectangle destinationRectangle, Nullable`1 sourceRectangle, Color color)
+   à TRODS.AnimatedSprite.Draw(SpriteBatch spriteBatch) dans C:\Users\kuchera\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\AnimatedSprite.cs:ligne 69
+   à TRODS.InGame.Draw(SpriteBatch spriteBatch) dans C:\Users\kuchera\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\InGame.cs:ligne 41
+   à TRODS.Game1.Draw(GameTime gameTime) dans C:\Users\kuchera\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\Game1.cs:ligne 80

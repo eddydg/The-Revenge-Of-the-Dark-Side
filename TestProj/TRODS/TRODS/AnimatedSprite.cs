@@ -20,16 +20,15 @@ namespace TRODS
         private int _elapsedTime;
 
 
-        public AnimatedSprite(Texture2D texture, Rectangle windowSize, int nbColonnes = 1, int nbLignes = 1, int vitesse = 0) :
-            base (new Rectangle(0, 0, texture.Width / nbColonnes, texture.Height / nbLignes),windowSize)
+        public AnimatedSprite(Rectangle position, Rectangle windowSize, int nbColonnes = 1, int nbLignes = 1, int vitesse = 0) :
+            base (position,windowSize)
         {
-            Texture = texture;
             Lignes = nbLignes;
             Colonnes = nbColonnes;
             Speed = vitesse;
             SetPictureBounds(1, nbLignes * nbColonnes);
             _elapsedTime = 0;
-            Position = new Rectangle(0, 0, texture.Width / Colonnes, texture.Height / Lignes);
+            Position = position;
         }
 
         /// <summary>
@@ -41,25 +40,20 @@ namespace TRODS
         /// <param name="vitesse">vitesse d'animation en images/secondes</param>
         /// <param name="first">numéro de la première image de l'animation dans la sprite</param>
         /// <param name="last">numéro de la dernière image de l'animation dans la sprite</param>
-        public AnimatedSprite(Texture2D texture, Rectangle windowSize, int nbColonnes, int nbLignes, int vitesse, int first, int last) :
-            base(new Rectangle(0, 0, texture.Width / nbColonnes, texture.Height / nbLignes), windowSize)
+        public AnimatedSprite(Rectangle position, Rectangle windowSize, int nbColonnes, int nbLignes, int vitesse, int first, int last) :
+            base(position, windowSize)
         {
-            Texture = texture;
             Lignes = nbLignes;
             Colonnes = nbColonnes;
             Speed = vitesse;
             SetPictureBounds(first, last);
             _elapsedTime = 0;
-            Position = new Rectangle(0, 0, texture.Width / Colonnes, texture.Height / Lignes);
+            Position = position;
         }
 
-        /// <summary>
-        /// Affiche l'image suivante
-        /// </summary>
-        /// <param name="elapsedTime"></param>
-        public void Update(int elapsedTime)
+        public override void Update(float elapsedTime)
         {
-            _elapsedTime += elapsedTime;
+            _elapsedTime += (int)elapsedTime;
             if (Speed > 0 && _elapsedTime >= 1000 / Speed)
             {
                 _elapsedTime = 0;
@@ -79,7 +73,7 @@ namespace TRODS
                                           Texture.Height / Lignes), Color.White);
         }
 
-        public void Draw(SpriteBatch spriteBatch, Vector2 location)
+        public override void Draw(SpriteBatch spriteBatch, Vector2 location)
         {
             spriteBatch.Draw(Texture,
                             new Rectangle((int)location.X, (int)location.Y, Position.Width, Position.Height),
@@ -127,11 +121,6 @@ namespace TRODS
         public bool IsEnd()
         {
             return ActualPicture == LastPicture;
-        }
-
-        public override void windowResized(Rectangle rect)
-        {
-            base.windowResized(rect);
         }
 
         /// <summary>
