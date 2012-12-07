@@ -36,17 +36,17 @@ namespace TRODS
             windowWidth = windowSize.Width;
             windowHeight = windowSize.Height;
             selection = Selection.Play;
-            wallpaper = new Sprite(new Rectangle(0, 0, windowWidth, windowHeight), windowWidth, windowHeight);
-            wallpaperText = new Sprite(new Rectangle(0, 0, windowWidth, windowHeight), windowWidth, windowHeight);
-            nuages = new Sprite(new Rectangle(0, 0, windowWidth*3, windowHeight), windowWidth, windowHeight);
+            wallpaper = new Sprite(new Rectangle(0, 0, windowWidth, windowHeight), windowSize);
+            wallpaperText = new Sprite(new Rectangle(0, 0, windowWidth, windowHeight), windowSize);
+            nuages = new Sprite(new Rectangle(0, 0, windowWidth*3, windowHeight), windowSize);
             nuages.Direction = new Vector2(-1, 0);
             nuages.Vitesse = 0.1f; // 1f = 1000 px/sec
             mouse = new Sprite(new Rectangle(-100, -100, 30,50));
             relativeAmplitudeVibrationSelection = (float)amplitudeVibrationSelection / (float)(windowHeight + windowWidth);
 
             menuItems = new List<Sprite>();
-            menuItems.Add(new Sprite(new Rectangle(155, 400, 110, 55), windowWidth, windowHeight)); // play
-            menuItems.Add(new Sprite(new Rectangle(507, 400, 90, 55), windowWidth, windowHeight)); // exit
+            menuItems.Add(new Sprite(new Rectangle(155, 400, 110, 55), windowSize)); // play
+            menuItems.Add(new Sprite(new Rectangle(507, 400, 90, 55), windowSize)); // exit
         }
 
         public override void LoadContent(ContentManager content)
@@ -140,7 +140,7 @@ namespace TRODS
             Rectangle np = nuages.Position;
             nuages.Draw(spriteBatch);
             if (np.X + np.Width < windowWidth)
-                nuages.DrawWith(spriteBatch, Color.White, np.X + np.Width, np.Y);
+                nuages.Draw(spriteBatch, Color.White, np.X + np.Width, np.Y);
 
             wallpaperText.Draw(spriteBatch);
 
@@ -149,15 +149,15 @@ namespace TRODS
                 Rectangle p = st.Position;
                 if (i == (int)selection)
                 {
-                    st.DrawWith(spriteBatch, Color.Red,
+                    st.Draw(spriteBatch, Color.Red,
                                     (int)(p.X + new Random().Next(-amplitudeVibrationSelection, amplitudeVibrationSelection) + decalage.X),
                                     (int)(p.Y + new Random().Next(-amplitudeVibrationSelection, amplitudeVibrationSelection) + decalage.Y));
-                    st.DrawWith(spriteBatch, Color.Black, (int)(p.X + decalage.X), (int)(p.Y + decalage.Y));
+                    st.Draw(spriteBatch, Color.Black, (int)(p.X + decalage.X), (int)(p.Y + decalage.Y));
                 }
                 else if (i == (int)selection - 1 || i == (int)selection + 1)
-                    st.DrawWith(spriteBatch, Color.Black, (int)(p.X + decalage.X / 4), (int)(p.Y + decalage.Y / 4));
+                    st.Draw(spriteBatch, Color.Black, (int)(p.X + decalage.X / 4), (int)(p.Y + decalage.Y / 4));
                 else
-                    st.DrawWith(spriteBatch, Color.Black);
+                    st.Draw(spriteBatch, Color.Black);
                 i++;
             }
 

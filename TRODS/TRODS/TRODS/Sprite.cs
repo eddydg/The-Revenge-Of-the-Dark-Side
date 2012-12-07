@@ -51,17 +51,17 @@ namespace TRODS
         /// <param name="a_position">Dimenson du Sprite dans la fenetre</param>
         /// <param name="windowWidth">Largeur de la fenetre</param>
         /// <param name="windowHeight">Hauteur de la fenetre</param>
-        public Sprite(Rectangle a_position, int windowWidth = 0, int windowHeight = 0)
+        public Sprite(Rectangle a_position, Rectangle windowSize=new Rectangle())
         {
             _position = a_position;
             Direction = new Vector2();
             _vitesse = 0;
-            if (windowWidth > 0 && windowHeight > 0)
+            if (windowSize.Width > 0 && windowSize.Height > 0)
             {
-                _relativePosX = (float)a_position.X / (float)windowWidth;
-                _relativePosY = (float)a_position.Y / (float)windowHeight;
-                _relativeWidth = (float)a_position.Width / (float)windowWidth;
-                _relativeHeight = (float)a_position.Height / (float)windowHeight;
+                _relativePosX = (float)a_position.X / (float)windowSize.Width;
+                _relativePosY = (float)a_position.Y / (float)windowSize.Height;
+                _relativeWidth = (float)a_position.Width / (float)windowSize.Width;
+                _relativeHeight = (float)a_position.Height / (float)windowSize.Height;
                 _isRelativePos = true;
                 _relativeSpeed = 0;
             }
@@ -83,7 +83,7 @@ namespace TRODS
         /// Met a jour la _position du sprite
         /// </summary>
         /// <param name="elapsedTime">Temps ecoule depuis le dernier appel de la fonction</param>
-        public void Update(float elapsedTime)
+        public virtual void Update(float elapsedTime)
         {
             _position = new Rectangle((int)(_vitesse * Direction.X * elapsedTime), (int)(_vitesse * Direction.Y * elapsedTime), _position.Width, _position.Height);
         }
@@ -92,7 +92,7 @@ namespace TRODS
         /// Dessine le Sprite avec ses parametres par defaut
         /// </summary>
         /// <param name="spriteBatch">Gestionnaire de dessin XNA</param>
-        public void Draw(SpriteBatch spriteBatch)
+        public virtual void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Draw(Texture, _position, Color.White);
         }
@@ -103,7 +103,7 @@ namespace TRODS
         /// <param name="color">Coloration de la texture</param>
         /// <param name="X">Absisse</param>
         /// <param name="Y">Ordonee</param>
-        public void DrawWith(SpriteBatch spriteBatch, Color color, int X, int Y)
+        public virtual void Draw(SpriteBatch spriteBatch, Color color, int X, int Y)
         {
             spriteBatch.Draw(Texture,
                             new Rectangle(X, Y, _position.Width, _position.Height),
@@ -115,7 +115,7 @@ namespace TRODS
         /// <param name="spriteBatch">Gestionnaire de dessin XNA</param>
         /// <param name="color">Coloration de la texture</param>
         /// <param name="pos">Posion de la texture a l'ecran</param>
-        public void DrawWith(SpriteBatch spriteBatch, Color color, Rectangle pos)
+        public virtual void Draw(SpriteBatch spriteBatch, Color color, Rectangle pos)
         {
             spriteBatch.Draw(Texture,pos,color);
         }
@@ -127,7 +127,7 @@ namespace TRODS
         /// <param name="rotate">Angle de rotation en radians</param>
         /// <param name="origin">Origine de la rotation</param>
         /// <param name="alpha">Transparente alpha (0:transparent - 255:opaque)</param>
-        public void DrawWith(SpriteBatch spriteBatch, Color color, float rotate = 0, Vector2 origin = new Vector2(), int alpha = 255)
+        public virtual void Draw(SpriteBatch spriteBatch, Color color, float rotate = 0, Vector2 origin = new Vector2(), int alpha = 255)
         {
             spriteBatch.Draw(Texture, _position, _position, color, rotate, origin, new SpriteEffects(), alpha);
         }
@@ -140,7 +140,7 @@ namespace TRODS
         /// <param name="a_position">_position actuelle du Sprite</param>
         /// <param name="windowWidth">Largeur de la fenetre</param>
         /// <param name="windowHeight">Hauteur de la fenetre</param>
-        public void setRelatvePos(Rectangle a_position, int windowWidth, int windowHeight)
+        public virtual void setRelatvePos(Rectangle a_position, int windowWidth, int windowHeight)
         {
             _position = a_position;
             if (windowWidth > 0 && windowHeight > 0)
@@ -159,7 +159,7 @@ namespace TRODS
         /// et la _vitesse a celle de la fenetre
         /// </summary>
         /// <param name="rect"></param>
-        public void windowResized(Rectangle rect)
+        public virtual void windowResized(Rectangle rect)
         {
             if (_isRelativePos)
             {
@@ -174,7 +174,7 @@ namespace TRODS
         /// <summary>
         /// Libere les textures
         /// </summary>
-        public void Dispose()
+        public virtual void Dispose()
         {
             Texture.Dispose();
         }

@@ -127,7 +127,6 @@
     <Compile Include="MainMenu.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Map1.cs" />
     <Compile Include="Program.cs">
       <SubType>Code</SubType>
     </Compile>

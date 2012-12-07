@@ -7,13 +7,10 @@ using Microsoft.Xna.Framework;
 
 namespace TRODS
 {
-    class AnimatedSprite
+    class AnimatedSprite : Sprite
     {
-        public Texture2D Texture { get; set; }
-
         public int Lignes { get; set; }
         public int Colonnes { get; set; }
-        public Rectangle Position { get; set; }
         public int Speed { get; set; }
 
         public int ActualPicture { get; set; }
@@ -23,7 +20,8 @@ namespace TRODS
         private int _elapsedTime;
 
 
-        public AnimatedSprite(Texture2D texture, int nbColonnes = 1, int nbLignes = 1, int vitesse = 0)
+        public AnimatedSprite(Texture2D texture, Rectangle windowSize, int nbColonnes = 1, int nbLignes = 1, int vitesse = 0) :
+            base (new Rectangle(0, 0, texture.Width / nbColonnes, texture.Height / nbLignes),windowSize)
         {
             Texture = texture;
             Lignes = nbLignes;
@@ -43,7 +41,8 @@ namespace TRODS
         /// <param name="vitesse">vitesse d'animation en images/secondes</param>
         /// <param name="first">numéro de la première image de l'animation dans la sprite</param>
         /// <param name="last">numéro de la dernière image de l'animation dans la sprite</param>
-        public AnimatedSprite(Texture2D texture, int nbColonnes, int nbLignes, int vitesse, int first, int last)
+        public AnimatedSprite(Texture2D texture, Rectangle windowSize, int nbColonnes, int nbLignes, int vitesse, int first, int last) :
+            base(new Rectangle(0, 0, texture.Width / nbColonnes, texture.Height / nbLignes), windowSize)
         {
             Texture = texture;
             Lignes = nbLignes;
@@ -71,7 +70,7 @@ namespace TRODS
             }
         }
 
-        public void Draw(SpriteBatch spriteBatch)
+        public override void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Draw(Texture, Position,
                             new Rectangle(ActualPicture % Colonnes * Texture.Width / Colonnes,
@@ -130,10 +129,15 @@ namespace TRODS
             return ActualPicture == LastPicture;
         }
 
+        public override void windowResized(Rectangle rect)
+        {
+            base.windowResized(rect);
+        }
+
         /// <summary>
         /// Libere les textures
         /// </summary>
-        public void Dispose()
+        public override void Dispose()
         {
             Texture.Dispose();
         }

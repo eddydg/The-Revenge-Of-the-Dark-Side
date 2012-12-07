@@ -18,13 +18,14 @@ namespace TRODS
     /// </summary>
     class InGame : AbstractScene
     {
-        private KeyboardState kb;
-        private Rectangle windowSize;
+        private KeyboardState _keyboardState;
+        private MouseState _mouseState;
+        private Rectangle _windowSize;
 
-        public InGame(Rectangle wnewWindowSize)
+        public InGame(Rectangle windowSize)
         {
-            windowSize = wnewWindowSize;
-            kb = Keyboard.GetState();
+            _windowSize = windowSize;
+            _keyboardState = Keyboard.GetState();
         }
 
         public override void LoadContent(ContentManager content)
@@ -41,15 +42,16 @@ namespace TRODS
 
         public override void HandleInput(KeyboardState newKeyboardState, MouseState newMouseState, Game1 parent)
         {
-            if (parent.Window.ClientBounds != windowSize)
+            if (parent.Window.ClientBounds != _windowSize)
             {
-                windowSize = parent.Window.ClientBounds;
-                windowResized(windowSize);
+                _windowSize = parent.Window.ClientBounds;
+                windowResized(_windowSize);
             }
-            if (!newKeyboardState.IsKeyDown(Keys.Escape) && kb.IsKeyDown(Keys.Escape))
+            if (!newKeyboardState.IsKeyDown(Keys.Escape) && _keyboardState.IsKeyDown(Keys.Escape))
                 parent.SwitchScene(Scene.MainMenu);
 
-            kb = newKeyboardState;
+            _keyboardState = newKeyboardState;
+            _mouseState = newMouseState;
         }
 
         /// <summary>
