@@ -51,3 +51,11 @@ Nom du paramètre : texture
    à TRODS.AbstractMap.Draw(SpriteBatch spriteBatch) dans C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\AbstractMap.cs:ligne 127
    à TRODS.InGame.Draw(SpriteBatch spriteBatch) dans C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\InGame.cs:ligne 43
    à TRODS.Game1.Draw(GameTime gameTime) dans C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\Game1.cs:ligne 80
+System.InvalidOperationException: Begin must be called successfully before a Draw can be called.
+   à Microsoft.Xna.Framework.Graphics.SpriteBatch.InternalDraw(Texture2D texture, Vector4& destination, Boolean scaleDestination, Nullable`1& sourceRectangle, Color color, Single rotation, Vector2& origin, SpriteEffects effects, Single depth)
+   à Microsoft.Xna.Framework.Graphics.SpriteBatch.Draw(Texture2D texture, Rectangle destinationRectangle, Color color)
+   à TRODS.Sprite.Draw(SpriteBatch spriteBatch) dans C:\Users\kuchera\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\Sprite.cs:ligne 97
+   à TRODS.AbstractMap.DrawMainground(SpriteBatch spriteBatch) dans C:\Users\kuchera\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\AbstractMap.cs:ligne 162
+   à TRODS.AbstractMap.Draw(SpriteBatch spriteBatch) dans C:\Users\kuchera\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\AbstractMap.cs:ligne 126
+   à TRODS.InGame.Draw(SpriteBatch spriteBatch) dans C:\Users\kuchera\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\InGame.cs:ligne 41
+   à TRODS.Game1.Draw(GameTime gameTime) dans C:\Users\kuchera\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\Game1.cs:ligne 80

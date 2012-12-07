@@ -122,11 +122,9 @@ namespace TRODS
 
         public override void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Begin();
             DrawForeground(spriteBatch);
             DrawMainground(spriteBatch);
             DrawBackground(spriteBatch);
-            spriteBatch.End();
         }
 
         /// <summary>
@@ -134,14 +132,12 @@ namespace TRODS
         /// </summary>
         /// <param name="spriteBatch">Instance du gestionnaire de dessin de XNA</param>
         /// <param name="personnage">Reference du personnage</param>
-        public virtual void Draw(SpriteBatch spriteBatch,byte personnage/* PERSONNAGE*/)
+        public virtual void Draw(SpriteBatch spriteBatch, byte personnage/* PERSONNAGE*/)
         {
-            spriteBatch.Begin();
             DrawForeground(spriteBatch);
             // PERSONNAGE.DRAW
             DrawMainground(spriteBatch);
             DrawBackground(spriteBatch);
-            spriteBatch.End();
         }
 
         /// <summary>

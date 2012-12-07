@@ -114,6 +114,7 @@
     <Compile Include="AbstractScene.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="AnimatedSprite.cs" />
     <Compile Include="Enumerations.cs">
       <SubType>Code</SubType>
     </Compile>
