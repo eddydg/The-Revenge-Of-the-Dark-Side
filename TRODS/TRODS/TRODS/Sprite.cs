@@ -78,6 +78,14 @@ namespace TRODS
         {
             Texture = content.Load<Texture2D>(assetName);
         }
+        /// <summary>
+        /// Assigne la texture
+        /// </summary>
+        /// <param name="tex">Texture</param>
+        public virtual void LoadContent(Texture2D tex)
+        {
+            Texture = tex;
+        }
 
         /// <summary>
         /// Met a jour la _position du sprite
@@ -110,6 +118,18 @@ namespace TRODS
             spriteBatch.Draw(Texture,
                             new Rectangle(X, Y, _position.Width, _position.Height),
                             color);
+        }
+        /// <summary>
+        /// Dessine le Sprite avec des parametres specfiques
+        /// </summary>
+        /// <param name="spriteBatch">Gestionnaire de dessin XNA</param>
+        /// <param name="color">Coloration de la texture</param>
+        /// <param name="position">Position</param>
+        public virtual void Draw(SpriteBatch spriteBatch, Vector2 position)
+        {
+            spriteBatch.Draw(Texture,
+                            new Rectangle((int)position.X, (int)position.Y, _position.Width, _position.Height),
+                            Color.White);
         }
         /// <summary>
         /// Dessine le Sprite avec des parametres specfiques

@@ -8,3 +8,4 @@ Content\black.xnb
 Content\rayom.xnb
 Content\nuages2.xnb
 Content\menuSelectionSound.xnb
+Content\explosion1.xnb
