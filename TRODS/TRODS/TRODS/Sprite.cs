@@ -85,7 +85,9 @@ namespace TRODS
         /// <param name="elapsedTime">Temps ecoule depuis le dernier appel de la fonction</param>
         public virtual void Update(float elapsedTime)
         {
-            _position = new Rectangle((int)(_vitesse * Direction.X * elapsedTime), (int)(_vitesse * Direction.Y * elapsedTime), _position.Width, _position.Height);
+            _position = new Rectangle((int)(_vitesse * Direction.X * elapsedTime)+_position.X,
+                                      (int)(_vitesse * Direction.Y * elapsedTime)+_position.Y, 
+                                      _position.Width, _position.Height);
         }
 
         /// <summary>
