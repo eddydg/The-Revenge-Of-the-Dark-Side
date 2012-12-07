@@ -11,3 +11,10 @@ D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side
 D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TestProj\TestProj\TestProj\obj\x86\Debug\TestProj.exe
 D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TestProj\TestProj\TestProj\obj\x86\Debug\TestProj.pdb
 D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TestProj\TestProj\TestProj\bin\x86\Debug\Content\Wind_Walk.xnb
+C:\Users\Nicomplex\Documents\Visual Studio 2010\Projects\TRODS\The-Revenge-Of-the-Dark-Side\TestProj\TestProj\TestProj\bin\x86\Debug\Content\Wind_Walk.xnb
+C:\Users\Nicomplex\Documents\Visual Studio 2010\Projects\TRODS\The-Revenge-Of-the-Dark-Side\TestProj\TestProj\TestProj\bin\x86\Debug\TestProj.exe
+C:\Users\Nicomplex\Documents\Visual Studio 2010\Projects\TRODS\The-Revenge-Of-the-Dark-Side\TestProj\TestProj\TestProj\bin\x86\Debug\TestProj.pdb
+C:\Users\Nicomplex\Documents\Visual Studio 2010\Projects\TRODS\The-Revenge-Of-the-Dark-Side\TestProj\TestProj\TestProj\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Nicomplex\Documents\Visual Studio 2010\Projects\TRODS\The-Revenge-Of-the-Dark-Side\TestProj\TestProj\TestProj\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\Nicomplex\Documents\Visual Studio 2010\Projects\TRODS\The-Revenge-Of-the-Dark-Side\TestProj\TestProj\TestProj\obj\x86\Debug\TestProj.exe
+C:\Users\Nicomplex\Documents\Visual Studio 2010\Projects\TRODS\The-Revenge-Of-the-Dark-Side\TestProj\TestProj\TestProj\obj\x86\Debug\TestProj.pdb

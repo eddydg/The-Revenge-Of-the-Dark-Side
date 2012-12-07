@@ -29,7 +29,7 @@ namespace TestProj
         protected override void LoadContent()
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
-            personnage = new AnimatedSprite(Content.Load<Texture2D>("Wind_Walk"), 6, 4, 35);
+            personnage = new AnimatedSprite(Content.Load<Texture2D>("Wind_Walk"), 6, 4, -1);
         }
         protected override void UnloadContent()
         {
