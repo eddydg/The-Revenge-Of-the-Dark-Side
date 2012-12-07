@@ -24,7 +24,6 @@ namespace TRODS
 
         private List<AnimatedSprite> sprites;
         private Sprite mouse;
-        private Texture2D explosion1;
 
         public InGame(Rectangle windowSize)
         {
@@ -37,7 +36,6 @@ namespace TRODS
         public override void LoadContent(ContentManager content)
         {
             mouse.LoadContent(content, "menuCursor");
-            explosion1 = content.Load<Texture2D>("explosion1");
         }
 
         public override void Draw(SpriteBatch spriteBatch)
@@ -73,11 +71,24 @@ namespace TRODS
                 parent.SwitchScene(Scene.MainMenu);
             if (_mouseState != newMouseState)
                 mouse.Position = new Rectangle(newMouseState.X, newMouseState.Y, mouse.Position.Width, mouse.Position.Height);
+
+
             if (newMouseState.LeftButton == ButtonState.Pressed && _mouseState.LeftButton != ButtonState.Pressed)
             {
                 sprites.Add(new AnimatedSprite(new Rectangle(newMouseState.X - _windowSize.Width / 5 / 2, newMouseState.Y - _windowSize.Width / 5 / 2, _windowSize.Width / 5, _windowSize.Width / 5), _windowSize, 8, 6, 25));
-                sprites.Last<AnimatedSprite>().LoadContent(explosion1);
+                sprites.Last<AnimatedSprite>().LoadContent(parent.Content,"explosion1");
             }
+            if (newMouseState.RightButton == ButtonState.Pressed && _mouseState.RightButton != ButtonState.Pressed)
+            {
+                sprites.Add(new AnimatedSprite(new Rectangle(newMouseState.X - _windowSize.Width / 5 / 2, newMouseState.Y - _windowSize.Width / 5 / 2, _windowSize.Width / 5, _windowSize.Width / 5), _windowSize, 8, 4, 25));
+                sprites.Last<AnimatedSprite>().LoadContent(parent.Content, "explosion2");
+            }
+            if (newMouseState.MiddleButton == ButtonState.Pressed && _mouseState.MiddleButton != ButtonState.Pressed)
+            {
+                sprites.Add(new AnimatedSprite(new Rectangle(newMouseState.X - _windowSize.Width / 5 / 2, newMouseState.Y - _windowSize.Width / 5 / 2, _windowSize.Width / 5, _windowSize.Width / 5), _windowSize, 5,5, 15));
+                sprites.Last<AnimatedSprite>().LoadContent(parent.Content, "explosion3");
+            }
+
             _keyboardState = newKeyboardState;
             _mouseState = newMouseState;
         }
