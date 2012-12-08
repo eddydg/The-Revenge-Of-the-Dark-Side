@@ -92,14 +92,14 @@ namespace TRODS
         /// <summary>
         /// Changement de scene
         /// </summary>
-        /// <param name="s">Nouvelle scene</param>
-        public void SwitchScene(Scene s)
+        /// <param name="newScene">Nouvelle scene</param>
+        public void SwitchScene(Scene newScene)
         {
             try
             {
                 scenes[currentScene].EndScene();
-                currentScene = s;
-                scenes[currentScene].Activation();
+                currentScene = newScene;
+                scenes[newScene].Activation();
             }
             catch (Exception e)
             {

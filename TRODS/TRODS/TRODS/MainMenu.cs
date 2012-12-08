@@ -8,7 +8,7 @@ using Microsoft.Xna.Framework.GamerServices;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
- 
+
 namespace TRODS
 {
     class MainMenu : AbstractScene
@@ -20,11 +20,13 @@ namespace TRODS
         private Sprite wallpaperText;
         private Sprite nuages;
         private AnimatedSprite mouse;
-        
+        private List<AnimatedSprite> sprites;
+        private Texture2D cursorClic;
+
         private SoundEffect selectionChangeSon;
         private Selection selection;
         private enum Selection { Play = 0, Extra = 1, Exit = 2, Credit = 3 };
-        private Dictionary<Selection,Sprite> menuItems;
+        private Dictionary<Selection, Sprite> menuItems;
 
         private static Vector2 decalage = new Vector2(10, 0);
         private static int amplitudeVibrationSelection = 5;
@@ -39,13 +41,14 @@ namespace TRODS
             selection = Selection.Play;
             wallpaper = new Sprite(new Rectangle(0, 0, windowWidth, windowHeight), windowSize);
             wallpaperText = new Sprite(new Rectangle(0, 0, windowWidth, windowHeight), windowSize);
-            nuages = new Sprite(new Rectangle(0, 0, windowWidth*3, windowHeight), windowSize);
+            nuages = new Sprite(new Rectangle(0, 0, windowWidth * 3, windowHeight), windowSize);
             nuages.Direction = new Vector2(-1, 0);
             nuages.Vitesse = 0.1f; // 1f = 1000 px/sec
-            mouse = new AnimatedSprite(new Rectangle(-100, -100, 40,65),windowSize,5,2,25);
+            mouse = new AnimatedSprite(new Rectangle(-100, -100, 40, 65), windowSize, 5, 2, 25);
             relativeAmplitudeVibrationSelection = (float)amplitudeVibrationSelection / (float)(windowHeight + windowWidth);
+            sprites = new List<AnimatedSprite>();
 
-            menuItems = new Dictionary<Selection,Sprite>();
+            menuItems = new Dictionary<Selection, Sprite>();
             menuItems.Add(Selection.Play, new Sprite(new Rectangle(150, 400, 110, 55), windowSize));
             menuItems.Add(Selection.Extra, new Sprite(new Rectangle(215, 470, 110, 55), windowSize));
             menuItems.Add(Selection.Exit, new Sprite(new Rectangle(490, 400, 90, 55), windowSize));
@@ -58,6 +61,7 @@ namespace TRODS
             wallpaperText.LoadContent(content, "menuWallpaperText");
             nuages.LoadContent(content, "nuages2");
             mouse.LoadContent(content, "cursor2");
+            cursorClic = content.Load<Texture2D>("cursorClic");
             selectionChangeSon = content.Load<SoundEffect>("menuSelectionSound");
             menuItems[Selection.Play].LoadContent(content, "menuTextPlay");
             menuItems[Selection.Extra].LoadContent(content, "menuTextExtra");
@@ -108,6 +112,7 @@ namespace TRODS
 
                 if (mousestate != newMouseState)
                 {
+                    bool isClicked = newMouseState.LeftButton == ButtonState.Pressed && mousestate.LeftButton == ButtonState.Released;
                     mouse.Position = new Rectangle(newMouseState.X, newMouseState.Y, mouse.Position.Width, mouse.Position.Height);
                     int i = 0;
                     foreach (Sprite st in menuItems.Values)
@@ -117,10 +122,15 @@ namespace TRODS
                             if ((int)selection != i)
                                 selectionChangeSon.Play();
                             selection = (Selection)i;
-                            if (newMouseState.LeftButton == ButtonState.Pressed && mousestate.LeftButton == ButtonState.Released)
+                            if (isClicked)
                                 selectionEvent(parent);
                         }
                         i++;
+                    }
+                    if (isClicked)
+                    {
+                        sprites.Add(new AnimatedSprite(new Rectangle(newMouseState.X - windowWidth / 3 / 2, newMouseState.Y - windowHeight / 3 / 2, windowWidth / 3, windowHeight / 3), newWindowSize, 8, 5, 35));
+                        sprites.Last<AnimatedSprite>().LoadContent(cursorClic);
                     }
                 }
 
@@ -136,12 +146,21 @@ namespace TRODS
             else
                 nuages.Update(elapsedTime);
             mouse.Update(elapsedTime);
+            for (int i = 0; i < sprites.Count; i++)
+            {
+                sprites.ElementAt<AnimatedSprite>(i).Update(elapsedTime);
+                if (sprites.ElementAt<AnimatedSprite>(i).IsEnd())
+                {
+                    sprites.RemoveAt(i);
+                    i--;
+                }
+            }
         }
         public override void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Begin();
             wallpaper.Draw(spriteBatch);
-            
+
             Rectangle np = nuages.Position;
             nuages.Draw(spriteBatch);
             if (np.X + np.Width < windowWidth)
@@ -163,9 +182,23 @@ namespace TRODS
                     st.Draw(spriteBatch, Color.Black);
             }
 
+            foreach (AnimatedSprite p in sprites)
+                p.Draw(spriteBatch);
+
             mouse.Draw(spriteBatch);
 
             spriteBatch.End();
+        }
+
+        public override void Activation()
+        {
+            mousestate = Mouse.GetState();
+            sprites.Clear();
+            mouse.Position = new Rectangle(-100, -100, mouse.Position.Width, mouse.Position.Height);
+        }
+
+        public override void EndScene()
+        {
         }
 
         /// <summary>
@@ -207,6 +240,8 @@ namespace TRODS
             windowHeight = rect.Height;
             amplitudeVibrationSelection = (int)(relativeAmplitudeVibrationSelection * (windowWidth + windowHeight));
             mouse.windowResized(rect);
+            foreach (AnimatedSprite p in sprites)
+                p.windowResized(rect);
         }
     }
 }

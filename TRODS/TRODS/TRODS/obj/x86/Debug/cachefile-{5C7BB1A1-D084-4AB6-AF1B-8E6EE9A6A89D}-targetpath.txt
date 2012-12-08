@@ -16,3 +16,4 @@ Content\cursor1.xnb
 Content\cursorOnde.xnb
 Content\cursor2.xnb
 Content\credit.xnb
+Content\cursorClic.xnb

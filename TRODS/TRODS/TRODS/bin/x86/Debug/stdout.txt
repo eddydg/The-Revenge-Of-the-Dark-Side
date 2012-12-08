@@ -14,3 +14,33 @@ Microsoft.Xna.Framework.Content.ContentLoadException: Error loading "menuCursor"
    à TRODS.Sprite.LoadContent(ContentManager content, String assetName) dans C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\Sprite.cs:ligne 79
    à TRODS.InGame.LoadContent(ContentManager content) dans C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\InGame.cs:ligne 36
    à TRODS.Game1.LoadContent() dans C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\Game1.cs:ligne 52
+Erreur d'affichage :
+System.ObjectDisposedException: Impossible d'accéder à un objet supprimé.
+Nom de l'objet : 'Texture2D'.
+   à Microsoft.Xna.Framework.Helpers.CheckDisposed(Object obj, IntPtr pComPtr)
+   à Microsoft.Xna.Framework.Graphics.TextureCollection.set_Item(Int32 index, Texture value)
+   à Microsoft.Xna.Framework.Graphics.SpriteBatch.RenderBatch(Texture2D texture, SpriteInfo[] sprites, Int32 offset, Int32 count)
+   à Microsoft.Xna.Framework.Graphics.SpriteBatch.Flush()
+   à Microsoft.Xna.Framework.Graphics.SpriteBatch.End()
+   à TRODS.MainMenu.Draw(SpriteBatch spriteBatch) dans C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\MainMenu.cs:ligne 190
+   à TRODS.Game1.Draw(GameTime gameTime) dans C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\Game1.cs:ligne 82
+Erreur d'affichage :
+System.ObjectDisposedException: Impossible d'accéder à un objet supprimé.
+Nom de l'objet : 'Texture2D'.
+   à Microsoft.Xna.Framework.Helpers.CheckDisposed(Object obj, IntPtr pComPtr)
+   à Microsoft.Xna.Framework.Graphics.TextureCollection.set_Item(Int32 index, Texture value)
+   à Microsoft.Xna.Framework.Graphics.SpriteBatch.RenderBatch(Texture2D texture, SpriteInfo[] sprites, Int32 offset, Int32 count)
+   à Microsoft.Xna.Framework.Graphics.SpriteBatch.Flush()
+   à Microsoft.Xna.Framework.Graphics.SpriteBatch.End()
+   à TRODS.MainMenu.Draw(SpriteBatch spriteBatch) dans C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\MainMenu.cs:ligne 190
+   à TRODS.Game1.Draw(GameTime gameTime) dans C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\Game1.cs:ligne 82
+Erreur d'affichage :
+System.ObjectDisposedException: Impossible d'accéder à un objet supprimé.
+Nom de l'objet : 'Texture2D'.
+   à Microsoft.Xna.Framework.Helpers.CheckDisposed(Object obj, IntPtr pComPtr)
+   à Microsoft.Xna.Framework.Graphics.TextureCollection.set_Item(Int32 index, Texture value)
+   à Microsoft.Xna.Framework.Graphics.SpriteBatch.RenderBatch(Texture2D texture, SpriteInfo[] sprites, Int32 offset, Int32 count)
+   à Microsoft.Xna.Framework.Graphics.SpriteBatch.Flush()
+   à Microsoft.Xna.Framework.Graphics.SpriteBatch.End()
+   à TRODS.SceneExtras.Draw(SpriteBatch spriteBatch) dans C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\SceneExtras.cs:ligne 42
+   à TRODS.Game1.Draw(GameTime gameTime) dans C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\Game1.cs:ligne 82

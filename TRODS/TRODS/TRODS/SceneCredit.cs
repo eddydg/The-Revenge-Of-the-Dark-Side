@@ -21,7 +21,7 @@ namespace TRODS
         public SceneCredit(Rectangle windowSize)
         {
             _windowSize = windowSize;
-            top = new Sprite(new Rectangle(0, 0, _windowSize.Width, _windowSize.Height / 2), _windowSize);
+            top = new Sprite(new Rectangle(0, 0, _windowSize.Width, 2 * _windowSize.Height / 5), _windowSize);
         }
 
         public override void LoadContent(ContentManager content)
