@@ -17,25 +17,63 @@ namespace TRODS
         private MouseState _mouseState;
         private Rectangle _windowSize;
 
+        private int selectedSprite;
+        private int currentSize;
+        public struct Dimension
+        {
+            public int colonnes,lignes;
+            public Dimension(int x,int y)
+            {
+                this.colonnes = x;
+                this.lignes = y;
+            }
+        }
+        private List<Dimension> dimensions;
         private List<AnimatedSprite> sprites;
+        private List<Sprite> textures;
+        private Sprite tailleSelection;
         private AnimatedSprite mouse;
 
         public SceneExtras(Rectangle windowSize)
         {
             _windowSize = windowSize;
-
+            selectedSprite = 0;
+            currentSize = 150;
             sprites = new List<AnimatedSprite>();
-            mouse = new AnimatedSprite(new Rectangle(-100, -100, 40, 65), _windowSize,5,2,25);
+            textures = new List<Sprite>();
+            tailleSelection = new Sprite(new Rectangle(0, 400, windowSize.Width, 85), windowSize);
+            mouse = new AnimatedSprite(new Rectangle(-100, -100, 40, 65), _windowSize, 5, 2, 25);
+
+            dimensions = new List<Dimension>();
+            dimensions.Add(new Dimension(16, 11));
+            dimensions.Add(new Dimension(8,4));
+            dimensions.Add(new Dimension(8,6));
+            dimensions.Add(new Dimension(8,6));
+            dimensions.Add(new Dimension(8,8));
+            dimensions.Add(new Dimension(16,13));
+            dimensions.Add(new Dimension(8,4));
+            dimensions.Add(new Dimension(8,4));
+            dimensions.Add(new Dimension(8,4));
+            dimensions.Add(new Dimension(8,8));
         }
 
         public override void LoadContent(ContentManager content)
         {
             mouse.LoadContent(content, "cursor2");
+            tailleSelection.LoadContent(content, "extraSize");
+            for (int i = 0; i < 10; i++)
+            {
+                textures.Add(new Sprite(new Rectangle(i * 80, 485, _windowSize.Width / 10, 115), _windowSize));
+                textures.ElementAt<Sprite>(i).LoadContent(content, "extra" + (i + 1).ToString());
+            }
         }
 
         public override void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Begin();
+            tailleSelection.Draw(spriteBatch);
+            foreach (Sprite s in textures)
+                s.Draw(spriteBatch);
             foreach (AnimatedSprite p in sprites)
                 p.Draw(spriteBatch);
             mouse.Draw(spriteBatch);
@@ -44,14 +82,14 @@ namespace TRODS
 
         public override void Update(float elapsedTime)
         {
-            foreach (AnimatedSprite p in sprites)
+            for (int i = 0; i < sprites.Count; i++)
             {
-                if (p.IsEnd())
+                sprites.ElementAt<AnimatedSprite>(i).Update(elapsedTime);
+                if (sprites.ElementAt<AnimatedSprite>(i).IsEnd())
                 {
-                    sprites.RemoveAt(sprites.IndexOf(p));
-                    break;
+                    sprites.RemoveAt(i);
+                    i--;
                 }
-                p.Update(elapsedTime);
             }
             mouse.Update(elapsedTime);
         }
@@ -68,29 +106,21 @@ namespace TRODS
             if (_mouseState != newMouseState)
                 mouse.Position = new Rectangle(newMouseState.X, newMouseState.Y, mouse.Position.Width, mouse.Position.Height);
 
-            try
+            bool isClick = newMouseState.LeftButton == ButtonState.Pressed && _mouseState.LeftButton != ButtonState.Pressed;
+
+            if (isClick)
             {
-                if (newMouseState.LeftButton == ButtonState.Pressed && _mouseState.LeftButton != ButtonState.Pressed)
+                Rectangle clic = new Rectangle(mouse.Position.X, mouse.Position.Y, 1, 1);
+                foreach (Sprite p in textures)
+                    if (p.Position.Intersects(clic))
+                        selectedSprite = textures.IndexOf(p);
+                if (tailleSelection.Position.Intersects(clic))
+                    currentSize = clic.X;
+                else if (currentSize >= 0 && selectedSprite >= 0 && selectedSprite < textures.Count)
                 {
-                    sprites.Add(new AnimatedSprite(new Rectangle(newMouseState.X - 133, newMouseState.Y - 133, 266, 266), _windowSize, 8, 6, 30));
-                    sprites.Last<AnimatedSprite>().LoadContent(parent.Content, "explosion1");
+                    sprites.Add(new AnimatedSprite(new Rectangle(clic.X - currentSize / 2, clic.Y - currentSize / 2, currentSize, currentSize), _windowSize, dimensions.ElementAt<Dimension>(selectedSprite).colonnes, dimensions.ElementAt<Dimension>(selectedSprite).lignes, 30));
+                    sprites.Last<AnimatedSprite>().LoadContent(textures.ElementAt<Sprite>(selectedSprite).Texture);
                 }
-                if (newMouseState.RightButton == ButtonState.Pressed && _mouseState.RightButton != ButtonState.Pressed)
-                {
-                    sprites.Add(new AnimatedSprite(new Rectangle(newMouseState.X - 80, newMouseState.Y - 80, 160,160), _windowSize, 8, 4, 30));
-                    sprites.Last<AnimatedSprite>().LoadContent(parent.Content, "explosion2");
-                }
-                if (newMouseState.MiddleButton == ButtonState.Pressed && _mouseState.MiddleButton != ButtonState.Pressed)
-                {
-                    sprites.Add(new AnimatedSprite(new Rectangle(newMouseState.X - 66, newMouseState.Y - 66, 132, 132), _windowSize, 5, 5, 25));
-                    sprites.Last<AnimatedSprite>().LoadContent(parent.Content, "explosion3");
-                }
-            }
-            catch (Exception e)
-            {
-                EugLib.FileStream.toStdOut("Loading ressources error.");
-                EugLib.FileStream.toStdOut(e.ToString());
-                sprites.RemoveAt(sprites.Count - 1);
             }
 
             _keyboardState = newKeyboardState;
@@ -104,8 +134,6 @@ namespace TRODS
 
         public override void EndScene()
         {
-            foreach (AnimatedSprite p in sprites)
-                p.Dispose();
             sprites.Clear();
         }
 
@@ -118,6 +146,9 @@ namespace TRODS
         {
             foreach (AnimatedSprite p in sprites)
                 p.windowResized(rect);
+            foreach (Sprite p in textures)
+                p.windowResized(rect);
+            tailleSelection.windowResized(rect);
             mouse.windowResized(rect);
         }
     }
