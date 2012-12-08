@@ -44,3 +44,4 @@ Nom de l'objet : 'Texture2D'.
    à Microsoft.Xna.Framework.Graphics.SpriteBatch.End()
    à TRODS.SceneExtras.Draw(SpriteBatch spriteBatch) dans C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\SceneExtras.cs:ligne 42
    à TRODS.Game1.Draw(GameTime gameTime) dans C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\Game1.cs:ligne 82
+800 600
