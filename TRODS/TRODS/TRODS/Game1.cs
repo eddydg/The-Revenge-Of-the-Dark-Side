@@ -31,13 +31,14 @@ namespace TRODS
             Content.RootDirectory = "Content";
 
             this.Window.AllowUserResizing = true;
-
+            Rectangle winsize = this.Window.ClientBounds;
 
             scenes = new Dictionary<Scene, AbstractScene>();
             currentScene = Scene.MainMenu;
-            scenes.Add(Scene.InGame, new InGame(this.Window.ClientBounds));
-            scenes.Add(Scene.MainMenu, new MainMenu(this.Window.ClientBounds));
-            scenes.Add(Scene.Extra, new SceneExtras(this.Window.ClientBounds));
+            scenes.Add(Scene.InGame, new InGame(winsize));
+            scenes.Add(Scene.MainMenu, new MainMenu(winsize));
+            scenes.Add(Scene.Extra, new SceneExtras(winsize));
+            scenes.Add(Scene.Credit, new SceneCredit(winsize));
         }
         protected override void Initialize()
         {

@@ -11,36 +11,29 @@ using Microsoft.Xna.Framework.Media;
 
 namespace TRODS
 {
-    /// <summary>
-    /// Classe de test temporaire
-    /// qui contiendra le moteur de jeu
-    /// ( La plus bg des classes les plus importantes )
-    /// </summary>
-    class InGame : AbstractScene
+    class SceneCredit : AbstractScene
     {
         private KeyboardState _keyboardState;
-        private MouseState _mouseState;
         private Rectangle _windowSize;
 
-        private Sprite mouse;
+        private Sprite top;
 
-        public InGame(Rectangle windowSize)
+        public SceneCredit(Rectangle windowSize)
         {
             _windowSize = windowSize;
-
-            mouse = new Sprite(new Rectangle(-100, -100, 30, 50), _windowSize);
+            top = new Sprite(new Rectangle(0, 0, _windowSize.Width, _windowSize.Height / 2), _windowSize);
         }
 
         public override void LoadContent(ContentManager content)
         {
-            mouse.LoadContent(content, "cursor1");
+            top.LoadContent(content, "credit");
         }
 
         public override void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Begin();
 
-            mouse.Draw(spriteBatch);
+            top.Draw(spriteBatch);
 
             spriteBatch.End();
         }
@@ -56,20 +49,14 @@ namespace TRODS
                 _windowSize = parent.Window.ClientBounds;
                 windowResized(_windowSize);
             }
-            if (!newKeyboardState.IsKeyDown(Keys.Escape) && _keyboardState.IsKeyDown(Keys.Escape))
+            if (newKeyboardState.IsKeyDown(Keys.Escape) && !_keyboardState.IsKeyDown(Keys.Escape))
                 parent.SwitchScene(Scene.MainMenu);
-            if (_mouseState != newMouseState)
-                mouse.Position = new Rectangle(newMouseState.X, newMouseState.Y, mouse.Position.Width, mouse.Position.Height);
-
-
 
             _keyboardState = newKeyboardState;
-            _mouseState = newMouseState;
         }
 
         public override void Activation()
         {
-            _mouseState = Mouse.GetState();
         }
 
         public override void EndScene()
@@ -83,6 +70,7 @@ namespace TRODS
         /// <param name="rect">Nouvelle dimension de la fenetre obtenue par *Game1*.Window.ClientBounds()</param>
         private void windowResized(Rectangle rect)
         {
+            top.windowResized(rect);
         }
     }
 }

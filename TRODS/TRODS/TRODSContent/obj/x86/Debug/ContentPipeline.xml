@@ -2,15 +2,6 @@
 <XnaContent xmlns:Pipeline="Microsoft.Xna.Framework.Content.Pipeline">
   <Asset Type="Pipeline:BuildItemCollection">
     <Item>
-      <Source>menuCursor.png</Source>
-      <Name>menuCursor</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menuCursor.xnb</Output>
-      <Time>2012-11-18T00:49:48.8269513+01:00</Time>
-    </Item>
-    <Item>
       <Source>menuTextExit.png</Source>
       <Name>menuTextExit</Name>
       <Importer>TextureImporter</Importer>
@@ -135,6 +126,42 @@
       <Options>None</Options>
       <Output>C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menuTextExtra.xnb</Output>
       <Time>2012-12-08T13:44:37.2936957+01:00</Time>
+    </Item>
+    <Item>
+      <Source>cursor1.png</Source>
+      <Name>cursor1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\cursor1.xnb</Output>
+      <Time>2012-12-08T16:41:32.5787981+01:00</Time>
+    </Item>
+    <Item>
+      <Source>cursorOnde.png</Source>
+      <Name>cursorOnde</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\cursorOnde.xnb</Output>
+      <Time>2012-12-08T16:41:32.5807989+01:00</Time>
+    </Item>
+    <Item>
+      <Source>cursor2.png</Source>
+      <Name>cursor2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\cursor2.xnb</Output>
+      <Time>2012-12-08T16:53:35.6989725+01:00</Time>
+    </Item>
+    <Item>
+      <Source>credit.png</Source>
+      <Name>credit</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\credit.xnb</Output>
+      <Time>2012-12-08T17:11:28.9357764+01:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

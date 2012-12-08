@@ -19,7 +19,7 @@ namespace TRODS
         private Sprite wallpaper;
         private Sprite wallpaperText;
         private Sprite nuages;
-        private Sprite mouse;
+        private AnimatedSprite mouse;
         
         private SoundEffect selectionChangeSon;
         private Selection selection;
@@ -42,7 +42,7 @@ namespace TRODS
             nuages = new Sprite(new Rectangle(0, 0, windowWidth*3, windowHeight), windowSize);
             nuages.Direction = new Vector2(-1, 0);
             nuages.Vitesse = 0.1f; // 1f = 1000 px/sec
-            mouse = new Sprite(new Rectangle(-100, -100, 30,50));
+            mouse = new AnimatedSprite(new Rectangle(-100, -100, 40,65),windowSize,5,2,25);
             relativeAmplitudeVibrationSelection = (float)amplitudeVibrationSelection / (float)(windowHeight + windowWidth);
 
             menuItems = new Dictionary<Selection,Sprite>();
@@ -57,7 +57,7 @@ namespace TRODS
             wallpaper.LoadContent(content, "wallpaper");
             wallpaperText.LoadContent(content, "menuWallpaperText");
             nuages.LoadContent(content, "nuages2");
-            mouse.LoadContent(content, "menuCursor");
+            mouse.LoadContent(content, "cursor2");
             selectionChangeSon = content.Load<SoundEffect>("menuSelectionSound");
             menuItems[Selection.Play].LoadContent(content, "menuTextPlay");
             menuItems[Selection.Extra].LoadContent(content, "menuTextExtra");
@@ -135,6 +135,7 @@ namespace TRODS
                 nuages.Position = new Rectangle(0, p.Y, p.Width, p.Height);
             else
                 nuages.Update(elapsedTime);
+            mouse.Update(elapsedTime);
         }
         public override void Draw(SpriteBatch spriteBatch)
         {
@@ -162,7 +163,7 @@ namespace TRODS
                     st.Draw(spriteBatch, Color.Black);
             }
 
-            spriteBatch.Draw(mouse.Texture, mouse.Position, Color.White);
+            mouse.Draw(spriteBatch);
 
             spriteBatch.End();
         }
@@ -186,7 +187,7 @@ namespace TRODS
                     parent.SwitchScene(Scene.Extra);
                     break;
                 case Selection.Credit:
-                    //parent.SwitchScene(Scene.Credit);
+                    parent.SwitchScene(Scene.Credit);
                     break;
             }
         }
@@ -205,7 +206,7 @@ namespace TRODS
             windowWidth = rect.Width;
             windowHeight = rect.Height;
             amplitudeVibrationSelection = (int)(relativeAmplitudeVibrationSelection * (windowWidth + windowHeight));
-            // La souris n'est pas redimensionnee
+            mouse.windowResized(rect);
         }
     }
 }

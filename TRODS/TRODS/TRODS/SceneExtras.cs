@@ -18,19 +18,19 @@ namespace TRODS
         private Rectangle _windowSize;
 
         private List<AnimatedSprite> sprites;
-        private Sprite mouse;
+        private AnimatedSprite mouse;
 
         public SceneExtras(Rectangle windowSize)
         {
             _windowSize = windowSize;
 
             sprites = new List<AnimatedSprite>();
-            mouse = new Sprite(new Rectangle(-100, -100, 30, 50), _windowSize);
+            mouse = new AnimatedSprite(new Rectangle(-100, -100, 40, 65), _windowSize,5,2,25);
         }
 
         public override void LoadContent(ContentManager content)
         {
-            mouse.LoadContent(content, "menuCursor");
+            mouse.LoadContent(content, "cursor2");
         }
 
         public override void Draw(SpriteBatch spriteBatch)
@@ -53,6 +53,7 @@ namespace TRODS
                 }
                 p.Update(elapsedTime);
             }
+            mouse.Update(elapsedTime);
         }
 
         public override void HandleInput(KeyboardState newKeyboardState, MouseState newMouseState, Game1 parent)
@@ -117,6 +118,7 @@ namespace TRODS
         {
             foreach (AnimatedSprite p in sprites)
                 p.windowResized(rect);
+            mouse.windowResized(rect);
         }
     }
 }

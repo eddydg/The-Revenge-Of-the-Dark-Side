@@ -29,7 +29,6 @@ C:\Users\Kucher\Desktop\Documents\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menuSe
 C:\Users\Kucher\Desktop\Documents\TRODS\TRODS\TRODS\bin\x86\Debug\TRODS.exe
 C:\Users\Kucher\Desktop\Documents\TRODS\TRODS\TRODS\bin\x86\Debug\TRODS.pdb
 C:\Users\Kucher\Desktop\Documents\TRODS\TRODS\TRODS\bin\x86\Debug\Content\rayom.xnb
-C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menuCursor.xnb
 C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menuTextExit.xnb
 C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menuTextPlay.xnb
 C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menuWallpaperText.xnb
@@ -69,3 +68,7 @@ C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\T
 C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\explosion3.xnb
 C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menuTextCredit.xnb
 C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menuTextExtra.xnb
+C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\cursor1.xnb
+C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\cursorOnde.xnb
+C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\cursor2.xnb
+C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\credit.xnb
