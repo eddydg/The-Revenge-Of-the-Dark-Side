@@ -37,6 +37,7 @@ namespace TRODS
             currentScene = Scene.MainMenu;
             scenes.Add(Scene.InGame, new InGame(this.Window.ClientBounds));
             scenes.Add(Scene.MainMenu, new MainMenu(this.Window.ClientBounds));
+            scenes.Add(Scene.Extra, new SceneExtras(this.Window.ClientBounds));
         }
         protected override void Initialize()
         {
@@ -81,6 +82,7 @@ namespace TRODS
             }
             catch (Exception e)
             {
+                EugLib.FileStream.toStdOut("Erreur d'affichage :");
                 EugLib.FileStream.toStdOut(e.ToString());
                 this.Exit();
             }
@@ -92,8 +94,18 @@ namespace TRODS
         /// <param name="s">Nouvelle scene</param>
         public void SwitchScene(Scene s)
         {
-            currentScene = s;
-            // Gestion des sauvegardes etc a implementer
+            try
+            {
+                scenes[currentScene].EndScene();
+                currentScene = s;
+                scenes[currentScene].Activation();
+            }
+            catch (Exception e)
+            {
+                EugLib.FileStream.toStdOut("La scene n'est pas definie :");
+                EugLib.FileStream.toStdOut(e.ToString());
+                this.Exit();
+            }
         }
     }
 }

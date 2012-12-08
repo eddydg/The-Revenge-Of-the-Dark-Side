@@ -11,12 +11,7 @@ using Microsoft.Xna.Framework.Media;
 
 namespace TRODS
 {
-    /// <summary>
-    /// Classe de test temporaire
-    /// qui contiendra le moteur de jeu
-    /// ( La plus bg des classes les plus importantes )
-    /// </summary>
-    class InGame : AbstractScene
+    class SceneExtras : AbstractScene
     {
         private KeyboardState _keyboardState;
         private MouseState _mouseState;
@@ -25,7 +20,7 @@ namespace TRODS
         private List<AnimatedSprite> sprites;
         private Sprite mouse;
 
-        public InGame(Rectangle windowSize)
+        public SceneExtras(Rectangle windowSize)
         {
             _windowSize = windowSize;
 
@@ -72,21 +67,29 @@ namespace TRODS
             if (_mouseState != newMouseState)
                 mouse.Position = new Rectangle(newMouseState.X, newMouseState.Y, mouse.Position.Width, mouse.Position.Height);
 
-
-            if (newMouseState.LeftButton == ButtonState.Pressed && _mouseState.LeftButton != ButtonState.Pressed)
+            try
             {
-                sprites.Add(new AnimatedSprite(new Rectangle(newMouseState.X - _windowSize.Width / 3 / 2, newMouseState.Y - _windowSize.Width / 3 / 2, _windowSize.Width / 3, _windowSize.Width / 3), _windowSize, 8, 6, 30));
-                sprites.Last<AnimatedSprite>().LoadContent(parent.Content, "explosion1");
+                if (newMouseState.LeftButton == ButtonState.Pressed && _mouseState.LeftButton != ButtonState.Pressed)
+                {
+                    sprites.Add(new AnimatedSprite(new Rectangle(newMouseState.X - _windowSize.Width / 3 / 2, newMouseState.Y - _windowSize.Width / 3 / 2, _windowSize.Width / 3, _windowSize.Width / 3), _windowSize, 8, 6, 30));
+                    sprites.Last<AnimatedSprite>().LoadContent(parent.Content, "explosion1");
+                }
+                if (newMouseState.RightButton == ButtonState.Pressed && _mouseState.RightButton != ButtonState.Pressed)
+                {
+                    sprites.Add(new AnimatedSprite(new Rectangle(newMouseState.X - _windowSize.Width / 5 / 2, newMouseState.Y - _windowSize.Width / 5 / 2, _windowSize.Width / 5, _windowSize.Width / 5), _windowSize, 8, 4, 30));
+                    sprites.Last<AnimatedSprite>().LoadContent(parent.Content, "explosion2");
+                }
+                if (newMouseState.MiddleButton == ButtonState.Pressed && _mouseState.MiddleButton != ButtonState.Pressed)
+                {
+                    sprites.Add(new AnimatedSprite(new Rectangle(newMouseState.X - _windowSize.Width / 6 / 2, newMouseState.Y - _windowSize.Width / 6 / 2, _windowSize.Width / 6, _windowSize.Width / 6), _windowSize, 5, 5, 25));
+                    sprites.Last<AnimatedSprite>().LoadContent(parent.Content, "explosion3");
+                }
             }
-            if (newMouseState.RightButton == ButtonState.Pressed && _mouseState.RightButton != ButtonState.Pressed)
+            catch (Exception e)
             {
-                sprites.Add(new AnimatedSprite(new Rectangle(newMouseState.X - _windowSize.Width / 5 / 2, newMouseState.Y - _windowSize.Width / 5 / 2, _windowSize.Width / 5, _windowSize.Width / 5), _windowSize, 8, 4, 30));
-                sprites.Last<AnimatedSprite>().LoadContent(parent.Content, "explosion2");
-            }
-            if (newMouseState.MiddleButton == ButtonState.Pressed && _mouseState.MiddleButton != ButtonState.Pressed)
-            {
-                sprites.Add(new AnimatedSprite(new Rectangle(newMouseState.X - _windowSize.Width / 6 / 2, newMouseState.Y - _windowSize.Width / 6 / 2, _windowSize.Width / 6, _windowSize.Width / 6), _windowSize, 5,5, 25));
-                sprites.Last<AnimatedSprite>().LoadContent(parent.Content, "explosion3");
+                EugLib.FileStream.toStdOut("Loading ressources error.");
+                EugLib.FileStream.toStdOut(e.ToString());
+                sprites.RemoveAt(sprites.Count - 1);
             }
 
             _keyboardState = newKeyboardState;

@@ -49,6 +49,12 @@ namespace TRODS
         {
         }
         /// <summary>
+        /// Fonction a appeler avant d'utiliser la scene
+        /// </summary>
+        public virtual void Activation()
+        {
+        }
+        /// <summary>
         /// Fonction a appeler avant de changer de scene
         /// </summary>
         public virtual void EndScene()
