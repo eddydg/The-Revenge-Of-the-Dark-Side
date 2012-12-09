@@ -1,47 +1,21 @@
 
-La scene n'est pas definie :
-System.Collections.Generic.KeyNotFoundException: La clé donnée était absente du dictionnaire.
-   à System.Collections.Generic.Dictionary`2.get_Item(TKey key)
-   à TRODS.Game1.SwitchScene(Scene s) dans C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\Game1.cs:ligne 100
 Loading ressources error.
-Microsoft.Xna.Framework.Content.ContentLoadException: Error loading "menuCursor". File not found. ---> System.IO.FileNotFoundException: Error loading "Content\menuCursor.xnb". File not found.
+Microsoft.Xna.Framework.Content.ContentLoadException: Error loading "menuSelectionSound". File contains Microsoft.Xna.Framework.Media.Song but trying to load as Microsoft.Xna.Framework.Audio.SoundEffect.
+   à Microsoft.Xna.Framework.Content.ContentReader.InvokeReader[T](ContentTypeReader reader, Object existingInstance)
+   à Microsoft.Xna.Framework.Content.ContentReader.ReadObjectInternal[T](Object existingInstance)
+   à Microsoft.Xna.Framework.Content.ContentReader.ReadObject[T]()
+   à Microsoft.Xna.Framework.Content.ContentReader.ReadAsset[T]()
+   à Microsoft.Xna.Framework.Content.ContentManager.ReadAsset[T](String assetName, Action`1 recordDisposableObject)
+   à Microsoft.Xna.Framework.Content.ContentManager.Load[T](String assetName)
+   à TRODS.MainMenu.LoadContent(ContentManager content) dans C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\MainMenu.cs:ligne 65
+   à TRODS.Game1.LoadContent() dans C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\Game1.cs:ligne 53
+Loading ressources error.
+Microsoft.Xna.Framework.Content.ContentLoadException: Error loading "extra0". File not found. ---> System.IO.FileNotFoundException: Error loading "Content\extra0.xnb". File not found.
    à Microsoft.Xna.Framework.TitleContainer.OpenStream(String name)
    à Microsoft.Xna.Framework.Content.ContentManager.OpenStream(String assetName)
    --- Fin de la trace de la pile d'exception interne ---
    à Microsoft.Xna.Framework.Content.ContentManager.OpenStream(String assetName)
    à Microsoft.Xna.Framework.Content.ContentManager.ReadAsset[T](String assetName, Action`1 recordDisposableObject)
    à Microsoft.Xna.Framework.Content.ContentManager.Load[T](String assetName)
-   à TRODS.Sprite.LoadContent(ContentManager content, String assetName) dans C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\Sprite.cs:ligne 79
-   à TRODS.InGame.LoadContent(ContentManager content) dans C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\InGame.cs:ligne 36
-   à TRODS.Game1.LoadContent() dans C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\Game1.cs:ligne 52
-Erreur d'affichage :
-System.ObjectDisposedException: Impossible d'accéder à un objet supprimé.
-Nom de l'objet : 'Texture2D'.
-   à Microsoft.Xna.Framework.Helpers.CheckDisposed(Object obj, IntPtr pComPtr)
-   à Microsoft.Xna.Framework.Graphics.TextureCollection.set_Item(Int32 index, Texture value)
-   à Microsoft.Xna.Framework.Graphics.SpriteBatch.RenderBatch(Texture2D texture, SpriteInfo[] sprites, Int32 offset, Int32 count)
-   à Microsoft.Xna.Framework.Graphics.SpriteBatch.Flush()
-   à Microsoft.Xna.Framework.Graphics.SpriteBatch.End()
-   à TRODS.MainMenu.Draw(SpriteBatch spriteBatch) dans C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\MainMenu.cs:ligne 190
-   à TRODS.Game1.Draw(GameTime gameTime) dans C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\Game1.cs:ligne 82
-Erreur d'affichage :
-System.ObjectDisposedException: Impossible d'accéder à un objet supprimé.
-Nom de l'objet : 'Texture2D'.
-   à Microsoft.Xna.Framework.Helpers.CheckDisposed(Object obj, IntPtr pComPtr)
-   à Microsoft.Xna.Framework.Graphics.TextureCollection.set_Item(Int32 index, Texture value)
-   à Microsoft.Xna.Framework.Graphics.SpriteBatch.RenderBatch(Texture2D texture, SpriteInfo[] sprites, Int32 offset, Int32 count)
-   à Microsoft.Xna.Framework.Graphics.SpriteBatch.Flush()
-   à Microsoft.Xna.Framework.Graphics.SpriteBatch.End()
-   à TRODS.MainMenu.Draw(SpriteBatch spriteBatch) dans C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\MainMenu.cs:ligne 190
-   à TRODS.Game1.Draw(GameTime gameTime) dans C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\Game1.cs:ligne 82
-Erreur d'affichage :
-System.ObjectDisposedException: Impossible d'accéder à un objet supprimé.
-Nom de l'objet : 'Texture2D'.
-   à Microsoft.Xna.Framework.Helpers.CheckDisposed(Object obj, IntPtr pComPtr)
-   à Microsoft.Xna.Framework.Graphics.TextureCollection.set_Item(Int32 index, Texture value)
-   à Microsoft.Xna.Framework.Graphics.SpriteBatch.RenderBatch(Texture2D texture, SpriteInfo[] sprites, Int32 offset, Int32 count)
-   à Microsoft.Xna.Framework.Graphics.SpriteBatch.Flush()
-   à Microsoft.Xna.Framework.Graphics.SpriteBatch.End()
-   à TRODS.SceneExtras.Draw(SpriteBatch spriteBatch) dans C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\SceneExtras.cs:ligne 42
-   à TRODS.Game1.Draw(GameTime gameTime) dans C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\Game1.cs:ligne 82
-800 600
+   à TRODS.SceneExtras.LoadContent(ContentManager content) dans C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\SceneExtras.cs:ligne 41
+   à TRODS.Game1.LoadContent() dans C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\Game1.cs:ligne 53
