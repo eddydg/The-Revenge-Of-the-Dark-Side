@@ -44,7 +44,7 @@ namespace TRODS
             nuages = new Sprite(new Rectangle(0, 0, windowWidth * 3, windowHeight), windowSize);
             nuages.Direction = new Vector2(-1, 0);
             nuages.Vitesse = 0.1f; // 1f = 1000 px/sec
-            mouse = new AnimatedSprite(new Rectangle(-100, -100, 40, 65), windowSize, 5, 2, 25);
+            mouse = new AnimatedSprite(new Rectangle(-100, -100, 60, 80), windowSize, 20,3, 45);
             relativeAmplitudeVibrationSelection = (float)amplitudeVibrationSelection / (float)(windowHeight + windowWidth);
             sprites = new List<AnimatedSprite>();
 
@@ -60,7 +60,7 @@ namespace TRODS
             wallpaper.LoadContent(content, "wallpaper");
             wallpaperText.LoadContent(content, "menuWallpaperText");
             nuages.LoadContent(content, "nuages2");
-            mouse.LoadContent(content, "cursor2");
+            mouse.LoadContent(content, "cursor3");
             cursorClic = content.Load<Texture2D>("cursorClic");
             selectionChangeSon = content.Load<SoundEffect>("menuSelectionSound");
             menuItems[Selection.Play].LoadContent(content, "menuTextPlay");

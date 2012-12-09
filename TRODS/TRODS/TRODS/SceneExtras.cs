@@ -42,7 +42,7 @@ namespace TRODS
             sprites = new List<AnimatedSprite>();
             textures = new List<Sprite>();
             tailleSelection = new Sprite(new Rectangle(0, 400, windowSize.Width, 85), windowSize);
-            mouse = new AnimatedSprite(new Rectangle(-100, -100, 40, 65), _windowSize, 5, 2, 25);
+            mouse = new AnimatedSprite(new Rectangle(-100, -100, 60, 80), _windowSize, 20, 3, 35);
 
             dimensions = new List<Dimension>();
             dimensions.Add(new Dimension(16, 11));
@@ -59,7 +59,7 @@ namespace TRODS
 
         public override void LoadContent(ContentManager content)
         {
-            mouse.LoadContent(content, "cursor2");
+            mouse.LoadContent(content, "cursor3");
             tailleSelection.LoadContent(content, "extraSize");
             for (int i = 0; i < 10; i++)
             {
