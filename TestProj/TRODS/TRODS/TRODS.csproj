@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <ProjectGuid>{3D97D240-9A55-4D64-8FE4-C73621EE2DD5}</ProjectGuid>
+    <ProjectGuid>{3E2904BA-A314-4C36-A825-DECCCC8E2D1F}</ProjectGuid>
     <ProjectTypeGuids>{6D335F3A-9D43-41b4-9D22-F6F17C4BE596};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
@@ -14,11 +14,10 @@
     <XnaFrameworkVersion>v4.0</XnaFrameworkVersion>
     <XnaPlatform>Windows</XnaPlatform>
     <XnaProfile>HiDef</XnaProfile>
-    <XnaCrossPlatformGroupID>3ca18ddf-f538-4bb2-97f9-a4caf1771850</XnaCrossPlatformGroupID>
+    <XnaCrossPlatformGroupID>e2308b58-2907-473e-b3c3-43935a7f385d</XnaCrossPlatformGroupID>
     <XnaOutputType>Game</XnaOutputType>
     <ApplicationIcon>TRODS.ico</ApplicationIcon>
-    <Thumbnail>
-    </Thumbnail>
+    <Thumbnail>GameThumbnail.png</Thumbnail>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -108,40 +107,23 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AbstractMap.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="AbstractScene.cs">
-      <SubType>Code</SubType>
-    </Compile>
+    <Compile Include="AbstractMap.cs" />
+    <Compile Include="AbstractScene.cs" />
     <Compile Include="AnimatedSprite.cs" />
-    <Compile Include="Enumerations.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Game1.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="InGame.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="MainMenu.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Program.cs">
-      <SubType>Code</SubType>
-    </Compile>
+    <Compile Include="Enumerations.cs" />
+    <Compile Include="InGame.cs" />
+    <Compile Include="MainMenu.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Game1.cs" />
     <Compile Include="SceneCredit.cs" />
     <Compile Include="SceneExtras.cs" />
-    <Compile Include="Sprite.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Tools.cs">
-      <SubType>Code</SubType>
-    </Compile>
+    <Compile Include="Sprite.cs" />
+    <Compile Include="Tools.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Game.ico" />
+    <Content Include="GameThumbnail.png" />
     <Content Include="TRODS.ico" />
   </ItemGroup>
   <ItemGroup>
@@ -153,12 +135,12 @@
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.0,Profile=Client">
       <Visible>False</Visible>
-      <ProductName>Microsoft .NET Framework 4 Client Profile %28x86 and x64%29</ProductName>
+      <ProductName>Microsoft .NET Framework 4 Client Profile %28x86 et x64%29</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
       <Visible>False</Visible>
-      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
     <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
@@ -168,7 +150,7 @@
     </BootstrapperPackage>
     <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
       <Visible>False</Visible>
-      <ProductName>Windows Installer 3.1</ProductName>
+      <ProductName>Windows Installer 3.1</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
     <BootstrapperPackage Include="Microsoft.Xna.Framework.4.0">
