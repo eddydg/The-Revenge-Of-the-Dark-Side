@@ -31,12 +31,14 @@ namespace TRODS
             Content.RootDirectory = "Content";
 
             this.Window.AllowUserResizing = true;
-
+            Rectangle winsize = this.Window.ClientBounds;
 
             scenes = new Dictionary<Scene, AbstractScene>();
             currentScene = Scene.MainMenu;
-            scenes.Add(Scene.InGame, new InGame(this.Window.ClientBounds));
-            scenes.Add(Scene.MainMenu, new MainMenu(this.Window.ClientBounds));
+            scenes.Add(Scene.InGame, new InGame(winsize));
+            scenes.Add(Scene.MainMenu, new MainMenu(winsize));
+            scenes.Add(Scene.Extra, new SceneExtras(winsize));
+            scenes.Add(Scene.Credit, new SceneCredit(winsize));
         }
         protected override void Initialize()
         {
@@ -81,6 +83,7 @@ namespace TRODS
             }
             catch (Exception e)
             {
+                EugLib.FileStream.toStdOut("Erreur d'affichage :");
                 EugLib.FileStream.toStdOut(e.ToString());
                 this.Exit();
             }
@@ -89,11 +92,21 @@ namespace TRODS
         /// <summary>
         /// Changement de scene
         /// </summary>
-        /// <param name="s">Nouvelle scene</param>
-        public void SwitchScene(Scene s)
+        /// <param name="newScene">Nouvelle scene</param>
+        public void SwitchScene(Scene newScene)
         {
-            currentScene = s;
-            // Gestion des sauvegardes etc a implementer
+            try
+            {
+                scenes[currentScene].EndScene();
+                currentScene = newScene;
+                scenes[newScene].Activation();
+            }
+            catch (Exception e)
+            {
+                EugLib.FileStream.toStdOut("La scene n'est pas definie :");
+                EugLib.FileStream.toStdOut(e.ToString());
+                this.Exit();
+            }
         }
     }
 }

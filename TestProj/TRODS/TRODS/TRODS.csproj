@@ -131,6 +131,8 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SceneCredit.cs" />
+    <Compile Include="SceneExtras.cs" />
     <Compile Include="Sprite.cs">
       <SubType>Code</SubType>
     </Compile>
