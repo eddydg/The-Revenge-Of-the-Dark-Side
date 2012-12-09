@@ -1,3 +1,4 @@
+Content\menuSelectionSound.xnb
 Content\menuTextExit.xnb
 Content\menuTextPlay.xnb
 Content\menuWallpaperText.xnb
@@ -9,7 +10,6 @@ Content\nuages2.xnb
 Content\explosion1.xnb
 Content\explosion2.xnb
 Content\explosion3.xnb
-Content\menuSelectionSound.xnb
 Content\menuTextCredit.xnb
 Content\menuTextExtra.xnb
 Content\cursor1.xnb
