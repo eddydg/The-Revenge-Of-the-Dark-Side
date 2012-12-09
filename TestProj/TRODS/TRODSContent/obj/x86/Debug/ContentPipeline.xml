@@ -2,22 +2,13 @@
 <XnaContent xmlns:Pipeline="Microsoft.Xna.Framework.Content.Pipeline">
   <Asset Type="Pipeline:BuildItemCollection">
     <Item>
-      <Source>menuCursor.png</Source>
-      <Name>menuCursor</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\kuchera\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TestProj\TRODS\TRODS\bin\x86\Debug\Content\menuCursor.xnb</Output>
-      <Time>2012-12-07T14:34:52.7672969+01:00</Time>
-    </Item>
-    <Item>
       <Source>menuTextExit.png</Source>
       <Name>menuTextExit</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\kuchera\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TestProj\TRODS\TRODS\bin\x86\Debug\Content\menuTextExit.xnb</Output>
-      <Time>2012-12-07T14:34:52.7672969+01:00</Time>
+      <Output>C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menuTextExit.xnb</Output>
+      <Time>2012-12-08T22:14:37.8892765+01:00</Time>
     </Item>
     <Item>
       <Source>menuTextPlay.png</Source>
@@ -25,8 +16,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\kuchera\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TestProj\TRODS\TRODS\bin\x86\Debug\Content\menuTextPlay.xnb</Output>
-      <Time>2012-12-07T14:34:52.7682969+01:00</Time>
+      <Output>C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menuTextPlay.xnb</Output>
+      <Time>2012-12-08T22:14:37.8922765+01:00</Time>
     </Item>
     <Item>
       <Source>menuWallpaperText.png</Source>
@@ -34,8 +25,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\kuchera\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TestProj\TRODS\TRODS\bin\x86\Debug\Content\menuWallpaperText.xnb</Output>
-      <Time>2012-12-07T14:34:52.7682969+01:00</Time>
+      <Output>C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menuWallpaperText.xnb</Output>
+      <Time>2012-12-08T22:14:37.8942773+01:00</Time>
     </Item>
     <Item>
       <Source>wallpaper.png</Source>
@@ -43,17 +34,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\kuchera\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TestProj\TRODS\TRODS\bin\x86\Debug\Content\wallpaper.xnb</Output>
-      <Time>2012-12-07T14:34:52.7792975+01:00</Time>
-    </Item>
-    <Item>
-      <Source>nuages1.png</Source>
-      <Name>nuages1</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\kuchera\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TestProj\TRODS\TRODS\bin\x86\Debug\Content\nuages1.xnb</Output>
-      <Time>2012-12-07T14:34:52.7712971+01:00</Time>
+      <Output>C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\wallpaper.xnb</Output>
+      <Time>2012-12-08T22:14:37.9012789+01:00</Time>
     </Item>
     <Item>
       <Source>black.png</Source>
@@ -61,17 +43,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\kuchera\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TestProj\TRODS\TRODS\bin\x86\Debug\Content\black.xnb</Output>
-      <Time>2012-12-07T14:34:52.7672969+01:00</Time>
-    </Item>
-    <Item>
-      <Source>rayom.png</Source>
-      <Name>rayom</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\kuchera\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TestProj\TRODS\TRODS\bin\x86\Debug\Content\rayom.xnb</Output>
-      <Time>2012-12-07T14:34:52.7772974+01:00</Time>
+      <Output>C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\black.xnb</Output>
+      <Time>2012-12-08T22:14:37.843271+01:00</Time>
     </Item>
     <Item>
       <Source>nuages2.png</Source>
@@ -79,8 +52,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\kuchera\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TestProj\TRODS\TRODS\bin\x86\Debug\Content\nuages2.xnb</Output>
-      <Time>2012-12-07T14:34:52.7732972+01:00</Time>
+      <Output>C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\nuages2.xnb</Output>
+      <Time>2012-12-08T22:14:37.8962786+01:00</Time>
     </Item>
     <Item>
       <Source>explosion1.png</Source>
@@ -88,8 +61,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\kuchera\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TestProj\TRODS\TRODS\bin\x86\Debug\Content\explosion1.xnb</Output>
-      <Time>2012-12-07T23:09:07.9202846+01:00</Time>
+      <Output>C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\explosion1.xnb</Output>
+      <Time>2012-12-08T22:14:37.8762759+01:00</Time>
     </Item>
     <Item>
       <Source>explosion2.png</Source>
@@ -97,8 +70,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\kuchera\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TestProj\TRODS\TRODS\bin\x86\Debug\Content\explosion2.xnb</Output>
-      <Time>2012-12-07T23:59:29.4786314+01:00</Time>
+      <Output>C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\explosion2.xnb</Output>
+      <Time>2012-12-08T22:14:37.8812762+01:00</Time>
     </Item>
     <Item>
       <Source>explosion3.png</Source>
@@ -106,17 +79,62 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\kuchera\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TestProj\TRODS\TRODS\bin\x86\Debug\Content\explosion3.xnb</Output>
-      <Time>2012-12-07T23:59:29.4786314+01:00</Time>
+      <Output>C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\explosion3.xnb</Output>
+      <Time>2012-12-08T22:14:37.8832764+01:00</Time>
     </Item>
     <Item>
-      <Source>effet1.png</Source>
-      <Name>effet1</Name>
+      <Source>menuTextCredit.png</Source>
+      <Name>menuTextCredit</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\kuchera\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TestProj\TRODS\TRODS\bin\x86\Debug\Content\effet1.xnb</Output>
-      <Time>2012-12-08T00:31:14.2738583+01:00</Time>
+      <Output>C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menuTextCredit.xnb</Output>
+      <Time>2012-12-08T22:14:37.8872757+01:00</Time>
+    </Item>
+    <Item>
+      <Source>menuTextExtra.png</Source>
+      <Name>menuTextExtra</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menuTextExtra.xnb</Output>
+      <Time>2012-12-08T22:14:37.8902769+01:00</Time>
+    </Item>
+    <Item>
+      <Source>cursor1.png</Source>
+      <Name>cursor1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\cursor1.xnb</Output>
+      <Time>2012-12-08T22:14:37.8482712+01:00</Time>
+    </Item>
+    <Item>
+      <Source>cursor2.png</Source>
+      <Name>cursor2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\cursor2.xnb</Output>
+      <Time>2012-12-08T22:14:37.8492716+01:00</Time>
+    </Item>
+    <Item>
+      <Source>credit.png</Source>
+      <Name>credit</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\credit.xnb</Output>
+      <Time>2012-12-08T22:14:37.8452723+01:00</Time>
+    </Item>
+    <Item>
+      <Source>cursorClic.png</Source>
+      <Name>cursorClic</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\cursorClic.xnb</Output>
+      <Time>2012-12-08T22:14:37.865275+01:00</Time>
     </Item>
     <Item>
       <Source>menuSelectionSound.wma</Source>
@@ -124,8 +142,116 @@
       <Importer>WmaImporter</Importer>
       <Processor>SoundEffectProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\kuchera\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TestProj\TRODS\TRODS\bin\x86\Debug\Content\menuSelectionSound.xnb</Output>
-      <Time>2012-12-07T14:34:52.7672969+01:00</Time>
+      <Output>C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menuSelectionSound.xnb</Output>
+      <Time>2012-12-08T22:14:37.8862764+01:00</Time>
+    </Item>
+    <Item>
+      <Source>white.png</Source>
+      <Name>white</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\white.xnb</Output>
+      <Time>2012-12-08T22:21:05.424676+01:00</Time>
+    </Item>
+    <Item>
+      <Source>extra1.png</Source>
+      <Name>extra1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\extra1.xnb</Output>
+      <Time>2012-12-08T22:41:24.3130433+01:00</Time>
+    </Item>
+    <Item>
+      <Source>extra10.png</Source>
+      <Name>extra10</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\extra10.xnb</Output>
+      <Time>2012-12-08T22:41:24.3010431+01:00</Time>
+    </Item>
+    <Item>
+      <Source>extra2.png</Source>
+      <Name>extra2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\extra2.xnb</Output>
+      <Time>2012-12-08T22:41:24.3170443+01:00</Time>
+    </Item>
+    <Item>
+      <Source>extra3.png</Source>
+      <Name>extra3</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\extra3.xnb</Output>
+      <Time>2012-12-08T22:41:24.3250451+01:00</Time>
+    </Item>
+    <Item>
+      <Source>extra4.png</Source>
+      <Name>extra4</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\extra4.xnb</Output>
+      <Time>2012-12-08T22:41:24.3360466+01:00</Time>
+    </Item>
+    <Item>
+      <Source>extra5.png</Source>
+      <Name>extra5</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\extra5.xnb</Output>
+      <Time>2012-12-08T22:41:24.3440491+01:00</Time>
+    </Item>
+    <Item>
+      <Source>extra6.png</Source>
+      <Name>extra6</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\extra6.xnb</Output>
+      <Time>2012-12-08T22:41:24.276039+01:00</Time>
+    </Item>
+    <Item>
+      <Source>extra7.png</Source>
+      <Name>extra7</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\extra7.xnb</Output>
+      <Time>2012-12-08T22:41:24.281041+01:00</Time>
+    </Item>
+    <Item>
+      <Source>extra8.png</Source>
+      <Name>extra8</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\extra8.xnb</Output>
+      <Time>2012-12-08T22:41:24.285042+01:00</Time>
+    </Item>
+    <Item>
+      <Source>extra9.png</Source>
+      <Name>extra9</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\extra9.xnb</Output>
+      <Time>2012-12-08T22:41:24.2890424+01:00</Time>
+    </Item>
+    <Item>
+      <Source>extraSize.png</Source>
+      <Name>extraSize</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\extraSize.xnb</Output>
+      <Time>2012-12-08T22:41:24.3040426+01:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
@@ -133,39 +259,39 @@
       <TargetProfile>HiDef</TargetProfile>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>C:\Users\kuchera\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TestProj\TRODS\TRODSContent\</RootDirectory>
-      <LoggerRootDirectory>C:\Users\kuchera\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TestProj\TRODS\TRODS\</LoggerRootDirectory>
-      <IntermediateDirectory>C:\Users\kuchera\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TestProj\TRODS\TRODSContent\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>C:\Users\kuchera\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TestProj\TRODS\TRODS\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODSContent\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODSContent\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>
-        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>
-        <Value>2010-08-23T12:41:18+02:00</Value>
+        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>
+        <Value>2010-08-23T13:41:18+02:00</Value>
       </Assembly>
       <Assembly>
-        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.VideoImporters.dll</Key>
-        <Value>2010-08-23T12:41:18+02:00</Value>
+        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.VideoImporters.dll</Key>
+        <Value>2010-08-23T13:41:18+02:00</Value>
       </Assembly>
       <Assembly>
-        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.TextureImporter.dll</Key>
-        <Value>2010-08-23T12:41:18+02:00</Value>
+        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.TextureImporter.dll</Key>
+        <Value>2010-08-23T13:41:18+02:00</Value>
       </Assembly>
       <Assembly>
-        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.FBXImporter.dll</Key>
-        <Value>2010-08-23T12:41:18+02:00</Value>
+        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.FBXImporter.dll</Key>
+        <Value>2010-08-23T13:41:18+02:00</Value>
       </Assembly>
       <Assembly>
-        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.EffectImporter.dll</Key>
-        <Value>2010-08-23T12:41:18+02:00</Value>
+        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.EffectImporter.dll</Key>
+        <Value>2010-08-23T13:41:18+02:00</Value>
       </Assembly>
       <Assembly>
-        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.AudioImporters.dll</Key>
-        <Value>2010-08-23T12:41:18+02:00</Value>
+        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.AudioImporters.dll</Key>
+        <Value>2010-08-23T13:41:18+02:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\Windows\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
-        <Value>2011-08-03T17:33:58.6222029+02:00</Value>
+        <Value>2012-11-12T11:18:50.3900127+01:00</Value>
       </Assembly>
     </Assemblies>
   </Asset>

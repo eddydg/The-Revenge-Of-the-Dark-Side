@@ -8,22 +8,25 @@ using Microsoft.Xna.Framework.GamerServices;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
- 
+
 namespace TRODS
 {
     class MainMenu : AbstractScene
     {
+        private KeyboardState keyboardState;
+        private MouseState mousestate;
+
         private Sprite wallpaper;
         private Sprite wallpaperText;
         private Sprite nuages;
-        private Sprite mouse;
+        private AnimatedSprite mouse;
+        private List<AnimatedSprite> sprites;
+        private Texture2D cursorClic;
 
-        private KeyboardState keyboardState;
-        private MouseState mousestate;
         private SoundEffect selectionChangeSon;
         private Selection selection;
-        private enum Selection { Play = 0, Exit = 1 };
-        private List<Sprite> menuItems;
+        private enum Selection { Play = 0, Extra = 1, Exit = 2, Credit = 3 };
+        private Dictionary<Selection, Sprite> menuItems;
 
         private static Vector2 decalage = new Vector2(10, 0);
         private static int amplitudeVibrationSelection = 5;
@@ -38,15 +41,18 @@ namespace TRODS
             selection = Selection.Play;
             wallpaper = new Sprite(new Rectangle(0, 0, windowWidth, windowHeight), windowSize);
             wallpaperText = new Sprite(new Rectangle(0, 0, windowWidth, windowHeight), windowSize);
-            nuages = new Sprite(new Rectangle(0, 0, windowWidth*3, windowHeight), windowSize);
+            nuages = new Sprite(new Rectangle(0, 0, windowWidth * 3, windowHeight), windowSize);
             nuages.Direction = new Vector2(-1, 0);
             nuages.Vitesse = 0.1f; // 1f = 1000 px/sec
-            mouse = new Sprite(new Rectangle(-100, -100, 30,50));
+            mouse = new AnimatedSprite(new Rectangle(-100, -100, 40, 65), windowSize, 5, 2, 25);
             relativeAmplitudeVibrationSelection = (float)amplitudeVibrationSelection / (float)(windowHeight + windowWidth);
+            sprites = new List<AnimatedSprite>();
 
-            menuItems = new List<Sprite>();
-            menuItems.Add(new Sprite(new Rectangle(155, 400, 110, 55), windowSize)); // play
-            menuItems.Add(new Sprite(new Rectangle(507, 400, 90, 55), windowSize)); // exit
+            menuItems = new Dictionary<Selection, Sprite>();
+            menuItems.Add(Selection.Play, new Sprite(new Rectangle(150, 400, 110, 55), windowSize));
+            menuItems.Add(Selection.Extra, new Sprite(new Rectangle(215, 470, 110, 55), windowSize));
+            menuItems.Add(Selection.Exit, new Sprite(new Rectangle(490, 400, 90, 55), windowSize));
+            menuItems.Add(Selection.Credit, new Sprite(new Rectangle(560, 475, 110, 55), windowSize));
         }
 
         public override void LoadContent(ContentManager content)
@@ -54,10 +60,13 @@ namespace TRODS
             wallpaper.LoadContent(content, "wallpaper");
             wallpaperText.LoadContent(content, "menuWallpaperText");
             nuages.LoadContent(content, "nuages2");
-            mouse.LoadContent(content, "menuCursor");
+            mouse.LoadContent(content, "cursor2");
+            cursorClic = content.Load<Texture2D>("cursorClic");
             selectionChangeSon = content.Load<SoundEffect>("menuSelectionSound");
-            menuItems.ElementAt<Sprite>(0).LoadContent(content, "menuTextPlay");
-            menuItems.ElementAt<Sprite>(1).LoadContent(content, "menuTextExit");
+            menuItems[Selection.Play].LoadContent(content, "menuTextPlay");
+            menuItems[Selection.Extra].LoadContent(content, "menuTextExtra");
+            menuItems[Selection.Exit].LoadContent(content, "menuTextExit");
+            menuItems[Selection.Credit].LoadContent(content, "menuTextCredit");
         }
         public override void HandleInput(KeyboardState newKeyboardState, MouseState newMouseState, Game1 parent)
         {
@@ -103,19 +112,25 @@ namespace TRODS
 
                 if (mousestate != newMouseState)
                 {
+                    bool isClicked = newMouseState.LeftButton == ButtonState.Pressed && mousestate.LeftButton == ButtonState.Released;
                     mouse.Position = new Rectangle(newMouseState.X, newMouseState.Y, mouse.Position.Width, mouse.Position.Height);
                     int i = 0;
-                    foreach (Sprite st in menuItems)
+                    foreach (Sprite st in menuItems.Values)
                     {
                         if (st.Position.Intersects(new Rectangle(mouse.Position.X, mouse.Position.Y, 1, 1)))
                         {
                             if ((int)selection != i)
                                 selectionChangeSon.Play();
                             selection = (Selection)i;
-                            if (newMouseState.LeftButton == ButtonState.Pressed && mousestate.LeftButton == ButtonState.Released)
+                            if (isClicked)
                                 selectionEvent(parent);
                         }
                         i++;
+                    }
+                    if (isClicked)
+                    {
+                        sprites.Add(new AnimatedSprite(new Rectangle(newMouseState.X - windowWidth / 3 / 2, newMouseState.Y - windowHeight / 3 / 2, windowWidth / 3, windowHeight / 3), newWindowSize, 8, 5, 35));
+                        sprites.Last<AnimatedSprite>().LoadContent(cursorClic);
                     }
                 }
 
@@ -130,13 +145,22 @@ namespace TRODS
                 nuages.Position = new Rectangle(0, p.Y, p.Width, p.Height);
             else
                 nuages.Update(elapsedTime);
+            mouse.Update(elapsedTime);
+            for (int i = 0; i < sprites.Count; i++)
+            {
+                sprites.ElementAt<AnimatedSprite>(i).Update(elapsedTime);
+                if (sprites.ElementAt<AnimatedSprite>(i).IsEnd())
+                {
+                    sprites.RemoveAt(i);
+                    i--;
+                }
+            }
         }
         public override void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Begin();
-            int i = 0;
             wallpaper.Draw(spriteBatch);
-            
+
             Rectangle np = nuages.Position;
             nuages.Draw(spriteBatch);
             if (np.X + np.Width < windowWidth)
@@ -144,26 +168,37 @@ namespace TRODS
 
             wallpaperText.Draw(spriteBatch);
 
-            foreach (Sprite st in menuItems)
+            foreach (Sprite st in menuItems.Values)
             {
-                Rectangle p = st.Position;
-                if (i == (int)selection)
+                if (st == menuItems[selection])
                 {
+                    Rectangle p = st.Position;
                     st.Draw(spriteBatch, Color.Red,
                                     (int)(p.X + new Random().Next(-amplitudeVibrationSelection, amplitudeVibrationSelection) + decalage.X),
                                     (int)(p.Y + new Random().Next(-amplitudeVibrationSelection, amplitudeVibrationSelection) + decalage.Y));
                     st.Draw(spriteBatch, Color.Black, (int)(p.X + decalage.X), (int)(p.Y + decalage.Y));
                 }
-                else if (i == (int)selection - 1 || i == (int)selection + 1)
-                    st.Draw(spriteBatch, Color.Black, (int)(p.X + decalage.X / 4), (int)(p.Y + decalage.Y / 4));
                 else
                     st.Draw(spriteBatch, Color.Black);
-                i++;
             }
 
-            spriteBatch.Draw(mouse.Texture, mouse.Position, Color.White);
+            foreach (AnimatedSprite p in sprites)
+                p.Draw(spriteBatch);
+
+            mouse.Draw(spriteBatch);
 
             spriteBatch.End();
+        }
+
+        public override void Activation()
+        {
+            mousestate = Mouse.GetState();
+            sprites.Clear();
+            mouse.Position = new Rectangle(-100, -100, mouse.Position.Width, mouse.Position.Height);
+        }
+
+        public override void EndScene()
+        {
         }
 
         /// <summary>
@@ -181,6 +216,12 @@ namespace TRODS
                 case Selection.Play:
                     parent.SwitchScene(Scene.InGame);
                     break;
+                case Selection.Extra:
+                    parent.SwitchScene(Scene.Extra);
+                    break;
+                case Selection.Credit:
+                    parent.SwitchScene(Scene.Credit);
+                    break;
             }
         }
         /// <summary>
@@ -191,14 +232,16 @@ namespace TRODS
         private void windowResized(Rectangle rect)
         {
             wallpaper.windowResized(rect);
-            foreach (Sprite s in menuItems)
+            foreach (Sprite s in menuItems.Values)
                 s.windowResized(rect);
             wallpaperText.windowResized(rect);
             nuages.windowResized(rect);
             windowWidth = rect.Width;
             windowHeight = rect.Height;
             amplitudeVibrationSelection = (int)(relativeAmplitudeVibrationSelection * (windowWidth + windowHeight));
-            // La souris n'est pas redimensionnee
+            mouse.windowResized(rect);
+            foreach (AnimatedSprite p in sprites)
+                p.windowResized(rect);
         }
     }
 }

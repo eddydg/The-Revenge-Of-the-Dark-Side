@@ -1,143 +1,21 @@
 
 Loading ressources error.
-System.NullReferenceException: La référence d'objet n'est pas définie à une instance d'un objet.
-   à TRODS.Map1.LoadContent(ContentManager content) dans C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\Map1.cs:ligne 22
-   à TRODS.InGame.LoadContent(ContentManager content) dans C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\InGame.cs:ligne 36
-   à TRODS.Game1.LoadContent() dans C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\Game1.cs:ligne 51
-System.InvalidOperationException: Begin cannot be called again until End has been successfully called.
-   à Microsoft.Xna.Framework.Graphics.SpriteBatch.Begin(SpriteSortMode sortMode, BlendState blendState, SamplerState samplerState, DepthStencilState depthStencilState, RasterizerState rasterizerState, Effect effect, Matrix transformMatrix)
-   à Microsoft.Xna.Framework.Graphics.SpriteBatch.Begin()
-   à TRODS.AbstractMap.Draw(SpriteBatch spriteBatch) dans C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\AbstractMap.cs:ligne 120
-   à TRODS.InGame.Draw(SpriteBatch spriteBatch) dans C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\InGame.cs:ligne 43
-   à TRODS.Game1.Draw(GameTime gameTime) dans C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\Game1.cs:ligne 80
-System.InvalidOperationException: Begin cannot be called again until End has been successfully called.
-   à Microsoft.Xna.Framework.Graphics.SpriteBatch.Begin(SpriteSortMode sortMode, BlendState blendState, SamplerState samplerState, DepthStencilState depthStencilState, RasterizerState rasterizerState, Effect effect, Matrix transformMatrix)
-   à Microsoft.Xna.Framework.Graphics.SpriteBatch.Begin()
-   à TRODS.AbstractMap.Draw(SpriteBatch spriteBatch) dans C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\AbstractMap.cs:ligne 120
-   à TRODS.InGame.Draw(SpriteBatch spriteBatch) dans C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\InGame.cs:ligne 43
-   à TRODS.Game1.Draw(GameTime gameTime) dans C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\Game1.cs:ligne 80
-System.InvalidOperationException: Begin cannot be called again until End has been successfully called.
-   à Microsoft.Xna.Framework.Graphics.SpriteBatch.Begin(SpriteSortMode sortMode, BlendState blendState, SamplerState samplerState, DepthStencilState depthStencilState, RasterizerState rasterizerState, Effect effect, Matrix transformMatrix)
-   à Microsoft.Xna.Framework.Graphics.SpriteBatch.Begin()
-   à TRODS.AbstractMap.Draw(SpriteBatch spriteBatch) dans C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\AbstractMap.cs:ligne 120
-   à TRODS.InGame.Draw(SpriteBatch spriteBatch) dans C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\InGame.cs:ligne 43
-   à TRODS.Game1.Draw(GameTime gameTime) dans C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\Game1.cs:ligne 80
-System.NullReferenceException: La référence d'objet n'est pas définie à une instance d'un objet.
-   à TRODS.AbstractMap.DrawForeground(SpriteBatch spriteBatch) dans C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\AbstractMap.cs:ligne 171
-   à TRODS.AbstractMap.Draw(SpriteBatch spriteBatch) dans C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\AbstractMap.cs:ligne 121
-   à TRODS.InGame.Draw(SpriteBatch spriteBatch) dans C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\InGame.cs:ligne 43
-   à TRODS.Game1.Draw(GameTime gameTime) dans C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\Game1.cs:ligne 80
-System.InvalidOperationException: Begin cannot be called again until End has been successfully called.
-   à Microsoft.Xna.Framework.Graphics.SpriteBatch.Begin(SpriteSortMode sortMode, BlendState blendState, SamplerState samplerState, DepthStencilState depthStencilState, RasterizerState rasterizerState, Effect effect, Matrix transformMatrix)
-   à Microsoft.Xna.Framework.Graphics.SpriteBatch.Begin()
-   à TRODS.AbstractMap.Draw(SpriteBatch spriteBatch) dans C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\AbstractMap.cs:ligne 125
-   à TRODS.InGame.Draw(SpriteBatch spriteBatch) dans C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\InGame.cs:ligne 43
-   à TRODS.Game1.Draw(GameTime gameTime) dans C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\Game1.cs:ligne 80
-System.ArgumentNullException: This method does not accept null for this parameter.
-Nom du paramètre : texture
-   à Microsoft.Xna.Framework.Graphics.SpriteBatch.InternalDraw(Texture2D texture, Vector4& destination, Boolean scaleDestination, Nullable`1& sourceRectangle, Color color, Single rotation, Vector2& origin, SpriteEffects effects, Single depth)
-   à Microsoft.Xna.Framework.Graphics.SpriteBatch.Draw(Texture2D texture, Rectangle destinationRectangle, Color color)
-   à TRODS.Sprite.Draw(SpriteBatch spriteBatch) dans C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\Sprite.cs:ligne 109
-   à TRODS.AbstractMap.DrawMainground(SpriteBatch spriteBatch) dans C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\AbstractMap.cs:ligne 166
-   à TRODS.AbstractMap.Draw(SpriteBatch spriteBatch) dans C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\AbstractMap.cs:ligne 127
-   à TRODS.InGame.Draw(SpriteBatch spriteBatch) dans C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\InGame.cs:ligne 43
-   à TRODS.Game1.Draw(GameTime gameTime) dans C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\Game1.cs:ligne 80
-System.ArgumentNullException: This method does not accept null for this parameter.
-Nom du paramètre : texture
-   à Microsoft.Xna.Framework.Graphics.SpriteBatch.InternalDraw(Texture2D texture, Vector4& destination, Boolean scaleDestination, Nullable`1& sourceRectangle, Color color, Single rotation, Vector2& origin, SpriteEffects effects, Single depth)
-   à Microsoft.Xna.Framework.Graphics.SpriteBatch.Draw(Texture2D texture, Rectangle destinationRectangle, Color color)
-   à TRODS.Sprite.Draw(SpriteBatch spriteBatch) dans C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\Sprite.cs:ligne 109
-   à TRODS.AbstractMap.DrawMainground(SpriteBatch spriteBatch) dans C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\AbstractMap.cs:ligne 166
-   à TRODS.AbstractMap.Draw(SpriteBatch spriteBatch) dans C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\AbstractMap.cs:ligne 127
-   à TRODS.InGame.Draw(SpriteBatch spriteBatch) dans C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\InGame.cs:ligne 43
-   à TRODS.Game1.Draw(GameTime gameTime) dans C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\Game1.cs:ligne 80
-System.InvalidOperationException: Begin must be called successfully before a Draw can be called.
-   à Microsoft.Xna.Framework.Graphics.SpriteBatch.InternalDraw(Texture2D texture, Vector4& destination, Boolean scaleDestination, Nullable`1& sourceRectangle, Color color, Single rotation, Vector2& origin, SpriteEffects effects, Single depth)
-   à Microsoft.Xna.Framework.Graphics.SpriteBatch.Draw(Texture2D texture, Rectangle destinationRectangle, Color color)
-   à TRODS.Sprite.Draw(SpriteBatch spriteBatch) dans C:\Users\kuchera\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\Sprite.cs:ligne 97
-   à TRODS.AbstractMap.DrawMainground(SpriteBatch spriteBatch) dans C:\Users\kuchera\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\AbstractMap.cs:ligne 162
-   à TRODS.AbstractMap.Draw(SpriteBatch spriteBatch) dans C:\Users\kuchera\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\AbstractMap.cs:ligne 126
-   à TRODS.InGame.Draw(SpriteBatch spriteBatch) dans C:\Users\kuchera\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\InGame.cs:ligne 41
-   à TRODS.Game1.Draw(GameTime gameTime) dans C:\Users\kuchera\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\Game1.cs:ligne 80
-0
-16,6667
-16,6667
-16,6667
-16,6667
-16,6667
-16,6667
-16,6667
-16,6667
-16,6667
-16,6667
-16,6667
-16,6667
-16,6667
-16,6667
-16,6667
-16,6667
-16,6667
-16,6667
-16,6667
-16,6667
-16,6667
-16,6667
-16,6667
-16,6667
-16,6667
-16,6667
-16,6667
-16,6667
-16,6667
-16,6667
-16,6667
-16,6667
-16,6667
-16,6667
-16,6667
-16,6667
-16,6667
-16,6667
-16,6667
-16,6667
-16,6667
-16,6667
-16,6667
-16,6667
-16,6667
-16,6667
-16,6667
-16,6667
-16,6667
-16,6667
-16,6667
-16,6667
-16,6667
-16,6667
-16,6667
-16,6667
-16,6667
-16,6667
-16,6667
-16,6667
-16,6667
-16,6667
-16,6667
-16,6667
-16,6667
-16,6667
-16,6667
-16,6667
-16,6667
-16,6667
-16,6667
-16,6667
-16,6667
-16,6667
-16,6667
-System.InvalidOperationException: Begin must be called successfully before a Draw can be called.
-   à Microsoft.Xna.Framework.Graphics.SpriteBatch.InternalDraw(Texture2D texture, Vector4& destination, Boolean scaleDestination, Nullable`1& sourceRectangle, Color color, Single rotation, Vector2& origin, SpriteEffects effects, Single depth)
-   à Microsoft.Xna.Framework.Graphics.SpriteBatch.Draw(Texture2D texture, Rectangle destinationRectangle, Nullable`1 sourceRectangle, Color color)
-   à TRODS.AnimatedSprite.Draw(SpriteBatch spriteBatch) dans C:\Users\kuchera\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\AnimatedSprite.cs:ligne 69
-   à TRODS.InGame.Draw(SpriteBatch spriteBatch) dans C:\Users\kuchera\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\InGame.cs:ligne 41
-   à TRODS.Game1.Draw(GameTime gameTime) dans C:\Users\kuchera\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\Game1.cs:ligne 80
+Microsoft.Xna.Framework.Content.ContentLoadException: Error loading "menuSelectionSound". File contains Microsoft.Xna.Framework.Media.Song but trying to load as Microsoft.Xna.Framework.Audio.SoundEffect.
+   à Microsoft.Xna.Framework.Content.ContentReader.InvokeReader[T](ContentTypeReader reader, Object existingInstance)
+   à Microsoft.Xna.Framework.Content.ContentReader.ReadObjectInternal[T](Object existingInstance)
+   à Microsoft.Xna.Framework.Content.ContentReader.ReadObject[T]()
+   à Microsoft.Xna.Framework.Content.ContentReader.ReadAsset[T]()
+   à Microsoft.Xna.Framework.Content.ContentManager.ReadAsset[T](String assetName, Action`1 recordDisposableObject)
+   à Microsoft.Xna.Framework.Content.ContentManager.Load[T](String assetName)
+   à TRODS.MainMenu.LoadContent(ContentManager content) dans C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\MainMenu.cs:ligne 65
+   à TRODS.Game1.LoadContent() dans C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\Game1.cs:ligne 53
+Loading ressources error.
+Microsoft.Xna.Framework.Content.ContentLoadException: Error loading "extra0". File not found. ---> System.IO.FileNotFoundException: Error loading "Content\extra0.xnb". File not found.
+   à Microsoft.Xna.Framework.TitleContainer.OpenStream(String name)
+   à Microsoft.Xna.Framework.Content.ContentManager.OpenStream(String assetName)
+   --- Fin de la trace de la pile d'exception interne ---
+   à Microsoft.Xna.Framework.Content.ContentManager.OpenStream(String assetName)
+   à Microsoft.Xna.Framework.Content.ContentManager.ReadAsset[T](String assetName, Action`1 recordDisposableObject)
+   à Microsoft.Xna.Framework.Content.ContentManager.Load[T](String assetName)
+   à TRODS.SceneExtras.LoadContent(ContentManager content) dans C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\SceneExtras.cs:ligne 41
+   à TRODS.Game1.LoadContent() dans C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\Game1.cs:ligne 53

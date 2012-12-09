@@ -146,6 +146,16 @@ namespace TRODS
         /// </summary>
         /// <param name="spriteBatch">Gestionnaire de dessin XNA</param>
         /// <param name="color">Coloration de la texture</param>
+        /// <param name="pos">Posion de la texture a l'ecran</param>
+        public virtual void Draw(SpriteBatch spriteBatch, Color color)
+        {
+            spriteBatch.Draw(Texture, _position, color);
+        }
+        /// <summary>
+        /// Dessine le Sprite avec des parametres specfiques
+        /// </summary>
+        /// <param name="spriteBatch">Gestionnaire de dessin XNA</param>
+        /// <param name="color">Coloration de la texture</param>
         /// <param name="rotate">Angle de rotation en radians</param>
         /// <param name="origin">Origine de la rotation</param>
         /// <param name="alpha">Transparente alpha (0:transparent - 255:opaque)</param>

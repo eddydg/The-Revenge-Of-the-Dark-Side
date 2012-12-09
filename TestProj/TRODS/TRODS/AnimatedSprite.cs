@@ -13,23 +13,11 @@ namespace TRODS
         public int Colonnes { get; set; }
         public int Speed { get; set; }
 
-        public int ActualPicture { get; set; }
-        public int FirstPicture { get; set; }
-        public int LastPicture { get; set; }
+        private int ActualPicture;
+        private int FirstPicture;
+        private int LastPicture;
 
         private int _elapsedTime;
-
-
-        public AnimatedSprite(Rectangle position, Rectangle windowSize, int nbColonnes = 1, int nbLignes = 1, int vitesse = 0) :
-            base (position,windowSize)
-        {
-            Lignes = nbLignes;
-            Colonnes = nbColonnes;
-            Speed = vitesse;
-            SetPictureBounds(1, nbLignes * nbColonnes);
-            _elapsedTime = 0;
-            Position = position;
-        }
 
         /// <summary>
         /// constructeur avancée de la classe AnimatedSprite.
@@ -40,13 +28,13 @@ namespace TRODS
         /// <param name="vitesse">vitesse d'animation en images/secondes</param>
         /// <param name="first">numéro de la première image de l'animation dans la sprite</param>
         /// <param name="last">numéro de la dernière image de l'animation dans la sprite</param>
-        public AnimatedSprite(Rectangle position, Rectangle windowSize, int nbColonnes, int nbLignes, int vitesse, int first, int last) :
+        public AnimatedSprite(Rectangle position, Rectangle windowSize, int nbColonnes, int nbLignes, int vitesse, int first=1, int last = -1, int beginning = -1) :
             base(position, windowSize)
         {
             Lignes = nbLignes;
             Colonnes = nbColonnes;
             Speed = vitesse;
-            SetPictureBounds(first, last);
+            SetPictureBounds(first, last, beginning);
             _elapsedTime = 0;
             Position = position;
         }
@@ -67,8 +55,8 @@ namespace TRODS
         public override void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Draw(Texture, Position,
-                            new Rectangle(ActualPicture % Colonnes * Texture.Width / Colonnes,
-                                          ActualPicture / Colonnes * Texture.Height / Lignes,
+                            new Rectangle((ActualPicture-1) % Colonnes * Texture.Width / Colonnes,
+                                          (ActualPicture-1) / Colonnes * Texture.Height / Lignes,
                                           Texture.Width / Colonnes,
                                           Texture.Height / Lignes), Color.White);
         }
@@ -77,8 +65,8 @@ namespace TRODS
         {
             spriteBatch.Draw(Texture,
                             new Rectangle((int)location.X, (int)location.Y, Position.Width, Position.Height),
-                            new Rectangle(ActualPicture % Colonnes * Texture.Width / Colonnes,
-                                          ActualPicture / Colonnes * Texture.Height / Lignes,
+                            new Rectangle((ActualPicture-1) % Colonnes * Texture.Width / Colonnes,
+                                          (ActualPicture-1) / Colonnes * Texture.Height / Lignes,
                                           Texture.Width / Colonnes,
                                           Texture.Height / Lignes), Color.White);
         }
@@ -88,19 +76,24 @@ namespace TRODS
         /// </summary>
         /// <param name="first">Premiere image</param>
         /// <param name="last">Derniere image</param>
-        public void SetPictureBounds(int first, int last)
+        /// <param name="beginning">Image de debut de l'annimation</param>
+        public void SetPictureBounds(int first, int last, int beginning=-1)
         {
-            if (first > 0)
-                FirstPicture = first;
-            else
-                FirstPicture = 1;
-
-            if (last >= first && last <= Lignes * Colonnes)
+            if (last > 0 && last <= Lignes * Colonnes)
                 LastPicture = last;
             else
                 LastPicture = Lignes * Colonnes;
 
-            ActualPicture = FirstPicture - 1;
+            if (first > 0 && first < LastPicture)
+                FirstPicture = first;
+            else
+                FirstPicture = LastPicture;
+
+            if (beginning > 0 && beginning < LastPicture)
+                ActualPicture = beginning;
+            else
+                ActualPicture = FirstPicture;
+
             _elapsedTime = 0;
         }
 
@@ -115,9 +108,9 @@ namespace TRODS
         }
 
         /// <summary>
-        /// Renvoie true si 
+        /// Renvoie true si l'animation est a la derniere image
         /// </summary>
-        /// <returns></returns>
+        /// <returns>bool</returns>
         public bool IsEnd()
         {
             return ActualPicture == LastPicture;
