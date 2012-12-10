@@ -44,7 +44,7 @@ namespace TRODS
             nuages = new Sprite(new Rectangle(0, 0, windowWidth * 3, windowHeight), windowSize);
             nuages.Direction = new Vector2(-1, 0);
             nuages.Vitesse = 0.1f; // 1f = 1000 px/sec
-            mouse = new AnimatedSprite(new Rectangle(-100, -100, 60, 80), windowSize, 20,3, 45);
+            mouse = new AnimatedSprite(new Rectangle(-100, -100, 80, 100), windowSize, 8, 4, 40);
             relativeAmplitudeVibrationSelection = (float)amplitudeVibrationSelection / (float)(windowHeight + windowWidth);
             sprites = new List<AnimatedSprite>();
 

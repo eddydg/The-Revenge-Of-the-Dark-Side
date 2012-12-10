@@ -42,7 +42,7 @@ namespace TRODS
             sprites = new List<AnimatedSprite>();
             textures = new List<Sprite>();
             tailleSelection = new Sprite(new Rectangle(0, 400, windowSize.Width, 85), windowSize);
-            mouse = new AnimatedSprite(new Rectangle(-100, -100, 60, 80), _windowSize, 20, 3, 35);
+            mouse = new AnimatedSprite(new Rectangle(-100, -100, 60, 80), _windowSize, 8,4, 30);
 
             dimensions = new List<Dimension>();
             dimensions.Add(new Dimension(16, 11));
@@ -51,7 +51,7 @@ namespace TRODS
             dimensions.Add(new Dimension(8,6));
             dimensions.Add(new Dimension(8,8));
             dimensions.Add(new Dimension(16,13));
-            dimensions.Add(new Dimension(8,4));
+            dimensions.Add(new Dimension(11,6));
             dimensions.Add(new Dimension(8,4));
             dimensions.Add(new Dimension(8,4));
             dimensions.Add(new Dimension(8,8));
