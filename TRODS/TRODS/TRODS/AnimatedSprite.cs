@@ -16,7 +16,7 @@ namespace TRODS
         private int ActualPicture;
         private int FirstPicture;
         private int LastPicture;
-
+        private bool _repeating;
         private int _elapsedTime;
 
         /// <summary>
@@ -28,7 +28,7 @@ namespace TRODS
         /// <param name="vitesse">vitesse d'animation en images/secondes</param>
         /// <param name="first">numéro de la première image de l'animation dans la sprite</param>
         /// <param name="last">numéro de la dernière image de l'animation dans la sprite</param>
-        public AnimatedSprite(Rectangle position, Rectangle windowSize, int nbColonnes, int nbLignes, int vitesse, int first=1, int last = -1, int beginning = -1) :
+        public AnimatedSprite(Rectangle position, Rectangle windowSize, int nbColonnes, int nbLignes, int vitesse, int first=1, int last = -1, int beginning = -1, bool repeating = false) :
             base(position, windowSize)
         {
             Lignes = nbLignes;
@@ -36,6 +36,7 @@ namespace TRODS
             Speed = vitesse;
             SetPictureBounds(first, last, beginning);
             _elapsedTime = 0;
+            _repeating = repeating;
             Position = position;
         }
 
@@ -45,7 +46,9 @@ namespace TRODS
             if (Speed > 0 && _elapsedTime >= 1000 / Speed)
             {
                 _elapsedTime = 0;
-                if (ActualPicture >= LastPicture)
+                if (_repeating && ActualPicture >= LastPicture)
+                    ActualPicture = FirstPicture;
+                else if (ActualPicture >= Lignes*Colonnes)
                     ActualPicture = FirstPicture;
                 else
                     ActualPicture++;
@@ -77,7 +80,7 @@ namespace TRODS
         /// <param name="first">Premiere image</param>
         /// <param name="last">Derniere image</param>
         /// <param name="beginning">Image de debut de l'annimation</param>
-        public void SetPictureBounds(int first, int last, int beginning=-1)
+        public void SetPictureBounds(int first, int last, int beginning=-1, bool repeating=false)
         {
             if (last > 0 && last <= Lignes * Colonnes)
                 LastPicture = last;
@@ -113,7 +116,7 @@ namespace TRODS
         /// <returns>bool</returns>
         public bool IsEnd()
         {
-            return ActualPicture == LastPicture;
+            return ActualPicture == LastPicture || ActualPicture == Lignes * Colonnes;
         }
 
         /// <summary>
