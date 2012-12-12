@@ -72,12 +72,33 @@ namespace TRODS
         }
 
         /// <summary>
+        /// Constructeur de copie
+        /// </summary>
+        /// <param name="s">Sprite a copier</param>
+        public Sprite(Sprite s)
+        {
+            AssetName = s.AssetName;
+            Texture = s.Texture;
+            _position = s.Position;
+            Direction = s.Direction;
+            _vitesse = s.Vitesse;
+            _isRelativePos = s._isRelativePos;
+            _relativePosX = s._relativePosY;
+            _relativePosY = s._relativePosY;
+            _relativeWidth = s._relativeWidth;
+            _relativeHeight = s._relativeHeight;
+            _relativeSpeed = s._relativeSpeed;
+        }
+
+        /// <summary>
         /// Chargement de la texture
         /// </summary>
         /// <param name="content">Gertionnaire de contenu de XNA</param>
         /// <param name="assetName">Nom de la texture</param>
-        public virtual void LoadContent(ContentManager content, string assetName)
+        public virtual void LoadContent(ContentManager content, string assetName="")
         {
+            if (assetName == "")
+                assetName = AssetName;
             Texture = content.Load<Texture2D>(assetName);
         }
         /// <summary>

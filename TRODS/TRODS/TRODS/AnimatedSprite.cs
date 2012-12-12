@@ -13,7 +13,7 @@ namespace TRODS
         public int Colonnes { get; set; }
         public int Speed { get; set; }
 
-        private int ActualPicture;
+        public int ActualPicture { get; set; }
         private int FirstPicture;
         private int LastPicture;
         private bool _repeating;
@@ -31,7 +31,7 @@ namespace TRODS
         /// <param name="last"></param>
         /// <param name="beginning"></param>
         /// <param name="repeating"></param>
-        public AnimatedSprite(Rectangle position, Rectangle windowSize, int nbColonnes, int nbLignes, int vitesse, int first=1, int last = -1, int beginning = -1, bool repeating = false) :
+        public AnimatedSprite(Rectangle position, Rectangle windowSize, int nbColonnes, int nbLignes, int vitesse = 30, int first = 1, int last = -1, int beginning = -1, bool repeating = false) :
             base(position, windowSize)
         {
             Lignes = nbLignes;
@@ -43,8 +43,8 @@ namespace TRODS
             Position = position;
         }
 
-        public AnimatedSprite(Rectangle position, Rectangle windowSize, string assetName, int nbColonnes, int nbLignes, int vitesse, int first = 1, int last = -1, int beginning = -1, bool repeating = false) :
-            base(position, windowSize)
+        public AnimatedSprite(Rectangle position, Rectangle windowSize, string assetName, int nbColonnes, int nbLignes, int vitesse = 30, int first = 1, int last = -1, int beginning = -1, bool repeating = false) :
+            base(position, windowSize, assetName)
         {
             Lignes = nbLignes;
             Colonnes = nbColonnes;
@@ -53,6 +53,18 @@ namespace TRODS
             _elapsedTime = 0;
             _repeating = repeating;
             Position = position;
+        }
+
+        public AnimatedSprite(AnimatedSprite s) :
+            base((Sprite)s)
+        {
+            Lignes = s.Lignes;
+            Colonnes = s.Colonnes;
+            ActualPicture = s.ActualPicture;
+            FirstPicture = s.FirstPicture;
+            LastPicture = s.LastPicture;
+            _repeating = s._repeating;
+            _elapsedTime = s._elapsedTime;
         }
 
         public override void Update(float elapsedTime)
@@ -63,7 +75,7 @@ namespace TRODS
                 _elapsedTime = 0;
                 if (_repeating && ActualPicture >= LastPicture)
                     ActualPicture = FirstPicture;
-                else if (ActualPicture >= Lignes*Colonnes)
+                else if (ActualPicture >= Lignes * Colonnes)
                     ActualPicture = FirstPicture;
                 else
                     ActualPicture++;
@@ -73,8 +85,8 @@ namespace TRODS
         public override void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Draw(Texture, Position,
-                            new Rectangle((ActualPicture-1) % Colonnes * Texture.Width / Colonnes,
-                                          (ActualPicture-1) / Colonnes * Texture.Height / Lignes,
+                            new Rectangle((ActualPicture - 1) % Colonnes * Texture.Width / Colonnes,
+                                          (ActualPicture - 1) / Colonnes * Texture.Height / Lignes,
                                           Texture.Width / Colonnes,
                                           Texture.Height / Lignes), Color.White);
         }
@@ -83,8 +95,8 @@ namespace TRODS
         {
             spriteBatch.Draw(Texture,
                             new Rectangle((int)location.X, (int)location.Y, Position.Width, Position.Height),
-                            new Rectangle((ActualPicture-1) % Colonnes * Texture.Width / Colonnes,
-                                          (ActualPicture-1) / Colonnes * Texture.Height / Lignes,
+                            new Rectangle((ActualPicture - 1) % Colonnes * Texture.Width / Colonnes,
+                                          (ActualPicture - 1) / Colonnes * Texture.Height / Lignes,
                                           Texture.Width / Colonnes,
                                           Texture.Height / Lignes), Color.White);
         }
@@ -95,7 +107,7 @@ namespace TRODS
         /// <param name="first">Premiere image</param>
         /// <param name="last">Derniere image</param>
         /// <param name="beginning">Image de debut de l'annimation</param>
-        public void SetPictureBounds(int first, int last, int beginning=-1, bool repeating=false)
+        public void SetPictureBounds(int first, int last, int beginning = -1, bool repeating = false)
         {
             if (last > 0 && last <= Lignes * Colonnes)
                 LastPicture = last;
@@ -131,7 +143,10 @@ namespace TRODS
         /// <returns>bool</returns>
         public bool IsEnd()
         {
-            return ActualPicture == LastPicture || ActualPicture == Lignes * Colonnes;
+            if (_repeating)
+                return ActualPicture == LastPicture || ActualPicture == Lignes * Colonnes;
+            else
+                return ActualPicture == Lignes * Colonnes;
         }
 
         /// <summary>

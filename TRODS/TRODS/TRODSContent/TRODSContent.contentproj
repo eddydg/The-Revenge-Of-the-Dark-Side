@@ -41,7 +41,6 @@
       <Private>False</Private>
     </Reference>
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <Compile Include="general\black.png">
       <Name>black</Name>
@@ -122,11 +121,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="sprites\canalisation1_11x6.png">
-      <Name>canalisation1_11x6</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
     <Compile Include="sprites\cursorFire_8x4r.png">
       <Name>cursorFire_8x4r</Name>
       <Importer>TextureImporter</Importer>
@@ -162,13 +156,22 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="sprites\popGreen_8x3.png">
-      <Name>popGreen_8x3</Name>
+    <Compile Include="sprites\spriteElectric_11x3r12r23.png">
+      <Name>spriteElectric_11x3r12r23</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="sprites\spriteElectric_11x3r12r23.png">
-      <Name>spriteElectric_11x3r12r23</Name>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="sprites\canalisation1_16x13.png">
+      <Name>canalisation1_16x13</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="sprites\popGreen_8x4.png">
+      <Name>popGreen_8x4</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>

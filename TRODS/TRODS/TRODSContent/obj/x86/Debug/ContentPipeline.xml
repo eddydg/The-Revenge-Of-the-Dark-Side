@@ -128,15 +128,6 @@
       <Time>2012-12-12T22:28:23.7295445+01:00</Time>
     </Item>
     <Item>
-      <Source>sprites\canalisation1_11x6.png</Source>
-      <Name>sprites\canalisation1_11x6</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\sprites\canalisation1_11x6.xnb</Output>
-      <Time>2012-12-12T22:28:48.964733+01:00</Time>
-    </Item>
-    <Item>
       <Source>sprites\cursorFire_8x4r.png</Source>
       <Name>sprites\cursorFire_8x4r</Name>
       <Importer>TextureImporter</Importer>
@@ -200,15 +191,6 @@
       <Time>2012-12-12T22:28:49.073746+01:00</Time>
     </Item>
     <Item>
-      <Source>sprites\popGreen_8x3.png</Source>
-      <Name>sprites\popGreen_8x3</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\sprites\popGreen_8x3.xnb</Output>
-      <Time>2012-12-12T22:28:49.0777476+01:00</Time>
-    </Item>
-    <Item>
       <Source>sprites\spriteElectric_11x3r12r23.png</Source>
       <Name>sprites\spriteElectric_11x3r12r23</Name>
       <Importer>TextureImporter</Importer>
@@ -225,6 +207,24 @@
       <Options>None</Options>
       <Output>C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\selectionSound.xnb</Output>
       <Time>2012-12-12T22:28:23.7145415+01:00</Time>
+    </Item>
+    <Item>
+      <Source>sprites\canalisation1_16x13.png</Source>
+      <Name>sprites\canalisation1_16x13</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\sprites\canalisation1_16x13.xnb</Output>
+      <Time>2012-12-12T23:15:11.339232+01:00</Time>
+    </Item>
+    <Item>
+      <Source>sprites\popGreen_8x4.png</Source>
+      <Name>sprites\popGreen_8x4</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\sprites\popGreen_8x4.xnb</Output>
+      <Time>2012-12-12T23:17:14.7558222+01:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
