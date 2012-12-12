@@ -33,7 +33,7 @@ namespace TRODS
 
         public override void LoadContent(ContentManager content)
         {
-            mouse.LoadContent(content, "cursor1");
+            mouse.LoadContent(content, "general/cursor1");
         }
 
         public override void Draw(SpriteBatch spriteBatch)

@@ -57,16 +57,16 @@ namespace TRODS
 
         public override void LoadContent(ContentManager content)
         {
-            wallpaper.LoadContent(content, "wallpaper");
-            wallpaperText.LoadContent(content, "menuWallpaperText");
-            nuages.LoadContent(content, "nuages2");
-            mouse.LoadContent(content, "cursor3");
-            cursorClic = content.Load<Texture2D>("cursorClic");
-            selectionChangeSon = content.Load<SoundEffect>("menuSelectionSound");
-            menuItems[Selection.Play].LoadContent(content, "menuTextPlay");
-            menuItems[Selection.Extra].LoadContent(content, "menuTextExtra");
-            menuItems[Selection.Exit].LoadContent(content, "menuTextExit");
-            menuItems[Selection.Credit].LoadContent(content, "menuTextCredit");
+            wallpaper.LoadContent(content, "menu/wallpaper");
+            wallpaperText.LoadContent(content, "menu/wallpaperText");
+            nuages.LoadContent(content, "general/nuages0");
+            mouse.LoadContent(content, "menu/cursor0_8x4r");
+            cursorClic = content.Load<Texture2D>("menu/onde_8x4");
+            selectionChangeSon = content.Load<SoundEffect>("menu/selectionSound");
+            menuItems[Selection.Play].LoadContent(content, "menu/textPlay");
+            menuItems[Selection.Extra].LoadContent(content, "menu/textExtra");
+            menuItems[Selection.Exit].LoadContent(content, "menu/textExit");
+            menuItems[Selection.Credit].LoadContent(content, "menu/textCredit");
         }
         public override void HandleInput(KeyboardState newKeyboardState, MouseState newMouseState, Game1 parent)
         {

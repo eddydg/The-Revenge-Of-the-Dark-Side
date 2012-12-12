@@ -26,7 +26,7 @@ namespace TRODS
 
         public override void LoadContent(ContentManager content)
         {
-            top.LoadContent(content, "credit");
+            top.LoadContent(content, "menu/credit");
         }
 
         public override void Draw(SpriteBatch spriteBatch)

@@ -13,6 +13,7 @@ namespace TRODS
 {
     class Sprite
     {
+        public string AssetName { get; set; }
         public Texture2D Texture { get; set; }
         private Rectangle _position;
         public Rectangle Position
@@ -51,11 +52,12 @@ namespace TRODS
         /// <param name="a_position">Dimenson du Sprite dans la fenetre</param>
         /// <param name="windowWidth">Largeur de la fenetre</param>
         /// <param name="windowHeight">Hauteur de la fenetre</param>
-        public Sprite(Rectangle a_position, Rectangle windowSize=new Rectangle())
+        public Sprite(Rectangle a_position, Rectangle windowSize=new Rectangle(), string assetName="")
         {
             _position = a_position;
             Direction = new Vector2();
             _vitesse = 0;
+            AssetName = assetName;
             if (windowSize.Width > 0 && windowSize.Height > 0)
             {
                 _relativePosX = (float)a_position.X / (float)windowSize.Width;

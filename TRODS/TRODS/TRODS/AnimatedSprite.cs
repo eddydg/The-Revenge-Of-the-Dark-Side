@@ -20,15 +20,30 @@ namespace TRODS
         private int _elapsedTime;
 
         /// <summary>
-        /// constructeur avancée de la classe AnimatedSprite.
+        /// Constructeur
         /// </summary>
-        /// <param name="texture">sprite contenant les différentes animations</param>
-        /// <param name="nbColonnes">nombre de colonnes dans la sprite</param>
-        /// <param name="nbLignes">nombre de lignes dans la sprite</param>
-        /// <param name="vitesse">vitesse d'animation en images/secondes</param>
-        /// <param name="first">numéro de la première image de l'animation dans la sprite</param>
-        /// <param name="last">numéro de la dernière image de l'animation dans la sprite</param>
+        /// <param name="position"></param>
+        /// <param name="windowSize"></param>
+        /// <param name="nbColonnes"></param>
+        /// <param name="nbLignes"></param>
+        /// <param name="vitesse"></param>
+        /// <param name="first"></param>
+        /// <param name="last"></param>
+        /// <param name="beginning"></param>
+        /// <param name="repeating"></param>
         public AnimatedSprite(Rectangle position, Rectangle windowSize, int nbColonnes, int nbLignes, int vitesse, int first=1, int last = -1, int beginning = -1, bool repeating = false) :
+            base(position, windowSize)
+        {
+            Lignes = nbLignes;
+            Colonnes = nbColonnes;
+            Speed = vitesse;
+            SetPictureBounds(first, last, beginning);
+            _elapsedTime = 0;
+            _repeating = repeating;
+            Position = position;
+        }
+
+        public AnimatedSprite(Rectangle position, Rectangle windowSize, string assetName, int nbColonnes, int nbLignes, int vitesse, int first = 1, int last = -1, int beginning = -1, bool repeating = false) :
             base(position, windowSize)
         {
             Lignes = nbLignes;
