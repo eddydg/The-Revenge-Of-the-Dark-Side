@@ -1,1 +1,2 @@
 C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODSContent\obj\x86\Debug\TRODSContent.contentprojResolveAssemblyReference.cache
+C:\Users\kuchera\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODSContent\obj\x86\Debug\ResolveAssemblyReference.cache

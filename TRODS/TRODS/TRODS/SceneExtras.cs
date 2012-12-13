@@ -121,12 +121,7 @@ namespace TRODS
                 }
                 if (startAnimation)
                 {
-                    animations.Add(new AnimatedSprite(textures.ElementAt<AnimatedSprite>(selectedSprite)));
-                    animations.Last<AnimatedSprite>().setRelatvePos(
-                        new Rectangle(clic.X - currentSize / 2, clic.Y - currentSize / 2, currentSize, currentSize),
-                        _windowSize.Width, _windowSize.Height);
-                    animations.Last<AnimatedSprite>().SetPictureBounds(1,
-                        animations.Last<AnimatedSprite>().Colonnes * animations.Last<AnimatedSprite>().Lignes);
+                    AnimatedSprite newAnim = new AnimatedSprite(new Rectangle(clic.X-currentSize/2,clic.Y-currentSize/2,currentSize,currentSize),_windowSize,
                 }
             }
 
