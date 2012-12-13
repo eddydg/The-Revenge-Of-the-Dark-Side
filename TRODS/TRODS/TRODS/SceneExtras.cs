@@ -109,7 +109,7 @@ namespace TRODS
                 if (clic.Intersects(tailleSelection.Position))
                 {
                     startAnimation = false;
-                    currentSize = clic.X - tailleSelection.Position.Width;
+                    currentSize = clic.X - tailleSelection.Position.X;
                 }
                 foreach (AnimatedSprite s in textures)
                 {
@@ -121,7 +121,12 @@ namespace TRODS
                 }
                 if (startAnimation)
                 {
-                    AnimatedSprite newAnim = new AnimatedSprite(new Rectangle(clic.X-currentSize/2,clic.Y-currentSize/2,currentSize,currentSize),_windowSize,
+                    AnimatedSprite oc = textures.ElementAt<AnimatedSprite>(selectedSprite);
+                    animations.Add(new AnimatedSprite(
+                        new Rectangle(clic.X - currentSize / 2, clic.Y - currentSize / 2, currentSize, currentSize),
+                        _windowSize, oc.AssetName,
+                        oc.Colonnes, oc.Lignes));
+                    animations.Last<AnimatedSprite>().LoadContent(parent.Content);
                 }
             }
 

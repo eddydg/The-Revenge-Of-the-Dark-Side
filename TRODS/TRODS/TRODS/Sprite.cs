@@ -78,7 +78,6 @@ namespace TRODS
         public Sprite(Sprite s)
         {
             AssetName = s.AssetName;
-            Texture = s.Texture;
             _position = s.Position;
             Direction = s.Direction;
             _vitesse = s.Vitesse;
@@ -99,6 +98,8 @@ namespace TRODS
         {
             if (assetName == "")
                 assetName = AssetName;
+            else
+                AssetName = assetName;
             Texture = content.Load<Texture2D>(assetName);
         }
         /// <summary>
