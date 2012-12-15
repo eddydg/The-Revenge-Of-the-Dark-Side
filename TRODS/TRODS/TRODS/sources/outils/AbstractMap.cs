@@ -46,70 +46,33 @@ namespace TRODS
             get { return _vuePosition; }
             set { _vuePosition = value; }
         }
-        protected List<Vector2> _upperVisitableLimit;
-        public List<Vector2> UpperVisitableLimit
+        protected List<Rectangle> _visitable;
+        public List<Rectangle> Visitable
         {
-            get { return _upperVisitableLimit; }
-            set { _upperVisitableLimit = value; }
-        }
-        protected List<Vector2> _lowerVisitableLimit;
-        public List<Vector2> LowerVisitableLimit
-        {
-            get { return _lowerVisitableLimit; }
-            set { _lowerVisitableLimit = value; }
-        }
-        protected int _leftVisitableLimit;
-        public int LeftVisitableLimit
-        {
-            get { return _leftVisitableLimit; }
-            set { _leftVisitableLimit = value; }
-        }
-        protected int _rightVisitableLimit;
-        public int RightVisitableLimit
-        {
-            get { return _rightVisitableLimit; }
-            set { _rightVisitableLimit = value; }
+            get { return _visitable; }
+            set { _visitable = value; }
         }
 
-
+        
         public AbstractMap(Rectangle windowSize)
         {
             _windowSize = windowSize;
             _elementsBackground = new List<Sprite>();
             _elementsForeground = new List<Sprite>();
             _elementsMainground = new List<Sprite>();
-            _upperVisitableLimit = new List<Vector2>();
-            _lowerVisitableLimit = new List<Vector2>();
+            _visitable = new List<Rectangle>();
         }
 
-        /// <summary>
-        /// Constructeur de test
-        /// </summary>
-        /// <param name="windowSize">Dimensions de la fenetre</param>
-        /// <param name="elementsBackground">Textures d'arriere plan</param>
-        /// <param name="elementsMainground">Textures de la lane</param>
-        /// <param name="elementsForeground">Textures de premier plan</param>
-        /// <param name="mapDimensions">Dimension de la map</param>
-        /// <param name="vuePosition">Position du point de vue sur la map</param>
-        /// <param name="upperVisitableLimit">Limite visitable superieure</param>
-        /// <param name="lowerVisitableLimit">Limite visitable inferieure</param>
-        /// <param name="leftVisitableLimit">Limite visitable gauche</param>
-        /// <param name="rightVisitableLimit">Limite visitable droite</param>
         public AbstractMap(Rectangle windowSize,
                             List<Sprite> elementsBackground, List<Sprite> elementsMainground, List<Sprite> elementsForeground,
-                            Vector2 vuePosition,
-                            List<Vector2> upperVisitableLimit, List<Vector2> lowerVisitableLimit,
-                            int leftVisitableLimit, int rightVisitableLimit)
+                            Vector2 vuePosition, List<Rectangle> visitableArea)
         {
             _windowSize = windowSize;
             _elementsBackground = elementsBackground;
             _elementsForeground = elementsForeground;
             _elementsMainground = elementsMainground;
             _vuePosition = vuePosition;
-            _upperVisitableLimit = upperVisitableLimit;
-            _lowerVisitableLimit = lowerVisitableLimit;
-            _leftVisitableLimit = leftVisitableLimit;
-            _rightVisitableLimit = rightVisitableLimit;
+            _visitable = visitableArea;
         }
 
         public override void LoadContent(ContentManager content)
@@ -139,6 +102,11 @@ namespace TRODS
             DrawBackground(spriteBatch);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="spriteBatch"></param>
+        /// <param name="repeating">Repetition des textures lorsqu'elles depassent de l'ecran</param>
         public void Draw(SpriteBatch spriteBatch, bool repeating = false)
         {
             DrawForeground(spriteBatch, repeating);
@@ -146,11 +114,6 @@ namespace TRODS
             DrawBackground(spriteBatch, repeating);
         }
 
-        /// <summary>
-        /// Dessine le contenu graphique de l'arriere plan
-        /// spriteBatch.Begin et spriteBatch.End non declares
-        /// </summary>
-        /// <param name="spriteBatch">Instance du gestionnaire de dessin de XNA</param>
         public virtual void DrawBackground(SpriteBatch spriteBatch, bool repeating = false)
         {
             if (repeating)
@@ -173,11 +136,6 @@ namespace TRODS
                     e.Draw(spriteBatch);
         }
 
-        /// <summary>
-        /// Dessine le contenu graphique de la lane
-        /// spriteBatch.Begin et spriteBatch.End non declares
-        /// </summary>
-        /// <param name="spriteBatch">Instance du gestionnaire de dessin de XNA</param>
         public virtual void DrawMainground(SpriteBatch spriteBatch, bool repeating = false)
         {
             if (repeating)
@@ -200,11 +158,6 @@ namespace TRODS
                     e.Draw(spriteBatch);
         }
 
-        /// <summary>
-        /// Dessine le contenu graphique du premier plan
-        /// spriteBatch.Begin et spriteBatch.End non declares
-        /// </summary>
-        /// <param name="spriteBatch">Instance du gestionnaire de dessin de XNA</param>
         public virtual void DrawForeground(SpriteBatch spriteBatch, bool repeating = false)
         {
             if (repeating)
@@ -234,41 +187,11 @@ namespace TRODS
         /// <returns>Destination possible</returns>
         public virtual Vector2 Moving(Vector2 destination)
         {
-            destination = VuePosition + destination;
-
-            if (destination.X < LeftVisitableLimit)
-                destination.X = LeftVisitableLimit;
-            else if (destination.X > RightVisitableLimit)
-                destination.X = RightVisitableLimit;
-
-            Vector2 currentPos = new Vector2();
-            foreach (Vector2 v in LowerVisitableLimit)
-            {
-                if (destination.X >= currentPos.X && destination.X <= currentPos.X + v.X)
-                {
-                    float k = v.Y / v.X;
-                    if (destination.Y - currentPos.Y > (destination.X - currentPos.X) * k)
-                        destination.Y = currentPos.Y + (destination.X - currentPos.X) * k;
-                }
-                else
-                    currentPos += v;
-            }
-            currentPos = new Vector2();
-            foreach (Vector2 v in UpperVisitableLimit)
-            {
-                if (destination.X >= currentPos.X && destination.X <= currentPos.X + v.X)
-                {
-                    float k = v.Y / v.X;
-                    if (destination.Y - currentPos.Y < (destination.X - currentPos.X) * k)
-                        destination.Y = currentPos.Y + (destination.X - currentPos.X) * k;
-                }
-                else
-                    currentPos += v;
-            }
-
-            destination -= VuePosition;
-            VuePosition += destination;
-            return destination;
+            Point p = new Point((int)(destination.X + VuePosition.X), (int)(destination.Y + VuePosition.Y));
+            foreach (Rectangle r in Visitable)
+                if (r.Contains(p))
+                    return destination;
+            return Vector2.Zero;
         }
     }
 }

@@ -44,7 +44,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\credit.xnb</Output>
-      <Time>2012-12-12T22:28:23.6825375+01:00</Time>
+      <Time>2012-12-15T20:54:23.1141716+01:00</Time>
     </Item>
     <Item>
       <Source>menu\cursor0_8x4r.png</Source>
@@ -270,6 +270,15 @@
       <Options>None</Options>
       <Output>C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\lueur1_10x4r21r40.xnb</Output>
       <Time>2012-12-15T16:01:18.667721+01:00</Time>
+    </Item>
+    <Item>
+      <Source>menu\authors.png</Source>
+      <Name>menu\authors</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\authors.xnb</Output>
+      <Time>2012-12-15T22:08:18.8605391+01:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

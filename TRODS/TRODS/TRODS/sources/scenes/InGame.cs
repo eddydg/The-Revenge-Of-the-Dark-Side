@@ -21,14 +21,16 @@ namespace TRODS
         private KeyboardState _keyboardState;
         private MouseState _mouseState;
         private Rectangle _windowSize;
-
         private Sprite mouse;
+        private AbstractMap map;
 
         public InGame(Rectangle windowSize)
         {
             _windowSize = windowSize;
 
             mouse = new Sprite(new Rectangle(-100, -100, 30, 50), _windowSize);
+            map = new AbstractMap(_windowSize);
+            
         }
 
         public override void LoadContent(ContentManager content)
