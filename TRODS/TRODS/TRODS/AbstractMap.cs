@@ -16,63 +16,62 @@ namespace TRODS
     /// </summary>
     class AbstractMap : AbstractScene
     {
-        /// <summary>
-        /// Liste des elements de decor
-        /// </summary>
         protected List<Sprite> _elementsBackground;
-
-        /// <summary>
-        /// Liste des elements de la lane
-        /// </summary>
+        public List<Sprite> ElementsBackground
+        {
+            get { return _elementsBackground; }
+            set { _elementsBackground = value; }
+        }
         protected List<Sprite> _elementsMainground;
-
-        /// <summary>
-        /// Liste des elements de premier plan
-        /// </summary>
+        public List<Sprite> ElementsMainground
+        {
+            get { return _elementsMainground; }
+            set { _elementsMainground = value; }
+        }
         protected List<Sprite> _elementsForeground;
-
-        /// <summary>
-        /// Taille de la fenetre sur l'ecran
-        /// </summary>
+        public List<Sprite> ElementsForeground
+        {
+            get { return _elementsForeground; }
+            set { _elementsForeground = value; }
+        }
         protected Rectangle _windowSize;
-
-        /// <summary>
-        /// Taille et position de la map
-        /// </summary>
-        protected Rectangle _mapDimension;
-
-        /// <summary>
-        /// Position actulle du point de vue
-        /// </summary>
+        public Rectangle WindowSize
+        {
+            get { return _windowSize; }
+            set { _windowSize = value; }
+        }
         protected Vector2 _vuePosition;
-
-        /// <summary>
-        /// Liste de Vecteurs delimitant la hauteur
-        /// maximale visitable de la map
-        /// </summary>
+        public Vector2 VuePosition
+        {
+            get { return _vuePosition; }
+            set { _vuePosition = value; }
+        }
         protected List<Vector2> _upperVisitableLimit;
-
-        /// <summary>
-        /// Liste de Vecteurs delimitant la hauteur
-        /// minimale visitable de la map
-        /// </summary>
+        public List<Vector2> UpperVisitableLimit
+        {
+            get { return _upperVisitableLimit; }
+            set { _upperVisitableLimit = value; }
+        }
         protected List<Vector2> _lowerVisitableLimit;
-
-        /// <summary>
-        /// Abcisse minimale visitable de la map
-        /// </summary>
+        public List<Vector2> LowerVisitableLimit
+        {
+            get { return _lowerVisitableLimit; }
+            set { _lowerVisitableLimit = value; }
+        }
         protected int _leftVisitableLimit;
-
-        /// <summary>
-        /// Abcisse maximale visitable de la map
-        /// </summary>
+        public int LeftVisitableLimit
+        {
+            get { return _leftVisitableLimit; }
+            set { _leftVisitableLimit = value; }
+        }
         protected int _rightVisitableLimit;
+        public int RightVisitableLimit
+        {
+            get { return _rightVisitableLimit; }
+            set { _rightVisitableLimit = value; }
+        }
 
-        /// <summary>
-        /// Constructeur Par defaut
-        /// </summary>
-        /// <param name="windowSize">Taille de la fenetre sur l'ecran
-        /// Obtenue pat *Game*.Window.ClientBounds()</param>
+
         public AbstractMap(Rectangle windowSize)
         {
             _windowSize = windowSize;
@@ -98,7 +97,7 @@ namespace TRODS
         /// <param name="rightVisitableLimit">Limite visitable droite</param>
         public AbstractMap(Rectangle windowSize,
                             List<Sprite> elementsBackground, List<Sprite> elementsMainground, List<Sprite> elementsForeground,
-                            Rectangle mapDimensions, Vector2 vuePosition,
+                            Vector2 vuePosition,
                             List<Vector2> upperVisitableLimit, List<Vector2> lowerVisitableLimit,
                             int leftVisitableLimit, int rightVisitableLimit)
         {
@@ -106,7 +105,6 @@ namespace TRODS
             _elementsBackground = elementsBackground;
             _elementsForeground = elementsForeground;
             _elementsMainground = elementsMainground;
-            _mapDimension = mapDimensions;
             _vuePosition = vuePosition;
             _upperVisitableLimit = upperVisitableLimit;
             _lowerVisitableLimit = lowerVisitableLimit;
@@ -116,8 +114,12 @@ namespace TRODS
 
         public override void Update(float elapsedTime)
         {
-            // A implementer :
-            // Mouvements independants du joueur : Moteur a particules, environnement
+            foreach (AnimatedSprite s in _elementsForeground)
+                s.Update(elapsedTime);
+            foreach (AnimatedSprite s in _elementsMainground)
+                s.Update(elapsedTime);
+            foreach (AnimatedSprite s in _elementsBackground)
+                s.Update(elapsedTime);
         }
 
         public override void Draw(SpriteBatch spriteBatch)
@@ -127,17 +129,11 @@ namespace TRODS
             DrawBackground(spriteBatch);
         }
 
-        /// <summary>
-        /// Dessine le contenu graphique de l'arriere plan,de la lane et du personnage
-        /// </summary>
-        /// <param name="spriteBatch">Instance du gestionnaire de dessin de XNA</param>
-        /// <param name="personnage">Reference du personnage</param>
-        public virtual void Draw(SpriteBatch spriteBatch, byte personnage/* PERSONNAGE*/)
+        public void Draw(SpriteBatch spriteBatch, bool repeating = false)
         {
-            DrawForeground(spriteBatch);
-            // PERSONNAGE.DRAW
-            DrawMainground(spriteBatch);
-            DrawBackground(spriteBatch);
+            DrawForeground(spriteBatch, repeating);
+            DrawMainground(spriteBatch, repeating);
+            DrawBackground(spriteBatch, repeating);
         }
 
         /// <summary>
@@ -145,10 +141,26 @@ namespace TRODS
         /// spriteBatch.Begin et spriteBatch.End non declares
         /// </summary>
         /// <param name="spriteBatch">Instance du gestionnaire de dessin de XNA</param>
-        public virtual void DrawBackground(SpriteBatch spriteBatch)
+        public virtual void DrawBackground(SpriteBatch spriteBatch, bool repeating = false)
         {
-            foreach (Sprite e in _elementsBackground)
-                e.Draw(spriteBatch);
+            if (repeating)
+            {
+                foreach (Sprite e in ElementsBackground)
+                {
+                    e.Draw(spriteBatch);
+                    if (e.Position.X > _windowSize.Width)
+                        e.Position = new Rectangle(-e.Position.Width + _windowSize.Width, e.Position.Y, e.Position.Width, e.Position.Height);
+                    else if (e.Position.X < -e.Position.Width)
+                        e.Position = new Rectangle(0, e.Position.Y, e.Position.Width, e.Position.Height);
+                    if (e.Position.X > 0)
+                        e.Draw(spriteBatch, new Vector2(e.Position.X - e.Position.Width, e.Position.Y));
+                    else if (e.Position.X + e.Position.Width < _windowSize.Width)
+                        e.Draw(spriteBatch, new Vector2(e.Position.X + e.Position.Width, e.Position.Y));
+                }
+            }
+            else
+                foreach (Sprite e in ElementsBackground)
+                    e.Draw(spriteBatch);
         }
 
         /// <summary>
@@ -156,10 +168,26 @@ namespace TRODS
         /// spriteBatch.Begin et spriteBatch.End non declares
         /// </summary>
         /// <param name="spriteBatch">Instance du gestionnaire de dessin de XNA</param>
-        public virtual void DrawMainground(SpriteBatch spriteBatch)
+        public virtual void DrawMainground(SpriteBatch spriteBatch, bool repeating = false)
         {
-            foreach (Sprite e in _elementsMainground)
-                e.Draw(spriteBatch);
+            if (repeating)
+            {
+                foreach (Sprite e in ElementsBackground)
+                {
+                    e.Draw(spriteBatch);
+                    if (e.Position.X > _windowSize.Width)
+                        e.Position = new Rectangle(-e.Position.Width + _windowSize.Width, e.Position.Y, e.Position.Width, e.Position.Height);
+                    else if (e.Position.X < -e.Position.Width)
+                        e.Position = new Rectangle(0, e.Position.Y, e.Position.Width, e.Position.Height);
+                    if (e.Position.X > 0)
+                        e.Draw(spriteBatch, new Vector2(e.Position.X - e.Position.Width, e.Position.Y));
+                    else if (e.Position.X + e.Position.Width < _windowSize.Width)
+                        e.Draw(spriteBatch, new Vector2(e.Position.X + e.Position.Width, e.Position.Y));
+                }
+            }
+            else
+                foreach (Sprite e in ElementsMainground)
+                    e.Draw(spriteBatch);
         }
 
         /// <summary>
@@ -167,10 +195,26 @@ namespace TRODS
         /// spriteBatch.Begin et spriteBatch.End non declares
         /// </summary>
         /// <param name="spriteBatch">Instance du gestionnaire de dessin de XNA</param>
-        public virtual void DrawForeground(SpriteBatch spriteBatch)
+        public virtual void DrawForeground(SpriteBatch spriteBatch, bool repeating = false)
         {
-            foreach (Sprite e in _elementsForeground)
-                e.Draw(spriteBatch);
+            if (repeating)
+            {
+                foreach (Sprite e in ElementsBackground)
+                {
+                    e.Draw(spriteBatch);
+                    if (e.Position.X > _windowSize.Width)
+                        e.Position = new Rectangle(-e.Position.Width + _windowSize.Width, e.Position.Y, e.Position.Width, e.Position.Height);
+                    else if (e.Position.X < -e.Position.Width)
+                        e.Position = new Rectangle(0, e.Position.Y, e.Position.Width, e.Position.Height);
+                    if (e.Position.X > 0)
+                        e.Draw(spriteBatch, new Vector2(e.Position.X - e.Position.Width, e.Position.Y));
+                    else if (e.Position.X + e.Position.Width < _windowSize.Width)
+                        e.Draw(spriteBatch, new Vector2(e.Position.X + e.Position.Width, e.Position.Y));
+                }
+            }
+            else
+                foreach (Sprite e in ElementsForeground)
+                    e.Draw(spriteBatch);
         }
 
         /// <summary>
@@ -180,41 +224,40 @@ namespace TRODS
         /// <returns>Destination possible</returns>
         public virtual Vector2 Moving(Vector2 destination)
         {
-            destination = _vuePosition + destination;
+            destination = VuePosition + destination;
 
-            if (destination.X < _leftVisitableLimit)
-                destination.X = _leftVisitableLimit;
-            else if (destination.X > _rightVisitableLimit)
-                destination.X = _rightVisitableLimit;
+            if (destination.X < LeftVisitableLimit)
+                destination.X = LeftVisitableLimit;
+            else if (destination.X > RightVisitableLimit)
+                destination.X = RightVisitableLimit;
 
             Vector2 currentPos = new Vector2();
-            foreach (Vector2 v in _upperVisitableLimit)
+            foreach (Vector2 v in LowerVisitableLimit)
             {
                 if (destination.X >= currentPos.X && destination.X <= currentPos.X + v.X)
                 {
                     float k = v.Y / v.X;
-                    if (destination.Y - currentPos.Y > currentPos.X * k)
-                        destination.Y = currentPos.Y + v.X * k;
-                    break;
+                    if (destination.Y - currentPos.Y > (destination.X - currentPos.X) * k)
+                        destination.Y = currentPos.Y + (destination.X - currentPos.X) * k;
                 }
                 else
                     currentPos += v;
             }
-            foreach (Vector2 v in _lowerVisitableLimit)
+            currentPos = new Vector2();
+            foreach (Vector2 v in UpperVisitableLimit)
             {
                 if (destination.X >= currentPos.X && destination.X <= currentPos.X + v.X)
                 {
                     float k = v.Y / v.X;
-                    if (destination.Y - currentPos.Y < currentPos.X * k)
-                        destination.Y = currentPos.Y + v.X * k;
-                    break;
+                    if (destination.Y - currentPos.Y < (destination.X - currentPos.X) * k)
+                        destination.Y = currentPos.Y + (destination.X - currentPos.X) * k;
                 }
                 else
                     currentPos += v;
             }
 
-            destination -= _vuePosition;
-            _vuePosition = _vuePosition + destination;
+            destination -= VuePosition;
+            VuePosition += destination;
             return destination;
         }
     }
