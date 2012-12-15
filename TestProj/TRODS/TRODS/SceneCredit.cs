@@ -15,31 +15,41 @@ namespace TRODS
     {
         private KeyboardState _keyboardState;
         private Rectangle _windowSize;
-
-        private Sprite top;
+        private List<AnimatedSprite> animations;
 
         public SceneCredit(Rectangle windowSize)
         {
             _windowSize = windowSize;
-            top = new Sprite(new Rectangle(0, 0, _windowSize.Width, 2 * _windowSize.Height / 5), _windowSize);
+
+            animations = new List<AnimatedSprite>();
+            animations.Add(new AnimatedSprite(new Rectangle(0, 0, _windowSize.Width, _windowSize.Height), _windowSize, "credit/etoiles1_10x10r51r100", 10, 10, 17, 51, 100, 1));
+            animations.Add(new AnimatedSprite(new Rectangle(0, 0, _windowSize.Width, 2 * _windowSize.Height / 5), _windowSize, "menu/credit"));
+            animations.Add(new AnimatedSprite(new Rectangle(-300, _windowSize.Height - 100, _windowSize.Width + 300, 100), _windowSize, "credit/lueur1_10x4r21r40", 10, 4, 15, 21, 40, 1));
+
+            animations.Add(new AnimatedSprite(new Rectangle(150, 200, 100, 120), _windowSize, "credit/bars_5x7r6r15", 5, 7, 30));
+            animations.Add(new AnimatedSprite(new Rectangle(350, 200, 100, 120), _windowSize, "credit/teleport_10x10", 10, 10, 50));
         }
 
         public override void LoadContent(ContentManager content)
         {
-            top.LoadContent(content, "menu/credit");
+            foreach (AnimatedSprite s in animations)
+                s.LoadContent(content);
         }
 
         public override void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Begin();
 
-            top.Draw(spriteBatch);
+            foreach (AnimatedSprite s in animations)
+                s.Draw(spriteBatch);
 
             spriteBatch.End();
         }
 
         public override void Update(float elapsedTime)
         {
+            foreach (AnimatedSprite s in animations)
+                s.Update(elapsedTime);
         }
 
         public override void HandleInput(KeyboardState newKeyboardState, MouseState newMouseState, Game1 parent)
@@ -57,6 +67,8 @@ namespace TRODS
 
         public override void Activation()
         {
+            foreach (AnimatedSprite s in animations)
+                s.ActualPicture = 1;
         }
 
         public override void EndScene()
@@ -70,7 +82,8 @@ namespace TRODS
         /// <param name="rect">Nouvelle dimension de la fenetre obtenue par *Game1*.Window.ClientBounds()</param>
         private void windowResized(Rectangle rect)
         {
-            top.windowResized(rect);
+            foreach (AnimatedSprite s in animations)
+                s.windowResized(rect);
         }
     }
 }

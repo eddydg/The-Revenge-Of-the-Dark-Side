@@ -253,6 +253,24 @@
       <Output>C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\selectionSound.xnb</Output>
       <Time>2012-12-12T22:28:23.7145415+01:00</Time>
     </Item>
+    <Item>
+      <Source>menu\etoiles1_10x10r51r100.png</Source>
+      <Name>menu\etoiles1_10x10r51r100</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\etoiles1_10x10r51r100.xnb</Output>
+      <Time>2012-12-15T16:01:18.6727224+01:00</Time>
+    </Item>
+    <Item>
+      <Source>menu\lueur1_10x4r21r40.png</Source>
+      <Name>menu\lueur1_10x4r21r40</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\lueur1_10x4r21r40.xnb</Output>
+      <Time>2012-12-15T16:01:18.667721+01:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>

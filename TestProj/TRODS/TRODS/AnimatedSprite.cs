@@ -31,7 +31,7 @@ namespace TRODS
         /// <param name="last"></param>
         /// <param name="beginning"></param>
         /// <param name="repeating"></param>
-        public AnimatedSprite(Rectangle position, Rectangle windowSize, int nbColonnes, int nbLignes, int vitesse = 30, int first = 1, int last = -1, int beginning = -1, bool repeating = false) :
+        public AnimatedSprite(Rectangle position, Rectangle windowSize, int nbColonnes=1, int nbLignes=1, int vitesse = 30, int first = 1, int last = -1, int beginning = -1, bool repeating = false) :
             base(position, windowSize)
         {
             Lignes = nbLignes;
@@ -43,7 +43,7 @@ namespace TRODS
             Position = position;
         }
 
-        public AnimatedSprite(Rectangle position, Rectangle windowSize, string assetName, int nbColonnes, int nbLignes, int vitesse = 30, int first = 1, int last = -1, int beginning = -1, bool repeating = false) :
+        public AnimatedSprite(Rectangle position, Rectangle windowSize, string assetName, int nbColonnes=1, int nbLignes=1, int vitesse = 30, int first = 1, int last = -1, int beginning = -1, bool repeating = false) :
             base(position, windowSize, assetName)
         {
             Lignes = nbLignes;

@@ -112,6 +112,16 @@ namespace TRODS
             _rightVisitableLimit = rightVisitableLimit;
         }
 
+        public override void LoadContent(ContentManager content)
+        {
+            foreach (Sprite s in _elementsBackground)
+                s.LoadContent(content);
+            foreach (Sprite s in _elementsForeground)
+                s.LoadContent(content);
+            foreach (Sprite s in _elementsMainground)
+                s.LoadContent(content);
+        }
+
         public override void Update(float elapsedTime)
         {
             foreach (AnimatedSprite s in _elementsForeground)

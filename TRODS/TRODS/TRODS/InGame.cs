@@ -23,7 +23,6 @@ namespace TRODS
         private Rectangle _windowSize;
 
         private Sprite mouse;
-        private AbstractMap map;
 
         public InGame(Rectangle windowSize)
         {
@@ -35,25 +34,12 @@ namespace TRODS
         public override void LoadContent(ContentManager content)
         {
             mouse.LoadContent(content, "general/cursor1");
-
-            /////////////MAP////////////
-            List<Sprite> back = new List<Sprite>();
-            back.Add(new Sprite(_windowSize, _windowSize, "map1/sky1"));
-            back.Last<Sprite>().LoadContent(content);
-            back.Add(new Sprite(_windowSize,_windowSize,"map1/back1r"));
-            back.Last<Sprite>().LoadContent(content);
-            List<Sprite> main = new List<Sprite>();
-            main.Add(new Sprite(_windowSize, _windowSize, "map1/fore1"));
-            main.Last<Sprite>().LoadContent(content);
-            map = new AbstractMap(_windowSize, back, main, new List<Sprite>(), new Vector2(), new List<Vector2>(), new List<Vector2>(), 0, 0);
-            ////////////////////////////
         }
 
         public override void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Begin();
 
-            map.Draw(spriteBatch);
             mouse.Draw(spriteBatch);
 
             spriteBatch.End();
