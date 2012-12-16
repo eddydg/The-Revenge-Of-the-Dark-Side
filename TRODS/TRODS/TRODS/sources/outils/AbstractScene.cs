@@ -60,5 +60,12 @@ namespace TRODS
         public virtual void EndScene()
         {
         }
+        /// <summary>
+        /// Redimensionnement de la fenetre
+        /// </summary>
+        /// <param name="rect">Taille de la nouvelle fenetre</param>
+        public virtual void WindowResized(Rectangle rect)
+        {
+        }
     }
 }

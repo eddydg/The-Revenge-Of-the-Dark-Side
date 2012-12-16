@@ -30,18 +30,24 @@ namespace TRODS
 
             mouse = new Sprite(new Rectangle(-100, -100, 30, 50), _windowSize);
             map = new AbstractMap(_windowSize);
-            
+            map.VuePosition = new Vector2(_windowSize.Width / 2, _windowSize.Height / 2);
+            map.Visitable.Add(new Rectangle(_windowSize.Width / 2, _windowSize.Height / 2, 1000, 50));
+            map.Elements.Add(new AbstractMap.Element(new Sprite(new Rectangle(0, 0, _windowSize.Width, _windowSize.Height), _windowSize, "map1/sky1")));
+            map.Elements.Add(new AbstractMap.Element(new Sprite(new Rectangle(0, 0, _windowSize.Width, _windowSize.Height), _windowSize, "map1/back1r")));
+            map.Elements.Add(new AbstractMap.Element(new Sprite(new Rectangle(0, _windowSize.Height / 2, _windowSize.Width, _windowSize.Height / 2), _windowSize, "map1/fore1")));
         }
 
         public override void LoadContent(ContentManager content)
         {
             mouse.LoadContent(content, "general/cursor1");
+            map.LoadContent(content);
         }
 
         public override void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Begin();
 
+            map.Draw(spriteBatch, true);
             mouse.Draw(spriteBatch);
 
             spriteBatch.End();
@@ -49,6 +55,7 @@ namespace TRODS
 
         public override void Update(float elapsedTime)
         {
+            map.Update(elapsedTime);
         }
 
         public override void HandleInput(KeyboardState newKeyboardState, MouseState newMouseState, Game1 parent)
@@ -89,6 +96,7 @@ namespace TRODS
         /// <param name="rect">Nouvelle dimension de la fenetre obtenue par *Game1*.Window.ClientBounds()</param>
         private void windowResized(Rectangle rect)
         {
+            map.WindowResized(rect);
         }
     }
 }

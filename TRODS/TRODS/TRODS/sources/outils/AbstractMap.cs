@@ -16,23 +16,23 @@ namespace TRODS
     /// </summary>
     class AbstractMap : AbstractScene
     {
-        protected List<Sprite> _elementsBackground;
-        public List<Sprite> ElementsBackground
+        public struct Element
         {
-            get { return _elementsBackground; }
-            set { _elementsBackground = value; }
+            public Element(Sprite _s, float _speed = 0, bool _foreground = false)
+            {
+                sprite = _s;
+                speed = _speed;
+                foreground = _foreground;
+            }
+            public Sprite sprite;
+            public float speed;
+            public bool foreground;
         }
-        protected List<Sprite> _elementsMainground;
-        public List<Sprite> ElementsMainground
+        protected List<Element> _elements;
+        public List<Element> Elements
         {
-            get { return _elementsMainground; }
-            set { _elementsMainground = value; }
-        }
-        protected List<Sprite> _elementsForeground;
-        public List<Sprite> ElementsForeground
-        {
-            get { return _elementsForeground; }
-            set { _elementsForeground = value; }
+            get { return _elements; }
+            set { _elements = value; }
         }
         protected Rectangle _windowSize;
         public Rectangle WindowSize
@@ -53,53 +53,39 @@ namespace TRODS
             set { _visitable = value; }
         }
 
-        
+
         public AbstractMap(Rectangle windowSize)
         {
             _windowSize = windowSize;
-            _elementsBackground = new List<Sprite>();
-            _elementsForeground = new List<Sprite>();
-            _elementsMainground = new List<Sprite>();
+            _elements = new List<Element>();
             _visitable = new List<Rectangle>();
         }
 
-        public AbstractMap(Rectangle windowSize,
-                            List<Sprite> elementsBackground, List<Sprite> elementsMainground, List<Sprite> elementsForeground,
+        public AbstractMap(Rectangle windowSize, List<Element> elements,
                             Vector2 vuePosition, List<Rectangle> visitableArea)
         {
             _windowSize = windowSize;
-            _elementsBackground = elementsBackground;
-            _elementsForeground = elementsForeground;
-            _elementsMainground = elementsMainground;
+            _elements = elements;
             _vuePosition = vuePosition;
             _visitable = visitableArea;
         }
 
         public override void LoadContent(ContentManager content)
         {
-            foreach (Sprite s in _elementsBackground)
-                s.LoadContent(content);
-            foreach (Sprite s in _elementsForeground)
-                s.LoadContent(content);
-            foreach (Sprite s in _elementsMainground)
-                s.LoadContent(content);
+            foreach (Element s in _elements)
+                s.sprite.LoadContent(content);
         }
 
         public override void Update(float elapsedTime)
         {
-            foreach (AnimatedSprite s in _elementsForeground)
-                s.Update(elapsedTime);
-            foreach (AnimatedSprite s in _elementsMainground)
-                s.Update(elapsedTime);
-            foreach (AnimatedSprite s in _elementsBackground)
-                s.Update(elapsedTime);
+            foreach (Element s in _elements)
+                s.sprite.Update(elapsedTime);
         }
 
         public override void Draw(SpriteBatch spriteBatch)
         {
-            DrawForeground(spriteBatch);
-            DrawMainground(spriteBatch);
-            DrawBackground(spriteBatch);
+            foreach (Element e in _elements)
+                e.sprite.Draw(spriteBatch);
         }
 
         /// <summary>
@@ -109,89 +95,53 @@ namespace TRODS
         /// <param name="repeating">Repetition des textures lorsqu'elles depassent de l'ecran</param>
         public void Draw(SpriteBatch spriteBatch, bool repeating = false)
         {
-            DrawForeground(spriteBatch, repeating);
-            DrawMainground(spriteBatch, repeating);
-            DrawBackground(spriteBatch, repeating);
-        }
-
-        public virtual void DrawBackground(SpriteBatch spriteBatch, bool repeating = false)
-        {
             if (repeating)
             {
-                foreach (Sprite e in ElementsBackground)
+                foreach (Element e in _elements)
                 {
-                    e.Draw(spriteBatch);
-                    if (e.Position.X > _windowSize.Width)
-                        e.Position = new Rectangle(-e.Position.Width + _windowSize.Width, e.Position.Y, e.Position.Width, e.Position.Height);
-                    else if (e.Position.X < -e.Position.Width)
-                        e.Position = new Rectangle(0, e.Position.Y, e.Position.Width, e.Position.Height);
-                    if (e.Position.X > 0)
-                        e.Draw(spriteBatch, new Vector2(e.Position.X - e.Position.Width, e.Position.Y));
-                    else if (e.Position.X + e.Position.Width < _windowSize.Width)
-                        e.Draw(spriteBatch, new Vector2(e.Position.X + e.Position.Width, e.Position.Y));
+                    e.sprite.Draw(spriteBatch);
+                    if (e.sprite.Position.X > _windowSize.Width)
+                        e.sprite.Position = new Rectangle(-e.sprite.Position.Width + _windowSize.Width, e.sprite.Position.Y, e.sprite.Position.Width, e.sprite.Position.Height);
+                    else if (e.sprite.Position.X < -e.sprite.Position.Width)
+                        e.sprite.Position = new Rectangle(0, e.sprite.Position.Y, e.sprite.Position.Width, e.sprite.Position.Height);
+                    if (e.sprite.Position.X > 0)
+                        e.sprite.Draw(spriteBatch, new Vector2(e.sprite.Position.X - e.sprite.Position.Width, e.sprite.Position.Y));
+                    else if (e.sprite.Position.X + e.sprite.Position.Width < _windowSize.Width)
+                        e.sprite.Draw(spriteBatch, new Vector2(e.sprite.Position.X + e.sprite.Position.Width, e.sprite.Position.Y));
                 }
             }
             else
-                foreach (Sprite e in ElementsBackground)
-                    e.Draw(spriteBatch);
-        }
-
-        public virtual void DrawMainground(SpriteBatch spriteBatch, bool repeating = false)
-        {
-            if (repeating)
-            {
-                foreach (Sprite e in ElementsBackground)
-                {
-                    e.Draw(spriteBatch);
-                    if (e.Position.X > _windowSize.Width)
-                        e.Position = new Rectangle(-e.Position.Width + _windowSize.Width, e.Position.Y, e.Position.Width, e.Position.Height);
-                    else if (e.Position.X < -e.Position.Width)
-                        e.Position = new Rectangle(0, e.Position.Y, e.Position.Width, e.Position.Height);
-                    if (e.Position.X > 0)
-                        e.Draw(spriteBatch, new Vector2(e.Position.X - e.Position.Width, e.Position.Y));
-                    else if (e.Position.X + e.Position.Width < _windowSize.Width)
-                        e.Draw(spriteBatch, new Vector2(e.Position.X + e.Position.Width, e.Position.Y));
-                }
-            }
-            else
-                foreach (Sprite e in ElementsMainground)
-                    e.Draw(spriteBatch);
-        }
-
-        public virtual void DrawForeground(SpriteBatch spriteBatch, bool repeating = false)
-        {
-            if (repeating)
-            {
-                foreach (Sprite e in ElementsBackground)
-                {
-                    e.Draw(spriteBatch);
-                    if (e.Position.X > _windowSize.Width)
-                        e.Position = new Rectangle(-e.Position.Width + _windowSize.Width, e.Position.Y, e.Position.Width, e.Position.Height);
-                    else if (e.Position.X < -e.Position.Width)
-                        e.Position = new Rectangle(0, e.Position.Y, e.Position.Width, e.Position.Height);
-                    if (e.Position.X > 0)
-                        e.Draw(spriteBatch, new Vector2(e.Position.X - e.Position.Width, e.Position.Y));
-                    else if (e.Position.X + e.Position.Width < _windowSize.Width)
-                        e.Draw(spriteBatch, new Vector2(e.Position.X + e.Position.Width, e.Position.Y));
-                }
-            }
-            else
-                foreach (Sprite e in ElementsForeground)
-                    e.Draw(spriteBatch);
+                foreach (Element e in _elements)
+                    e.sprite.Draw(spriteBatch);
         }
 
         /// <summary>
-        /// Fonction gerant le mouvement du point de vue sur la map
+        /// Mouvement sur la map
         /// </summary>
-        /// <param name="destination">Vecteur representant le deplacement voulu</param>
-        /// <returns>Destination possible</returns>
-        public virtual Vector2 Moving(Vector2 destination)
+        /// <param name="destination">Vecteur deplacement voulu</param>
+        /// <param name="performMove">Si vrai, le mouvement sera realise</param>
+        /// <returns>Vrai si le mouvement est autorise</returns>
+        public virtual bool Moving(Vector2 destination, bool performMove)
         {
             Point p = new Point((int)(destination.X + VuePosition.X), (int)(destination.Y + VuePosition.Y));
             foreach (Rectangle r in Visitable)
                 if (r.Contains(p))
-                    return destination;
-            return Vector2.Zero;
+                {
+                    if (performMove)
+                    {
+                        float x = destination.X;
+                        foreach (Element s in _elements)
+                            s.sprite.Position = new Rectangle(s.sprite.Position.X + (int)x, s.sprite.Position.Y, s.sprite.Position.Width, s.sprite.Position.Height);
+                    }
+                    return true;
+                }
+            return false;
+        }
+
+        public override void WindowResized(Rectangle rect)
+        {
+            foreach (Element s in _elements)
+                s.sprite.windowResized(rect);
         }
     }
 }

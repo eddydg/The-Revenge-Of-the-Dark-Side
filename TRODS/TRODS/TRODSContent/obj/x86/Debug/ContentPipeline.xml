@@ -280,6 +280,33 @@
       <Output>C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\authors.xnb</Output>
       <Time>2012-12-15T22:08:18.8605391+01:00</Time>
     </Item>
+    <Item>
+      <Source>game\menu\box.png</Source>
+      <Name>game\menu\box</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\game\menu\box.xnb</Output>
+      <Time>2012-12-16T18:58:15.1884612+01:00</Time>
+    </Item>
+    <Item>
+      <Source>game\menu\container.png</Source>
+      <Name>game\menu\container</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\game\menu\container.xnb</Output>
+      <Time>2012-12-16T18:58:15.1984623+01:00</Time>
+    </Item>
+    <Item>
+      <Source>game\menu\containervide.png</Source>
+      <Name>game\menu\containervide</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\game\menu\containervide.xnb</Output>
+      <Time>2012-12-16T18:58:15.1984623+01:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>
