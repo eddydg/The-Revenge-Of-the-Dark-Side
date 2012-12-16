@@ -134,12 +134,12 @@ namespace TRODS
             _mouseState = newMouseState;
         }
 
-        public override void Activation()
+        public override void Activation(Game1 parent)
         {
             _mouseState = Mouse.GetState();
         }
 
-        public override void EndScene()
+        public override void EndScene(Game1 parent)
         {
             animations.Clear();
         }

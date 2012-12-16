@@ -25,13 +25,19 @@ namespace TRODS
         private Dictionary<Scene, AbstractScene> scenes;
         private Scene currentScene;
 
+        public Son son;
+
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
 
+            graphics.PreferredBackBufferHeight = 600;
+            graphics.PreferredBackBufferWidth = 900;
             this.Window.AllowUserResizing = true;
             Rectangle winsize = this.Window.ClientBounds;
+
+            son = new Son();
 
             scenes = new Dictionary<Scene, AbstractScene>();
             currentScene = Scene.MainMenu;
@@ -51,6 +57,8 @@ namespace TRODS
             {
                 foreach (AbstractScene s in scenes.Values)
                     s.LoadContent(Content);
+                son.LoadContent(Content, Sons.MenuSelection, "menu/selectionSound");
+                son.LoadContent(Content, Musiques.MenuMusic, "menu/menuAmbience");
             }
             catch (Exception e)
             {
@@ -97,9 +105,9 @@ namespace TRODS
         {
             try
             {
-                scenes[currentScene].EndScene();
+                scenes[currentScene].EndScene(this);
                 currentScene = newScene;
-                scenes[newScene].Activation();
+                scenes[newScene].Activation(this);
             }
             catch (Exception e)
             {

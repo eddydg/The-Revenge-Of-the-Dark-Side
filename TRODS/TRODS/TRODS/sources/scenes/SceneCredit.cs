@@ -72,13 +72,13 @@ namespace TRODS
             _keyboardState = newKeyboardState;
         }
 
-        public override void Activation()
+        public override void Activation(Game1 parent)
         {
             foreach (AnimatedSprite s in animations)
                 s.ActualPicture = 1;
         }
 
-        public override void EndScene()
+        public override void EndScene(Game1 parent)
         {
         }
 

@@ -51,13 +51,13 @@ namespace TRODS
         /// <summary>
         /// Fonction a appeler avant d'utiliser la scene
         /// </summary>
-        public virtual void Activation()
+        public virtual void Activation(Game1 parent)
         {
         }
         /// <summary>
         /// Fonction a appeler avant de changer de scene
         /// </summary>
-        public virtual void EndScene()
+        public virtual void EndScene(Game1 parent)
         {
         }
         /// <summary>

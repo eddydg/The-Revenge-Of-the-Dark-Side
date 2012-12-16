@@ -32,3 +32,5 @@ Content\menu\authors.xnb
 Content\game\menu\box.xnb
 Content\game\menu\container.xnb
 Content\game\menu\containervide.xnb
+Content\menu\menuAmbience.xnb
+Content\menu\menuAmbience.wma

@@ -111,6 +111,7 @@
     <Compile Include="sources\outils\AbstractScene.cs" />
     <Compile Include="sources\outils\AnimatedSprite.cs" />
     <Compile Include="sources\outils\Enumerations.cs" />
+    <Compile Include="sources\outils\Son.cs" />
     <Compile Include="sources\scenes\InGame.cs" />
     <Compile Include="sources\scenes\MainMenu.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -23,7 +23,6 @@ namespace TRODS
         private List<AnimatedSprite> sprites;
         private Texture2D cursorClic;
 
-        private SoundEffect selectionChangeSon;
         private Selection selection;
         private enum Selection { Play = 0, Extra = 1, Exit = 2, Credit = 3 };
         private Dictionary<Selection, Sprite> menuItems;
@@ -62,7 +61,6 @@ namespace TRODS
             nuages.LoadContent(content, "general/nuages0");
             mouse.LoadContent(content, "menu/cursor0_8x4r");
             cursorClic = content.Load<Texture2D>("menu/onde_8x4");
-            selectionChangeSon = content.Load<SoundEffect>("menu/selectionSound");
             menuItems[Selection.Play].LoadContent(content, "menu/textPlay");
             menuItems[Selection.Extra].LoadContent(content, "menu/textExtra");
             menuItems[Selection.Exit].LoadContent(content, "menu/textExit");
@@ -78,27 +76,27 @@ namespace TRODS
                 if (newKeyboardState.IsKeyDown(Keys.Escape) && !keyboardState.IsKeyDown(Keys.Escape))
                 {
                     selection = Selection.Exit;
-                    selectionChangeSon.Play();
+                    parent.son.Play(Sons.MenuSelection);
                 }
                 if (newKeyboardState.IsKeyDown(Keys.Right) && !keyboardState.IsKeyDown(Keys.Right))
                 {
                     selection++;
-                    selectionChangeSon.Play();
+                    parent.son.Play(Sons.MenuSelection);
                 }
                 if (newKeyboardState.IsKeyDown(Keys.Left) && !keyboardState.IsKeyDown(Keys.Left))
                 {
                     selection--;
-                    selectionChangeSon.Play();
+                    parent.son.Play(Sons.MenuSelection);
                 }
                 if (newKeyboardState.IsKeyDown(Keys.Up) && !keyboardState.IsKeyDown(Keys.Up))
                 {
                     selection--;
-                    selectionChangeSon.Play();
+                    parent.son.Play(Sons.MenuSelection);
                 }
                 if (newKeyboardState.IsKeyDown(Keys.Down) && !keyboardState.IsKeyDown(Keys.Down))
                 {
                     selection++;
-                    selectionChangeSon.Play();
+                    parent.son.Play(Sons.MenuSelection);
                 }
                 if ((int)selection >= menuItems.Count)
                     selection = (Selection)0;
@@ -120,7 +118,7 @@ namespace TRODS
                         if (st.Position.Intersects(new Rectangle(mouse.Position.X, mouse.Position.Y, 1, 1)))
                         {
                             if ((int)selection != i)
-                                selectionChangeSon.Play();
+                                parent.son.Play(Sons.MenuSelection);
                             selection = (Selection)i;
                             if (isClicked)
                                 selectionEvent(parent);
@@ -134,6 +132,8 @@ namespace TRODS
                     }
                 }
 
+                if (MediaPlayer.State != MediaState.Playing)
+                    parent.son.Play(Musiques.MenuMusic);
                 keyboardState = newKeyboardState;
                 mousestate = newMouseState;
             }
@@ -190,15 +190,17 @@ namespace TRODS
             spriteBatch.End();
         }
 
-        public override void Activation()
+        public override void Activation(Game1 parent)
         {
             mousestate = Mouse.GetState();
             sprites.Clear();
             mouse.Position = new Rectangle(-100, -100, mouse.Position.Width, mouse.Position.Height);
+            parent.son.Play(Musiques.MenuMusic);
         }
 
-        public override void EndScene()
+        public override void EndScene(Game1 parent)
         {
+            parent.son.Stop();
         }
 
         /// <summary>
@@ -207,7 +209,7 @@ namespace TRODS
         /// <param name="parent">Reference de la classe Game1 parent</param>
         private void selectionEvent(Game1 parent)
         {
-            selectionChangeSon.Play();
+            parent.son.Play(Sons.MenuSelection);
             switch (selection)
             {
                 case Selection.Exit:

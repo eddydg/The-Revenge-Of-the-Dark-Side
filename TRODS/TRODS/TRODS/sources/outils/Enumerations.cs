@@ -19,4 +19,18 @@ namespace TRODS
     {
         None = 0, Right = 1, Left = 2, Up = 3, Down = 4
     };
+    /// <summary>
+    /// Enumeration de tous les effects sonores du jeu
+    /// </summary>
+    public enum Sons
+    {
+        MenuSelection = 0,
+    };
+    /// <summary>
+    /// Enumeration de toutes les musiques du jeu
+    /// </summary>
+    public enum Musiques
+    {
+        MenuMusic = 0,
+    };
 }
