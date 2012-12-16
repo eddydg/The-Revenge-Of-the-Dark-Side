@@ -121,7 +121,7 @@ namespace TRODS
         /// <param name="destination">Vecteur deplacement voulu</param>
         /// <param name="performMove">Si vrai, le mouvement sera realise</param>
         /// <returns>Vrai si le mouvement est autorise</returns>
-        public virtual bool Moving(Vector2 destination, bool performMove)
+        public virtual bool Moving(Vector2 destination, bool performMove = true)
         {
             Point p = new Point((int)(destination.X + VuePosition.X), (int)(destination.Y + VuePosition.Y));
             foreach (Rectangle r in Visitable)
