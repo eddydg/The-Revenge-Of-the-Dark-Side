@@ -25,12 +25,13 @@ Content\sprites\popGreen_8x4.xnb
 Content\map1\back1r.xnb
 Content\map1\fore1.xnb
 Content\map1\sky1.xnb
-Content\menu\selectionSound.xnb
 Content\menu\etoiles1_10x10r51r100.xnb
 Content\menu\lueur1_10x4r21r40.xnb
 Content\menu\authors.xnb
 Content\game\menu\box.xnb
 Content\game\menu\container.xnb
 Content\game\menu\containervide.xnb
+Content\menu\selectionSound.xnb
 Content\menu\menuAmbience.xnb
+Content\menu\beenTeam.xnb
 Content\menu\menuAmbience.wma

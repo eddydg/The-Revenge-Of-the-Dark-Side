@@ -16,23 +16,21 @@ namespace TRODS
         private KeyboardState _keyboardState;
         private Rectangle _windowSize;
         private List<AnimatedSprite> animations;
-        private Sprite authors;
 
         public SceneCredit(Rectangle windowSize)
         {
             _windowSize = windowSize;
 
-            authors = new Sprite(new Rectangle(300, 200, 400, 200), _windowSize, "menu/authors");
-
             animations = new List<AnimatedSprite>();
             animations.Add(new AnimatedSprite(new Rectangle(0, 0, _windowSize.Width, _windowSize.Height), _windowSize, "menu/etoiles1_10x10r51r100", 10, 10, 17, 51, 100, 1));
             animations.Add(new AnimatedSprite(new Rectangle(0, 0, _windowSize.Width, 2 * _windowSize.Height / 5), _windowSize, "menu/credit"));
             animations.Add(new AnimatedSprite(new Rectangle(-300, _windowSize.Height - 100, _windowSize.Width + 300, 100), _windowSize, "menu/lueur1_10x4r21r40", 10, 4, 15, 21, 40, 1));
+            animations.Add(new AnimatedSprite(new Rectangle(80,250,150,70), _windowSize, "menu/beenTeam"));
+            animations.Add(new AnimatedSprite(new Rectangle(350, 250,280,130), _windowSize, "menu/authors"));
         }
 
         public override void LoadContent(ContentManager content)
         {
-            authors.LoadContent(content);
             foreach (AnimatedSprite s in animations)
                 s.LoadContent(content);
         }
@@ -43,12 +41,6 @@ namespace TRODS
 
             foreach (AnimatedSprite s in animations)
                 s.Draw(spriteBatch);
-
-            Random rand = new Random();
-            authors.Draw(spriteBatch, Color.Red,
-                authors.Position.X + rand.Next(-authors.Position.Width / 100, authors.Position.Width / 100),
-                authors.Position.Y + rand.Next(-authors.Position.Width / 100, authors.Position.Width / 100));
-            authors.Draw(spriteBatch, Color.Black);
 
             spriteBatch.End();
         }
@@ -91,7 +83,6 @@ namespace TRODS
         {
             foreach (AnimatedSprite s in animations)
                 s.windowResized(rect);
-            authors.windowResized(rect);
         }
     }
 }

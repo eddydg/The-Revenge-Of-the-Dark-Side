@@ -30,6 +30,7 @@ namespace TRODS
         private static Vector2 decalage = new Vector2(10, 0);
         private static int amplitudeVibrationSelection = 5;
         private float relativeAmplitudeVibrationSelection;
+        private static int textBorder = 1;
         private int windowHeight;
         private int windowWidth;
 
@@ -170,16 +171,20 @@ namespace TRODS
 
             foreach (Sprite st in menuItems.Values)
             {
+                Rectangle p = st.Position;
                 if (st == menuItems[selection])
                 {
-                    Rectangle p = st.Position;
                     st.Draw(spriteBatch, Color.Red,
                                     (int)(p.X + new Random().Next(-amplitudeVibrationSelection, amplitudeVibrationSelection) + decalage.X),
                                     (int)(p.Y + new Random().Next(-amplitudeVibrationSelection, amplitudeVibrationSelection) + decalage.Y));
                     st.Draw(spriteBatch, Color.Black, (int)(p.X + decalage.X), (int)(p.Y + decalage.Y));
                 }
                 else
+                {
+                    st.Draw(spriteBatch, Color.White, p.X - textBorder, p.Y - textBorder);
+                    st.Draw(spriteBatch, Color.White, p.X + textBorder, p.Y + textBorder);
                     st.Draw(spriteBatch, Color.Black);
+                }
             }
 
             foreach (AnimatedSprite p in sprites)
