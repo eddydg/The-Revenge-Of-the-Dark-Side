@@ -69,6 +69,7 @@ namespace TRODS
 
         public override void Update(float elapsedTime)
         {
+            base.Update(elapsedTime);
             _elapsedTime += (int)elapsedTime;
             if (Speed > 0 && _elapsedTime >= 1000 / Speed)
             {

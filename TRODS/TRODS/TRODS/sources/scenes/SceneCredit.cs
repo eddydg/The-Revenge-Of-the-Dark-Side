@@ -23,10 +23,12 @@ namespace TRODS
 
             animations = new List<AnimatedSprite>();
             animations.Add(new AnimatedSprite(new Rectangle(0, 0, _windowSize.Width, _windowSize.Height), _windowSize, "menu/etoiles1_10x10r51r100", 10, 10, 17, 51, 100, 1));
+            animations.Add(new AnimatedSprite(new Rectangle(80, 250, 150, 70), _windowSize, "menu/beenTeam"));
+            animations.Add(new AnimatedSprite(new Rectangle(350, 250, 280, 130), _windowSize, "menu/authors"));
+            animations.Last<AnimatedSprite>().Direction = new Vector2(0, -1);
+            animations.Last<AnimatedSprite>().Vitesse = 0.1f;
             animations.Add(new AnimatedSprite(new Rectangle(0, 0, _windowSize.Width, 2 * _windowSize.Height / 5), _windowSize, "menu/credit"));
             animations.Add(new AnimatedSprite(new Rectangle(-300, _windowSize.Height - 100, _windowSize.Width + 300, 100), _windowSize, "menu/lueur1_10x4r21r40", 10, 4, 15, 21, 40, 1));
-            animations.Add(new AnimatedSprite(new Rectangle(80,250,150,70), _windowSize, "menu/beenTeam"));
-            animations.Add(new AnimatedSprite(new Rectangle(350, 250,280,130), _windowSize, "menu/authors"));
         }
 
         public override void LoadContent(ContentManager content)
@@ -49,6 +51,12 @@ namespace TRODS
         {
             foreach (AnimatedSprite s in animations)
                 s.Update(elapsedTime);
+            Rectangle p = animations.ElementAt<AnimatedSprite>(2).Position;
+            if (p.Y < -p.Height)
+            {
+                p.Y = _windowSize.Height;
+                animations.ElementAt<AnimatedSprite>(2).Position = p;
+            }
         }
 
         public override void HandleInput(KeyboardState newKeyboardState, MouseState newMouseState, Game1 parent)
