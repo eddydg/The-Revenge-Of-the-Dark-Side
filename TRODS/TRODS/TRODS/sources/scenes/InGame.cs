@@ -24,9 +24,11 @@ namespace TRODS
         private Sprite mouse;
         private AbstractMap map;
 
-        public InGame(Rectangle windowSize)
+        public InGame(Rectangle windowSize, KeyboardState keyboardState, MouseState mouseState)
         {
             _windowSize = windowSize;
+            _mouseState = mouseState;
+            _keyboardState = keyboardState;
 
             mouse = new Sprite(new Rectangle(-100, -100, 30, 50), _windowSize);
             map = new AbstractMap(_windowSize);
@@ -83,6 +85,7 @@ namespace TRODS
         public override void Activation(Game1 parent)
         {
             _mouseState = Mouse.GetState();
+            _keyboardState = Keyboard.GetState();
         }
 
         public override void EndScene(Game1 parent)

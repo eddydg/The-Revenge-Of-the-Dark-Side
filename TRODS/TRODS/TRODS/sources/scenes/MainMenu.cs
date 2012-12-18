@@ -34,10 +34,12 @@ namespace TRODS
         private int windowHeight;
         private int windowWidth;
 
-        public MainMenu(Rectangle windowSize)
+        public MainMenu(Rectangle windowSize, KeyboardState newKeyboardState, MouseState newMouseState)
         {
             windowWidth = windowSize.Width;
             windowHeight = windowSize.Height;
+            keyboardState = newKeyboardState;
+            mousestate = newMouseState;
             selection = Selection.Play;
             wallpaper = new Sprite(new Rectangle(0, 0, windowWidth, windowHeight), windowSize);
             wallpaperText = new Sprite(new Rectangle(0, 0, windowWidth, windowHeight), windowSize);
@@ -76,8 +78,13 @@ namespace TRODS
             {
                 if (newKeyboardState.IsKeyDown(Keys.Escape) && !keyboardState.IsKeyDown(Keys.Escape))
                 {
-                    selection = Selection.Exit;
-                    parent.son.Play(Sons.MenuSelection);
+                    if (selection == Selection.Exit)
+                        parent.SwitchScene(Scene.Titre);
+                    else
+                    {
+                        selection = Selection.Exit;
+                        parent.son.Play(Sons.MenuSelection);
+                    }
                 }
                 if (newKeyboardState.IsKeyDown(Keys.Right) && !keyboardState.IsKeyDown(Keys.Right))
                 {
@@ -133,8 +140,6 @@ namespace TRODS
                     }
                 }
 
-                if (MediaPlayer.State != MediaState.Playing)
-                    parent.son.Play(Musiques.MenuMusic);
                 keyboardState = newKeyboardState;
                 mousestate = newMouseState;
             }

@@ -326,6 +326,15 @@
       <Extra>C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\menuAmbience.wma</Extra>
       <Time>2012-12-16T22:39:48.3728235+01:00</Time>
     </Item>
+    <Item>
+      <Source>menu\tittleText.png</Source>
+      <Name>menu\tittleText</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\tittleText.xnb</Output>
+      <Time>2012-12-18T20:23:56.0237725+01:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>

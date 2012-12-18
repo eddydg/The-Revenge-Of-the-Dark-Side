@@ -76,6 +76,7 @@ namespace TRODS
             try
             {
                 MediaPlayer.Play(_musiques[m]);
+                MediaPlayer.IsRepeating = true;
             }
             catch (Exception e)
             {

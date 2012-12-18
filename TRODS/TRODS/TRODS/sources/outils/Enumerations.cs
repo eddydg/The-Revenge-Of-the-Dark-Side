@@ -10,7 +10,7 @@ namespace TRODS
     /// </summary>
     public enum Scene
     {
-        MainMenu = 0, InGame = 1, Extra = 2, Credit = 3
+        MainMenu = 0, InGame = 1, Extra = 2, Credit = 3, Titre = 4
     };
     /// <summary>
     /// Les 4 directions

@@ -1,0 +1,11 @@
+
+System.Collections.Generic.KeyNotFoundException: La clé donnée était absente du dictionnaire.
+   à System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   à TRODS.Son.Play(Musiques m) dans C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\outils\Son.cs:ligne 78
+Erreur d'affichage :
+System.InvalidOperationException: Begin must be called successfully before a Draw can be called.
+   à Microsoft.Xna.Framework.Graphics.SpriteBatch.InternalDraw(Texture2D texture, Vector4& destination, Boolean scaleDestination, Nullable`1& sourceRectangle, Color color, Single rotation, Vector2& origin, SpriteEffects effects, Single depth)
+   à Microsoft.Xna.Framework.Graphics.SpriteBatch.Draw(Texture2D texture, Rectangle destinationRectangle, Color color)
+   à TRODS.Sprite.Draw(SpriteBatch spriteBatch) dans C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\outils\Sprite.cs:ligne 131
+   à TRODS.SceneTitre.Draw(SpriteBatch spriteBatch) dans C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\scenes\SceneTitre.cs:ligne 69
+   à TRODS.Game1.Draw(GameTime gameTime) dans C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\scenes\Game1.cs:ligne 93

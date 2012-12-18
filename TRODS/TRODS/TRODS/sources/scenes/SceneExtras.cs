@@ -24,9 +24,11 @@ namespace TRODS
         private Sprite tailleSelection;
         private AnimatedSprite mouse;
 
-        public SceneExtras(Rectangle windowSize)
+        public SceneExtras(Rectangle windowSize, KeyboardState keyboardState, MouseState mouseState)
         {
             _windowSize = windowSize;
+            _mouseState = mouseState;
+            _keyboardState = keyboardState;
             selectedSprite = 0;
             currentSize = 150;
             tailleSelection = new Sprite(new Rectangle(0, 400, windowSize.Width, 85), windowSize);
@@ -137,6 +139,7 @@ namespace TRODS
         public override void Activation(Game1 parent)
         {
             _mouseState = Mouse.GetState();
+            _keyboardState = Keyboard.GetState();
         }
 
         public override void EndScene(Game1 parent)

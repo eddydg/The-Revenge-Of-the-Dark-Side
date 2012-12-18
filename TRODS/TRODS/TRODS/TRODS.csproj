@@ -107,6 +107,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="sources\scenes\SceneTitre.cs" />
     <Compile Include="sources\outils\AbstractMap.cs" />
     <Compile Include="sources\outils\AbstractScene.cs" />
     <Compile Include="sources\outils\AnimatedSprite.cs" />

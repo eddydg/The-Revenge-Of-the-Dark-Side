@@ -35,3 +35,4 @@ Content\menu\beenTeam.xnb
 Content\menu\selectionSound.xnb
 Content\menu\menuAmbience.xnb
 Content\menu\menuAmbience.wma
+Content\menu\tittleText.xnb

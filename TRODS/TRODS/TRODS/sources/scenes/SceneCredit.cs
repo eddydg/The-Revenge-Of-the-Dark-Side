@@ -17,14 +17,15 @@ namespace TRODS
         private Rectangle _windowSize;
         private List<AnimatedSprite> animations;
 
-        public SceneCredit(Rectangle windowSize)
+        public SceneCredit(Rectangle windowSize, KeyboardState keyboardState, MouseState mouseState)
         {
             _windowSize = windowSize;
+            _keyboardState = keyboardState;
 
             animations = new List<AnimatedSprite>();
             animations.Add(new AnimatedSprite(new Rectangle(0, 0, _windowSize.Width, _windowSize.Height), _windowSize, "menu/etoiles1_10x10r51r100", 10, 10, 17, 51, 100, 1));
             animations.Add(new AnimatedSprite(new Rectangle(80, 250, 150, 70), _windowSize, "menu/beenTeam"));
-            animations.Add(new AnimatedSprite(new Rectangle(350, 250, 280, 130), _windowSize, "menu/authors"));
+            animations.Add(new AnimatedSprite(new Rectangle(350, _windowSize.Height, 280, 130), _windowSize, "menu/authors"));
             animations.Last<AnimatedSprite>().Direction = new Vector2(0, -1);
             animations.Last<AnimatedSprite>().Vitesse = 0.1f;
             animations.Add(new AnimatedSprite(new Rectangle(0, 0, _windowSize.Width, 2 * _windowSize.Height / 5), _windowSize, "menu/credit"));

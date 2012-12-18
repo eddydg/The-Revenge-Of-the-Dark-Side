@@ -36,15 +36,18 @@ namespace TRODS
             graphics.PreferredBackBufferWidth = 900;
             this.Window.AllowUserResizing = true;
             Rectangle winsize = this.Window.ClientBounds;
+            keyboardState = Keyboard.GetState();
+            mouseState = Mouse.GetState();
 
             son = new Son();
 
             scenes = new Dictionary<Scene, AbstractScene>();
-            currentScene = Scene.MainMenu;
-            scenes.Add(Scene.InGame, new InGame(winsize));
-            scenes.Add(Scene.MainMenu, new MainMenu(winsize));
-            scenes.Add(Scene.Extra, new SceneExtras(winsize));
-            scenes.Add(Scene.Credit, new SceneCredit(winsize));
+            scenes.Add(Scene.InGame, new InGame(winsize, keyboardState, mouseState));
+            scenes.Add(Scene.MainMenu, new MainMenu(winsize, keyboardState, mouseState));
+            scenes.Add(Scene.Extra, new SceneExtras(winsize, keyboardState, mouseState));
+            scenes.Add(Scene.Credit, new SceneCredit(winsize, keyboardState, mouseState));
+            scenes.Add(Scene.Titre, new SceneTitre(winsize, keyboardState, mouseState));
+            currentScene = Scene.Titre;
         }
         protected override void Initialize()
         {
@@ -111,7 +114,7 @@ namespace TRODS
             }
             catch (Exception e)
             {
-                EugLib.FileStream.toStdOut("La scene n'est pas definie :");
+                EugLib.FileStream.toStdOut("Erreur de changement de scene :");
                 EugLib.FileStream.toStdOut(e.ToString());
                 this.Exit();
             }
