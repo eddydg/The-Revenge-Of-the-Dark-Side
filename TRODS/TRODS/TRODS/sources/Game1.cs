@@ -62,6 +62,7 @@ namespace TRODS
                     s.LoadContent(Content);
                 son.LoadContent(Content, Sons.MenuSelection, "menu/selectionSound");
                 son.LoadContent(Content, Musiques.MenuMusic, "menu/menuAmbience");
+                son.LoadContent(Content, Musiques.CreditMusic, "menu/songCredit");
             }
             catch (Exception e)
             {

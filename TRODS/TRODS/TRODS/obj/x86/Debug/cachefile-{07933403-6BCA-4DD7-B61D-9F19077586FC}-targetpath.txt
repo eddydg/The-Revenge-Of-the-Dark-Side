@@ -37,3 +37,5 @@ Content\menu\selectionSound.xnb
 Content\menu\menuAmbience.xnb
 Content\menu\menuAmbience.wma
 Content\game\bear.xnb
+Content\menu\songCredit.xnb
+Content\menu\songCredit.wma

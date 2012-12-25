@@ -51,10 +51,10 @@ namespace TRODS
             sprites = new List<AnimatedSprite>();
 
             menuItems = new Dictionary<Selection, Sprite>();
-            menuItems.Add(Selection.Play, new Sprite(new Rectangle(87, 423, 110, 55), windowSize));
-            menuItems.Add(Selection.Extra, new Sprite(new Rectangle(230, 472, 110, 55), windowSize));
-            menuItems.Add(Selection.Exit, new Sprite(new Rectangle(450, 472, 90, 55), windowSize));
-            menuItems.Add(Selection.Credit, new Sprite(new Rectangle(570, 440, 110, 55), windowSize));
+            menuItems.Add(Selection.Play, new Sprite(new Rectangle(100, 423, 110, 55), windowSize));
+            menuItems.Add(Selection.Extra, new Sprite(new Rectangle(170, 472, 110, 55), windowSize));
+            menuItems.Add(Selection.Exit, new Sprite(new Rectangle(600, 480, 90, 55), windowSize));
+            menuItems.Add(Selection.Credit, new Sprite(new Rectangle(500, 400, 110, 55), windowSize));
         }
 
         public override void LoadContent(ContentManager content)

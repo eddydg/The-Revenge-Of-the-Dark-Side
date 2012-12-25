@@ -24,13 +24,13 @@ namespace TRODS
     /// </summary>
     public enum Sons
     {
-        MenuSelection = 0,
+        MenuSelection,
     };
     /// <summary>
     /// Enumeration de toutes les musiques du jeu
     /// </summary>
     public enum Musiques
     {
-        MenuMusic = 0,
+        MenuMusic, CreditMusic
     };
 }
