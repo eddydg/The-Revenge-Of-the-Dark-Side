@@ -77,6 +77,7 @@ namespace TRODS
         {
             foreach (AnimatedSprite s in animations)
                 s.ActualPicture = 1;
+            animations.ElementAt<AnimatedSprite>(2).Position = new Rectangle(350, _windowSize.Height, 280, 130);
         }
 
         public override void EndScene(Game1 parent)

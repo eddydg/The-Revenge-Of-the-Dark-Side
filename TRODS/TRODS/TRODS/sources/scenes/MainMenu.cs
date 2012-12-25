@@ -27,7 +27,7 @@ namespace TRODS
         private enum Selection { Play = 0, Extra = 1, Exit = 2, Credit = 3 };
         private Dictionary<Selection, Sprite> menuItems;
 
-        private static Vector2 decalage = new Vector2(10, 0);
+        private static Vector2 decalage = new Vector2(3, -15);
         private static int amplitudeVibrationSelection = 5;
         private float relativeAmplitudeVibrationSelection;
         private static int textBorder = 1;
@@ -51,10 +51,10 @@ namespace TRODS
             sprites = new List<AnimatedSprite>();
 
             menuItems = new Dictionary<Selection, Sprite>();
-            menuItems.Add(Selection.Play, new Sprite(new Rectangle(150, 400, 110, 55), windowSize));
-            menuItems.Add(Selection.Extra, new Sprite(new Rectangle(215, 470, 110, 55), windowSize));
-            menuItems.Add(Selection.Exit, new Sprite(new Rectangle(490, 400, 90, 55), windowSize));
-            menuItems.Add(Selection.Credit, new Sprite(new Rectangle(560, 475, 110, 55), windowSize));
+            menuItems.Add(Selection.Play, new Sprite(new Rectangle(87, 423, 110, 55), windowSize));
+            menuItems.Add(Selection.Extra, new Sprite(new Rectangle(230, 472, 110, 55), windowSize));
+            menuItems.Add(Selection.Exit, new Sprite(new Rectangle(450, 472, 90, 55), windowSize));
+            menuItems.Add(Selection.Credit, new Sprite(new Rectangle(570, 440, 110, 55), windowSize));
         }
 
         public override void LoadContent(ContentManager content)
