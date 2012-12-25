@@ -18,7 +18,7 @@ namespace TRODS
     {
         public struct Element
         {
-            public Element(Sprite _s, float _speed = 0, float _verticalSpeed = 0, bool _repeating = false, bool _foreground = false)
+            public Element(AnimatedSprite _s, float _speed = 0, float _verticalSpeed = 0, bool _repeating = false, bool _foreground = false)
             {
                 sprite = _s;
                 speed = _speed;
@@ -26,7 +26,7 @@ namespace TRODS
                 repeating = _repeating;
                 foreground = _foreground;
             }
-            public Sprite sprite;
+            public AnimatedSprite sprite;
             public float speed;
             public float verticalSpeed;
             public bool repeating;
