@@ -6,18 +6,18 @@ using System.Text;
 namespace TRODS
 {
     /// <summary>
-    /// Scene courante du jeu
+    /// Scenes du jeu
     /// </summary>
     public enum Scene
     {
-        MainMenu = 0, InGame = 1, Extra = 2, Credit = 3, Titre = 4
+        MainMenu = 0, InGame = 1, Extra = 2, Credit = 3, Titre = 4, Options = 5,
     };
     /// <summary>
     /// Les 4 directions
     /// </summary>
     public enum Direction
     {
-        None = 0, Right = 1, Left = 2, Up = 3, Down = 4
+        None = 0, Right = 1, Left = 2, Up = 3, Down = 4,
     };
     /// <summary>
     /// Enumeration de tous les effects sonores du jeu
@@ -31,6 +31,6 @@ namespace TRODS
     /// </summary>
     public enum Musiques
     {
-        MenuMusic, CreditMusic
+        MenuMusic, CreditMusic,
     };
 }

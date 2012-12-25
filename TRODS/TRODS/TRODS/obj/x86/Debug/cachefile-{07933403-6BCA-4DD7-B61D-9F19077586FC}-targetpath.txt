@@ -39,3 +39,6 @@ Content\menu\menuAmbience.wma
 Content\game\bear.xnb
 Content\menu\songCredit.xnb
 Content\menu\songCredit.wma
+Content\menu\soundEffect.xnb
+Content\menu\soundMusic.xnb
+Content\menu\textOptions.xnb

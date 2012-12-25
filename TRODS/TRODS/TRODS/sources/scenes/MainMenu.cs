@@ -24,10 +24,10 @@ namespace TRODS
         private Texture2D cursorClic;
 
         private Selection selection;
-        private enum Selection { Play = 0, Extra = 1, Exit = 2, Credit = 3 };
+        private enum Selection { Play = 0, Extra = 1, Options = 2, Credit = 3, Exit = 4, };
         private Dictionary<Selection, Sprite> menuItems;
 
-        private static Vector2 decalage = new Vector2(3, -15);
+        private static Vector2 decalage = new Vector2(3, -7);
         private static int amplitudeVibrationSelection = 5;
         private float relativeAmplitudeVibrationSelection;
         private static int textBorder = 1;
@@ -51,10 +51,11 @@ namespace TRODS
             sprites = new List<AnimatedSprite>();
 
             menuItems = new Dictionary<Selection, Sprite>();
-            menuItems.Add(Selection.Play, new Sprite(new Rectangle(100, 423, 110, 55), windowSize));
-            menuItems.Add(Selection.Extra, new Sprite(new Rectangle(170, 472, 110, 55), windowSize));
-            menuItems.Add(Selection.Exit, new Sprite(new Rectangle(600, 480, 90, 55), windowSize));
-            menuItems.Add(Selection.Credit, new Sprite(new Rectangle(500, 400, 110, 55), windowSize));
+            menuItems.Add(Selection.Play, new Sprite(new Rectangle(100, 423, 110, 55), windowSize, "menu/textPlay"));
+            menuItems.Add(Selection.Extra, new Sprite(new Rectangle(170, 480, 110, 55), windowSize, "menu/textExtra"));
+            menuItems.Add(Selection.Options, new Sprite(new Rectangle(350, 470, 120, 55), windowSize, "menu/textOptions"));
+            menuItems.Add(Selection.Credit, new Sprite(new Rectangle(500, 400, 110, 55), windowSize, "menu/textCredit"));
+            menuItems.Add(Selection.Exit, new Sprite(new Rectangle(600, 480, 90, 55), windowSize, "menu/textExit"));
         }
 
         public override void LoadContent(ContentManager content)
@@ -64,10 +65,8 @@ namespace TRODS
             nuages.LoadContent(content, "general/nuages0");
             mouse.LoadContent(content, "menu/cursor0_8x4r");
             cursorClic = content.Load<Texture2D>("menu/onde_8x4");
-            menuItems[Selection.Play].LoadContent(content, "menu/textPlay");
-            menuItems[Selection.Extra].LoadContent(content, "menu/textExtra");
-            menuItems[Selection.Exit].LoadContent(content, "menu/textExit");
-            menuItems[Selection.Credit].LoadContent(content, "menu/textCredit");
+            foreach (Sprite s in menuItems.Values)
+                s.LoadContent(content);
         }
         public override void HandleInput(KeyboardState newKeyboardState, MouseState newMouseState, Game1 parent)
         {
@@ -233,6 +232,9 @@ namespace TRODS
                     break;
                 case Selection.Credit:
                     parent.SwitchScene(Scene.Credit);
+                    break;
+                case Selection.Options:
+                    parent.SwitchScene(Scene.Options);
                     break;
             }
         }

@@ -8,7 +8,7 @@ using Microsoft.Xna.Framework.GamerServices;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
- 
+
 namespace TRODS
 {
     /// <summary>
@@ -47,6 +47,7 @@ namespace TRODS
             scenes.Add(Scene.Extra, new SceneExtras(winsize, keyboardState, mouseState));
             scenes.Add(Scene.Credit, new SceneCredit(winsize, keyboardState, mouseState));
             scenes.Add(Scene.Titre, new SceneTitre(winsize, keyboardState, mouseState));
+            scenes.Add(Scene.Options, new SceneOptions(winsize, keyboardState, mouseState));
             currentScene = Scene.Titre;
         }
         protected override void Initialize()
@@ -63,6 +64,16 @@ namespace TRODS
                 son.LoadContent(Content, Sons.MenuSelection, "menu/selectionSound");
                 son.LoadContent(Content, Musiques.MenuMusic, "menu/menuAmbience");
                 son.LoadContent(Content, Musiques.CreditMusic, "menu/songCredit");
+                float _volumeEffect = 1f;
+                float _volumeMusic = 1f;
+                List<string> par = EugLib.Tools.toArgv(EugLib.FileStream.readFile(SceneOptions.SOUND_FILENAME));
+                if (par.Count >= 2)
+                {
+                    float.TryParse(par.ElementAt<string>(0), out _volumeMusic);
+                    float.TryParse(par.ElementAt<string>(1), out _volumeEffect);
+                }
+                son.MusiquesVolume = _volumeMusic;
+                son.SonsVolume = _volumeEffect;
             }
             catch (Exception e)
             {
@@ -82,7 +93,7 @@ namespace TRODS
             float elapsedTime = (float)gameTime.ElapsedGameTime.TotalMilliseconds;
 
             scenes[currentScene].Update(elapsedTime);
-            scenes[currentScene].HandleInput(keyboardState,mouseState,this);
+            scenes[currentScene].HandleInput(keyboardState, mouseState, this);
         }
         protected override void Draw(GameTime gameTime)
         {

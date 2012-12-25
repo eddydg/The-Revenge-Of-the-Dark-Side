@@ -52,7 +52,7 @@ namespace TRODS
         /// <param name="a_position">Dimenson du Sprite dans la fenetre</param>
         /// <param name="windowWidth">Largeur de la fenetre</param>
         /// <param name="windowHeight">Hauteur de la fenetre</param>
-        public Sprite(Rectangle a_position, Rectangle windowSize=new Rectangle(), string assetName="")
+        public Sprite(Rectangle a_position, Rectangle windowSize = new Rectangle(), string assetName = "")
         {
             _position = a_position;
             Direction = new Vector2();
@@ -94,7 +94,7 @@ namespace TRODS
         /// </summary>
         /// <param name="content">Gertionnaire de contenu de XNA</param>
         /// <param name="assetName">Nom de la texture</param>
-        public virtual void LoadContent(ContentManager content, string assetName="")
+        public virtual void LoadContent(ContentManager content, string assetName = "")
         {
             if (assetName == "")
                 assetName = AssetName;
@@ -117,77 +117,36 @@ namespace TRODS
         /// <param name="elapsedTime">Temps ecoule depuis le dernier appel de la fonction</param>
         public virtual void Update(float elapsedTime)
         {
-            _position = new Rectangle((int)(_vitesse * Direction.X * elapsedTime)+_position.X,
-                                      (int)(_vitesse * Direction.Y * elapsedTime)+_position.Y, 
+            _position = new Rectangle((int)(_vitesse * Direction.X * elapsedTime) + _position.X,
+                                      (int)(_vitesse * Direction.Y * elapsedTime) + _position.Y,
                                       _position.Width, _position.Height);
         }
 
-        /// <summary>
-        /// Dessine le Sprite avec ses parametres par defaut
-        /// </summary>
-        /// <param name="spriteBatch">Gestionnaire de dessin XNA</param>
+
         public virtual void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Draw(Texture, _position, Color.White);
         }
-        /// <summary>
-        /// Dessine le Sprite avec des parametres specfiques
-        /// </summary>
-        /// <param name="spriteBatch">Gestionnaire de dessin XNA</param>
-        /// <param name="color">Coloration de la texture</param>
-        /// <param name="X">Absisse</param>
-        /// <param name="Y">Ordonee</param>
-        public virtual void Draw(SpriteBatch spriteBatch, Color color, int X, int Y)
-        {
-            spriteBatch.Draw(Texture,
-                            new Rectangle(X, Y, _position.Width, _position.Height),
-                            color);
-        }
-        /// <summary>
-        /// Dessine le Sprite avec des parametres specfiques
-        /// </summary>
-        /// <param name="spriteBatch">Gestionnaire de dessin XNA</param>
-        /// <param name="color">Coloration de la texture</param>
-        /// <param name="position">Position</param>
-        public virtual void Draw(SpriteBatch spriteBatch, Vector2 position)
-        {
-            spriteBatch.Draw(Texture,
-                            new Rectangle((int)position.X, (int)position.Y, _position.Width, _position.Height),
-                            Color.White);
-        }
-        /// <summary>
-        /// Dessine le Sprite avec des parametres specfiques
-        /// </summary>
-        /// <param name="spriteBatch">Gestionnaire de dessin XNA</param>
-        /// <param name="color">Coloration de la texture</param>
-        /// <param name="pos">Posion de la texture a l'ecran</param>
-        public virtual void Draw(SpriteBatch spriteBatch, Color color, Rectangle pos)
-        {
-            spriteBatch.Draw(Texture,pos,color);
-        }
-        /// <summary>
-        /// Dessine le Sprite avec des parametres specfiques
-        /// </summary>
-        /// <param name="spriteBatch">Gestionnaire de dessin XNA</param>
-        /// <param name="color">Coloration de la texture</param>
-        /// <param name="pos">Posion de la texture a l'ecran</param>
         public virtual void Draw(SpriteBatch spriteBatch, Color color)
         {
             spriteBatch.Draw(Texture, _position, color);
         }
-        /// <summary>
-        /// Dessine le Sprite avec des parametres specfiques
-        /// </summary>
-        /// <param name="spriteBatch">Gestionnaire de dessin XNA</param>
-        /// <param name="color">Coloration de la texture</param>
-        /// <param name="rotate">Angle de rotation en radians</param>
-        /// <param name="origin">Origine de la rotation</param>
-        /// <param name="alpha">Transparente alpha (0:transparent - 255:opaque)</param>
-        public virtual void Draw(SpriteBatch spriteBatch, Color color, float rotate = 0, Vector2 origin = new Vector2(), int alpha = 255)
+        public virtual void Draw(SpriteBatch spriteBatch, byte alpha)
         {
-            spriteBatch.Draw(Texture, _position, _position, color, rotate, origin, new SpriteEffects(), alpha);
+            spriteBatch.Draw(Texture, _position, Color.FromNonPremultiplied(255, 255, 255, alpha));
         }
-
+        public virtual void Draw(SpriteBatch spriteBatch, Color color, int X, int Y)
+        {
+            spriteBatch.Draw(Texture, new Rectangle(X, Y, _position.Width, _position.Height), color);
+        }
+        public virtual void Draw(SpriteBatch spriteBatch, Vector2 position)
+        {
+            spriteBatch.Draw(Texture, new Rectangle((int)position.X, (int)position.Y, _position.Width, _position.Height), Color.White);
+        }
+        public virtual void Draw(SpriteBatch spriteBatch, Rectangle destination, Rectangle source, Color color)
+        {
+            spriteBatch.Draw(Texture, destination, source, color);
+        }
 
         /// <summary>
         /// Active l'adaptation automatique de la texture
