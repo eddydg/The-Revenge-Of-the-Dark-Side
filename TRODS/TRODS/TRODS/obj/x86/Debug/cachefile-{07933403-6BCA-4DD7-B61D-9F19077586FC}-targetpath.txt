@@ -32,7 +32,8 @@ Content\game\menu\box.xnb
 Content\game\menu\container.xnb
 Content\game\menu\containervide.xnb
 Content\menu\beenTeam.xnb
+Content\menu\tittleText.xnb
 Content\menu\selectionSound.xnb
 Content\menu\menuAmbience.xnb
 Content\menu\menuAmbience.wma
-Content\menu\tittleText.xnb
+Content\game\bear.xnb

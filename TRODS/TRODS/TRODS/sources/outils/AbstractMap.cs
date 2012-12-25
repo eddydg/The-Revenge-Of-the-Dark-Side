@@ -18,14 +18,18 @@ namespace TRODS
     {
         public struct Element
         {
-            public Element(Sprite _s, float _speed = 0, bool _foreground = false)
+            public Element(Sprite _s, float _speed = 0, float _verticalSpeed = 0, bool _repeating = false, bool _foreground = false)
             {
                 sprite = _s;
                 speed = _speed;
+                verticalSpeed = _verticalSpeed;
+                repeating = _repeating;
                 foreground = _foreground;
             }
             public Sprite sprite;
             public float speed;
+            public float verticalSpeed;
+            public bool repeating;
             public bool foreground;
         }
         protected List<Element> _elements;
@@ -82,37 +86,39 @@ namespace TRODS
                 s.sprite.Update(elapsedTime);
         }
 
-        public override void Draw(SpriteBatch spriteBatch)
-        {
-            foreach (Element e in _elements)
-                e.sprite.Draw(spriteBatch);
-        }
-
         /// <summary>
         /// 
         /// </summary>
         /// <param name="spriteBatch"></param>
         /// <param name="repeating">Repetition des textures lorsqu'elles depassent de l'ecran</param>
-        public void Draw(SpriteBatch spriteBatch, bool repeating = false)
+        public override void Draw(SpriteBatch spriteBatch)
         {
-            if (repeating)
+            Rectangle p;
+            foreach (Element e in _elements)
             {
-                foreach (Element e in _elements)
+                if (e.repeating)
                 {
+
+                    p = e.sprite.Position;
+                    if (p.X > _windowSize.Width)
+                    {
+                        p.X = p.X - p.Width;
+                        e.sprite.Position = p;
+                    }
+                    else if (p.X < -p.Width)
+                    {
+                        p.X = p.X + p.Width;
+                        e.sprite.Position = p;
+                    }
                     e.sprite.Draw(spriteBatch);
-                    if (e.sprite.Position.X > _windowSize.Width)
-                        e.sprite.Position = new Rectangle(-e.sprite.Position.Width + _windowSize.Width, e.sprite.Position.Y, e.sprite.Position.Width, e.sprite.Position.Height);
-                    else if (e.sprite.Position.X < -e.sprite.Position.Width)
-                        e.sprite.Position = new Rectangle(0, e.sprite.Position.Y, e.sprite.Position.Width, e.sprite.Position.Height);
-                    if (e.sprite.Position.X > 0)
-                        e.sprite.Draw(spriteBatch, new Vector2(e.sprite.Position.X - e.sprite.Position.Width, e.sprite.Position.Y));
-                    else if (e.sprite.Position.X + e.sprite.Position.Width < _windowSize.Width)
-                        e.sprite.Draw(spriteBatch, new Vector2(e.sprite.Position.X + e.sprite.Position.Width, e.sprite.Position.Y));
+                    if (p.X > 0)
+                        e.sprite.Draw(spriteBatch, new Vector2(p.X - p.Width, p.Y));
+                    if (p.X < p.Width - _windowSize.Width)
+                        e.sprite.Draw(spriteBatch, new Vector2(p.X + p.Width, p.Y));
                 }
-            }
-            else
-                foreach (Element e in _elements)
+                else
                     e.sprite.Draw(spriteBatch);
+            }
         }
 
         /// <summary>
@@ -129,9 +135,14 @@ namespace TRODS
                 {
                     if (performMove)
                     {
-                        float x = destination.X;
                         foreach (Element s in _elements)
-                            s.sprite.Position = new Rectangle(s.sprite.Position.X + (int)x, s.sprite.Position.Y, s.sprite.Position.Width, s.sprite.Position.Height);
+                            s.sprite.Position = new Rectangle(
+                                s.sprite.Position.X - (int)(destination.X * s.speed),
+                                s.sprite.Position.Y - (int)(destination.Y * s.verticalSpeed),
+                                s.sprite.Position.Width,
+                                s.sprite.Position.Height);
+                        _vuePosition.X += destination.X;
+                        _vuePosition.Y += destination.Y;
                     }
                     return true;
                 }
