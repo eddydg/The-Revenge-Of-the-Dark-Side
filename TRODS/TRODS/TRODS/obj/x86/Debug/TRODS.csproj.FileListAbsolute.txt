@@ -155,7 +155,6 @@ C:\Users\Kuchera\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bi
 C:\Users\Kuchera\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\general\nuages0.xnb
 C:\Users\Kuchera\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\general\white.xnb
 C:\Users\Kuchera\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\credit.xnb
-C:\Users\Kuchera\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\cursor0_8x4r.xnb
 C:\Users\Kuchera\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\onde_8x4.xnb
 C:\Users\Kuchera\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\sizeSelection.xnb
 C:\Users\Kuchera\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\textCredit.xnb
@@ -170,7 +169,6 @@ C:\Users\Kuchera\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bi
 C:\Users\Kuchera\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\sprites\explosion2_8x8.xnb
 C:\Users\Kuchera\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\sprites\explosion3_8x4.xnb
 C:\Users\Kuchera\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\sprites\explosion4_8x8.xnb
-C:\Users\Kuchera\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\sprites\fireWall_11x6r23r45.xnb
 C:\Users\Kuchera\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\sprites\spriteElectric_11x3r12r23.xnb
 C:\Users\Kuchera\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\sprites\canalisation1_16x13.xnb
 C:\Users\Kuchera\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\sprites\popGreen_8x4.xnb
@@ -187,7 +185,6 @@ C:\Users\Kuchera\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bi
 C:\Users\Kuchera\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\tittleText.xnb
 C:\Users\Kuchera\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\selectionSound.xnb
 C:\Users\Kuchera\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\menuAmbience.xnb
-C:\Users\Kuchera\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\menuAmbience.wma
 C:\Users\Kuchera\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\TRODS.exe
 C:\Users\Kuchera\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\TRODS.pdb
 C:\Users\Kuchera\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\obj\x86\Debug\TRODS.csprojResolveAssemblyReference.cache
@@ -200,3 +197,5 @@ C:\Users\Kuchera\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bi
 C:\Users\Kuchera\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\soundEffect.xnb
 C:\Users\Kuchera\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\soundMusic.xnb
 C:\Users\Kuchera\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\textOptions.xnb
+C:\Users\Kuchera\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\sprites\fireWall_11x6r23r44.xnb
+C:\Users\Kuchera\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\menuAmbience.wma

@@ -42,6 +42,26 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="game\bear.png">
+      <Name>bear</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="game\menu\box.png">
+      <Name>box</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="game\menu\container.png">
+      <Name>container</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="game\menu\containervide.png">
+      <Name>containervide</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
     <Compile Include="general\black.png">
       <Name>black</Name>
       <Importer>TextureImporter</Importer>
@@ -62,17 +82,50 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-  </ItemGroup>
-  <ItemGroup>
+    <Compile Include="map1\back1r.png">
+      <Name>back1r</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="map1\fore1.png">
+      <Name>fore1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="map1\sky1.png">
+      <Name>sky1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="menu\authors.png">
+      <Name>authors</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="menu\beenTeam.png">
+      <Name>beenTeam</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
     <Compile Include="menu\credit.png">
       <Name>credit</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="menu\cursor0_8x4r.png">
-      <Name>cursor0_8x4r</Name>
+    <Compile Include="menu\etoiles1_10x10r51r100.png">
+      <Name>etoiles1_10x10r51r100</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="menu\lueur1_10x4r21r40.png">
+      <Name>lueur1_10x4r21r40</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="menu\menuAmbience.wav">
+      <Name>menuAmbience</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SongProcessor</Processor>
     </Compile>
     <Compile Include="menu\onde_8x4.png">
       <Name>onde_8x4</Name>
@@ -86,6 +139,21 @@
     </Compile>
     <Compile Include="menu\sizeSelection.png">
       <Name>sizeSelection</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="menu\songCredit.mp3">
+      <Name>songCredit</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+    </Compile>
+    <Compile Include="menu\soundEffect.png">
+      <Name>soundEffect</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="menu\soundMusic.png">
+      <Name>soundMusic</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
@@ -104,8 +172,18 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
+    <Compile Include="menu\textOptions.png">
+      <Name>textOptions</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
     <Compile Include="menu\textPlay.png">
       <Name>textPlay</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="menu\tittleText.png">
+      <Name>tittleText</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
@@ -119,8 +197,11 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-  </ItemGroup>
-  <ItemGroup>
+    <Compile Include="sprites\canalisation1_16x13.png">
+      <Name>canalisation1_16x13</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
     <Compile Include="sprites\cursorFire_8x4r.png">
       <Name>cursorFire_8x4r</Name>
       <Importer>TextureImporter</Importer>
@@ -151,134 +232,18 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="sprites\fireWall_11x6r23r45.png">
-      <Name>fireWall_11x6r23r45</Name>
+    <Compile Include="sprites\fireWall_11x6r23r44.png">
+      <Name>fireWall_11x6r23r44</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="sprites\spriteElectric_11x3r12r23.png">
-      <Name>spriteElectric_11x3r12r23</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="sprites\canalisation1_16x13.png">
-      <Name>canalisation1_16x13</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="sprites\popGreen_8x4.png">
       <Name>popGreen_8x4</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="map1\back1r.png">
-      <Name>back1r</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="map1\fore1.png">
-      <Name>fore1</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="map1\sky1.png">
-      <Name>sky1</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="menu\etoiles1_10x10r51r100.png">
-      <Name>etoiles1_10x10r51r100</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="menu\lueur1_10x4r21r40.png">
-      <Name>lueur1_10x4r21r40</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="menu\authors.png">
-      <Name>authors</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="game\menu\box.png">
-      <Name>box</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="game\menu\container.png">
-      <Name>container</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="game\menu\containervide.png">
-      <Name>containervide</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="menu\menuAmbience.wav">
-      <Name>menuAmbience</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>SongProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="menu\beenTeam.png">
-      <Name>beenTeam</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="menu\tittleText.png">
-      <Name>tittleText</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="game\bear.png">
-      <Name>bear</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="menu\songCredit.mp3">
-      <Name>songCredit</Name>
-      <Importer>Mp3Importer</Importer>
-      <Processor>SongProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="menu\soundEffect.png">
-      <Name>soundEffect</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="menu\soundMusic.png">
-      <Name>soundMusic</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="menu\textOptions.png">
-      <Name>textOptions</Name>
+    <Compile Include="sprites\spriteElectric_11x3r12r23.png">
+      <Name>spriteElectric_11x3r12r23</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>

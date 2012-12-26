@@ -107,19 +107,22 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AbstractMap.cs" />
-    <Compile Include="AbstractScene.cs" />
-    <Compile Include="AnimatedSprite.cs" />
-    <Compile Include="Enumerations.cs" />
-    <Compile Include="InGame.cs" />
-    <Compile Include="MainMenu.cs" />
+    <Compile Include="sources\scenes\SceneOptions.cs" />
+    <Compile Include="sources\scenes\SceneTitre.cs" />
+    <Compile Include="sources\outils\AbstractMap.cs" />
+    <Compile Include="sources\outils\AbstractScene.cs" />
+    <Compile Include="sources\outils\AnimatedSprite.cs" />
+    <Compile Include="sources\outils\Enumerations.cs" />
+    <Compile Include="sources\outils\Son.cs" />
+    <Compile Include="sources\scenes\InGame.cs" />
+    <Compile Include="sources\scenes\MainMenu.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Program.cs" />
-    <Compile Include="Game1.cs" />
-    <Compile Include="SceneCredit.cs" />
-    <Compile Include="SceneExtras.cs" />
-    <Compile Include="Sprite.cs" />
-    <Compile Include="Tools.cs" />
+    <Compile Include="sources\Program.cs" />
+    <Compile Include="sources\Game1.cs" />
+    <Compile Include="sources\scenes\SceneCredit.cs" />
+    <Compile Include="sources\scenes\SceneExtras.cs" />
+    <Compile Include="sources\outils\Sprite.cs" />
+    <Compile Include="sources\outils\Tools.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Game.ico" />
