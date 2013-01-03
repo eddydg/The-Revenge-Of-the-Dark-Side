@@ -31,6 +31,12 @@ namespace TRODS
             public float verticalSpeed;
             public bool repeating;
             public bool foreground;
+            public void windowResized(Rectangle rect, float w, float h)
+            {
+                sprite.windowResized(rect);
+                speed *= w;
+                verticalSpeed *= h;
+            }
         }
         protected List<Element> _elements;
         public List<Element> Elements
@@ -151,8 +157,28 @@ namespace TRODS
 
         public override void WindowResized(Rectangle rect)
         {
+            float w = rect.Width / _windowSize.Width;
+            float h = rect.Height / _windowSize.Height;
+
             foreach (Element s in _elements)
-                s.sprite.windowResized(rect);
+                s.windowResized(rect, w, h);
+
+            _vuePosition.X *= w;
+            _vuePosition.Y *= h;
+
+            Rectangle r;
+            for (int i = 0; i < _visitable.Count; i++)
+            {
+                r = _visitable.ElementAt<Rectangle>(i);
+                r.X = (int)(r.X * w);
+                r.Y = (int)(r.Y * h);
+                r.Width = (int)(r.Width * w);
+                r.Height = (int)(r.Height * h);
+                _visitable.RemoveAt(i);
+                _visitable.Insert(i, r);
+            }
+
+            _windowSize = rect;
         }
     }
 }

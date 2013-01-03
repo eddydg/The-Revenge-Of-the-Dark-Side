@@ -40,7 +40,7 @@ namespace TRODS
             map.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(0, 0, _windowSize.Width, _windowSize.Height), _windowSize, "map1/back1r"), 0.8f, 0.2f, true));
             map.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(0, _windowSize.Height / 2, _windowSize.Width, _windowSize.Height / 2), _windowSize, "map1/fore1"), 1f, 0.5f, true));
             map.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(0, 150, _windowSize.Width / 2, _windowSize.Height - 150), _windowSize, "sprites/fireWall_11x6r23r44", 11, 6, 30, 23, 44, 1, true), 1f, 0.5f));
-            map.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(map.Visitable.Last<Rectangle>().Width + (int)map.VuePosition.X - 150, 150, _windowSize.Width / 2 - 20, _windowSize.Height - 150), _windowSize, "sprites/fireWall_11x6r23r44", 11, 6, 30, 23, 45, 1, true), 1f, 0.5f));
+            map.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(map.Visitable.Last<Rectangle>().Width + (int)map.VuePosition.X - 150, 150, _windowSize.Width / 2 - 20, _windowSize.Height - 150), _windowSize, "sprites/fireWall_11x6r23r44", 11, 6, 30, 23, 44, 1, true), 1f, 0.5f));
 
             personnage = new Sprite(new Rectangle((int)map.VuePosition.X - 50, (int)map.VuePosition.Y - 50, 100, 100), _windowSize, "game/bear");
         }
