@@ -31,11 +31,11 @@ namespace TRODS
             public float verticalSpeed;
             public bool repeating;
             public bool foreground;
-            public void windowResized(Rectangle rect, float w, float h)
+            public void windowResized(Rectangle rect, double w, double h)
             {
                 sprite.windowResized(rect);
-                speed *= w;
-                verticalSpeed *= h;
+                speed = (float)((double)speed * w);
+                verticalSpeed = (float)((double)verticalSpeed * h);
             }
         }
         protected List<Element> _elements;
@@ -157,26 +157,21 @@ namespace TRODS
 
         public override void WindowResized(Rectangle rect)
         {
-            float w = rect.Width / _windowSize.Width;
-            float h = rect.Height / _windowSize.Height;
+            double w = (double)rect.Width / (double)_windowSize.Width;
+            double h = (double)rect.Height / (double)_windowSize.Height;
 
             foreach (Element s in _elements)
                 s.windowResized(rect, w, h);
 
-            _vuePosition.X *= w;
-            _vuePosition.Y *= h;
+            _vuePosition.X = (float)((double)_vuePosition.X * w);
+            _vuePosition.Y = (float)((double)_vuePosition.Y * h);
 
-            Rectangle r;
-            for (int i = 0; i < _visitable.Count; i++)
+            List<Rectangle> l = new List<Rectangle>();
+            foreach (Rectangle r in _visitable)
             {
-                r = _visitable.ElementAt<Rectangle>(i);
-                r.X = (int)(r.X * w);
-                r.Y = (int)(r.Y * h);
-                r.Width = (int)(r.Width * w);
-                r.Height = (int)(r.Height * h);
-                _visitable.RemoveAt(i);
-                _visitable.Insert(i, r);
+                l.Add(new Rectangle((int)((double)r.X * w), (int)((double)r.Y * h), (int)((double)r.Width * w), (int)((double)r.Height * h)));
             }
+            _visitable = l;
 
             _windowSize = rect;
         }

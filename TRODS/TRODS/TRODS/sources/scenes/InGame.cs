@@ -72,8 +72,8 @@ namespace TRODS
         {
             if (parent.Window.ClientBounds != _windowSize)
             {
+                windowResized(parent.Window.ClientBounds);
                 _windowSize = parent.Window.ClientBounds;
-                windowResized(_windowSize);
             }
             if (!newKeyboardState.IsKeyDown(Keys.Escape) && _keyboardState.IsKeyDown(Keys.Escape))
                 parent.SwitchScene(Scene.MainMenu);
