@@ -16,6 +16,9 @@ namespace TRODS
     /// </summary>
     class AbstractMap : AbstractScene
     {
+        /// <summary>
+        /// Element constitutif de la map
+        /// </summary>
         public struct Element
         {
             public Element(AnimatedSprite _s, float _speed = 0, float _verticalSpeed = 0, bool _repeating = false, bool _foreground = false)
@@ -38,6 +41,7 @@ namespace TRODS
                 verticalSpeed = (float)((double)verticalSpeed * h);
             }
         }
+
         protected List<Element> _elements;
         public List<Element> Elements
         {
@@ -159,7 +163,7 @@ namespace TRODS
         {
             double w = (double)rect.Width / (double)_windowSize.Width;
             double h = (double)rect.Height / (double)_windowSize.Height;
-
+            
             foreach (Element s in _elements)
                 s.windowResized(rect, w, h);
 
@@ -168,9 +172,7 @@ namespace TRODS
 
             List<Rectangle> l = new List<Rectangle>();
             foreach (Rectangle r in _visitable)
-            {
                 l.Add(new Rectangle((int)((double)r.X * w), (int)((double)r.Y * h), (int)((double)r.Width * w), (int)((double)r.Height * h)));
-            }
             _visitable = l;
 
             _windowSize = rect;

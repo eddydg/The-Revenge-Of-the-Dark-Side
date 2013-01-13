@@ -34,13 +34,13 @@ namespace TRODS
 
             mouse = new Sprite(new Rectangle(-100, -100, 30, 50), _windowSize);
             map = new AbstractMap(_windowSize);
-            map.VuePosition = new Vector2(_windowSize.Width / 2, 2 * _windowSize.Height / 3 + 49);
-            map.Visitable.Add(new Rectangle(_windowSize.Width / 2, 2 * _windowSize.Height / 3, 1200, 50));
+            map.VuePosition = new Vector2(_windowSize.Width / 2, 2 * _windowSize.Height / 3 + 99);
+            map.Visitable.Add(new Rectangle(_windowSize.Width / 2, 2 * _windowSize.Height / 3 - 50, 1130, 150));
             map.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(0, 0, _windowSize.Width, _windowSize.Height), _windowSize, "map1/sky1"), 0.2f, 0, true));
             map.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(0, 0, _windowSize.Width, _windowSize.Height), _windowSize, "map1/back1r"), 0.8f, 0.2f, true));
             map.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(0, _windowSize.Height / 2, _windowSize.Width, _windowSize.Height / 2), _windowSize, "map1/fore1"), 1f, 0.5f, true));
             map.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(0, 150, _windowSize.Width / 2, _windowSize.Height - 150), _windowSize, "sprites/fireWall_11x6r23r44", 11, 6, 30, 23, 44, 1, true), 1f, 0.5f));
-            map.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(map.Visitable.Last<Rectangle>().Width + (int)map.VuePosition.X - 150, 150, _windowSize.Width / 2 - 20, _windowSize.Height - 150), _windowSize, "sprites/fireWall_11x6r23r44", 11, 6, 30, 23, 44, 1, true), 1f, 0.5f));
+            map.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(map.Visitable.Last<Rectangle>().Width + map.Visitable.Last<Rectangle>().X, 150, _windowSize.Width / 2 - 20, _windowSize.Height - 150), _windowSize, "sprites/fireWall_11x6r23r44", 11, 6, 30, 23, 44, 1, true), 1f, 0.5f));
 
             personnage = new Sprite(new Rectangle((int)map.VuePosition.X - 50, (int)map.VuePosition.Y - 50, 100, 100), _windowSize, "game/bear");
         }

@@ -107,6 +107,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="sources\outils\DecimalRectangle.cs" />
     <Compile Include="sources\scenes\SceneOptions.cs" />
     <Compile Include="sources\scenes\SceneTitre.cs" />
     <Compile Include="sources\outils\AbstractMap.cs" />
