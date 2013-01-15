@@ -179,11 +179,11 @@ namespace TRODS
             if (_isRelativePos)
             {
                 _position = new Rectangle(
-                    (int)(_relativePosX * rect.Width),
-                    (int)(_relativePosY * rect.Height),
-                    (int)(_relativeWidth * rect.Width),
-                    (int)(_relativeHeight * rect.Height));
-                _vitesse = _relativeSpeed * _position.Width;
+                    (int)(_relativePosX * (float)rect.Width),
+                    (int)(_relativePosY * (float)rect.Height),
+                    (int)(_relativeWidth * (float)rect.Width),
+                    (int)(_relativeHeight * (float)rect.Height));
+                _vitesse = _relativeSpeed * (float)_position.Width;
             }
         }
         /// <summary>

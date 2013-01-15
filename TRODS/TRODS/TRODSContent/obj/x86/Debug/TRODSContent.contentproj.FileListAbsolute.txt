@@ -2,3 +2,4 @@ C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\T
 C:\Users\kuchera\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODSContent\obj\x86\Debug\ResolveAssemblyReference.cache
 D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODSContent\obj\x86\Debug\TRODSContent.contentprojResolveAssemblyReference.cache
 C:\Users\Kuchera\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODSContent\obj\x86\Debug\TRODSContent.contentprojResolveAssemblyReference.cache
+D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS - Copie\TRODS\TRODSContent\obj\x86\Debug\TRODSContent.contentprojResolveAssemblyReference.cache

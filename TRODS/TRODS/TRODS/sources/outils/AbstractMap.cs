@@ -11,14 +11,8 @@ using Microsoft.Xna.Framework.Media;
 
 namespace TRODS
 {
-    /// <summary>
-    /// Classe dont Heriteront toutes les maps du jeu
-    /// </summary>
     class AbstractMap : AbstractScene
     {
-        /// <summary>
-        /// Element constitutif de la map
-        /// </summary>
         public struct Element
         {
             public Element(AnimatedSprite _s, float _speed = 0, float _verticalSpeed = 0, bool _repeating = false, bool _foreground = false)
@@ -34,11 +28,11 @@ namespace TRODS
             public float verticalSpeed;
             public bool repeating;
             public bool foreground;
-            public void windowResized(Rectangle rect, double w, double h)
+            public void WindowResized(Rectangle oldWinSize, Rectangle winSize)
             {
-                sprite.windowResized(rect);
-                speed = (float)((double)speed * w);
-                verticalSpeed = (float)((double)verticalSpeed * h);
+                sprite.windowResized(winSize);
+                speed *= winSize.Width / oldWinSize.Width;
+                verticalSpeed *= winSize.Height / oldWinSize.Height;
             }
         }
 
@@ -67,16 +61,13 @@ namespace TRODS
             set { _visitable = value; }
         }
 
-
         public AbstractMap(Rectangle windowSize)
         {
             _windowSize = windowSize;
             _elements = new List<Element>();
             _visitable = new List<Rectangle>();
         }
-
-        public AbstractMap(Rectangle windowSize, List<Element> elements,
-                            Vector2 vuePosition, List<Rectangle> visitableArea)
+        public AbstractMap(Rectangle windowSize, List<Element> elements, Vector2 vuePosition, List<Rectangle> visitableArea)
         {
             _windowSize = windowSize;
             _elements = elements;
@@ -89,18 +80,11 @@ namespace TRODS
             foreach (Element s in _elements)
                 s.sprite.LoadContent(content);
         }
-
         public override void Update(float elapsedTime)
         {
             foreach (Element s in _elements)
                 s.sprite.Update(elapsedTime);
         }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="spriteBatch"></param>
-        /// <param name="repeating">Repetition des textures lorsqu'elles depassent de l'ecran</param>
         public override void Draw(SpriteBatch spriteBatch)
         {
             Rectangle p;
@@ -110,33 +94,24 @@ namespace TRODS
                 {
 
                     p = e.sprite.Position;
+
                     if (p.X > _windowSize.Width)
-                    {
                         p.X = p.X - p.Width;
-                        e.sprite.Position = p;
-                    }
                     else if (p.X < -p.Width)
-                    {
                         p.X = p.X + p.Width;
-                        e.sprite.Position = p;
-                    }
+
+                    e.sprite.Position = p;
+
                     e.sprite.Draw(spriteBatch);
                     if (p.X > 0)
                         e.sprite.Draw(spriteBatch, new Vector2(p.X - p.Width, p.Y));
-                    if (p.X < p.Width - _windowSize.Width)
+                    if (p.X - p.Width < _windowSize.Width)
                         e.sprite.Draw(spriteBatch, new Vector2(p.X + p.Width, p.Y));
                 }
                 else
                     e.sprite.Draw(spriteBatch);
             }
         }
-
-        /// <summary>
-        /// Mouvement sur la map
-        /// </summary>
-        /// <param name="destination">Vecteur deplacement voulu</param>
-        /// <param name="performMove">Si vrai, le mouvement sera realise</param>
-        /// <returns>Vrai si le mouvement est autorise</returns>
         public virtual bool Moving(Vector2 destination, bool performMove = true)
         {
             Point p = new Point((int)(destination.X + VuePosition.X), (int)(destination.Y + VuePosition.Y));
@@ -153,27 +128,53 @@ namespace TRODS
                                 s.sprite.Position.Height);
                         _vuePosition.X += destination.X;
                         _vuePosition.Y += destination.Y;
+
+                        for (int i = _visitable.Count - 1; i >= 0; i--)
+                        {
+                            if (_elements.ElementAt(i).foreground)
+                            {
+                                i = -1;
+                                float s = _elements.ElementAt(i).speed;
+                                float vs = _elements.ElementAt(i).verticalSpeed;
+                                List<Rectangle> n = new List<Rectangle>();
+                                Rectangle rip;
+                                foreach (Rectangle v in _visitable)
+                                {
+                                    rip = v;
+                                    rip.X += (int)((float)destination.X * s);
+                                    rip.Y += (int)((float)destination.Y * vs);
+                                    n.Add(rip);
+                                }
+                                _visitable = n;
+                            }
+                        }
                     }
                     return true;
                 }
             return false;
         }
-
         public override void WindowResized(Rectangle rect)
         {
-            double w = (double)rect.Width / (double)_windowSize.Width;
-            double h = (double)rect.Height / (double)_windowSize.Height;
-            
-            foreach (Element s in _elements)
-                s.windowResized(rect, w, h);
+            foreach (Element e in _elements)
+                e.WindowResized(_windowSize, rect);
 
-            _vuePosition.X = (float)((double)_vuePosition.X * w);
-            _vuePosition.Y = (float)((double)_vuePosition.Y * h);
+            float x = (float)rect.Width / (float)_windowSize.Width;
+            float y = (float)rect.Height / (float)_windowSize.Height;
+            List<Rectangle> n = new List<Rectangle>();
+            Rectangle r;
+            foreach (Rectangle rectal in _visitable)
+            {
+                r = rectal;
+                r.X = (int)((float)r.X * x);
+                r.Y = (int)((float)r.Y * y);
+                r.Width = (int)((float)r.Width * x);
+                r.Height = (int)((float)r.Height * y);
+                n.Add(r);
+            }
+            _visitable = n;
 
-            List<Rectangle> l = new List<Rectangle>();
-            foreach (Rectangle r in _visitable)
-                l.Add(new Rectangle((int)((double)r.X * w), (int)((double)r.Y * h), (int)((double)r.Width * w), (int)((double)r.Height * h)));
-            _visitable = l;
+            _vuePosition.X = _vuePosition.X * x;
+            _vuePosition.Y = _vuePosition.Y * y;
 
             _windowSize = rect;
         }

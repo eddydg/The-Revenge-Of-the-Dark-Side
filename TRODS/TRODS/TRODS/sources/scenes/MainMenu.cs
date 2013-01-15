@@ -51,11 +51,11 @@ namespace TRODS
             sprites = new List<AnimatedSprite>();
 
             menuItems = new Dictionary<Selection, Sprite>();
-            menuItems.Add(Selection.Play, new Sprite(new Rectangle(100, 423, 110, 55), windowSize, "menu/textPlay"));
-            menuItems.Add(Selection.Extra, new Sprite(new Rectangle(170, 480, 110, 55), windowSize, "menu/textExtra"));
-            menuItems.Add(Selection.Options, new Sprite(new Rectangle(350, 470, 120, 55), windowSize, "menu/textOptions"));
-            menuItems.Add(Selection.Credit, new Sprite(new Rectangle(500, 400, 110, 55), windowSize, "menu/textCredit"));
-            menuItems.Add(Selection.Exit, new Sprite(new Rectangle(600, 480, 90, 55), windowSize, "menu/textExit"));
+            menuItems.Add(Selection.Play, new Sprite(new Rectangle(112, 423, 124, 55), windowSize, "menu/textPlay"));
+            menuItems.Add(Selection.Extra, new Sprite(new Rectangle(191, 480, 124, 55), windowSize, "menu/textExtra"));
+            menuItems.Add(Selection.Options, new Sprite(new Rectangle(394, 470, 135, 55), windowSize, "menu/textOptions"));
+            menuItems.Add(Selection.Credit, new Sprite(new Rectangle(562, 400, 124, 55), windowSize, "menu/textCredit"));
+            menuItems.Add(Selection.Exit, new Sprite(new Rectangle(675, 480, 101, 55), windowSize, "menu/textExit"));
         }
 
         public override void LoadContent(ContentManager content)

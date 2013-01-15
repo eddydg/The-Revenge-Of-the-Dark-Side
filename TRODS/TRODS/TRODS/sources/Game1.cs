@@ -17,6 +17,11 @@ namespace TRODS
     public class Game1 : Microsoft.Xna.Framework.Game
     {
         GraphicsDeviceManager graphics;
+        public GraphicsDeviceManager Graphics
+        {
+            get { return graphics; }
+            private set { graphics = value; }
+        }
         SpriteBatch spriteBatch;
 
         private KeyboardState keyboardState;
@@ -32,10 +37,11 @@ namespace TRODS
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
 
-            graphics.PreferredBackBufferHeight = 600;
             graphics.PreferredBackBufferWidth = 900;
+            graphics.PreferredBackBufferHeight = 600;
+            graphics.ApplyChanges();
             this.Window.AllowUserResizing = true;
-            Rectangle winsize = this.Window.ClientBounds;
+            Rectangle winsize = Window.ClientBounds;
             keyboardState = Keyboard.GetState();
             mouseState = Mouse.GetState();
 
@@ -92,8 +98,16 @@ namespace TRODS
             mouseState = Mouse.GetState();
             float elapsedTime = (float)gameTime.ElapsedGameTime.TotalMilliseconds;
 
-            scenes[currentScene].Update(elapsedTime);
-            scenes[currentScene].HandleInput(keyboardState, mouseState, this);
+            try
+            {
+                scenes[currentScene].Update(elapsedTime);
+                scenes[currentScene].HandleInput(keyboardState, mouseState, this);
+            }
+            catch (Exception e)
+            {
+                EugLib.FileStream.toStdOut(e.ToString());
+                this.Exit();
+            }
         }
         protected override void Draw(GameTime gameTime)
         {
