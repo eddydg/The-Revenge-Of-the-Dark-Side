@@ -85,7 +85,7 @@ namespace TRODS
             }
 
             if (newKeyboardState.IsKeyDown(Keys.Right))
-                map.Moving(new Vector2(5, 0), true);
+                map.Moving(new Vector2(5,0), true);
             if (newKeyboardState.IsKeyDown(Keys.Left))
                 map.Moving(new Vector2(-5, 0), true);
             if (newKeyboardState.IsKeyDown(Keys.Up))
