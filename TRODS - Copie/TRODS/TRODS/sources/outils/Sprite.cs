@@ -174,16 +174,24 @@ namespace TRODS
         /// et la _vitesse a celle de la fenetre
         /// </summary>
         /// <param name="rect"></param>
-        public virtual void windowResized(Rectangle rect)
+        public virtual void windowResized(Rectangle rect,Rectangle oldRect=new Rectangle())
         {
-            if (_isRelativePos)
+            if (oldRect == new Rectangle())
             {
-                _position = new Rectangle(
-                    (int)(_relativePosX * (float)rect.Width),
-                    (int)(_relativePosY * (float)rect.Height),
-                    (int)(_relativeWidth * (float)rect.Width),
-                    (int)(_relativeHeight * (float)rect.Height));
-                _vitesse = _relativeSpeed * (float)_position.Width;
+                if (_isRelativePos)
+                {
+                    _position = new Rectangle(
+                        (int)(_relativePosX * (float)rect.Width),
+                        (int)(_relativePosY * (float)rect.Height),
+                        (int)(_relativeWidth * (float)rect.Width),
+                        (int)(_relativeHeight * (float)rect.Height));
+                    _vitesse = _relativeSpeed * (float)_position.Width;
+                }
+            }
+            else
+            {
+                setRelatvePos(_position, oldRect.Width, oldRect.Height);
+                windowResized(rect);
             }
         }
         /// <summary>

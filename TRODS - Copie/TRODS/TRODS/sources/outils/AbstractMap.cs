@@ -30,9 +30,9 @@ namespace TRODS
             public bool foreground;
             public void WindowResized(Rectangle oldWinSize, Rectangle winSize)
             {
-                sprite.windowResized(winSize);
-                speed *= winSize.Width / oldWinSize.Width;
-                verticalSpeed *= winSize.Height / oldWinSize.Height;
+                sprite.windowResized(winSize, oldWinSize);
+                speed *= (float)winSize.Width / (float)oldWinSize.Width;
+                verticalSpeed *= (float)winSize.Height / (float)oldWinSize.Height;
             }
         }
 
