@@ -42,3 +42,5 @@ Content\menu\selectionSound.xnb
 Content\menu\songCredit.xnb
 Content\menu\songCredit.wma
 Content\menu\contextualMenuBlackFull.xnb
+Content\menu\contextMenuText.xnb
+Content\menu\contextMenuTextMainMenu.xnb

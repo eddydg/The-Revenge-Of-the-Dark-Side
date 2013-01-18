@@ -249,8 +249,20 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="menu\contextMenuText.png">
+      <Name>contextMenuText</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
     <Compile Include="menu\contextualMenuBlackFull.png">
       <Name>contextualMenuBlackFull</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="menu\contextMenuTextMainMenu.png">
+      <Name>contextMenuTextMainMenu</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>

@@ -77,9 +77,9 @@ namespace TRODS
         /// <param name="s">Sprite a copier</param>
         public Sprite(Sprite s)
         {
-            AssetName = s.AssetName;
-            _position = s.Position;
-            Direction = s.Direction;
+            AssetName = new string(s.AssetName.ToCharArray());
+            _position = new Rectangle(s.Position.X, s.Position.Y, s.Position.Width, s.Position.Height);
+            Direction = new Vector2(s.Direction.X, s.Direction.Y);
             _vitesse = s.Vitesse;
             _isRelativePos = s._isRelativePos;
             _relativePosX = s._relativePosY;
@@ -174,7 +174,7 @@ namespace TRODS
         /// et la _vitesse a celle de la fenetre
         /// </summary>
         /// <param name="rect"></param>
-        public virtual void windowResized(Rectangle rect,Rectangle oldRect=new Rectangle())
+        public virtual void windowResized(Rectangle rect, Rectangle oldRect = new Rectangle())
         {
             if (oldRect == new Rectangle())
             {

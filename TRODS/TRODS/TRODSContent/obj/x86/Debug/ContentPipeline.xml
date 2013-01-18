@@ -379,7 +379,25 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Kuchera\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\contextualMenuBlackFull.xnb</Output>
-      <Time>2013-01-18T02:17:49.7700197+01:00</Time>
+      <Time>2013-01-18T21:01:02.6152892+01:00</Time>
+    </Item>
+    <Item>
+      <Source>menu\contextMenuText.png</Source>
+      <Name>menu\contextMenuText</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Kuchera\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\contextMenuText.xnb</Output>
+      <Time>2013-01-18T21:01:03.1673603+01:00</Time>
+    </Item>
+    <Item>
+      <Source>menu\contextMenuTextMainMenu.png</Source>
+      <Name>menu\contextMenuTextMainMenu</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Kuchera\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\contextMenuTextMainMenu.xnb</Output>
+      <Time>2013-01-18T21:12:25.1576794+01:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

@@ -37,8 +37,19 @@ namespace TRODS
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
 
-            graphics.PreferredBackBufferWidth = 900;
-            graphics.PreferredBackBufferHeight = 600;
+            List<String> ws = EugLib.Tools.toArgv(EugLib.FileStream.readFile("files/WinSize"));
+            int a,b;
+            if (ws.Count >= 2 && int.TryParse(ws.ElementAt(0), out a) && int.TryParse(ws.ElementAt(1), out b))
+            {
+                graphics.PreferredBackBufferWidth = a;
+                graphics.PreferredBackBufferHeight = b;
+            }
+            else
+            {
+                graphics.PreferredBackBufferWidth = 900;
+                graphics.PreferredBackBufferHeight = 600;
+                EugLib.FileStream.writeFile("files/WinSize", graphics.PreferredBackBufferWidth.ToString() + " " + graphics.PreferredBackBufferHeight.ToString());
+            }
             graphics.ApplyChanges();
             this.Window.AllowUserResizing = true;
             Rectangle winsize = Window.ClientBounds;

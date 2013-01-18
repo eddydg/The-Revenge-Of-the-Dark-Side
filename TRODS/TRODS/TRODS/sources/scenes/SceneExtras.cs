@@ -20,13 +20,9 @@ namespace TRODS
         private int selectedSprite;
         private int currentSize;
         private List<AnimatedSprite> animations;
-        private List<AnimatedSprite> textures;
         private Sprite tailleSelection;
         private AnimatedSprite mouse;
-
-        //======================
         private ContextMenu menu;
-        //======================
 
         public SceneExtras(Rectangle windowSize, KeyboardState keyboardState, MouseState mouseState)
         {
@@ -35,45 +31,31 @@ namespace TRODS
             _keyboardState = keyboardState;
             selectedSprite = 0;
             currentSize = 150;
-            tailleSelection = new Sprite(new Rectangle(0, 400, windowSize.Width, 85), windowSize);
-            mouse = new AnimatedSprite(new Rectangle(-100, -100, 60, 80), _windowSize, 8,4, 30);
+            tailleSelection = new Sprite(new Rectangle(0, _windowSize.Height - 85, windowSize.Width, 85), windowSize);
+            mouse = new AnimatedSprite(new Rectangle(-100, -100, 60, 80), _windowSize, 8, 4, 30);
 
             animations = new List<AnimatedSprite>();
-            textures = new List<AnimatedSprite>();
-            textures.Add(new AnimatedSprite(new Rectangle(), windowSize, "sprites/canalisation1_16x13", 16, 13));
-            textures.Add(new AnimatedSprite(new Rectangle(), windowSize, "sprites/explosion0_8x6", 8, 6));
-            textures.Add(new AnimatedSprite(new Rectangle(), windowSize, "sprites/explosion1_8x6", 8, 6));
-            textures.Add(new AnimatedSprite(new Rectangle(), windowSize, "sprites/explosion2_8x8", 8, 8));
-            textures.Add(new AnimatedSprite(new Rectangle(), windowSize, "sprites/explosion3_8x4", 8, 4));
-            textures.Add(new AnimatedSprite(new Rectangle(), windowSize, "sprites/explosion4_8x8", 8, 8));
-            textures.Add(new AnimatedSprite(new Rectangle(), windowSize, "sprites/fireWall_11x6r23r44", 11, 6));
-            textures.Add(new AnimatedSprite(new Rectangle(), windowSize, "sprites/popGreen_8x4", 8, 4));
-            textures.Add(new AnimatedSprite(new Rectangle(), windowSize, "sprites/spriteElectric_11x3r12r23", 11, 3));
-            int c = textures.Count;
-            int wi = windowSize.Width / c;
-            for (int i = 0; i < c; i++)
-            {
-                textures.ElementAt<AnimatedSprite>(i).setRelatvePos(
-                    new Rectangle(i * wi, 485, wi, windowSize.Height-485), windowSize.Width, windowSize.Height);
-            }
-            //=======================
-            menu = new ContextMenu(_windowSize,new AnimatedSprite(new Rectangle(200,50,200,500),_windowSize,"menu/ContextualMenuBlackFull"));
-            menu.Visible = true;
-            foreach (AnimatedSprite s in textures)
-                menu.Add(s);
+            menu = new ContextMenu(_windowSize, new AnimatedSprite(new Rectangle(200, 50, 300, 50), _windowSize, "menu/ContextualMenuBlackFull"));
+            menu.Title = new AnimatedSprite(new Rectangle(menu.Position.Width / 2 - 75, -25, 150, 50), _windowSize, "menu/contextMenuText");
+            menu.Visible = false;
+            menu.Add(new AnimatedSprite(new Rectangle(), windowSize, "sprites/canalisation1_16x13", 16, 13));
+            menu.Add(new AnimatedSprite(new Rectangle(), windowSize, "sprites/explosion0_8x6", 8, 6));
+            menu.Add(new AnimatedSprite(new Rectangle(), windowSize, "sprites/explosion1_8x6", 8, 6));
+            menu.Add(new AnimatedSprite(new Rectangle(), windowSize, "sprites/explosion2_8x8", 8, 8));
+            menu.Add(new AnimatedSprite(new Rectangle(), windowSize, "sprites/explosion3_8x4", 8, 4));
+            menu.Add(new AnimatedSprite(new Rectangle(), windowSize, "sprites/explosion4_8x8", 8, 8));
+            menu.Add(new AnimatedSprite(new Rectangle(), windowSize, "sprites/fireWall_11x6r23r44", 11, 6));
+            menu.Add(new AnimatedSprite(new Rectangle(), windowSize, "sprites/popGreen_8x4", 8, 4));
+            menu.Add(new AnimatedSprite(new Rectangle(), windowSize, "sprites/spriteElectric_11x3r12r23", 11, 3));
             menu.CuadricPositionning(new Rectangle(0, 0, 75, 75), 75, 20, 3, 3, true);
-            //========================
+            menu.Add(new AnimatedSprite(new Rectangle(menu.Position.Width / 2 - 100, 40, 200, 22), _windowSize, "menu/contextMenuTextMainMenu"));
         }
 
         public override void LoadContent(ContentManager content)
         {
             mouse.LoadContent(content, "sprites/cursorFire_8x4r");
             tailleSelection.LoadContent(content, "menu/sizeSelection");
-            foreach (AnimatedSprite s in textures)
-                s.LoadContent(content);
-            ////////////////////////
             menu.LoadContent(content);
-            ////////////////////////
         }
 
         public override void Draw(SpriteBatch spriteBatch)
@@ -81,12 +63,8 @@ namespace TRODS
             spriteBatch.Begin();
             foreach (AnimatedSprite p in animations)
                 p.Draw(spriteBatch);
-            foreach (Sprite s in textures)
-                s.Draw(spriteBatch);
             tailleSelection.Draw(spriteBatch);
-            ////////////////////////////////
             menu.Draw(spriteBatch);
-            ////////////////////////////////
             mouse.Draw(spriteBatch);
             spriteBatch.End();
         }
@@ -102,11 +80,7 @@ namespace TRODS
                     i--;
                 }
             }
-            foreach (AnimatedSprite s in textures)
-                s.Update(elapsedTime);
-            ////////////////////////////////////////
             menu.Update(elapsedTime);
-            ////////////////////////////////////////
             mouse.Update(elapsedTime);
         }
 
@@ -118,13 +92,17 @@ namespace TRODS
                 windowResized(_windowSize);
             }
             if (!newKeyboardState.IsKeyDown(Keys.Escape) && _keyboardState.IsKeyDown(Keys.Escape))
-                parent.SwitchScene(Scene.MainMenu);
+                menu.Visible = !menu.Visible;
             if (_mouseState != newMouseState)
                 mouse.Position = new Rectangle(newMouseState.X, newMouseState.Y, mouse.Position.Width, mouse.Position.Height);
 
-            bool isClick = newMouseState.LeftButton == ButtonState.Pressed && _mouseState.LeftButton != ButtonState.Pressed;
+            menu.HandleInput(newKeyboardState, newMouseState, parent);
+            if (menu.Choise == menu.Elements.Count - 1)
+                parent.SwitchScene(Scene.MainMenu);
+            else if (menu.Choise >= 0 && menu.Choise < menu.Elements.Count)
+                selectedSprite = menu.Choise;
 
-            if (isClick)
+            if (newMouseState.LeftButton == ButtonState.Pressed && _mouseState.LeftButton != ButtonState.Pressed)
             {
                 Rectangle clic = new Rectangle(mouse.Position.X, mouse.Position.Y, 1, 1);
                 bool startAnimation = true;
@@ -133,21 +111,14 @@ namespace TRODS
                     startAnimation = false;
                     currentSize = clic.X - tailleSelection.Position.X;
                 }
-                foreach (AnimatedSprite s in textures)
-                {
-                    if (clic.Intersects(s.Position))
-                    {
-                        startAnimation = false;
-                        selectedSprite = textures.IndexOf(s);
-                    }
-                }
+                if (clic.Intersects(menu.Position) && menu.Visible)
+                    startAnimation = false;
                 if (startAnimation)
                 {
-                    AnimatedSprite oc = textures.ElementAt<AnimatedSprite>(selectedSprite);
+                    AnimatedSprite s = menu.Elements.ElementAt<AnimatedSprite>(selectedSprite);
                     animations.Add(new AnimatedSprite(
                         new Rectangle(clic.X - currentSize / 2, clic.Y - currentSize / 2, currentSize, currentSize),
-                        _windowSize, oc.AssetName,
-                        oc.Colonnes, oc.Lignes));
+                        _windowSize, s.AssetName, s.Colonnes, s.Lignes));
                     animations.Last<AnimatedSprite>().LoadContent(parent.Content);
                 }
             }
@@ -167,21 +138,12 @@ namespace TRODS
             animations.Clear();
         }
 
-        /// <summary>
-        /// Fonction adaptant les textures au
-        /// redimensionnement de la fenetre
-        /// </summary>
-        /// <param name="rect">Nouvelle dimension de la fenetre obtenue par *Game1*.Window.ClientBounds()</param>
         private void windowResized(Rectangle rect)
         {
             foreach (AnimatedSprite p in animations)
                 p.windowResized(rect);
-            foreach (Sprite p in textures)
-                p.windowResized(rect);
             tailleSelection.windowResized(rect);
-            ////////////////////////////////////
             menu.WindowResized(rect);
-            ///////////////////////////////////////
             mouse.windowResized(rect);
         }
     }

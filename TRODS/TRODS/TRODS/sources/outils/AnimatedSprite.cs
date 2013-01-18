@@ -15,22 +15,20 @@ namespace TRODS
 
         public int ActualPicture { get; set; }
         private int FirstPicture;
+        public int First
+        {
+            get { return FirstPicture; }
+            private set { FirstPicture = value; }
+        }
         private int LastPicture;
+        public int Last
+        {
+            get { return LastPicture; }
+            private set { LastPicture = value; }
+        }
         private bool _repeating;
         private int _elapsedTime;
 
-        /// <summary>
-        /// Constructeur
-        /// </summary>
-        /// <param name="position"></param>
-        /// <param name="windowSize"></param>
-        /// <param name="nbColonnes"></param>
-        /// <param name="nbLignes"></param>
-        /// <param name="vitesse"></param>
-        /// <param name="first"></param>
-        /// <param name="last"></param>
-        /// <param name="beginning"></param>
-        /// <param name="repeating"></param>
         public AnimatedSprite(Rectangle position, Rectangle windowSize, int nbColonnes = 1, int nbLignes = 1, int vitesse = 30, int first = 1, int last = -1, int beginning = -1, bool repeating = false) :
             base(position, windowSize)
         {
