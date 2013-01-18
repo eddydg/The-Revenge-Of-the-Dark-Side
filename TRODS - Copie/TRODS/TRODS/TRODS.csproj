@@ -110,6 +110,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="sources\outils\Particle.cs" />
+    <Compile Include="sources\outils\ParticleEngine.cs" />
     <Compile Include="sources\outils\Character.cs" />
     <Compile Include="sources\outils\DecimalRectangle.cs" />
     <Compile Include="sources\scenes\SceneOptions.cs" />

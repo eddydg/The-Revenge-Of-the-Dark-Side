@@ -23,7 +23,7 @@ namespace TRODS
         }
         public enum State
         {
-            Stop,IsRunningR,IsRunningL, IsJumpingR, IsJumpingL
+            StopR,StopL,IsRunningR,IsRunningL, IsJumpingR, IsJumpingL
         }
 
         public Character(AnimatedSprite s,
@@ -31,7 +31,7 @@ namespace TRODS
             Vector3 runR = new Vector3(), Vector3 runL = new Vector3(),
             Vector3 jumpR = new Vector3(), Vector3 jumpL = new Vector3())
         {
-            _character = new AnimatedSprite(s);
+            _character = s;
             action = new Vector3[NB_ELEMENTS_IN_ENUM_ACTION];
             action[(int)Action.StopR] = stopR;
             action[(int)Action.StopL] = stopL;
@@ -39,7 +39,7 @@ namespace TRODS
             action[(int)Action.RunL] = runL;
             action[(int)Action.JumpR] = jumpR;
             action[(int)Action.JumpL] = jumpL;
-            _state = State.Stop;
+            _state = State.StopR;
             Life = 100;
         }
 
@@ -87,12 +87,17 @@ namespace TRODS
 
         public void Stop(int vitesse)
         {
-            if (_state == State.IsRunningL)
+            if (_state == State.IsRunningL || _state == State.StopL)
+            {
                 _character.SetPictureBounds((int)action[(int)Action.StopL].X, (int)action[(int)Action.StopL].Y, (int)action[(int)Action.StopL].Z, true);
+                _state = State.StopL;
+            }
             else
+            {
                 _character.SetPictureBounds((int)action[(int)Action.StopR].X, (int)action[(int)Action.StopR].Y, (int)action[(int)Action.StopR].Z, true);
+                _state = State.StopR;
+            }
             _character.Speed = vitesse;
-            _state = State.Stop;
         }
 
         public void Heart(int lifePOint)

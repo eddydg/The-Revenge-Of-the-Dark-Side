@@ -41,3 +41,8 @@ Content\menu\menuAmbience.wma
 Content\menu\selectionSound.xnb
 Content\menu\songCredit.xnb
 Content\menu\songCredit.wma
+Content\game\mainCharacter.xnb
+Content\particle\circle.xnb
+Content\particle\diamond.xnb
+Content\particle\star.xnb
+Content\particle\snow.xnb

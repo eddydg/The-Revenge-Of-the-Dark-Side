@@ -52,19 +52,7 @@ namespace TRODS
             SetPictureBounds(first, last, beginning);
             _elapsedTime = 0;
             _repeating = repeating;
-            Position = position;
-        }
-
-        public AnimatedSprite(AnimatedSprite s) :
-            base((Sprite)s)
-        {
-            Lignes = s.Lignes;
-            Colonnes = s.Colonnes;
-            ActualPicture = s.ActualPicture;
-            FirstPicture = s.FirstPicture;
-            LastPicture = s.LastPicture;
-            _repeating = s._repeating;
-            _elapsedTime = s._elapsedTime;
+            //Position = position;
         }
 
         public override void Update(float elapsedTime)
