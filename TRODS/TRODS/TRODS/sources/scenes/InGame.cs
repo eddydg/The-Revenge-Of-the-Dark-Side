@@ -23,7 +23,9 @@ namespace TRODS
         private Rectangle _windowSize;
         private Sprite mouse;
         private AbstractMap map;
+        private ContextMenu _menu;
 
+        //========= TEMP ==========
         private Sprite personnage;
 
         public InGame(Rectangle windowSize, KeyboardState keyboardState, MouseState mouseState)
@@ -31,6 +33,12 @@ namespace TRODS
             _windowSize = windowSize;
             _mouseState = mouseState;
             _keyboardState = keyboardState;
+
+            _menu = new ContextMenu(_windowSize, new AnimatedSprite(new Rectangle(0, 30, 200, 50), _windowSize, "menu/ContextualMenuBlackFull"), 235);
+            _menu.Title = new AnimatedSprite(new Rectangle(_menu.Position.Width / 2 - 75, -25, 150, 50), _windowSize, "menu/contextMenuText");
+            _menu.Visible = false;
+            _menu.Add(new AnimatedSprite(new Rectangle(_menu.Position.Width / 2 - 100, 40, 200, 22), _windowSize, "menu/contextMenuTextMainMenu"));
+            _menu.CuadricPositionning(new Rectangle(0, 0, 150, 20), 40, 15, 10, 10, true);
 
             mouse = new Sprite(new Rectangle(-100, -100, 30, 50), _windowSize);
             map = new AbstractMap(_windowSize);
@@ -50,6 +58,7 @@ namespace TRODS
             personnage.LoadContent(content);
             mouse.LoadContent(content, "general/cursor1");
             map.LoadContent(content);
+            _menu.LoadContent(content);
         }
 
         public override void Draw(SpriteBatch spriteBatch)
@@ -58,6 +67,7 @@ namespace TRODS
 
             map.Draw(spriteBatch);
             personnage.Draw(spriteBatch);
+            _menu.Draw(spriteBatch);
             mouse.Draw(spriteBatch);
 
             spriteBatch.End();
@@ -66,6 +76,7 @@ namespace TRODS
         public override void Update(float elapsedTime)
         {
             map.Update(elapsedTime);
+            _menu.Update(elapsedTime);
         }
 
         public override void HandleInput(KeyboardState newKeyboardState, MouseState newMouseState, Game1 parent)
@@ -76,7 +87,7 @@ namespace TRODS
                 windowResized(parent.Window.ClientBounds);
             }
             if (!newKeyboardState.IsKeyDown(Keys.Escape) && _keyboardState.IsKeyDown(Keys.Escape))
-                parent.SwitchScene(Scene.MainMenu);
+                _menu.Visible = !_menu.Visible;
             bool isClick = false;
             if (_mouseState != newMouseState)
             {
@@ -84,8 +95,12 @@ namespace TRODS
                 isClick = newMouseState.LeftButton == ButtonState.Pressed && _mouseState.LeftButton == ButtonState.Released;
             }
 
+            _menu.HandleInput(newKeyboardState, newMouseState, parent);
+            if (_menu.Choise == 0)
+                parent.SwitchScene(Scene.MainMenu);
+
             if (newKeyboardState.IsKeyDown(Keys.Right))
-                map.Moving(new Vector2(5,0), true);
+                map.Moving(new Vector2(5, 0), true);
             if (newKeyboardState.IsKeyDown(Keys.Left))
                 map.Moving(new Vector2(-5, 0), true);
             if (newKeyboardState.IsKeyDown(Keys.Up))
@@ -101,6 +116,7 @@ namespace TRODS
         {
             _mouseState = Mouse.GetState();
             _keyboardState = Keyboard.GetState();
+            _menu.Activation(parent);
         }
 
         public override void EndScene(Game1 parent)
@@ -116,6 +132,7 @@ namespace TRODS
         {
             personnage.windowResized(rect);
             map.WindowResized(rect);
+            _menu.WindowResized(rect);
         }
     }
 }

@@ -176,6 +176,7 @@ namespace TRODS
         {
             int defaultX = Position.X + fromSides;
             int maxX = defaultX + Position.Width - 2 * fromSides;
+            defaultX += (maxX - defaultX - ((maxX - defaultX) / (elementSize.Width + hSpace)) * (elementSize.Width + hSpace) + hSpace) / 2;
             elementSize.X = defaultX;
             elementSize.Y = Position.Y + fromTop;
             foreach (AnimatedSprite s in _elements)
@@ -189,10 +190,10 @@ namespace TRODS
                     elementSize.Y += vSpace + elementSize.Height;
                 }
             }
-            if (adaptContainerHeight)
+            if (adaptContainerHeight && _elements.Count > 0)
             {
                 _container.setRelatvePos(
-                    new Rectangle(Position.X, Position.Y, Position.Width, _elements.Last<AnimatedSprite>().Position.Y + _elements.Last<AnimatedSprite>().Position.Height + fromSides),
+                    new Rectangle(Position.X, Position.Y, Position.Width, _elements.Last<AnimatedSprite>().Position.Y + _elements.Last<AnimatedSprite>().Position.Height + fromSides - Position.Y),
                     _windowSize.Width,
                     _windowSize.Height);
             }
