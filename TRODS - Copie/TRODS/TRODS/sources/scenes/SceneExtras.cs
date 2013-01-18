@@ -24,6 +24,9 @@ namespace TRODS
         private Sprite tailleSelection;
         private AnimatedSprite mouse;
 
+        //particle test
+        ParticleEngine Engine;
+
         public SceneExtras(Rectangle windowSize, KeyboardState keyboardState, MouseState mouseState)
         {
             _windowSize = windowSize;
@@ -52,6 +55,15 @@ namespace TRODS
                 textures.ElementAt<AnimatedSprite>(i).setRelatvePos(
                     new Rectangle(i * wi, 485, wi, windowSize.Height-485), windowSize.Width, windowSize.Height);
             }
+
+            //particle test
+            Engine = new ParticleEngine(new Rectangle(),
+                new Vector4(-2,2,-2,2),
+                new Vector2(),
+                new Vector2(0,1),
+                new Vector2(0.1f,2f),
+                new Vector2(20,150));
+            //fin test
         }
 
         public override void LoadContent(ContentManager content)
@@ -60,6 +72,10 @@ namespace TRODS
             tailleSelection.LoadContent(content, "menu/sizeSelection");
             foreach (AnimatedSprite s in textures)
                 s.LoadContent(content);
+
+            //particle test
+            Engine.LoadContent(content, new List<string>() { "particle/snow" });
+            //fin test
         }
 
         public override void Draw(SpriteBatch spriteBatch)
@@ -71,7 +87,14 @@ namespace TRODS
                 s.Draw(spriteBatch);
             tailleSelection.Draw(spriteBatch);
             mouse.Draw(spriteBatch);
+
+            //particle test
+            Engine.Draw(spriteBatch);
+            //fin test
+
             spriteBatch.End();
+
+            
         }
 
         public override void Update(float elapsedTime)
@@ -88,6 +111,10 @@ namespace TRODS
             foreach (AnimatedSprite s in textures)
                 s.Update(elapsedTime);
             mouse.Update(elapsedTime);
+
+            //particle test
+            Engine.Update(7);
+            //fin test
         }
 
         public override void HandleInput(KeyboardState newKeyboardState, MouseState newMouseState, Game1 parent)
@@ -131,6 +158,10 @@ namespace TRODS
                     animations.Last<AnimatedSprite>().LoadContent(parent.Content);
                 }
             }
+
+            //particle test
+            Engine.EmitterLocation = new Rectangle(newMouseState.X, newMouseState.Y, Engine.EmitterLocation.Width,Engine.EmitterLocation.Height);
+            //fin test
 
             _keyboardState = newKeyboardState;
             _mouseState = newMouseState;
