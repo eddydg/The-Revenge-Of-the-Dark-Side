@@ -24,6 +24,10 @@ namespace TRODS
         private Sprite tailleSelection;
         private AnimatedSprite mouse;
 
+        //======================
+        private ContextMenu menu;
+        //======================
+
         public SceneExtras(Rectangle windowSize, KeyboardState keyboardState, MouseState mouseState)
         {
             _windowSize = windowSize;
@@ -52,6 +56,13 @@ namespace TRODS
                 textures.ElementAt<AnimatedSprite>(i).setRelatvePos(
                     new Rectangle(i * wi, 485, wi, windowSize.Height-485), windowSize.Width, windowSize.Height);
             }
+            //=======================
+            menu = new ContextMenu(_windowSize,new AnimatedSprite(new Rectangle(200,50,200,500),_windowSize,"menu/ContextualMenuBlackFull"));
+            menu.Visible = true;
+            foreach (AnimatedSprite s in textures)
+                menu.Add(s);
+            menu.CuadricPositionning(new Rectangle(0, 0, 75, 75), 75, 20, 3, 3, true);
+            //========================
         }
 
         public override void LoadContent(ContentManager content)
@@ -60,6 +71,9 @@ namespace TRODS
             tailleSelection.LoadContent(content, "menu/sizeSelection");
             foreach (AnimatedSprite s in textures)
                 s.LoadContent(content);
+            ////////////////////////
+            menu.LoadContent(content);
+            ////////////////////////
         }
 
         public override void Draw(SpriteBatch spriteBatch)
@@ -70,6 +84,9 @@ namespace TRODS
             foreach (Sprite s in textures)
                 s.Draw(spriteBatch);
             tailleSelection.Draw(spriteBatch);
+            ////////////////////////////////
+            menu.Draw(spriteBatch);
+            ////////////////////////////////
             mouse.Draw(spriteBatch);
             spriteBatch.End();
         }
@@ -87,6 +104,9 @@ namespace TRODS
             }
             foreach (AnimatedSprite s in textures)
                 s.Update(elapsedTime);
+            ////////////////////////////////////////
+            menu.Update(elapsedTime);
+            ////////////////////////////////////////
             mouse.Update(elapsedTime);
         }
 
@@ -159,6 +179,9 @@ namespace TRODS
             foreach (Sprite p in textures)
                 p.windowResized(rect);
             tailleSelection.windowResized(rect);
+            ////////////////////////////////////
+            menu.WindowResized(rect);
+            ///////////////////////////////////////
             mouse.windowResized(rect);
         }
     }
