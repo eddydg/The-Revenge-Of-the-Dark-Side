@@ -256,25 +256,22 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="particle\circle.png">
-      <Name>circle</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="particle\diamond.png">
-      <Name>diamond</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="particle\star.png">
-      <Name>star</Name>
+    <Compile Include="particle\snow.png">
+      <Name>snow</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="particle\snow.png">
-      <Name>snow</Name>
+    <Compile Include="particle\rain.png">
+      <Name>rain</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="particle\fire2.png">
+      <Name>fire2</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>

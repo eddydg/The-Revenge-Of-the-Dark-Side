@@ -26,8 +26,6 @@ namespace TRODS
 
         private Character personnage;
         private static int _speedPerso = 7;
-        //particle test
-        ParticleEngine Engine;
 
 
         public InGame(Rectangle windowSize, KeyboardState keyboardState, MouseState mouseState)

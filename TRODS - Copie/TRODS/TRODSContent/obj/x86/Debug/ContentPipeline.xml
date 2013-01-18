@@ -7,7 +7,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Nicomplex\Desktop\TRODS\TRODS\TRODS\bin\x86\Debug\Content\game\bear.xnb</Output>
+      <Output>C:\Users\Nicomplex\Desktop\TRODS-2\TRODS\TRODS\bin\x86\Debug\Content\game\bear.xnb</Output>
       <Time>2012-12-29T11:34:59.0955486+01:00</Time>
     </Item>
     <Item>
@@ -16,7 +16,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Nicomplex\Desktop\TRODS\TRODS\TRODS\bin\x86\Debug\Content\game\menu\box.xnb</Output>
+      <Output>C:\Users\Nicomplex\Desktop\TRODS-2\TRODS\TRODS\bin\x86\Debug\Content\game\menu\box.xnb</Output>
       <Time>2012-12-29T11:34:59.0965495+01:00</Time>
     </Item>
     <Item>
@@ -25,7 +25,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Nicomplex\Desktop\TRODS\TRODS\TRODS\bin\x86\Debug\Content\game\menu\container.xnb</Output>
+      <Output>C:\Users\Nicomplex\Desktop\TRODS-2\TRODS\TRODS\bin\x86\Debug\Content\game\menu\container.xnb</Output>
       <Time>2012-12-29T11:34:59.0985492+01:00</Time>
     </Item>
     <Item>
@@ -34,7 +34,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Nicomplex\Desktop\TRODS\TRODS\TRODS\bin\x86\Debug\Content\game\menu\containervide.xnb</Output>
+      <Output>C:\Users\Nicomplex\Desktop\TRODS-2\TRODS\TRODS\bin\x86\Debug\Content\game\menu\containervide.xnb</Output>
       <Time>2012-12-29T11:34:59.100549+01:00</Time>
     </Item>
     <Item>
@@ -43,7 +43,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Nicomplex\Desktop\TRODS\TRODS\TRODS\bin\x86\Debug\Content\general\black.xnb</Output>
+      <Output>C:\Users\Nicomplex\Desktop\TRODS-2\TRODS\TRODS\bin\x86\Debug\Content\general\black.xnb</Output>
       <Time>2012-12-13T20:33:15.6325266+01:00</Time>
     </Item>
     <Item>
@@ -52,7 +52,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Nicomplex\Desktop\TRODS\TRODS\TRODS\bin\x86\Debug\Content\general\cursor1.xnb</Output>
+      <Output>C:\Users\Nicomplex\Desktop\TRODS-2\TRODS\TRODS\bin\x86\Debug\Content\general\cursor1.xnb</Output>
       <Time>2012-12-13T20:33:15.637527+01:00</Time>
     </Item>
     <Item>
@@ -61,7 +61,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Nicomplex\Desktop\TRODS\TRODS\TRODS\bin\x86\Debug\Content\general\nuages0.xnb</Output>
+      <Output>C:\Users\Nicomplex\Desktop\TRODS-2\TRODS\TRODS\bin\x86\Debug\Content\general\nuages0.xnb</Output>
       <Time>2012-12-13T20:33:15.6495271+01:00</Time>
     </Item>
     <Item>
@@ -70,7 +70,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Nicomplex\Desktop\TRODS\TRODS\TRODS\bin\x86\Debug\Content\general\white.xnb</Output>
+      <Output>C:\Users\Nicomplex\Desktop\TRODS-2\TRODS\TRODS\bin\x86\Debug\Content\general\white.xnb</Output>
       <Time>2012-12-13T20:33:15.6515279+01:00</Time>
     </Item>
     <Item>
@@ -79,7 +79,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Nicomplex\Desktop\TRODS\TRODS\TRODS\bin\x86\Debug\Content\map1\back1r.xnb</Output>
+      <Output>C:\Users\Nicomplex\Desktop\TRODS-2\TRODS\TRODS\bin\x86\Debug\Content\map1\back1r.xnb</Output>
       <Time>2012-12-29T11:34:59.1145498+01:00</Time>
     </Item>
     <Item>
@@ -88,7 +88,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Nicomplex\Desktop\TRODS\TRODS\TRODS\bin\x86\Debug\Content\map1\fore1.xnb</Output>
+      <Output>C:\Users\Nicomplex\Desktop\TRODS-2\TRODS\TRODS\bin\x86\Debug\Content\map1\fore1.xnb</Output>
       <Time>2012-12-29T11:34:59.1325542+01:00</Time>
     </Item>
     <Item>
@@ -97,7 +97,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Nicomplex\Desktop\TRODS\TRODS\TRODS\bin\x86\Debug\Content\map1\sky1.xnb</Output>
+      <Output>C:\Users\Nicomplex\Desktop\TRODS-2\TRODS\TRODS\bin\x86\Debug\Content\map1\sky1.xnb</Output>
       <Time>2012-12-29T11:34:59.1495552+01:00</Time>
     </Item>
     <Item>
@@ -106,7 +106,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Nicomplex\Desktop\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\authors.xnb</Output>
+      <Output>C:\Users\Nicomplex\Desktop\TRODS-2\TRODS\TRODS\bin\x86\Debug\Content\menu\authors.xnb</Output>
       <Time>2012-12-29T11:34:59.1515559+01:00</Time>
     </Item>
     <Item>
@@ -115,7 +115,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Nicomplex\Desktop\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\beenTeam.xnb</Output>
+      <Output>C:\Users\Nicomplex\Desktop\TRODS-2\TRODS\TRODS\bin\x86\Debug\Content\menu\beenTeam.xnb</Output>
       <Time>2012-12-29T11:34:59.1525563+01:00</Time>
     </Item>
     <Item>
@@ -124,7 +124,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Nicomplex\Desktop\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\credit.xnb</Output>
+      <Output>C:\Users\Nicomplex\Desktop\TRODS-2\TRODS\TRODS\bin\x86\Debug\Content\menu\credit.xnb</Output>
       <Time>2012-12-29T11:34:59.155556+01:00</Time>
     </Item>
     <Item>
@@ -133,7 +133,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Nicomplex\Desktop\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\etoiles1_10x10r51r100.xnb</Output>
+      <Output>C:\Users\Nicomplex\Desktop\TRODS-2\TRODS\TRODS\bin\x86\Debug\Content\menu\etoiles1_10x10r51r100.xnb</Output>
       <Time>2012-12-29T11:34:59.1615562+01:00</Time>
     </Item>
     <Item>
@@ -142,7 +142,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Nicomplex\Desktop\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\lueur1_10x4r21r40.xnb</Output>
+      <Output>C:\Users\Nicomplex\Desktop\TRODS-2\TRODS\TRODS\bin\x86\Debug\Content\menu\lueur1_10x4r21r40.xnb</Output>
       <Time>2012-12-29T11:34:59.1705587+01:00</Time>
     </Item>
     <Item>
@@ -151,7 +151,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Nicomplex\Desktop\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\onde_8x4.xnb</Output>
+      <Output>C:\Users\Nicomplex\Desktop\TRODS-2\TRODS\TRODS\bin\x86\Debug\Content\menu\onde_8x4.xnb</Output>
       <Time>2012-12-13T20:33:15.7379894+01:00</Time>
     </Item>
     <Item>
@@ -160,7 +160,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Nicomplex\Desktop\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\sizeSelection.xnb</Output>
+      <Output>C:\Users\Nicomplex\Desktop\TRODS-2\TRODS\TRODS\bin\x86\Debug\Content\menu\sizeSelection.xnb</Output>
       <Time>2012-12-13T20:33:15.7431541+01:00</Time>
     </Item>
     <Item>
@@ -169,7 +169,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Nicomplex\Desktop\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\soundEffect.xnb</Output>
+      <Output>C:\Users\Nicomplex\Desktop\TRODS-2\TRODS\TRODS\bin\x86\Debug\Content\menu\soundEffect.xnb</Output>
       <Time>2012-12-29T11:34:59.3585819+01:00</Time>
     </Item>
     <Item>
@@ -178,7 +178,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Nicomplex\Desktop\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\soundMusic.xnb</Output>
+      <Output>C:\Users\Nicomplex\Desktop\TRODS-2\TRODS\TRODS\bin\x86\Debug\Content\menu\soundMusic.xnb</Output>
       <Time>2012-12-29T11:34:59.3595822+01:00</Time>
     </Item>
     <Item>
@@ -187,7 +187,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Nicomplex\Desktop\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\textCredit.xnb</Output>
+      <Output>C:\Users\Nicomplex\Desktop\TRODS-2\TRODS\TRODS\bin\x86\Debug\Content\menu\textCredit.xnb</Output>
       <Time>2012-12-13T20:33:15.7451595+01:00</Time>
     </Item>
     <Item>
@@ -196,7 +196,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Nicomplex\Desktop\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\textExit.xnb</Output>
+      <Output>C:\Users\Nicomplex\Desktop\TRODS-2\TRODS\TRODS\bin\x86\Debug\Content\menu\textExit.xnb</Output>
       <Time>2012-12-13T20:33:15.749159+01:00</Time>
     </Item>
     <Item>
@@ -205,7 +205,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Nicomplex\Desktop\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\textExtra.xnb</Output>
+      <Output>C:\Users\Nicomplex\Desktop\TRODS-2\TRODS\TRODS\bin\x86\Debug\Content\menu\textExtra.xnb</Output>
       <Time>2012-12-13T20:33:15.7511592+01:00</Time>
     </Item>
     <Item>
@@ -214,7 +214,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Nicomplex\Desktop\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\textOptions.xnb</Output>
+      <Output>C:\Users\Nicomplex\Desktop\TRODS-2\TRODS\TRODS\bin\x86\Debug\Content\menu\textOptions.xnb</Output>
       <Time>2012-12-29T11:34:59.3615825+01:00</Time>
     </Item>
     <Item>
@@ -223,7 +223,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Nicomplex\Desktop\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\textPlay.xnb</Output>
+      <Output>C:\Users\Nicomplex\Desktop\TRODS-2\TRODS\TRODS\bin\x86\Debug\Content\menu\textPlay.xnb</Output>
       <Time>2012-12-13T20:33:15.7521683+01:00</Time>
     </Item>
     <Item>
@@ -232,7 +232,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Nicomplex\Desktop\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\tittleText.xnb</Output>
+      <Output>C:\Users\Nicomplex\Desktop\TRODS-2\TRODS\TRODS\bin\x86\Debug\Content\menu\tittleText.xnb</Output>
       <Time>2012-12-29T11:34:59.3635812+01:00</Time>
     </Item>
     <Item>
@@ -241,7 +241,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Nicomplex\Desktop\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\wallpaper.xnb</Output>
+      <Output>C:\Users\Nicomplex\Desktop\TRODS-2\TRODS\TRODS\bin\x86\Debug\Content\menu\wallpaper.xnb</Output>
       <Time>2012-12-13T20:33:15.7581681+01:00</Time>
     </Item>
     <Item>
@@ -250,7 +250,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Nicomplex\Desktop\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\wallpaperText.xnb</Output>
+      <Output>C:\Users\Nicomplex\Desktop\TRODS-2\TRODS\TRODS\bin\x86\Debug\Content\menu\wallpaperText.xnb</Output>
       <Time>2012-12-13T20:33:15.7621609+01:00</Time>
     </Item>
     <Item>
@@ -259,7 +259,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Nicomplex\Desktop\TRODS\TRODS\TRODS\bin\x86\Debug\Content\sprites\canalisation1_16x13.xnb</Output>
+      <Output>C:\Users\Nicomplex\Desktop\TRODS-2\TRODS\TRODS\bin\x86\Debug\Content\sprites\canalisation1_16x13.xnb</Output>
       <Time>2012-12-13T20:33:15.8031687+01:00</Time>
     </Item>
     <Item>
@@ -268,7 +268,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Nicomplex\Desktop\TRODS\TRODS\TRODS\bin\x86\Debug\Content\sprites\cursorFire_8x4r.xnb</Output>
+      <Output>C:\Users\Nicomplex\Desktop\TRODS-2\TRODS\TRODS\bin\x86\Debug\Content\sprites\cursorFire_8x4r.xnb</Output>
       <Time>2012-12-13T20:33:15.8085525+01:00</Time>
     </Item>
     <Item>
@@ -277,7 +277,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Nicomplex\Desktop\TRODS\TRODS\TRODS\bin\x86\Debug\Content\sprites\explosion0_8x6.xnb</Output>
+      <Output>C:\Users\Nicomplex\Desktop\TRODS-2\TRODS\TRODS\bin\x86\Debug\Content\sprites\explosion0_8x6.xnb</Output>
       <Time>2012-12-13T20:33:15.8455623+01:00</Time>
     </Item>
     <Item>
@@ -286,7 +286,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Nicomplex\Desktop\TRODS\TRODS\TRODS\bin\x86\Debug\Content\sprites\explosion1_8x6.xnb</Output>
+      <Output>C:\Users\Nicomplex\Desktop\TRODS-2\TRODS\TRODS\bin\x86\Debug\Content\sprites\explosion1_8x6.xnb</Output>
       <Time>2012-12-13T20:33:15.8785674+01:00</Time>
     </Item>
     <Item>
@@ -295,7 +295,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Nicomplex\Desktop\TRODS\TRODS\TRODS\bin\x86\Debug\Content\sprites\explosion2_8x8.xnb</Output>
+      <Output>C:\Users\Nicomplex\Desktop\TRODS-2\TRODS\TRODS\bin\x86\Debug\Content\sprites\explosion2_8x8.xnb</Output>
       <Time>2012-12-13T20:33:15.920573+01:00</Time>
     </Item>
     <Item>
@@ -304,7 +304,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Nicomplex\Desktop\TRODS\TRODS\TRODS\bin\x86\Debug\Content\sprites\explosion3_8x4.xnb</Output>
+      <Output>C:\Users\Nicomplex\Desktop\TRODS-2\TRODS\TRODS\bin\x86\Debug\Content\sprites\explosion3_8x4.xnb</Output>
       <Time>2012-12-13T20:33:15.9285725+01:00</Time>
     </Item>
     <Item>
@@ -313,7 +313,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Nicomplex\Desktop\TRODS\TRODS\TRODS\bin\x86\Debug\Content\sprites\explosion4_8x8.xnb</Output>
+      <Output>C:\Users\Nicomplex\Desktop\TRODS-2\TRODS\TRODS\bin\x86\Debug\Content\sprites\explosion4_8x8.xnb</Output>
       <Time>2012-12-13T20:33:15.9665791+01:00</Time>
     </Item>
     <Item>
@@ -322,7 +322,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Nicomplex\Desktop\TRODS\TRODS\TRODS\bin\x86\Debug\Content\sprites\fireWall_11x6r23r44.xnb</Output>
+      <Output>C:\Users\Nicomplex\Desktop\TRODS-2\TRODS\TRODS\bin\x86\Debug\Content\sprites\fireWall_11x6r23r44.xnb</Output>
       <Time>2012-12-29T11:35:00.5604698+01:00</Time>
     </Item>
     <Item>
@@ -331,7 +331,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Nicomplex\Desktop\TRODS\TRODS\TRODS\bin\x86\Debug\Content\sprites\popGreen_8x4.xnb</Output>
+      <Output>C:\Users\Nicomplex\Desktop\TRODS-2\TRODS\TRODS\bin\x86\Debug\Content\sprites\popGreen_8x4.xnb</Output>
       <Time>2012-12-13T20:33:16.5397645+01:00</Time>
     </Item>
     <Item>
@@ -340,8 +340,26 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Nicomplex\Desktop\TRODS\TRODS\TRODS\bin\x86\Debug\Content\sprites\spriteElectric_11x3r12r23.xnb</Output>
+      <Output>C:\Users\Nicomplex\Desktop\TRODS-2\TRODS\TRODS\bin\x86\Debug\Content\sprites\spriteElectric_11x3r12r23.xnb</Output>
       <Time>2012-12-13T20:33:16.5797688+01:00</Time>
+    </Item>
+    <Item>
+      <Source>game\mainCharacter.png</Source>
+      <Name>game\mainCharacter</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Nicomplex\Desktop\TRODS-2\TRODS\TRODS\bin\x86\Debug\Content\game\mainCharacter.xnb</Output>
+      <Time>2013-01-15T12:25:43.2269034+01:00</Time>
+    </Item>
+    <Item>
+      <Source>particle\snow.png</Source>
+      <Name>particle\snow</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Nicomplex\Desktop\TRODS-2\TRODS\TRODS\bin\x86\Debug\Content\particle\snow.xnb</Output>
+      <Time>2013-01-17T02:29:08.3726146+01:00</Time>
     </Item>
     <Item>
       <Source>menu\menuAmbience.wav</Source>
@@ -349,8 +367,8 @@
       <Importer>WavImporter</Importer>
       <Processor>SongProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Nicomplex\Desktop\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\menuAmbience.xnb</Output>
-      <Extra>C:\Users\Nicomplex\Desktop\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\menuAmbience.wma</Extra>
+      <Output>C:\Users\Nicomplex\Desktop\TRODS-2\TRODS\TRODS\bin\x86\Debug\Content\menu\menuAmbience.xnb</Output>
+      <Extra>C:\Users\Nicomplex\Desktop\TRODS-2\TRODS\TRODS\bin\x86\Debug\Content\menu\menuAmbience.wma</Extra>
       <Time>2012-12-29T11:34:59.3285769+01:00</Time>
     </Item>
     <Item>
@@ -359,7 +377,7 @@
       <Importer>WmaImporter</Importer>
       <Processor>SoundEffectProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Nicomplex\Desktop\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\selectionSound.xnb</Output>
+      <Output>C:\Users\Nicomplex\Desktop\TRODS-2\TRODS\TRODS\bin\x86\Debug\Content\menu\selectionSound.xnb</Output>
       <Time>2012-12-13T20:33:15.7409885+01:00</Time>
     </Item>
     <Item>
@@ -368,54 +386,27 @@
       <Importer>Mp3Importer</Importer>
       <Processor>SongProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Nicomplex\Desktop\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\songCredit.xnb</Output>
-      <Extra>C:\Users\Nicomplex\Desktop\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\songCredit.wma</Extra>
+      <Output>C:\Users\Nicomplex\Desktop\TRODS-2\TRODS\TRODS\bin\x86\Debug\Content\menu\songCredit.xnb</Output>
+      <Extra>C:\Users\Nicomplex\Desktop\TRODS-2\TRODS\TRODS\bin\x86\Debug\Content\menu\songCredit.wma</Extra>
       <Time>2012-12-29T11:34:59.3565811+01:00</Time>
     </Item>
     <Item>
-      <Source>game\mainCharacter.png</Source>
-      <Name>game\mainCharacter</Name>
+      <Source>particle\rain.png</Source>
+      <Name>particle\rain</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Nicomplex\Desktop\TRODS\TRODS\TRODS\bin\x86\Debug\Content\game\mainCharacter.xnb</Output>
-      <Time>2013-01-15T12:25:43.2269034+01:00</Time>
+      <Output>C:\Users\Nicomplex\Desktop\TRODS-2\TRODS\TRODS\bin\x86\Debug\Content\particle\rain.xnb</Output>
+      <Time>2013-01-18T22:27:05.7018933+01:00</Time>
     </Item>
     <Item>
-      <Source>particle\circle.png</Source>
-      <Name>particle\circle</Name>
+      <Source>particle\fire2.png</Source>
+      <Name>particle\fire2</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Nicomplex\Desktop\TRODS\TRODS\TRODS\bin\x86\Debug\Content\particle\circle.xnb</Output>
-      <Time>2013-01-17T00:28:46.5205435+01:00</Time>
-    </Item>
-    <Item>
-      <Source>particle\diamond.png</Source>
-      <Name>particle\diamond</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Nicomplex\Desktop\TRODS\TRODS\TRODS\bin\x86\Debug\Content\particle\diamond.xnb</Output>
-      <Time>2013-01-17T00:29:02.5243915+01:00</Time>
-    </Item>
-    <Item>
-      <Source>particle\star.png</Source>
-      <Name>particle\star</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Nicomplex\Desktop\TRODS\TRODS\TRODS\bin\x86\Debug\Content\particle\star.xnb</Output>
-      <Time>2013-01-17T00:28:56.9672202+01:00</Time>
-    </Item>
-    <Item>
-      <Source>particle\snow.png</Source>
-      <Name>particle\snow</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Nicomplex\Desktop\TRODS\TRODS\TRODS\bin\x86\Debug\Content\particle\snow.xnb</Output>
-      <Time>2013-01-17T02:29:08.3726146+01:00</Time>
+      <Output>C:\Users\Nicomplex\Desktop\TRODS-2\TRODS\TRODS\bin\x86\Debug\Content\particle\fire2.xnb</Output>
+      <Time>2013-01-18T23:00:00.559405+01:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
@@ -423,10 +414,10 @@
       <TargetProfile>HiDef</TargetProfile>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>C:\Users\Nicomplex\Desktop\TRODS\TRODS\TRODSContent\</RootDirectory>
-      <LoggerRootDirectory>C:\Users\Nicomplex\Desktop\TRODS\TRODS\TRODS\</LoggerRootDirectory>
-      <IntermediateDirectory>C:\Users\Nicomplex\Desktop\TRODS\TRODS\TRODSContent\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>C:\Users\Nicomplex\Desktop\TRODS\TRODS\TRODS\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>C:\Users\Nicomplex\Desktop\TRODS-2\TRODS\TRODSContent\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\Nicomplex\Desktop\TRODS-2\TRODS\TRODS\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\Nicomplex\Desktop\TRODS-2\TRODS\TRODSContent\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\Nicomplex\Desktop\TRODS-2\TRODS\TRODS\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>

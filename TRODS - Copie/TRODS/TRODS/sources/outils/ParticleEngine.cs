@@ -20,20 +20,22 @@ namespace TRODS
         private Vector2 angularSpeedRange;
         private Vector2 scaleRange;
         private Vector2 lifeTimeRange;
+        public Color Color;
 
-        public ParticleEngine(Rectangle emitterLocation, Vector4 speedRange, Vector2 angleRange,
-                                Vector2 angularSpeedRange, Vector2 scaleRange, Vector2 lifeTimeRange)
+        public ParticleEngine(Rectangle emitterLocation)
         {
             random = new Random();
             EmitterLocation = emitterLocation;
             particles = new List<Particle>();
             textures = new List<Texture2D>();
 
-            this.speedRange = speedRange;
-            this.angleRange = angleRange;
-            this.angularSpeedRange = angularSpeedRange;
-            this.scaleRange = scaleRange;
-            this.lifeTimeRange = lifeTimeRange;
+            this.speedRange = new Vector4(0.2f, 2, 0, 180);
+            this.angleRange = new Vector2();
+            this.angularSpeedRange = new Vector2();
+            this.scaleRange = new Vector2(1, 1);
+            this.lifeTimeRange = new Vector2(20, 100);
+
+            Color = Color.White;
         }
 
         private Particle GenerateParticle()
@@ -41,23 +43,48 @@ namespace TRODS
             Texture2D texture = textures[random.Next(textures.Count)];
             Vector2 position = new Vector2(random.Next(EmitterLocation.X, EmitterLocation.X + EmitterLocation.Width + 1),
                                          random.Next(EmitterLocation.Y, EmitterLocation.Y + EmitterLocation.Height + 1));
-            /*Vector2 speed = new Vector2(
-                    (float)(random.NextDouble() * random.Next((int)speedRange.X, (int)speedRange.Y+1)),
-                    (float)(random.NextDouble() * random.Next((int)speedRange.Z, (int)speedRange.W + 1)));*/
+            //definie la vitesse et la direction de la particule
+            float v = speedRange.X + (float)random.NextDouble()*(float)(random.Next((int)speedRange.Y-(int)speedRange.X+1));
+            float alpha = -((float)random.Next((int)speedRange.Z-(int)speedRange.W, (int)speedRange.Z+(int)speedRange.W+1))*(float)Math.PI/180f;
             Vector2 speed = new Vector2(
-                            1f * (float)(random.NextDouble() * 2 - 1),
-                            1f * (float)(random.NextDouble() * 2 - 1));
-            float angle = (float)random.NextDouble() * (float)random.Next((int)angleRange.X, (int)angleRange.Y + 1);
-            float angularSpeed = 0.1f * (float)(random.NextDouble() * 1.25f - 1);
-            Color color = new Color(
-                random.Next(0, 256),
-                random.Next(0, 256),
-                random.Next(0, 256),
-                0);
+                            v * (float)Math.Cos(alpha),
+                            v * (float)Math.Sin(alpha));
+            float angle = ((float)random.Next((int)angleRange.X, (int)angleRange.Y+1)) * (float)Math.PI / 180f;
+            float angularSpeed = ((float)random.Next((int)angularSpeedRange.X, (int)angularSpeedRange.Y + 1)) * (float)Math.PI / 180f;
+            Color = new Color(
+                random.Next(255, 256),
+                random.Next(255, 256),
+                random.Next(255, 256),
+                100);
             float size = (float)random.NextDouble() * (float)(random.Next((int)scaleRange.X, (int)scaleRange.Y + 1));
             int lifeTime = random.Next((int)lifeTimeRange.X, (int)lifeTimeRange.Y + 1);
 
-            return new Particle(texture, position, speed, angle, angularSpeed, color, size, lifeTime);
+            return new Particle(texture, position, speed, angle, angularSpeed, Color, size, lifeTime);
+        }
+
+        public void SetSpeedRange(float vMin, float vMax, float angle, float angleVariation)
+        {
+            speedRange = new Vector4(vMin, vMax, angle, angleVariation);
+        }
+
+        public void SetAngleRange(float min, float max)
+        {
+            angleRange = new Vector2(min, max);
+        }
+
+        public void SetAngularSpeedRange(float min, float max)
+        {
+            angularSpeedRange = new Vector2(min, max);
+        }
+
+        public void SetScaleRange(float min, float max)
+        {
+            scaleRange = new Vector2(min, max);
+        }
+
+        public void SetLifeTimeRange(float min, float max)
+        {
+            lifeTimeRange = new Vector2(min, max);
         }
 
         public void LoadContent(ContentManager content, List<string> assetNames)

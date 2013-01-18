@@ -35,7 +35,7 @@ namespace TRODS
             selectedSprite = 0;
             currentSize = 150;
             tailleSelection = new Sprite(new Rectangle(0, 400, windowSize.Width, 85), windowSize);
-            mouse = new AnimatedSprite(new Rectangle(-100, -100, 60, 80), _windowSize, 8,4, 30);
+            mouse = new AnimatedSprite(new Rectangle(-100, -100, 60, 80), _windowSize, 8, 4, 30);
 
             animations = new List<AnimatedSprite>();
             textures = new List<AnimatedSprite>();
@@ -53,16 +53,16 @@ namespace TRODS
             for (int i = 0; i < c; i++)
             {
                 textures.ElementAt<AnimatedSprite>(i).setRelatvePos(
-                    new Rectangle(i * wi, 485, wi, windowSize.Height-485), windowSize.Width, windowSize.Height);
+                    new Rectangle(i * wi, 485, wi, windowSize.Height - 485), windowSize.Width, windowSize.Height);
             }
 
             //particle test
-            Engine = new ParticleEngine(new Rectangle(),
-                new Vector4(-2,2,-2,2),
-                new Vector2(),
-                new Vector2(0,1),
-                new Vector2(0.1f,2f),
-                new Vector2(20,150));
+            Engine = new ParticleEngine(new Rectangle());
+            Engine.SetSpeedRange(0.1f, 1.2f, 90, 40);
+            Engine.SetAngleRange(45, 45);
+            Engine.SetAngularSpeedRange(0, 15);
+            Engine.SetLifeTimeRange(20, 100);
+            Engine.SetScaleRange(0.3f, 1.2f);
             //fin test
         }
 
@@ -74,7 +74,7 @@ namespace TRODS
                 s.LoadContent(content);
 
             //particle test
-            Engine.LoadContent(content, new List<string>() { "particle/snow" });
+            Engine.LoadContent(content, new List<string>() { "particle/fire2" });
             //fin test
         }
 
@@ -86,7 +86,7 @@ namespace TRODS
             foreach (Sprite s in textures)
                 s.Draw(spriteBatch);
             tailleSelection.Draw(spriteBatch);
-            mouse.Draw(spriteBatch);
+            //mouse.Draw(spriteBatch);
 
             //particle test
             Engine.Draw(spriteBatch);
@@ -94,7 +94,7 @@ namespace TRODS
 
             spriteBatch.End();
 
-            
+
         }
 
         public override void Update(float elapsedTime)
@@ -113,7 +113,7 @@ namespace TRODS
             mouse.Update(elapsedTime);
 
             //particle test
-            Engine.Update(7);
+            Engine.Update(30);
             //fin test
         }
 
@@ -160,7 +160,8 @@ namespace TRODS
             }
 
             //particle test
-            Engine.EmitterLocation = new Rectangle(newMouseState.X, newMouseState.Y, Engine.EmitterLocation.Width,Engine.EmitterLocation.Height);
+            Engine.EmitterLocation = new Rectangle(newMouseState.X, newMouseState.Y, Engine.EmitterLocation.Width, Engine.EmitterLocation.Height);
+            //Engine.EmitterLocation = new Rectangle(tailleSelection.Position.X, tailleSelection.Position.Y + tailleSelection.Position.Height, tailleSelection.Position.Width, 0);
             //fin test
 
             _keyboardState = newKeyboardState;
