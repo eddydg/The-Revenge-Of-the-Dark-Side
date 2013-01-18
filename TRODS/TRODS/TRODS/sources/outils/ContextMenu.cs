@@ -61,16 +61,23 @@ namespace TRODS
             set { _choise = value; }
         }
         private bool _isMoving;
+        private byte _backOpacity;
+        public byte BackOpacity
+        {
+            get { return _backOpacity; }
+            set { _backOpacity = value; }
+        }
 
         public const int NONE = -1;
         public const int HIDE_MENU = -2;
 
-        public ContextMenu(Rectangle windowSize, AnimatedSprite mainContainer)
+        public ContextMenu(Rectangle windowSize, AnimatedSprite mainContainer, byte backOpacity = 255)
         {
             _windowSize = windowSize;
             _container = mainContainer;
             _elements = new List<AnimatedSprite>();
             _isMoving = false;
+            _backOpacity = backOpacity;
         }
         public override void HandleInput(KeyboardState newKeyboardState, MouseState newMouseState, Game1 parent)
         {
@@ -130,7 +137,7 @@ namespace TRODS
         {
             if (_visible)
             {
-                _container.Draw(spriteBatch);
+                _container.Draw(spriteBatch, _backOpacity);
                 if (_title != null)
                     _title.Draw(spriteBatch);
                 foreach (AnimatedSprite s in _elements)
@@ -189,6 +196,11 @@ namespace TRODS
                     _windowSize.Width,
                     _windowSize.Height);
             }
+        }
+        public override void Activation(Game1 parent)
+        {
+            _visible = false;
+            _choise = ContextMenu.NONE;
         }
     }
 }
