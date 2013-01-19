@@ -113,7 +113,7 @@ namespace TRODS
             mouse.Update(elapsedTime);
 
             //particle test
-            Engine.Update(30);
+            Engine.Update((int)elapsedTime);
             //fin test
         }
 

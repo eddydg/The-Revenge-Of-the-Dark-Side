@@ -40,7 +40,6 @@ namespace TRODS
             _repeating = repeating;
             Position = position;
         }
-
         public AnimatedSprite(Rectangle position, Rectangle windowSize, string assetName, int nbColonnes = 1, int nbLignes = 1, int vitesse = 30, int first = 1, int last = -1, int beginning = -1, bool repeating = false) :
             base(position, windowSize, assetName)
         {
@@ -52,7 +51,6 @@ namespace TRODS
             _repeating = repeating;
             Position = position;
         }
-
         public AnimatedSprite(AnimatedSprite s) :
             base((Sprite)s)
         {
@@ -65,47 +63,13 @@ namespace TRODS
             _elapsedTime = s._elapsedTime;
         }
 
-        public override void Update(float elapsedTime)
-        {
-            base.Update(elapsedTime);
-            _elapsedTime += (int)elapsedTime;
-            if (Speed > 0 && _elapsedTime >= 1000 / Speed)
-            {
-                _elapsedTime = 0;
-                if (_repeating && ActualPicture >= LastPicture)
-                    ActualPicture = FirstPicture;
-                else if (ActualPicture >= Lignes * Colonnes)
-                    ActualPicture = FirstPicture;
-                else
-                    ActualPicture++;
-            }
-        }
-
-        public override void Draw(SpriteBatch spriteBatch)
-        {
-            spriteBatch.Draw(Texture, Position,
-                            new Rectangle((ActualPicture - 1) % Colonnes * Texture.Width / Colonnes,
-                                          (ActualPicture - 1) / Colonnes * Texture.Height / Lignes,
-                                          Texture.Width / Colonnes,
-                                          Texture.Height / Lignes), Color.White);
-        }
-
-        public override void Draw(SpriteBatch spriteBatch, Vector2 location)
-        {
-            spriteBatch.Draw(Texture,
-                            new Rectangle((int)location.X, (int)location.Y, Position.Width, Position.Height),
-                            new Rectangle((ActualPicture - 1) % Colonnes * Texture.Width / Colonnes,
-                                          (ActualPicture - 1) / Colonnes * Texture.Height / Lignes,
-                                          Texture.Width / Colonnes,
-                                          Texture.Height / Lignes), Color.White);
-        }
-
         /// <summary>
         /// Modifie l'intervalle de lecture des images
         /// </summary>
         /// <param name="first">Premiere image</param>
         /// <param name="last">Derniere image</param>
         /// <param name="beginning">Image de debut de l'annimation</param>
+        /// <param name="repeating">Repetition de l'animation entre first et last</param>
         public void SetPictureBounds(int first, int last, int beginning = -1, bool repeating = false)
         {
             if (last > 0 && last <= Lignes * Colonnes)
@@ -125,21 +89,19 @@ namespace TRODS
 
             _elapsedTime = 0;
         }
-
         /// <summary>
         /// Change la position de l'image
         /// </summary>
-        /// <param name="x"></param>
-        /// <param name="y"></param>
+        /// <param name="x">Abcisse</param>
+        /// <param name="y">Ordonee</param>
         public void SetPosition(int x, int y)
         {
             Position = new Rectangle(x, y, Position.Width, Position.Height);
         }
-
         /// <summary>
         /// Renvoie true si l'animation est a la derniere image
         /// </summary>
-        /// <returns>bool</returns>
+        /// <returns></returns>
         public bool IsEnd()
         {
             if (_repeating)
@@ -147,7 +109,6 @@ namespace TRODS
             else
                 return ActualPicture == Lignes * Colonnes;
         }
-
         /// <summary>
         /// Libere les textures
         /// </summary>
@@ -155,6 +116,38 @@ namespace TRODS
         {
             Texture.Dispose();
         }
-    }
 
+        public override void Update(float elapsedTime)
+        {
+            base.Update(elapsedTime);
+            _elapsedTime += (int)elapsedTime;
+            if (Speed > 0 && _elapsedTime >= 1000 / Speed)
+            {
+                _elapsedTime = 0;
+                if (_repeating && ActualPicture >= LastPicture)
+                    ActualPicture = FirstPicture;
+                else if (ActualPicture >= Lignes * Colonnes)
+                    ActualPicture = FirstPicture;
+                else
+                    ActualPicture++;
+            }
+        }
+        public override void Draw(SpriteBatch spriteBatch)
+        {
+            spriteBatch.Draw(Texture, Position,
+                            new Rectangle((ActualPicture - 1) % Colonnes * Texture.Width / Colonnes,
+                                          (ActualPicture - 1) / Colonnes * Texture.Height / Lignes,
+                                          Texture.Width / Colonnes,
+                                          Texture.Height / Lignes), Color.White);
+        }
+        public override void Draw(SpriteBatch spriteBatch, Vector2 location)
+        {
+            spriteBatch.Draw(Texture,
+                            new Rectangle((int)location.X, (int)location.Y, Position.Width, Position.Height),
+                            new Rectangle((ActualPicture - 1) % Colonnes * Texture.Width / Colonnes,
+                                          (ActualPicture - 1) / Colonnes * Texture.Height / Lignes,
+                                          Texture.Width / Colonnes,
+                                          Texture.Height / Lignes), Color.White);
+        }
+    }
 }

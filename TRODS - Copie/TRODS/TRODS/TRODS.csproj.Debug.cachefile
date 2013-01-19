@@ -38,11 +38,10 @@ Content\sprites\popGreen_8x4.xnb
 Content\sprites\spriteElectric_11x3r12r23.xnb
 Content\game\mainCharacter.xnb
 Content\particle\snow.xnb
+Content\particle\rain.xnb
+Content\particle\fire2.xnb
 Content\menu\menuAmbience.xnb
 Content\menu\selectionSound.xnb
 Content\menu\songCredit.xnb
-Content\particle\rain.xnb
-Content\particle\fire.xnb
-Content\particle\fire2.xnb
 Content\menu\menuAmbience.wma
 Content\menu\songCredit.wma

@@ -8,11 +8,10 @@ namespace EugLib
     public static class Tools
     {
         /// <summary>
-        /// Prends en Parametres une chaine de caracteres
-		/// Retourne la liste de toutes les chaines separees par des espaces
+        /// Separe une chaine de caracteres en liste de chaines sans espaces
         /// </summary>
-        /// <param name="args"></param>
-        /// <returns></returns>
+        /// <param name="args">Chaine a separer</param>
+        /// <returns>Liste de chaines</returns>
         public static List<string> toArgv(string args)
         {
             List<string> ret = new List<string>();

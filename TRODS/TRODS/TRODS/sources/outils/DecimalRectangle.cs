@@ -13,27 +13,51 @@ namespace TRODS.sources.outils
 {
     class DecimalRectangle
     {
-        public float X, Y, W, H;
+        public float X, Y, Width, Height;
 
+        /// <summary>
+        /// Constructeur initialisant toutes les valeurs
+        /// </summary>
+        /// <param name="x">X</param>
+        /// <param name="y">Y</param>
+        /// <param name="w">Width</param>
+        /// <param name="h">Height</param>
         public DecimalRectangle(float x = 0, float y = 0, float w = 0, float h = 0)
         {
             X = x;
             Y = y;
-            W = w;
-            H = h;
+            Width = w;
+            Height = h;
         }
-
+        /// <summary>
+        /// Assignation de toutes les valeurs
+        /// </summary>
+        /// <param name="x">X</param>
+        /// <param name="y">Y</param>
+        /// <param name="w">Width</param>
+        /// <param name="h">Height</param>
         public void SetValues(float x = 0, float y = 0, float w = 0, float h = 0)
         {
             X = x;
             Y = y;
-            W = w;
-            H = h;
+            Width = w;
+            Height = h;
         }
-
+        /// <summary>
+        /// Retourne la position du coin haut gauche
+        /// </summary>
+        /// <returns></returns>
         public Vector2 Position()
         {
             return new Vector2(X, Y);
+        }
+        /// <summary>
+        /// Retourne le rectangle currespondant aux valeurs.
+        /// </summary>
+        /// <returns></returns>
+        public Rectangle ToRectangle()
+        {
+            return new Rectangle((int)X, (int)Y, (int)Width, (int)Height);
         }
     }
 }

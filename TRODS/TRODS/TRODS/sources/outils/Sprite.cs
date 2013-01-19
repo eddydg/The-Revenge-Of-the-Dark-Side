@@ -11,7 +11,7 @@ using Microsoft.Xna.Framework.Media;
 
 namespace TRODS
 {
-    class Sprite
+    class Sprite : AbstractScene
     {
         public string AssetName { get; set; }
         public Texture2D Texture { get; set; }
@@ -70,7 +70,6 @@ namespace TRODS
             else
                 _isRelativePos = false;
         }
-
         /// <summary>
         /// Constructeur de copie
         /// </summary>
@@ -110,20 +109,14 @@ namespace TRODS
         {
             Texture = tex;
         }
-
-        /// <summary>
-        /// Met a jour la _position du sprite
-        /// </summary>
-        /// <param name="elapsedTime">Temps ecoule depuis le dernier appel de la fonction</param>
-        public virtual void Update(float elapsedTime)
+        public override void Update(float elapsedTime)
         {
             _position = new Rectangle((int)(_vitesse * Direction.X * elapsedTime) + _position.X,
                                       (int)(_vitesse * Direction.Y * elapsedTime) + _position.Y,
                                       _position.Width, _position.Height);
         }
 
-
-        public virtual void Draw(SpriteBatch spriteBatch)
+        public override void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Draw(Texture, _position, Color.White);
         }
@@ -194,9 +187,6 @@ namespace TRODS
                 windowResized(rect);
             }
         }
-        /// <summary>
-        /// Libere les textures
-        /// </summary>
         public virtual void Dispose()
         {
             Texture.Dispose();

@@ -43,6 +43,9 @@ namespace TRODS
             }
         }
 
+        /// <summary>
+        /// Constructeur
+        /// </summary>
         public Son()
         {
             _sons = new Dictionary<Sons, SoundEffectInstance>();
@@ -51,15 +54,31 @@ namespace TRODS
             _musiquesVol = 1f;
         }
 
+        /// <summary>
+        /// Cree une instance d'effect sonore
+        /// </summary>
+        /// <param name="content">Gestionnaire de contenu XNA</param>
+        /// <param name="s">Son</param>
+        /// <param name="assetName">Nom du fichier</param>
         public void LoadContent(ContentManager content, Sons s, string assetName)
         {
             _sons.Add(s, content.Load<SoundEffect>(assetName).CreateInstance());
         }
+        /// <summary>
+        /// Charge une musique
+        /// </summary>
+        /// <param name="content">Gestionnaire de contenu XNA</param>
+        /// <param name="s">Musique</param>
+        /// <param name="assetName">Nom du fichier</param>
         public void LoadContent(ContentManager content, Musiques m, string assetName)
         {
             _musiques.Add(m, content.Load<Song>(assetName));
         }
 
+        /// <summary>
+        /// Joue un son
+        /// </summary>
+        /// <param name="s">Son obtenu dans l'enumeration Sons</param>
         public void Play(Sons s)
         {
             try
@@ -71,6 +90,10 @@ namespace TRODS
                 EugLib.FileStream.toStdOut(e.ToString());
             }
         }
+        /// <summary>
+        /// Repete une musique
+        /// </summary>
+        /// <param name="m">Musique obtenue dans l'enumeration Musiques</param>
         public void Play(Musiques m)
         {
             try
@@ -83,7 +106,9 @@ namespace TRODS
                 EugLib.FileStream.toStdOut(e.ToString());
             }
         }
-
+        /// <summary>
+        /// Arrete la lecture de tous les sons et musiques
+        /// </summary>
         public void Stop()
         {
             foreach (SoundEffectInstance s in _sons.Values)

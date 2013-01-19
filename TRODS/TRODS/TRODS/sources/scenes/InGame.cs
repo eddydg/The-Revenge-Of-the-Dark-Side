@@ -43,7 +43,7 @@ namespace TRODS
             mouse = new Sprite(new Rectangle(-100, -100, 30, 50), _windowSize);
             map = new AbstractMap(_windowSize);
             map.Visitable.Add(new Rectangle(450, 330, 1800, 150));
-            map.VuePosition = new Vector2(map.Visitable.Last<Rectangle>().X + 1, map.Visitable.Last<Rectangle>().Y + map.Visitable.Last<Rectangle>().Height - 1);
+            map.VuePosition = new Vector2(460, 330 + 150 - 1);
             map.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(0, 0, _windowSize.Width, _windowSize.Height), _windowSize, "map1/sky1"), 0.2f, 0, true));
             map.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(0, 0, _windowSize.Width, _windowSize.Height), _windowSize, "map1/back1r"), 0.8f, 0.2f, true));
             map.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(0, _windowSize.Height / 2, _windowSize.Width, _windowSize.Height / 2), _windowSize, "map1/fore1"), 1f, 0.5f, true));

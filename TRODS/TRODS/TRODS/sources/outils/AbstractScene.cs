@@ -24,7 +24,7 @@ namespace TRODS
         {
         }
         /// <summary>
-        /// Gere les entrees de clavier ou de souris
+        /// Gere les entrees de clavier, souris et evenements
         /// </summary>
         /// <param name="newKeyboardState">Nouvel etat du clavier</param>
         /// <param name="newMouseState">Nouvel etat de la souris</param>
@@ -51,12 +51,14 @@ namespace TRODS
         /// <summary>
         /// Fonction a appeler avant d'utiliser la scene
         /// </summary>
+        /// <param name="parent">Reference de la classe parent</param>
         public virtual void Activation(Game1 parent)
         {
         }
         /// <summary>
         /// Fonction a appeler avant de changer de scene
         /// </summary>
+        /// <param name="parent">Reference de la classe parent</param>
         public virtual void EndScene(Game1 parent)
         {
         }

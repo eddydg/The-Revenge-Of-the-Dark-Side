@@ -13,6 +13,9 @@ namespace TRODS
 {
     class AbstractMap : AbstractScene
     {
+        /// <summary>
+        /// Element constitutif de la mep.
+        /// </summary>
         public struct Element
         {
             public Element(AnimatedSprite _s, float _speed = 0, float _verticalSpeed = 0, bool _repeating = false, bool _foreground = false)
@@ -60,58 +63,77 @@ namespace TRODS
             get { return _visitable; }
             set { _visitable = value; }
         }
+        protected bool _isDrawingForeground;
+        public bool IsDrawingForeground
+        {
+            get { return _isDrawingForeground; }
+            set { _isDrawingForeground = value; }
+        }
 
+        /// <summary>
+        /// Constructeur par defaut.
+        /// </summary>
+        /// <param name="windowSize">Taille actuelle de la fenetre</param>
         public AbstractMap(Rectangle windowSize)
         {
             _windowSize = windowSize;
             _elements = new List<Element>();
             _visitable = new List<Rectangle>();
+            _isDrawingForeground = false;
         }
+        /// <summary>
+        /// Constructeur
+        /// </summary>
+        /// <param name="windowSize">Taille actuelle de la fenetre</param>
+        /// <param name="elements">Liste d'Element de la map</param>
+        /// <param name="vuePosition">Position de la "camera" sur la map</param>
+        /// <param name="visitableArea">Liste de regions autorisees</param>
         public AbstractMap(Rectangle windowSize, List<Element> elements, Vector2 vuePosition, List<Rectangle> visitableArea)
         {
             _windowSize = windowSize;
             _elements = elements;
             _vuePosition = vuePosition;
             _visitable = visitableArea;
+            _isDrawingForeground = false;
         }
 
-        public override void LoadContent(ContentManager content)
+        /// <summary>
+        /// Ajoute un element a la map.
+        /// </summary>
+        /// <param name="s">AnimatedSprite representant l'element</param>
+        /// <param name="horizontalSpeed">Vitesse horizontale</param>
+        /// <param name="verticalSpeed">Vitesse verticale</param>
+        /// <param name="repeating">Si la valeur est true, l'element se repete. Attention, ne fonctionne pas avec des elements trop petits.</param>
+        /// <param name="isForeground">Si la valeur est true, l'element sera dessine devant le personnage.</param>
+        public virtual void Add(AnimatedSprite s, float horizontalSpeed = 0, float verticalSpeed = 0, bool repeating = false, bool isForeground = false)
         {
-            foreach (Element s in _elements)
-                s.sprite.LoadContent(content);
+            _elements.Add(new Element(s, horizontalSpeed, verticalSpeed, repeating, isForeground));
         }
-        public override void Update(float elapsedTime)
+        /// <summary>
+        /// Ajoute une zone autorisee
+        /// </summary>
+        /// <param name="v">Zone a ajouter</param>
+        public virtual void AddVisitable(Rectangle v)
         {
-            foreach (Element s in _elements)
-                s.sprite.Update(elapsedTime);
+            _visitable.Add(v);
         }
-        public override void Draw(SpriteBatch spriteBatch)
+        /// <summary>
+        /// Ajoute une zone autorisee
+        /// </summary>
+        /// <param name="x">Abcisse</param>
+        /// <param name="y">Ordonee</param>
+        /// <param name="width">Largeur</param>
+        /// <param name="height">Hauteur</param>
+        public virtual void AddVisitable(int x, int y, int width, int height)
         {
-            Rectangle p;
-            foreach (Element e in _elements)
-            {
-                if (e.repeating)
-                {
-
-                    p = e.sprite.Position;
-
-                    if (p.X > _windowSize.Width)
-                        p.X = p.X - p.Width;
-                    else if (p.X < -p.Width)
-                        p.X = p.X + p.Width;
-
-                    e.sprite.Position = p;
-
-                    e.sprite.Draw(spriteBatch);
-                    if (p.X > 0)
-                        e.sprite.Draw(spriteBatch, new Vector2(p.X - p.Width, p.Y));
-                    if (p.X - p.Width < _windowSize.Width)
-                        e.sprite.Draw(spriteBatch, new Vector2(p.X + p.Width, p.Y));
-                }
-                else
-                    e.sprite.Draw(spriteBatch);
-            }
+            _visitable.Add(new Rectangle(x, y, width, height));
         }
+        /// <summary>
+        /// Effectue un mouvement sur la map.
+        /// </summary>
+        /// <param name="destination">Vecteur representant le mouvement voulu.</param>
+        /// <param name="performMove">Si la valeur est false, le mouvement n'est pas effectue.</param>
+        /// <returns>Renvoie true si le mouvement est autorise.</returns>
         public virtual bool Moving(Vector2 destination, bool performMove = true)
         {
             Point p = new Point((int)(destination.X + VuePosition.X), (int)(destination.Y + VuePosition.Y));
@@ -152,6 +174,47 @@ namespace TRODS
                     return true;
                 }
             return false;
+        }
+
+        public override void LoadContent(ContentManager content)
+        {
+            foreach (Element s in _elements)
+                s.sprite.LoadContent(content);
+        }
+        public override void Update(float elapsedTime)
+        {
+            foreach (Element s in _elements)
+                s.sprite.Update(elapsedTime);
+        }
+        public override void Draw(SpriteBatch spriteBatch)
+        {
+            Rectangle p;
+            foreach (Element e in _elements)
+            {
+                if (e.foreground == _isDrawingForeground)
+                {
+                    if (e.repeating)
+                    {
+
+                        p = e.sprite.Position;
+
+                        if (p.X > _windowSize.Width)
+                            p.X = p.X - p.Width;
+                        else if (p.X < -p.Width)
+                            p.X = p.X + p.Width;
+
+                        e.sprite.Position = p;
+
+                        e.sprite.Draw(spriteBatch);
+                        if (p.X > 0)
+                            e.sprite.Draw(spriteBatch, new Vector2(p.X - p.Width, p.Y));
+                        if (p.X - p.Width < _windowSize.Width)
+                            e.sprite.Draw(spriteBatch, new Vector2(p.X + p.Width, p.Y));
+                    }
+                    else
+                        e.sprite.Draw(spriteBatch);
+                }
+            }
         }
         public override void WindowResized(Rectangle rect)
         {
