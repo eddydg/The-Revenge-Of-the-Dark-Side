@@ -45,3 +45,5 @@ Content\menu\menuAmbience.wma
 Content\menu\selectionSound.xnb
 Content\menu\songCredit.xnb
 Content\menu\songCredit.wma
+Content\particle\smoke.xnb
+Content\particle\star.xnb

@@ -25,7 +25,8 @@ namespace TRODS
         private AnimatedSprite mouse;
 
         //particle test
-        ParticleEngine Engine;
+        ParticleEngine Snow;
+        ParticleEngine Fire;
 
         public SceneExtras(Rectangle windowSize, KeyboardState keyboardState, MouseState mouseState)
         {
@@ -57,12 +58,17 @@ namespace TRODS
             }
 
             //particle test
-            Engine = new ParticleEngine(new Rectangle());
-            Engine.SetSpeedRange(0.1f, 1.2f, 90, 40);
-            Engine.SetAngleRange(45, 45);
-            Engine.SetAngularSpeedRange(0, 15);
-            Engine.SetLifeTimeRange(20, 100);
-            Engine.SetScaleRange(0.3f, 1.2f);
+            Snow = new ParticleEngine(new Rectangle(0,0,windowSize.Width,0));
+            Snow.SetSpeedRange(1.2f, 1.8f,-90, 40);
+            Snow.SetAngularSpeedRange(0, 3);
+            Snow.SetLifeTimeRange(20, 800);
+            Snow.SetScaleRange(0.3f, 1.4f);
+            Snow.SetColorRange(255, 255, 255, 255, 255, 255, 20, 30);
+
+            Fire = new ParticleEngine(new Rectangle());
+            Fire.SetSpeedRange(0.3f, 1.4f, 90, 180);
+            Fire.SetLifeTimeRange(20, 100);
+            Fire.SetScaleRange(0.2f, 1.4f);
             //fin test
         }
 
@@ -74,7 +80,8 @@ namespace TRODS
                 s.LoadContent(content);
 
             //particle test
-            Engine.LoadContent(content, new List<string>() { "particle/fire2" });
+            Snow.LoadContent(content, new List<string>() { "particle/snow" });
+            Fire.LoadContent(content, new List<string>() { "particle/fire2", "particle/smoke" });
             //fin test
         }
 
@@ -89,7 +96,8 @@ namespace TRODS
             //mouse.Draw(spriteBatch);
 
             //particle test
-            Engine.Draw(spriteBatch);
+            Snow.Draw(spriteBatch);
+            Fire.Draw(spriteBatch);
             //fin test
 
             spriteBatch.End();
@@ -113,7 +121,8 @@ namespace TRODS
             mouse.Update(elapsedTime);
 
             //particle test
-            Engine.Update((int)elapsedTime);
+            Snow.Update(7);
+            Fire.Update(10);
             //fin test
         }
 
@@ -160,8 +169,8 @@ namespace TRODS
             }
 
             //particle test
-            Engine.EmitterLocation = new Rectangle(newMouseState.X, newMouseState.Y, Engine.EmitterLocation.Width, Engine.EmitterLocation.Height);
-            //Engine.EmitterLocation = new Rectangle(tailleSelection.Position.X, tailleSelection.Position.Y + tailleSelection.Position.Height, tailleSelection.Position.Width, 0);
+            Snow.EmitterLocation = new Rectangle(0, 0, _windowSize.Width, 0);
+            Fire.EmitterLocation = new Rectangle(newMouseState.X, newMouseState.Y, 0, 0);
             //fin test
 
             _keyboardState = newKeyboardState;

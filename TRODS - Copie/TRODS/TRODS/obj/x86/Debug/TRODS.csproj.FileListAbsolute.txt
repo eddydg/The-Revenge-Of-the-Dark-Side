@@ -426,3 +426,9 @@ C:\Users\Kuchera\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS - Copie\TRODS\
 C:\Users\Kuchera\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS - Copie\TRODS\TRODS\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
 C:\Users\Kuchera\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS - Copie\TRODS\TRODS\obj\x86\Debug\TRODS.exe
 C:\Users\Kuchera\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS - Copie\TRODS\TRODS\obj\x86\Debug\TRODS.pdb
+D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS - Copie\TRODS\TRODS\bin\x86\Debug\Content\game\mainCharacter.xnb
+D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS - Copie\TRODS\TRODS\bin\x86\Debug\Content\particle\snow.xnb
+D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS - Copie\TRODS\TRODS\bin\x86\Debug\Content\particle\rain.xnb
+D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS - Copie\TRODS\TRODS\bin\x86\Debug\Content\particle\fire2.xnb
+D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS - Copie\TRODS\TRODS\bin\x86\Debug\Content\particle\smoke.xnb
+D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS - Copie\TRODS\TRODS\bin\x86\Debug\Content\particle\star.xnb

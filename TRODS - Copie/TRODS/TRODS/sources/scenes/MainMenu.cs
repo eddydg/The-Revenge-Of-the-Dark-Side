@@ -34,6 +34,9 @@ namespace TRODS
         private int windowHeight;
         private int windowWidth;
 
+        private ParticleEngine Fire;
+        private ParticleEngine Cursor;
+
         public MainMenu(Rectangle windowSize, KeyboardState newKeyboardState, MouseState newMouseState)
         {
             windowWidth = windowSize.Width;
@@ -56,6 +59,18 @@ namespace TRODS
             menuItems.Add(Selection.Options, new Sprite(new Rectangle(394, 470, 135, 55), windowSize, "menu/textOptions"));
             menuItems.Add(Selection.Credit, new Sprite(new Rectangle(562, 400, 124, 55), windowSize, "menu/textCredit"));
             menuItems.Add(Selection.Exit, new Sprite(new Rectangle(675, 480, 101, 55), windowSize, "menu/textExit"));
+
+            Fire = new ParticleEngine(new Rectangle(0,windowSize.Height,windowSize.Width,0));
+            Fire.SetSpeedRange(0.2f, 2f, 90, 40);
+            Fire.SetLifeTimeRange(20, 90);
+            Fire.SetScaleRange(0.2f, 1.4f);
+
+            Cursor = new ParticleEngine(new Rectangle());
+            Cursor.SetSpeedRange(0.2f, 1.6f, -45, 25);
+            Cursor.SetAngularSpeedRange(0, 3);
+            Cursor.SetLifeTimeRange(20, 50);
+            Cursor.SetScaleRange(0.2f, 1.4f);
+            Cursor.SetColorRange(0, 255, 0, 255, 0, 255, 0, 20);
         }
 
         public override void LoadContent(ContentManager content)
@@ -67,6 +82,9 @@ namespace TRODS
             cursorClic = content.Load<Texture2D>("menu/onde_8x4");
             foreach (Sprite s in menuItems.Values)
                 s.LoadContent(content);
+
+            Fire.LoadContent(content, new List<string>() { "particle/fire2", "particle/smoke" });
+            Cursor.LoadContent(content, new List<string>() { "particle/star" });
         }
         public override void HandleInput(KeyboardState newKeyboardState, MouseState newMouseState, Game1 parent)
         {
@@ -139,6 +157,9 @@ namespace TRODS
                     }
                 }
 
+                Fire.EmitterLocation = new Rectangle(0, windowHeight, windowWidth, 0);
+                Cursor.EmitterLocation = new Rectangle(newMouseState.X, newMouseState.Y, 0, 0);
+
                 keyboardState = newKeyboardState;
                 mousestate = newMouseState;
             }
@@ -160,6 +181,9 @@ namespace TRODS
                     i--;
                 }
             }
+
+            Fire.Update(40);
+            Cursor.Update(4);
         }
         public override void Draw(SpriteBatch spriteBatch)
         {
@@ -194,7 +218,9 @@ namespace TRODS
             foreach (AnimatedSprite p in sprites)
                 p.Draw(spriteBatch);
 
-            mouse.Draw(spriteBatch);
+            //mouse.Draw(spriteBatch);
+            Fire.Draw(spriteBatch);
+            Cursor.Draw(spriteBatch);
 
             spriteBatch.End();
         }
