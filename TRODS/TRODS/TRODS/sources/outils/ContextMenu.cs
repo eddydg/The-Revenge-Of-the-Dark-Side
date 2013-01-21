@@ -17,19 +17,19 @@ namespace TRODS
     class ContextMenu : AbstractScene
     {
         private List<AnimatedSprite> _elements;
-        internal List<AnimatedSprite> Elements
+        public List<AnimatedSprite> Elements
         {
             get { return _elements; }
             set { _elements = value; }
         }
         private AnimatedSprite _container;
-        internal AnimatedSprite Container
+        public AnimatedSprite Container
         {
             get { return _container; }
             set { _container = value; }
         }
         private AnimatedSprite _title;
-        internal AnimatedSprite Title
+        public AnimatedSprite Title
         {
             get { return _title; }
             set
@@ -43,6 +43,12 @@ namespace TRODS
                     _windowSize.Width,
                     _windowSize.Height);
             }
+        }
+        private AnimatedSprite _exit;
+        public AnimatedSprite Exit
+        {
+            get { return _exit; }
+            set { _exit = value; }
         }
         public Rectangle Position
         {
@@ -63,13 +69,13 @@ namespace TRODS
             get { return _choise; }
             set { _choise = value; }
         }
-        private bool _isMoving;
         private byte _backOpacity;
         public byte BackOpacity
         {
             get { return _backOpacity; }
             set { _backOpacity = value; }
         }
+        private bool _isMoving;
 
         public const int NONE = -1;
         public const int HIDE_MENU = -2;
@@ -80,13 +86,16 @@ namespace TRODS
         /// <param name="windowSize">Taille courante de la fenetre</param>
         /// <param name="mainContainer">Fond du menu</param>
         /// <param name="backOpacity">Opacite de l'arriere-plan du menu (entre 0 et 255)</param>
-        public ContextMenu(Rectangle windowSize, AnimatedSprite mainContainer, byte backOpacity = 255)
+        public ContextMenu(Rectangle windowSize, AnimatedSprite mainContainer, String exitButtonSpriteName = "", byte backOpacity = 255)
         {
             _windowSize = windowSize;
             _container = mainContainer;
             _elements = new List<AnimatedSprite>();
-            _isMoving = false;
             _backOpacity = backOpacity;
+            if (exitButtonSpriteName != "")
+                _exit = new AnimatedSprite(
+                    new Rectangle(Position.X + Position.Width - Position.Width / 10, Position.Y, Position.Width / 10, Position.Width / 10),
+                    _windowSize, exitButtonSpriteName);
         }
 
         /// <summary>
@@ -107,7 +116,10 @@ namespace TRODS
         public void MoveBy(int x, int y)
         {
             _container.setRelatvePos(new Rectangle(Position.X + x, Position.Y + y, Position.Width, Position.Height), _windowSize.Width, _windowSize.Height);
-            _title.setRelatvePos(new Rectangle(_title.Position.X + x, _title.Position.Y + y, _title.Position.Width, _title.Position.Height), _windowSize.Width, _windowSize.Height);
+            if (_title != null)
+                _title.setRelatvePos(new Rectangle(_title.Position.X + x, _title.Position.Y + y, _title.Position.Width, _title.Position.Height), _windowSize.Width, _windowSize.Height);
+            if (_exit != null)
+                _exit.setRelatvePos(new Rectangle(_exit.Position.X + x, _exit.Position.Y + y, _exit.Position.Width, _exit.Position.Height), _windowSize.Width, _windowSize.Height);
             foreach (AnimatedSprite s in _elements)
                 s.setRelatvePos(new Rectangle(s.Position.X + x, s.Position.Y + y, s.Position.Width, s.Position.Height), _windowSize.Width, _windowSize.Height);
 
@@ -156,11 +168,11 @@ namespace TRODS
             {
                 if (newMouseState != _mouseState)
                 {
+                    Rectangle click = new Rectangle(newMouseState.X, newMouseState.Y, 1, 1);
                     if (newMouseState.LeftButton == ButtonState.Pressed && _mouseState.LeftButton == ButtonState.Released)
                     {
-                        Rectangle click = new Rectangle(newMouseState.X, newMouseState.Y, 1, 1);
                         _choise = ContextMenu.NONE;
-                        if (_title != null && click.Intersects(_title.Position))
+                        if (_exit != null && click.Intersects(_exit.Position))
                         {
                             _visible = false;
                             _choise = ContextMenu.HIDE_MENU;
@@ -170,12 +182,12 @@ namespace TRODS
                             if (click.Intersects(s.Position))
                                 _choise = _elements.IndexOf(s);
                         }
-                        if (_choise != ContextMenu.NONE)
-                            _isMoving = false;
-                        else if (click.Intersects(Position))
+                        if (click.Intersects(_title.Position))
                             _isMoving = true;
+                        else
+                            _isMoving = false;
                     }
-                    else if (newMouseState.LeftButton == ButtonState.Pressed && _mouseState.LeftButton == ButtonState.Pressed)
+                    else if (newMouseState.LeftButton == ButtonState.Pressed && _mouseState.LeftButton == ButtonState.Pressed && click.Intersects(_title.Position))
                     {
                         if (_isMoving)
                             MoveBy(newMouseState.X - _mouseState.X, newMouseState.Y - _mouseState.Y);
@@ -193,6 +205,8 @@ namespace TRODS
                 s.LoadContent(content);
             if (_title != null)
                 _title.LoadContent(content);
+            if (_exit != null)
+                _exit.LoadContent(content);
         }
         public override void Draw(SpriteBatch spriteBatch)
         {
@@ -201,6 +215,8 @@ namespace TRODS
                 _container.Draw(spriteBatch, _backOpacity);
                 if (_title != null)
                     _title.Draw(spriteBatch);
+                if (_exit != null)
+                    _exit.Draw(spriteBatch);
                 foreach (AnimatedSprite s in _elements)
                     s.Draw(spriteBatch);
             }
@@ -212,6 +228,8 @@ namespace TRODS
                 _container.Update(elapsedTime);
                 if (_title != null)
                     _title.Update(elapsedTime);
+                if (_exit != null)
+                    _exit.Update(elapsedTime);
                 foreach (AnimatedSprite s in _elements)
                     s.Update(elapsedTime);
             }
@@ -221,6 +239,8 @@ namespace TRODS
             _container.windowResized(rect);
             if (_title != null)
                 _title.windowResized(rect);
+            if (_exit != null)
+                _exit.windowResized(rect);
             foreach (AnimatedSprite s in _elements)
                 s.windowResized(rect);
             _windowSize = rect;

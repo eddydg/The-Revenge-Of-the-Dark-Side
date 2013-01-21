@@ -34,11 +34,11 @@ namespace TRODS
             _mouseState = mouseState;
             _keyboardState = keyboardState;
 
-            _menu = new ContextMenu(_windowSize, new AnimatedSprite(new Rectangle(0, 30, 200, 50), _windowSize, "menu/ContextualMenuBlackFull"), 235);
-            _menu.Title = new AnimatedSprite(new Rectangle(_menu.Position.Width / 2 - 75, -25, 150, 50), _windowSize, "menu/contextMenuText");
+            _menu = new ContextMenu(_windowSize, new AnimatedSprite(new Rectangle(0, 30, 200, 50), _windowSize, "menu/ContextualMenuBlackFull"), "menu/contextMenuExit", 235);
+            _menu.Title = new AnimatedSprite(new Rectangle(_menu.Position.Width / 2 - 75, 0, 150, 50), _windowSize, "menu/contextMenuText");
             _menu.Visible = false;
-            _menu.Add(new AnimatedSprite(new Rectangle(_menu.Position.Width / 2 - 100, 40, 200, 22), _windowSize, "menu/contextMenuTextMainMenu"));
-            _menu.CuadricPositionning(new Rectangle(0, 0, 150, 20), 40, 15, 10, 10, true);
+            _menu.Add(new AnimatedSprite(new Rectangle(_menu.Position.Width / 2 - 100, 65, 200, 22), _windowSize, "menu/contextMenuTextMainMenu"));
+            _menu.CuadricPositionning(new Rectangle(0, 0, 150, 20), 65, 15, 10, 10, true);
 
             mouse = new Sprite(new Rectangle(-100, -100, 30, 50), _windowSize);
             map = new AbstractMap(_windowSize);

@@ -35,8 +35,8 @@ namespace TRODS
             mouse = new AnimatedSprite(new Rectangle(-100, -100, 60, 80), _windowSize, 8, 4, 30);
 
             animations = new List<AnimatedSprite>();
-            menu = new ContextMenu(_windowSize, new AnimatedSprite(new Rectangle(200, 50, 300, 50), _windowSize, "menu/ContextualMenuBlackFull"), 100);
-            menu.Title = new AnimatedSprite(new Rectangle(menu.Position.Width / 2 - 75, -25, 150, 50), _windowSize, "menu/contextMenuText");
+            menu = new ContextMenu(_windowSize, new AnimatedSprite(new Rectangle(200, 50, 300, 50), _windowSize, "menu/ContextualMenuBlackFull"), "menu/contextMenuExit", 100);
+            menu.Title = new AnimatedSprite(new Rectangle(menu.Position.Width / 2 - 75, 0, 150, 50), _windowSize, "menu/contextMenuText");
             menu.Visible = false;
             menu.Add(new AnimatedSprite(new Rectangle(), windowSize, "sprites/canalisation1_16x13", 16, 13));
             menu.Add(new AnimatedSprite(new Rectangle(), windowSize, "sprites/explosion0_8x6", 8, 6));
@@ -47,8 +47,8 @@ namespace TRODS
             menu.Add(new AnimatedSprite(new Rectangle(), windowSize, "sprites/fireWall_11x6r23r44", 11, 6));
             menu.Add(new AnimatedSprite(new Rectangle(), windowSize, "sprites/popGreen_8x4", 8, 4));
             menu.Add(new AnimatedSprite(new Rectangle(), windowSize, "sprites/spriteElectric_11x3r12r23", 11, 3));
-            menu.CuadricPositionning(new Rectangle(0, 0, 75, 75), 75, 20, 3, 3, true);
-            menu.Add(new AnimatedSprite(new Rectangle(menu.Position.Width / 2 - 100, 40, 200, 22), _windowSize, "menu/contextMenuTextMainMenu"));
+            menu.CuadricPositionning(new Rectangle(0, 0, 75, 75), 100, 20, 3, 3, true);
+            menu.Add(new AnimatedSprite(new Rectangle(menu.Position.Width / 2 - 100, 65, 200, 22), _windowSize, "menu/contextMenuTextMainMenu"));
         }
 
         public override void LoadContent(ContentManager content)
