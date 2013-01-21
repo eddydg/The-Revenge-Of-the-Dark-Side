@@ -1,9 +1,12 @@
 
-Erreur d'affichage :
-System.InvalidOperationException: Begin must be called successfully before a Draw can be called.
-   à Microsoft.Xna.Framework.Graphics.SpriteBatch.InternalDraw(Texture2D texture, Vector4& destination, Boolean scaleDestination, Nullable`1& sourceRectangle, Color color, Single rotation, Vector2& origin, SpriteEffects effects, Single depth)
-   à Microsoft.Xna.Framework.Graphics.SpriteBatch.Draw(Texture2D texture, Vector2 position, Nullable`1 sourceRectangle, Color color, Single rotation, Vector2 origin, Single scale, SpriteEffects effects, Single layerDepth)
-   à TRODS.Particle.Draw(SpriteBatch spriteBatch) dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\outils\ParticleEngine.cs:ligne 222
-   à TRODS.ParticleEngine.Draw(SpriteBatch spriteBatch) dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\outils\ParticleEngine.cs:ligne 51
-   à TRODS.SceneExtras.Draw(SpriteBatch spriteBatch) dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\scenes\SceneExtras.cs:ligne 73
-   à TRODS.Game1.Draw(GameTime gameTime) dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\Game1.cs:ligne 130
+Loading ressources error.
+Microsoft.Xna.Framework.Content.ContentLoadException: Error loading "partile\fire". File not found. ---> System.IO.FileNotFoundException: Error loading "Content\partile\fire.xnb". File not found.
+   à Microsoft.Xna.Framework.TitleContainer.OpenStream(String name)
+   à Microsoft.Xna.Framework.Content.ContentManager.OpenStream(String assetName)
+   --- Fin de la trace de la pile d'exception interne ---
+   à Microsoft.Xna.Framework.Content.ContentManager.OpenStream(String assetName)
+   à Microsoft.Xna.Framework.Content.ContentManager.ReadAsset[T](String assetName, Action`1 recordDisposableObject)
+   à Microsoft.Xna.Framework.Content.ContentManager.Load[T](String assetName)
+   à TRODS.ParticleEngine.LoadContent(ContentManager content) dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\outils\ParticleEngine.cs:ligne 71
+   à TRODS.SceneExtras.LoadContent(ContentManager content) dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\scenes\SceneExtras.cs:ligne 61
+   à TRODS.Game1.LoadContent() dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\Game1.cs:ligne 80

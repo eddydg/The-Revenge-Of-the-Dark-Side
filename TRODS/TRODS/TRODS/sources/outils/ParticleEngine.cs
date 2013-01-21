@@ -18,6 +18,8 @@ namespace TRODS
         private List<Particle> particles;
         private List<Texture2D> textures;
         public Color Color { get; set; }
+        public int NbNewParticle { get; set; }
+        public List<string> AssetNames { get; set; }
 
         private Vector4 speedRange;
         private Vector2 angleRange;
@@ -30,21 +32,28 @@ namespace TRODS
         /// Constructeur...
         /// </summary>
         /// <param name="emitterLocation">définit la zone d'apparition des particules</param>
-        public ParticleEngine(Rectangle emitterLocation)
+        public ParticleEngine(Rectangle emitterLocation,
+                              List<string> assetNames = null,
+                              int nbNewParticle = 10,
+                              float vitesseMin = 0f, float vitesseMax = 2f, float directionAngle = 0f, float directionAngleVariation = 180f,
+                              float initialAngleMin = 0f, float initialAngleMax = 0f,
+                              float vitesseRotationMin = -2, float vitesseRotationMax = 2,
+                              float sizeMin = 0.2f, float sizeMax = 2f,
+                              float lifeTimeMin = 20f, float lifeTimeMax = 100f)
         {
             random = new Random();
             EmitterLocation = emitterLocation;
+            AssetNames = assetNames;
             particles = new List<Particle>();
             textures = new List<Texture2D>();
+            NbNewParticle = nbNewParticle;
 
-            this.speedRange = new Vector4(0.2f, 2, 0, 180);
-            this.angleRange = new Vector2();
-            this.angularSpeedRange = new Vector2();
-            this.scaleRange = new Vector2(1, 1);
-            this.lifeTimeRange = new Vector2(20, 100);
+            this.speedRange = new Vector4(vitesseMin, vitesseMax, directionAngle, directionAngleVariation);
+            this.angleRange = new Vector2(initialAngleMin,initialAngleMax);
+            this.angularSpeedRange = new Vector2(vitesseRotationMin,vitesseRotationMax);
+            this.scaleRange = new Vector2(sizeMin,sizeMax);
+            this.lifeTimeRange = new Vector2(lifeTimeMin, lifeTimeMax);
             this.colorRange = new int[8] { 255, 255, 255, 255, 255, 255, 0, 70 };
-
-            this.Color = Color.White;
         }
         public override void Draw(SpriteBatch spriteBatch)
         {
@@ -56,25 +65,25 @@ namespace TRODS
         /// </summary>
         /// <param name="content">Gestionnaire de contenu XNA</param>
         /// <param name="assetNames">Liste des noms des textures à utiliser. ex:"particule/fire"</param>
-        public void LoadContent(ContentManager content, List<string> assetNames)
+        public override void LoadContent(ContentManager content)
         {
-            foreach (string s in assetNames)
+            foreach (string s in AssetNames)
                 textures.Add(content.Load<Texture2D>(s));
         }
         /// <summary>
         /// 
         /// </summary>
         /// <param name="nbNewParticle">Nombre de nouvelles particules à créer à chaque appel de la fonction</param>
-        public override void Update(float nbNewParticle = 10)
+        public override void Update(float elapsedTime)
         {
-            for (int i = 0; i < (int)nbNewParticle; i++)
+            for (int i = 0; i < NbNewParticle; i++)
             {
                 particles.Add(GenerateParticle());
             }
 
             for (int i = 0; i < particles.Count; i++)
             {
-                particles[i].Update();
+                particles[i].Update(elapsedTime);
                 if (particles[i].LifeTime <= 0)
                 {
                     particles.RemoveAt(i);
@@ -112,58 +121,7 @@ namespace TRODS
             int lifeTime = random.Next((int)lifeTimeRange.X, (int)lifeTimeRange.Y + 1);
 
             return new Particle(texture, position, speed, angle, angularSpeed, Color, size, lifeTime);
-        }
-        /// <summary>
-        /// définit l'intervalle de vitesse et l'intervalle de direction des particules.
-        /// ex: Pour une vitesse entre 0.2 et 2 et une direction de 90° +/- 10°,
-        /// on à vMin=0.2f  vMax=2f  angle=90f  angleVariation=10f.
-        /// </summary>
-        /// <param name="vMin">Vitesse minimum possible pour une particule</param>
-        /// <param name="vMax">Vitesse maximum possible pour une particule</param>
-        /// <param name="angle">angle en degré qui defini la direction des particules (0° représente une direction horizontale vers la droite.</param>
-        /// <param name="angleVariation">degré de variation possible autour de l'angle(paramètre precédent)</param>
-        public void SetSpeedRange(float vMin, float vMax, float angle, float angleVariation)
-        {
-            speedRange = new Vector4(vMin, vMax, angle, angleVariation);
-        }
-        /// <summary>
-        /// définit l'intervalle de l'angle d'inclinaison des particules au moments de leur création.
-        /// càd l'angle initial des particules.
-        /// </summary>
-        /// <param name="min">angle minimum</param>
-        /// <param name="max">angle maximun</param>
-        public void SetAngleRange(float min, float max)
-        {
-            angleRange = new Vector2(min, max);
-        }
-        /// <summary>
-        /// définit l'intervalle de vitesse de rotation des particules
-        /// </summary>
-        /// <param name="min">vitesse de rotation minimum</param>
-        /// <param name="max">vitesse de rotation maximum</param>
-        public void SetAngularSpeedRange(float min, float max)
-        {
-            angularSpeedRange = new Vector2(min, max);
-        }
-        /// <summary>
-        /// définit l'intervalle de l'échelle de chaque particules.
-        /// ex: 2 affichera la particule 2 fois plus grosse que sa taille d'origine.
-        /// </summary>
-        /// <param name="min">échelle minimum</param>
-        /// <param name="max">échelle maximum</param>
-        public void SetScaleRange(float min, float max)
-        {
-            scaleRange = new Vector2(min, max);
-        }
-        /// <summary>
-        /// définit l'intervalle de temps de vie de chaque particule.
-        /// </summary>
-        /// <param name="min">temps de vie minimum</param>
-        /// <param name="max">temps de vie maximum</param>
-        public void SetLifeTimeRange(float min, float max)
-        {
-            lifeTimeRange = new Vector2(min, max);
-        }
+        }        
         /// <summary>
         /// définit l'intervalle de couleur des particules en fonction des valeur RGB et Alpha
         /// </summary>
@@ -214,9 +172,9 @@ namespace TRODS
         }
         public override void Update(float elapsedTime)
         {
-            LifeTime--;
-            Position += Speed;
-            Angle += AngularSpeed;
+            LifeTime -= (int)(elapsedTime / 16);
+            Position += Speed * (elapsedTime / 16);
+            Angle += AngularSpeed * (elapsedTime / 16);
         }
         public override void Draw(SpriteBatch spriteBatch)
         {
