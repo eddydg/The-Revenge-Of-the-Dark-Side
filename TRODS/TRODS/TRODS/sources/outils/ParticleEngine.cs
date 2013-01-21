@@ -25,6 +25,7 @@ namespace TRODS
         private Vector2 scaleRange;
         private Vector2 lifeTimeRange;
         private int[] colorRange;
+
         /// <summary>
         /// Constructeur...
         /// </summary>
@@ -64,9 +65,9 @@ namespace TRODS
         /// 
         /// </summary>
         /// <param name="nbNewParticle">Nombre de nouvelles particules à créer à chaque appel de la fonction</param>
-        public void Update(int nbNewParticle = 10)
+        public override void Update(float nbNewParticle = 10)
         {
-            for (int i = 0; i < nbNewParticle; i++)
+            for (int i = 0; i < (int)nbNewParticle; i++)
             {
                 particles.Add(GenerateParticle());
             }
@@ -164,7 +165,7 @@ namespace TRODS
             lifeTimeRange = new Vector2(min, max);
         }
         /// <summary>
-        /// définit l'intervalle de couleur des particules en fonction des valeur RGB et Alpha)
+        /// définit l'intervalle de couleur des particules en fonction des valeur RGB et Alpha
         /// </summary>
         /// <param name="rMin">rouge minimum</param>
         /// <param name="rMax">rouge maximum</param>
@@ -211,7 +212,7 @@ namespace TRODS
             Size = size;
             LifeTime = lifeTime;
         }
-        public void Update()
+        public override void Update(float elapsedTime)
         {
             LifeTime--;
             Position += Speed;
