@@ -93,7 +93,10 @@ namespace TRODS
         }
         public override void WindowResized(Rectangle rect)
         {
-            /*pas encore géré */
+            foreach (Particle p in particles)
+                p.WindowResized(rect);
+            //EmitterLocation
+            //speedRange
         }
         /// <summary>
         /// Génère une nouvelle particule "aléatoire" en fonction des propriété de l'objet.
@@ -180,6 +183,12 @@ namespace TRODS
         {
             spriteBatch.Draw(Texture, Position, null, Color, Angle,
                 new Vector2(Texture.Width / 2, Texture.Height / 2), Size, SpriteEffects.None, 0f);
+        }
+        public override void WindowResized(Rectangle rect)
+        {
+            // Position
+            // Speed
+            // Size ??? Je sais pas ce que c'est
         }
     }
 }
