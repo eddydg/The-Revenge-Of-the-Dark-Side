@@ -14,7 +14,7 @@ namespace TRODS
     class ParticleEngine : AbstractScene
     {
         private Random random;
-        public Rectangle EmitterLocation { get; set; }
+        private Rectangle EmitterLocation;
         private List<Particle> particles;
         private List<Texture2D> textures;
         public Color Color { get; set; }
