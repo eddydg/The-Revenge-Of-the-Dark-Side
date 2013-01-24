@@ -5,10 +5,11 @@ using System.Text;
  
 namespace EugLib
 {
-    public static class Tools
+    public class Tools
     {
+
         /// <summary>
-        /// Separe une chaine de caracteres en liste de chaines sans espaces
+        /// Convertit une chaine en liste de chaines avec " " comme separateur.
         /// </summary>
         /// <param name="args">Chaine a separer</param>
         /// <returns>Liste de chaines</returns>
@@ -35,9 +36,34 @@ namespace EugLib
                 ret.Add("");
             return ret;
         }
+
+        /// <summary>
+        /// Affiche tous les elements d'un tableau a 2 dimensions [X,Y]
+        /// </summary>
+        /// <typeparam name="T">Type des elements du tableau</typeparam>
+        /// <param name="array">Tableau a ecrire</param>
+        public static void ShowArray<T>(T[,] array)
+        {
+            Console.WriteLine();
+            int xLen = array.GetLength(0);
+            int yLen = array.GetLength(1);
+
+            for (int i = 0; i < xLen; i++)
+                Console.Write(i.ToString() + ' ');
+            Console.WriteLine();
+
+            for (int y = 0; y < yLen; y++)
+            {
+                for (int x = 0; x < xLen; x++)
+                    Console.Write(array[x, y].ToString() + ' ');
+                Console.Write(y.ToString() + '\n');
+            }
+        }
+
     }
     public class FileStream
     {
+
         /// <summary>
         /// Prends en parametre un nom de fichiers
 		/// Renvoie le contenu du fichier
@@ -71,6 +97,7 @@ namespace EugLib
                 return "";
             }
         }
+
         /// <summary>
         /// Prends en parametres le nom et une chaine de caracteres
 		/// Ecrit la chaine de caracteres dans le fichier
@@ -104,6 +131,7 @@ namespace EugLib
                 Console.WriteLine("FileStream.writeFile : Erreur lors de l'ecriture dans le fichier " + name);
             }
         }
+
         /// <summary>
         /// Ajoute l'element a la fin du fichier stdout.txt
         /// </summary>
@@ -112,6 +140,7 @@ namespace EugLib
         {
             writeFile("stdout.txt", readFile("stdout.txt") + System.Environment.NewLine + content.ToString());
         }
+
         /// <summary>
         /// Cree le fichier stdout.txt ou le vide
         /// </summary>
@@ -119,5 +148,6 @@ namespace EugLib
         {
             writeFile("stdout.txt", "");
         }
+
     }
 }
