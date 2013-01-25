@@ -29,7 +29,7 @@ namespace TRODS
         private int[] colorRange;
 
         /// <summary>
-        /// Constructeur...
+        /// Constructeur.
         /// </summary>
         /// <param name="emitterLocation">définit la zone d'apparition des particules</param>
         public ParticleEngine(Rectangle emitterLocation,
@@ -49,9 +49,9 @@ namespace TRODS
             NbNewParticle = nbNewParticle;
 
             this.speedRange = new Vector4(vitesseMin, vitesseMax, directionAngle, directionAngleVariation);
-            this.angleRange = new Vector2(initialAngleMin,initialAngleMax);
-            this.angularSpeedRange = new Vector2(vitesseRotationMin,vitesseRotationMax);
-            this.scaleRange = new Vector2(sizeMin,sizeMax);
+            this.angleRange = new Vector2(initialAngleMin, initialAngleMax);
+            this.angularSpeedRange = new Vector2(vitesseRotationMin, vitesseRotationMax);
+            this.scaleRange = new Vector2(sizeMin, sizeMax);
             this.lifeTimeRange = new Vector2(lifeTimeMin, lifeTimeMax);
             this.colorRange = new int[8] { 255, 255, 255, 255, 255, 255, 0, 70 };
         }
@@ -60,20 +60,11 @@ namespace TRODS
             foreach (Particle p in particles)
                 p.Draw(spriteBatch);
         }
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="content">Gestionnaire de contenu XNA</param>
-        /// <param name="assetNames">Liste des noms des textures à utiliser. ex:"particule/fire"</param>
         public override void LoadContent(ContentManager content)
         {
             foreach (string s in AssetNames)
                 textures.Add(content.Load<Texture2D>(s));
         }
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="nbNewParticle">Nombre de nouvelles particules à créer à chaque appel de la fonction</param>
         public override void Update(float elapsedTime)
         {
             for (int i = 0; i < NbNewParticle; i++)
@@ -110,9 +101,7 @@ namespace TRODS
             //definie la vitesse et la direction de la particule
             float v = speedRange.X + (float)random.NextDouble() * (float)(random.Next((int)speedRange.Y - (int)speedRange.X + 1));
             float alpha = -((float)random.Next((int)speedRange.Z - (int)speedRange.W, (int)speedRange.Z + (int)speedRange.W + 1)) * (float)Math.PI / 180f;
-            Vector2 speed = new Vector2(
-                            v * (float)Math.Cos(alpha),
-                            v * (float)Math.Sin(alpha));
+            Vector2 speed = new Vector2(v * (float)Math.Cos(alpha), v * (float)Math.Sin(alpha));
             float angle = ((float)random.Next((int)angleRange.X, (int)angleRange.Y + 1)) * (float)Math.PI / 180f;
             float angularSpeed = ((float)random.Next((int)angularSpeedRange.X, (int)angularSpeedRange.Y + 1)) * (float)Math.PI / 180f;
             Color = new Color(
@@ -124,7 +113,7 @@ namespace TRODS
             int lifeTime = random.Next((int)lifeTimeRange.X, (int)lifeTimeRange.Y + 1);
 
             return new Particle(texture, position, speed, angle, angularSpeed, Color, size, lifeTime);
-        }        
+        }
         /// <summary>
         /// définit l'intervalle de couleur des particules en fonction des valeur RGB et Alpha
         /// </summary>
@@ -181,12 +170,15 @@ namespace TRODS
         }
         public override void Draw(SpriteBatch spriteBatch)
         {
+            /*spriteBatch.Draw(Texture, Position, null, Color.FromNonPremultiplied(Color.R,Color.G,Color.B,Color.A), Angle,
+                new Vector2(Texture.Width / 2, Texture.Height / 2), Size, SpriteEffects.None, 0f);*/
             spriteBatch.Draw(Texture, Position, null, Color, Angle,
                 new Vector2(Texture.Width / 2, Texture.Height / 2), Size, SpriteEffects.None, 0f);
         }
         public override void WindowResized(Rectangle rect)
         {
             // Position
+
             // Speed
             // Size ??? Je sais pas ce que c'est
         }

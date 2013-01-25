@@ -51,7 +51,7 @@ namespace TRODS
             _repeating = repeating;
             Position = position;
         }
-        public AnimatedSprite(AnimatedSprite s) :
+        public AnimatedSprite(AnimatedSprite s = null) :
             base((Sprite)s)
         {
             Lignes = s.Lignes;

@@ -16,6 +16,8 @@ namespace TRODS
         private KeyboardState _keyboardState;
         private Rectangle _windowSize;
         private List<AnimatedSprite> animations;
+        private ParticleEngine _particles;
+        private ParticleEngine p1, p2;
 
         public SceneCredit(Rectangle windowSize, KeyboardState keyboardState, MouseState mouseState)
         {
@@ -23,28 +25,29 @@ namespace TRODS
             _keyboardState = keyboardState;
 
             animations = new List<AnimatedSprite>();
-            animations.Add(new AnimatedSprite(new Rectangle(0, 0, _windowSize.Width, _windowSize.Height), _windowSize, "menu/etoiles1_10x10r51r100", 10, 10, 17, 51, 100, 1));
             animations.Add(new AnimatedSprite(new Rectangle(80, 250, 150, 70), _windowSize, "menu/beenTeam"));
             animations.Add(new AnimatedSprite(new Rectangle(394, _windowSize.Height, 280, 130), _windowSize, "menu/authors"));
             animations.Last<AnimatedSprite>().Direction = new Vector2(0, -1);
             animations.Last<AnimatedSprite>().Vitesse = 0.1f;
             animations.Add(new AnimatedSprite(new Rectangle(0, 0, _windowSize.Width, 2 * _windowSize.Height / 5), _windowSize, "menu/credit"));
             animations.Add(new AnimatedSprite(new Rectangle(-300, _windowSize.Height - 100, _windowSize.Width + 300, 100), _windowSize, "menu/lueur1_10x4r21r40", 10, 4, 15, 21, 40, 1));
+            _particles = new ParticleEngine(new Rectangle(0, 0, _windowSize.Width, 0), new List<string>() { "particle/ash" }, 3, 0.5f, 0.7f, -90, 20, 0, 0, -2, 2, 0.2f, 1f, 1000f, 1200f);
+            _particles.SetColorRange(120, 120, 120, 120, 120, 120, 100, 255);
         }
 
         public override void LoadContent(ContentManager content)
         {
             foreach (AnimatedSprite s in animations)
                 s.LoadContent(content);
+            _particles.LoadContent(content);
         }
 
         public override void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Begin();
-
+            _particles.Draw(spriteBatch);
             foreach (AnimatedSprite s in animations)
                 s.Draw(spriteBatch);
-
             spriteBatch.End();
         }
 
@@ -52,12 +55,13 @@ namespace TRODS
         {
             foreach (AnimatedSprite s in animations)
                 s.Update(elapsedTime);
-            Rectangle p = animations.ElementAt<AnimatedSprite>(2).Position;
+            Rectangle p = animations.ElementAt<AnimatedSprite>(1).Position;
             if (p.Y < -p.Height)
             {
                 p.Y = _windowSize.Height;
-                animations.ElementAt<AnimatedSprite>(2).Position = p;
+                animations.ElementAt<AnimatedSprite>(1).Position = p;
             }
+            _particles.Update(elapsedTime);
         }
 
         public override void HandleInput(KeyboardState newKeyboardState, MouseState newMouseState, Game1 parent)
