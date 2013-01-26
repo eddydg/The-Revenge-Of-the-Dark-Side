@@ -27,12 +27,14 @@ namespace TRODS
         private Vector2 scaleRange;
         private Vector2 lifeTimeRange;
         private int[] colorRange;
+        private Rectangle windowSize;
 
         /// <summary>
         /// Constructeur.
         /// </summary>
         /// <param name="emitterLocation">définit la zone d'apparition des particules</param>
-        public ParticleEngine(Rectangle emitterLocation,
+        public ParticleEngine(Rectangle _windowSize,
+                              Rectangle emitterLocation,
                               List<string> assetNames = null,
                               int nbNewParticle = 10,
                               float vitesseMin = 0f, float vitesseMax = 2f, float directionAngle = 0f, float directionAngleVariation = 180f,
@@ -41,6 +43,7 @@ namespace TRODS
                               float sizeMin = 0.2f, float sizeMax = 2f,
                               float lifeTimeMin = 20f, float lifeTimeMax = 100f)
         {
+            windowSize = _windowSize;
             random = new Random();
             EmitterLocation = emitterLocation;
             AssetNames = assetNames;
@@ -84,10 +87,21 @@ namespace TRODS
         }
         public override void WindowResized(Rectangle rect)
         {
+            double xRapport = rect.Width / windowSize.Width;
+            double yRapport = rect.Height / windowSize.Height;
+
             foreach (Particle p in particles)
-                p.WindowResized(rect);
-            //EmitterLocation
-            //speedRange
+                p.WindowResized(xRapport, yRapport);
+
+            EmitterLocation.X = (int)(EmitterLocation.X * xRapport);
+            EmitterLocation.Y = (int)(EmitterLocation.Y * yRapport);
+            EmitterLocation.Width = (int)(EmitterLocation.Width * xRapport);
+            EmitterLocation.Height = (int)(EmitterLocation.Height * yRapport);
+
+            speedRange.X *= (float)xRapport;
+            speedRange.X *= (float)xRapport;
+
+            windowSize = rect;
         }
         /// <summary>
         /// Génère une nouvelle particule "aléatoire" en fonction des propriété de l'objet.
@@ -112,7 +126,7 @@ namespace TRODS
             float size = (float)random.NextDouble() * (float)(random.Next((int)scaleRange.X, (int)scaleRange.Y + 1));
             int lifeTime = random.Next((int)lifeTimeRange.X, (int)lifeTimeRange.Y + 1);
 
-            return new Particle(texture, position, speed, angle, angularSpeed, Color, size, lifeTime);
+            return new Particle(texture,new Rectangle((int)position.X,(int)position.Y,20,20), speed, angle, angularSpeed, Color, size, lifeTime);
         }
         /// <summary>
         /// définit l'intervalle de couleur des particules en fonction des valeur RGB et Alpha
@@ -142,45 +156,64 @@ namespace TRODS
     {
         //propriétés des particules
         Texture2D Texture { get; set; }
-        public Vector2 Position { get; set; }
-        public Vector2 Speed { get; set; }
+        private Rectangle position;
+        public Rectangle Position
+        {
+            get { return Position; }
+            set { Position = value; }
+        }
+        private Vector2 speed;
+        public Vector2 Speed
+        {
+            get { return speed; }
+            set { speed = value; }
+        }
         public float Angle { get; set; }
         public float AngularSpeed { get; set; }
         public Color Color { get; set; }
-        public float Size { get; set; }
+        private float size;
+        public float Size
+        {
+            get { return size; }
+            set { size = value; }
+        }
         public int LifeTime { get; set; }
 
-        public Particle(Texture2D texture, Vector2 position, Vector2 speed, float angle, float angularSpeed,
+        public Particle(Texture2D texture, Rectangle position, Vector2 speed, float angle, float angularSpeed,
                         Color color, float size, int lifeTime)
         {
             Texture = texture;
-            Position = position;
-            Speed = speed;
+            this.position = position;
+            this.speed = speed;
             Angle = angle;
             AngularSpeed = angularSpeed;
             Color = color;
-            Size = size;
+            this.size = size;
             LifeTime = lifeTime;
         }
         public override void Update(float elapsedTime)
         {
             LifeTime -= (int)(elapsedTime / 16);
-            Position += Speed * (elapsedTime / 16);
+            position.X += (int)(Speed.X * (elapsedTime / 16));
+            position.Y += (int)(Speed.Y * (elapsedTime / 16));
             Angle += AngularSpeed * (elapsedTime / 16);
         }
         public override void Draw(SpriteBatch spriteBatch)
         {
             /*spriteBatch.Draw(Texture, Position, null, Color.FromNonPremultiplied(Color.R,Color.G,Color.B,Color.A), Angle,
                 new Vector2(Texture.Width / 2, Texture.Height / 2), Size, SpriteEffects.None, 0f);*/
-            spriteBatch.Draw(Texture, Position, null, Color, Angle,
-                new Vector2(Texture.Width / 2, Texture.Height / 2), Size, SpriteEffects.None, 0f);
+            spriteBatch.Draw(Texture,new Vector2(position.X,position.Y), null, Color, Angle,
+                new Vector2(position.Width / 2, position.Height / 2), Size, SpriteEffects.None, 0f);
         }
-        public override void WindowResized(Rectangle rect)
+        public void WindowResized(double x, double y)
         {
-            // Position
-
-            // Speed
-            // Size ??? Je sais pas ce que c'est
+            position.X = (int)(Position.X * x);
+            position.Y = (int)(Position.Y * y);
+            position.Width = (int)(Position.Width * x);
+            position.Height = (int)(Position.Height * y);
+            speed.X *= (float)x;
+            speed.Y *= (float)y;
+            size *= (float)x;
         }
     }
 }

@@ -30,7 +30,7 @@ namespace TRODS
             animations.Last<AnimatedSprite>().Vitesse = 0.1f;
             animations.Add(new AnimatedSprite(new Rectangle(0, 0, _windowSize.Width, 2 * _windowSize.Height / 5), _windowSize, "menu/credit"));
             animations.Add(new AnimatedSprite(new Rectangle(-300, _windowSize.Height - 100, _windowSize.Width + 300, 100), _windowSize, "menu/lueur1_10x4r21r40", 10, 4, 15, 21, 40, 1));
-            _particles = new ParticleEngine(new Rectangle(0, 0, _windowSize.Width, 0), new List<string>() { "particle/ash" }, 3, 0.5f, 0.7f, -90, 20, 0, 0, -2, 2, 0.2f, 1f, 1000f, 1200f);
+            _particles = new ParticleEngine(windowSize, new Rectangle(0, 0, _windowSize.Width, 0), new List<string>() { "particle/ash" }, 3, 0.5f, 0.7f, -90, 20, 0, 0, -2, 2, 0.2f, 1f, 1000f, 1200f);
             _particles.SetColorRange(120, 120, 120, 120, 120, 120, 100, 255);
         }
 
@@ -100,6 +100,7 @@ namespace TRODS
         {
             foreach (AnimatedSprite s in animations)
                 s.windowResized(rect);
+            _particles.WindowResized(rect);
         }
     }
 }
