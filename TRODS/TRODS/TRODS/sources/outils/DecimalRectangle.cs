@@ -52,12 +52,30 @@ namespace TRODS
             return new Vector2(X, Y);
         }
         /// <summary>
+        /// Definit la position du rectangle.
+        /// </summary>
+        /// <param name="v">Position.</param>
+        public void SetPosition(Vector2 v)
+        {
+            X = v.X;
+            Y = v.Y;
+        }
+        /// <summary>
         /// Retourne le rectangle currespondant aux valeurs.
         /// </summary>
         /// <returns></returns>
         public Rectangle ToRectangle()
         {
             return new Rectangle((int)X, (int)Y, (int)Width, (int)Height);
+        }
+        /// <summary>
+        /// Deplace le rectangle.
+        /// </summary>
+        /// <param name="speed">Vecteur mouvement.</param>
+        public void Move(Vector2 speed)
+        {
+            X += speed.X;
+            Y += speed.Y;
         }
     }
 }
