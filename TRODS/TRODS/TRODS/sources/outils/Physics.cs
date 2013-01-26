@@ -7,24 +7,8 @@ namespace TRODS.sources.outils
 {
     class Physics
     {
-        public int MaxHeight
-        {
-            get;
-            set
-            {
-                if (value < 0)
-                    MaxHeight = 0;
-            }
-        }
-        public int TimeOnFlat
-        {
-            get;
-            set
-            {
-                if (value < 0)
-                    TimeOnFlat = 0;
-            }
-        }
+        public int MaxHeight { get; set; }
+        public int TimeOnFlat { get; set; }
 
         /// <summary>
         /// Constructeur.

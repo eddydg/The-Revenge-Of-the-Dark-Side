@@ -17,9 +17,9 @@ namespace TRODS
         private Rectangle EmitterLocation;
         private List<Particle> particles;
         private List<Texture2D> textures;
-        public Color Color { get; set; }
-        public int NbNewParticle { get; set; }
-        public List<string> AssetNames { get; set; }
+        private Color color;
+        private int NbNewParticle;
+        private List<string> AssetNames;
 
         private Vector4 speedRange;
         private Vector2 angleRange;
@@ -30,9 +30,24 @@ namespace TRODS
         private Rectangle windowSize;
 
         /// <summary>
-        /// Constructeur.
+        /// Constructeur
         /// </summary>
-        /// <param name="emitterLocation">définit la zone d'apparition des particules</param>
+        /// <param name="_windowSize">Taille actuelle de la fenêtre</param>
+        /// <param name="emitterLocation">Zone d'apparition des nouvelles particules</param>
+        /// <param name="assetNames">Liste des noms des textures à utiliser</param>
+        /// <param name="nbNewParticle">Nombre de nouvelle particules à générer à chaque Update</param>
+        /// <param name="vitesseMin">Vitesse minimal d'une particule</param>
+        /// <param name="vitesseMax">Vitesse maximale d'une particule</param>
+        /// <param name="directionAngle">Direction de propagation des particules (en degré)</param>
+        /// <param name="directionAngleVariation">Variation (en degré) autour de l'axe de propagation</param>
+        /// <param name="initialAngleMin">Angle initiale minimal de la particule</param>
+        /// <param name="initialAngleMax">Angle initiale maximal de la particule</param>
+        /// <param name="vitesseRotationMin">Vitesse de rotation minimale (en degré/Update())</param>
+        /// <param name="vitesseRotationMax">Vitesse de rotation maximale (en degré/Update())</param>
+        /// <param name="sizeMin"></param>
+        /// <param name="sizeMax"></param>
+        /// <param name="lifeTimeMin">Temps de vie minimal de la particule</param>
+        /// <param name="lifeTimeMax">Temps de vie maximal de la particule</param>
         public ParticleEngine(Rectangle _windowSize,
                               Rectangle emitterLocation,
                               List<string> assetNames = null,
@@ -56,7 +71,7 @@ namespace TRODS
             this.angularSpeedRange = new Vector2(vitesseRotationMin, vitesseRotationMax);
             this.scaleRange = new Vector2(sizeMin, sizeMax);
             this.lifeTimeRange = new Vector2(lifeTimeMin, lifeTimeMax);
-            this.colorRange = new int[8] { 255, 255, 255, 255, 255, 255, 0, 70 };
+            this.colorRange = new int[6] { 255, 255, 255, 255, 255, 255 };
         }
         public override void Draw(SpriteBatch spriteBatch)
         {
@@ -118,15 +133,14 @@ namespace TRODS
             Vector2 speed = new Vector2(v * (float)Math.Cos(alpha), v * (float)Math.Sin(alpha));
             float angle = ((float)random.Next((int)angleRange.X, (int)angleRange.Y + 1)) * (float)Math.PI / 180f;
             float angularSpeed = ((float)random.Next((int)angularSpeedRange.X, (int)angularSpeedRange.Y + 1)) * (float)Math.PI / 180f;
-            Color = new Color(
+            color = new Color(
                 random.Next(colorRange[0], colorRange[1] + 1),
                 random.Next(colorRange[2], colorRange[3] + 1),
-                random.Next(colorRange[4], colorRange[5] + 1),
-                random.Next(colorRange[6], colorRange[7] + 1));
-            float size = (float)random.NextDouble() * (float)(random.Next((int)scaleRange.X, (int)scaleRange.Y + 1));
+                random.Next(colorRange[4], colorRange[5] + 1));
+            //float size = (float)random.NextDouble() * (float)(random.Next((int)scaleRange.X, (int)scaleRange.Y + 1));
             int lifeTime = random.Next((int)lifeTimeRange.X, (int)lifeTimeRange.Y + 1);
 
-            return new Particle(texture,new Rectangle((int)position.X,(int)position.Y,20,20), speed, angle, angularSpeed, Color, size, lifeTime);
+            return new Particle(texture, new DecimalRectangle(position.X, position.Y, 20, 20), speed, angle, angularSpeed, color, /*size,*/ lifeTime);
         }
         /// <summary>
         /// définit l'intervalle de couleur des particules en fonction des valeur RGB et Alpha
@@ -137,9 +151,7 @@ namespace TRODS
         /// <param name="gMax">vert maximum</param>
         /// <param name="bMin">bleu minimum</param>
         /// <param name="bMax">bleu maximum</param>
-        /// <param name="aMin">alpha minimum</param>
-        /// <param name="aMax">alpha maximum</param>
-        public void SetColorRange(int rMin, int rMax, int gMin, int gMax, int bMin, int bMax, int aMin, int aMax)
+        public void SetColorRange(int rMin, int rMax, int gMin, int gMax, int bMin, int bMax)
         {
             colorRange[0] = rMin;
             colorRange[1] = rMax;
@@ -147,73 +159,69 @@ namespace TRODS
             colorRange[3] = gMax;
             colorRange[4] = bMin;
             colorRange[5] = bMax;
-            colorRange[6] = aMin;
-            colorRange[7] = aMax;
         }
     }
 
     class Particle : AbstractScene
     {
-        //propriétés des particules
-        Texture2D Texture { get; set; }
-        private Rectangle position;
-        public Rectangle Position
-        {
-            get { return Position; }
-            set { Position = value; }
-        }
+        private Texture2D texture;
+        private DecimalRectangle position;
         private Vector2 speed;
-        public Vector2 Speed
-        {
-            get { return speed; }
-            set { speed = value; }
-        }
-        public float Angle { get; set; }
-        public float AngularSpeed { get; set; }
-        public Color Color { get; set; }
+        private float angle;
+        private float angularSpeed;
+        private Color color;
         private float size;
-        public float Size
+        private int lifeTime;
+        public int LifeTime
         {
-            get { return size; }
-            set { size = value; }
+            get { return lifeTime; }
         }
-        public int LifeTime { get; set; }
+        private int totalLifeTime;
+        private int alphaTransparency;
 
-        public Particle(Texture2D texture, Rectangle position, Vector2 speed, float angle, float angularSpeed,
-                        Color color, float size, int lifeTime)
+        public Particle(Texture2D texture, DecimalRectangle position, Vector2 speed, float angle, float angularSpeed,
+                        Color color, /*float size,*/ int lifeTime)
         {
-            Texture = texture;
+            this.texture = texture;
             this.position = position;
             this.speed = speed;
-            Angle = angle;
-            AngularSpeed = angularSpeed;
-            Color = color;
-            this.size = size;
-            LifeTime = lifeTime;
+            this.angle = angle;
+            this.angularSpeed = angularSpeed;
+            this.color = color;
+            //this.size = size;
+            this.lifeTime = lifeTime;
+            this.totalLifeTime = lifeTime;
+            this.alphaTransparency = 255;
         }
         public override void Update(float elapsedTime)
         {
-            LifeTime -= (int)(elapsedTime / 16);
-            position.X += (int)(Speed.X * (elapsedTime / 16));
-            position.Y += (int)(Speed.Y * (elapsedTime / 16));
-            Angle += AngularSpeed * (elapsedTime / 16);
+            lifeTime -= (int)(elapsedTime / 16);
+            position.X += (int)(speed.X * (elapsedTime / 16));
+            position.Y += (int)(speed.Y * (elapsedTime / 16));
+            angle += angularSpeed * (elapsedTime / 16);
+            if (lifeTime <= totalLifeTime / 2)
+                alphaTransparency = 255 * (lifeTime / (totalLifeTime / 2));
         }
         public override void Draw(SpriteBatch spriteBatch)
         {
-            /*spriteBatch.Draw(Texture, Position, null, Color.FromNonPremultiplied(Color.R,Color.G,Color.B,Color.A), Angle,
-                new Vector2(Texture.Width / 2, Texture.Height / 2), Size, SpriteEffects.None, 0f);*/
-            spriteBatch.Draw(Texture,new Vector2(position.X,position.Y), null, Color, Angle,
-                new Vector2(position.Width / 2, position.Height / 2), Size, SpriteEffects.None, 0f);
+            /*if (lifeTime > totalLifeTime / 2)
+                spriteBatch.Draw(texture, new Vector2(position.X, position.Y), null, new Color(color.R, color.G, color.B, 0), angle,
+                new Vector2(position.Width / 2, position.Height / 2), size, SpriteEffects.None, 0f);
+            else
+                spriteBatch.Draw(texture, new Vector2(position.X, position.Y), null, Color.FromNonPremultiplied(color.R, color.G, color.B, alphaTransparency), angle,
+                new Vector2(position.Width / 2, position.Height / 2), size, SpriteEffects.None, 0f);*/
+            //test
+            spriteBatch.Draw(texture, new Vector2(position.X,position.Y), null, color, angle,
+                new Vector2(position.Width / 2, position.Height / 2),1f, SpriteEffects.None, 0f);
         }
         public void WindowResized(double x, double y)
         {
-            position.X = (int)(Position.X * x);
-            position.Y = (int)(Position.Y * y);
-            position.Width = (int)(Position.Width * x);
-            position.Height = (int)(Position.Height * y);
+            position.X = (int)(position.X * x);
+            position.Y = (int)(position.Y * y);
+            position.Width = (int)(position.Width * x);
+            position.Height = (int)(position.Height * y);
             speed.X *= (float)x;
             speed.Y *= (float)y;
-            size *= (float)x;
         }
     }
 }
