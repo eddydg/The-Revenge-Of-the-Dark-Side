@@ -43,41 +43,66 @@ namespace TRODS
         {
         }
 
-        public override void LoadContent(ContentManager content) { }
-        public override void Draw(SpriteBatch spriteBatch) { }
-        public override void Update(float elapsedTime) { }
-        public override void HandleInput(KeyboardState newKeyboardState, MouseState newMouseState, Game1 parent) { }
-        public override void WindowResized(Rectangle rect) { }
+        public override void LoadContent(ContentManager content)
+        {
+        }
+        public override void Draw(SpriteBatch spriteBatch)
+        {
+        }
+        public override void Update(float elapsedTime)
+        {
+        }
+        public override void HandleInput(KeyboardState newKeyboardState, MouseState newMouseState, Game1 parent)
+        {
+        }
+        public override void WindowResized(Rectangle rect)
+        {
+        }
 
         /// <summary>
         /// Execute un saut.
         /// </summary>
         /// <returns>Booleen indiquand si le saut a bien ete execute.</returns>
-        public bool Jump() { return false; }
+        public bool Jump()
+        {
+            return false;
+        }
         /// <summary>
         /// Met a jour la direction du personnage et actualise l'animation.
         /// </summary>
         /// <param name="right"></param>
-        public void Move(bool right) { }
+        public void Move(bool right)
+        {
+        }
         /// <summary>
         /// Paralise le personnage empechant tout mouvement.
         /// </summary>
         /// <param name="time">Temps de bloquage.</param>
-        public void Paralize(int time) { }
+        public void Paralize(int time)
+        {
+        }
         /// <summary>
         /// Libere les mouvements du personnage.
         /// </summary>
-        public void Free() { }
+        public void Free()
+        {
+        }
         /// <summary>
         /// Execute une attaque.
         /// </summary>
         /// <param name="attack">Element de l'enumeration Attacks.</param>
         /// <returns>Booleen indiquant si l'attaque a bien ete executee.</returns>
-        public bool Attack(Attacks attack) { return false; }
+        public bool Attack(Attacks attack)
+        {
+            return false;
+        }
         /// <summary>
         /// Execute un deplacement rapide.
         /// </summary>
         /// <returns>Booleen indiquant si le deplacement rapide a bien ete execute.</returns>
-        public bool DoubleDash() { return false; }
+        public bool DoubleDash()
+        {
+            return false;
+        }
     }
 }
