@@ -17,7 +17,6 @@ namespace TRODS
         private Rectangle _windowSize;
         private List<AnimatedSprite> animations;
         private ParticleEngine _particles;
-        private ParticleEngine p1, p2;
 
         public SceneCredit(Rectangle windowSize, KeyboardState keyboardState, MouseState mouseState)
         {

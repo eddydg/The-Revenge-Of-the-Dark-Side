@@ -123,6 +123,14 @@ namespace TRODS
             foreach (AnimatedSprite s in _elements)
                 s.setRelatvePos(new Rectangle(s.Position.X + x, s.Position.Y + y, s.Position.Width, s.Position.Height), _windowSize.Width, _windowSize.Height);
 
+            if (Position.X + Position.Width > _windowSize.Width)
+                MoveBy(-Position.X - Position.Width + _windowSize.Width, 0);
+            else if (Position.X < 0)
+                MoveBy(-Position.X, 0);
+            if (Position.Y + Position.Height > _windowSize.Height)
+                MoveBy(0, -Position.Y - Position.Height + _windowSize.Height);
+            else if (Position.Y < 0)
+                MoveBy(0, -Position.Y);
         }
         /// <summary>
         /// Place tous les elements du menu par remplissage de lignes. Ils auront tous la meme taille.
@@ -187,7 +195,7 @@ namespace TRODS
                         else
                             _isMoving = false;
                     }
-                    else if (newMouseState.LeftButton == ButtonState.Pressed && _mouseState.LeftButton == ButtonState.Pressed && click.Intersects(_title.Position))
+                    else if (newMouseState.LeftButton == ButtonState.Pressed && _mouseState.LeftButton == ButtonState.Pressed)
                     {
                         if (_isMoving)
                             MoveBy(newMouseState.X - _mouseState.X, newMouseState.Y - _mouseState.Y);
