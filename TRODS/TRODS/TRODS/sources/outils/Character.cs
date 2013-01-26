@@ -23,6 +23,13 @@ namespace TRODS
             get { return _position; }
             set { _position = value; }
         }
+        private Texture2D _texture;
+        public Texture2D Texture
+        {
+            get { return _texture; }
+            set { _texture = value; }
+        }
+        private string _assetName;
         private Vector2 _speed;
         public Vector2 Speed
         {
@@ -31,7 +38,6 @@ namespace TRODS
         }
         public bool _canMove { get; set; }
         private bool _jumping;
-
-        
+        private int _jumpHeight;
     }
 }
