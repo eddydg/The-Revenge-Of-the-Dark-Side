@@ -1,406 +1,59 @@
-C:\Users\Kucher\Desktop\newTRODS\TRODS\TRODS\TRODS\bin\x86\Debug\TRODS.exe
-C:\Users\Kucher\Desktop\newTRODS\TRODS\TRODS\TRODS\bin\x86\Debug\TRODS.pdb
-C:\Users\Kucher\Desktop\newTRODS\TRODS\TRODS\TRODS\obj\x86\Debug\TRODS.csprojResolveAssemblyReference.cache
-C:\Users\Kucher\Desktop\newTRODS\TRODS\TRODS\TRODS\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
-C:\Users\Kucher\Desktop\newTRODS\TRODS\TRODS\TRODS\obj\x86\Debug\TRODS.exe
-C:\Users\Kucher\Desktop\newTRODS\TRODS\TRODS\TRODS\obj\x86\Debug\TRODS.pdb
-C:\Users\Kucher\Desktop\newTRODS\TRODS\TRODS\TRODS\bin\x86\Debug\Content\extra1.xnb
-C:\Users\Kucher\Desktop\newTRODS\TRODS\TRODS\TRODS\bin\x86\Debug\Content\extra10.xnb
-C:\Users\Kucher\Desktop\newTRODS\TRODS\TRODS\TRODS\bin\x86\Debug\Content\extra2.xnb
-C:\Users\Kucher\Desktop\newTRODS\TRODS\TRODS\TRODS\bin\x86\Debug\Content\extra3.xnb
-C:\Users\Kucher\Desktop\newTRODS\TRODS\TRODS\TRODS\bin\x86\Debug\Content\extra4.xnb
-C:\Users\Kucher\Desktop\newTRODS\TRODS\TRODS\TRODS\bin\x86\Debug\Content\extra5.xnb
-C:\Users\Kucher\Desktop\newTRODS\TRODS\TRODS\TRODS\bin\x86\Debug\Content\extra6.xnb
-C:\Users\Kucher\Desktop\newTRODS\TRODS\TRODS\TRODS\bin\x86\Debug\Content\extra7.xnb
-C:\Users\Kucher\Desktop\newTRODS\TRODS\TRODS\TRODS\bin\x86\Debug\Content\extra8.xnb
-C:\Users\Kucher\Desktop\newTRODS\TRODS\TRODS\TRODS\bin\x86\Debug\Content\extra9.xnb
-C:\Users\Kucher\Desktop\newTRODS\TRODS\TRODS\TRODS\bin\x86\Debug\Content\extraSize.xnb
-C:\Users\Kucher\Desktop\newTRODS\TRODS\TRODS\TRODS\bin\x86\Debug\Content\black.xnb
-C:\Users\Kucher\Desktop\newTRODS\TRODS\TRODS\TRODS\bin\x86\Debug\Content\credit.xnb
-C:\Users\Kucher\Desktop\newTRODS\TRODS\TRODS\TRODS\bin\x86\Debug\Content\cursor1.xnb
-C:\Users\Kucher\Desktop\newTRODS\TRODS\TRODS\TRODS\bin\x86\Debug\Content\cursor2.xnb
-C:\Users\Kucher\Desktop\newTRODS\TRODS\TRODS\TRODS\bin\x86\Debug\Content\cursorClic.xnb
-C:\Users\Kucher\Desktop\newTRODS\TRODS\TRODS\TRODS\bin\x86\Debug\Content\explosion1.xnb
-C:\Users\Kucher\Desktop\newTRODS\TRODS\TRODS\TRODS\bin\x86\Debug\Content\explosion2.xnb
-C:\Users\Kucher\Desktop\newTRODS\TRODS\TRODS\TRODS\bin\x86\Debug\Content\explosion3.xnb
-C:\Users\Kucher\Desktop\newTRODS\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menuTextCredit.xnb
-C:\Users\Kucher\Desktop\newTRODS\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menuTextExit.xnb
-C:\Users\Kucher\Desktop\newTRODS\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menuTextExtra.xnb
-C:\Users\Kucher\Desktop\newTRODS\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menuTextPlay.xnb
-C:\Users\Kucher\Desktop\newTRODS\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menuWallpaperText.xnb
-C:\Users\Kucher\Desktop\newTRODS\TRODS\TRODS\TRODS\bin\x86\Debug\Content\nuages2.xnb
-C:\Users\Kucher\Desktop\newTRODS\TRODS\TRODS\TRODS\bin\x86\Debug\Content\wallpaper.xnb
-C:\Users\Kucher\Desktop\newTRODS\TRODS\TRODS\TRODS\bin\x86\Debug\Content\white.xnb
-C:\Users\Kucher\Desktop\newTRODS\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menuSelectionSound.xnb
-C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\TRODS.exe
-C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\TRODS.pdb
-C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\obj\x86\Debug\TRODS.csprojResolveAssemblyReference.cache
-C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
-C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\obj\x86\Debug\TRODS.exe
-C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\obj\x86\Debug\TRODS.pdb
-C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\general\black.xnb
-C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\general\cursor1.xnb
-C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\general\nuages0.xnb
-C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\general\white.xnb
-C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\credit.xnb
-C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\cursor0_8x4r.xnb
-C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\onde_8x4.xnb
-C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\sizeSelection.xnb
-C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\textCredit.xnb
-C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\textExit.xnb
-C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\textExtra.xnb
-C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\textPlay.xnb
-C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\wallpaper.xnb
-C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\wallpaperText.xnb
-C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\sprites\cursorFire_8x4r.xnb
-C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\sprites\explosion0_8x6.xnb
-C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\sprites\explosion1_8x6.xnb
-C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\sprites\explosion2_8x8.xnb
-C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\sprites\explosion3_8x4.xnb
-C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\sprites\explosion4_8x8.xnb
-C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\sprites\fireWall_11x6r23r45.xnb
-C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\sprites\spriteElectric_11x3r12r23.xnb
-C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\selectionSound.xnb
-C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\sprites\canalisation1_16x13.xnb
-C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\sprites\popGreen_8x4.xnb
-C:\Users\kuchera\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\general\black.xnb
-C:\Users\kuchera\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\general\cursor1.xnb
-C:\Users\kuchera\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\general\nuages0.xnb
-C:\Users\kuchera\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\general\white.xnb
-C:\Users\kuchera\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\credit.xnb
-C:\Users\kuchera\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\cursor0_8x4r.xnb
-C:\Users\kuchera\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\onde_8x4.xnb
-C:\Users\kuchera\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\sizeSelection.xnb
-C:\Users\kuchera\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\textCredit.xnb
-C:\Users\kuchera\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\textExit.xnb
-C:\Users\kuchera\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\textExtra.xnb
-C:\Users\kuchera\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\textPlay.xnb
-C:\Users\kuchera\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\wallpaper.xnb
-C:\Users\kuchera\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\wallpaperText.xnb
-C:\Users\kuchera\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\sprites\cursorFire_8x4r.xnb
-C:\Users\kuchera\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\sprites\explosion0_8x6.xnb
-C:\Users\kuchera\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\sprites\explosion1_8x6.xnb
-C:\Users\kuchera\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\sprites\explosion2_8x8.xnb
-C:\Users\kuchera\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\sprites\explosion3_8x4.xnb
-C:\Users\kuchera\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\sprites\explosion4_8x8.xnb
-C:\Users\kuchera\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\sprites\fireWall_11x6r23r45.xnb
-C:\Users\kuchera\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\sprites\spriteElectric_11x3r12r23.xnb
-C:\Users\kuchera\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\sprites\canalisation1_16x13.xnb
-C:\Users\kuchera\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\sprites\popGreen_8x4.xnb
-C:\Users\kuchera\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\selectionSound.xnb
-C:\Users\kuchera\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\TRODS.exe
-C:\Users\kuchera\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\TRODS.pdb
-C:\Users\kuchera\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\obj\x86\Debug\ResolveAssemblyReference.cache
-C:\Users\kuchera\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
-C:\Users\kuchera\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\obj\x86\Debug\TRODS.exe
-C:\Users\kuchera\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\obj\x86\Debug\TRODS.pdb
-D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\obj\x86\Debug\TRODS.csprojResolveAssemblyReference.cache
-D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
-D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\obj\x86\Debug\TRODS.exe
+D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\game\bear.xnb
+D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\game\menu\box.xnb
+D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\game\menu\container.xnb
+D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\game\menu\containervide.xnb
 D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\general\black.xnb
 D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\general\cursor1.xnb
 D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\general\nuages0.xnb
 D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\general\white.xnb
+D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\map1\back1r.xnb
+D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\map1\fore1.xnb
+D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\map1\sky1.xnb
+D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\authors.xnb
+D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\beenTeam.xnb
+D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\contextMenuExit.xnb
+D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\contextMenuText.xnb
+D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\contextMenuTextMainMenu.xnb
+D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\contextualMenuBlackFull.xnb
 D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\credit.xnb
+D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\etoiles1_10x10r51r100.xnb
+D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\lueur1_10x4r21r40.xnb
 D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\onde_8x4.xnb
 D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\sizeSelection.xnb
+D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\soundEffect.xnb
+D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\soundMusic.xnb
 D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\textCredit.xnb
 D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\textExit.xnb
 D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\textExtra.xnb
+D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\textOptions.xnb
 D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\textPlay.xnb
+D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\tittleText.xnb
 D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\wallpaper.xnb
 D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\wallpaperText.xnb
+D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\particle\ash.xnb
+D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\particle\fire.xnb
+D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\particle\rain.xnb
+D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\particle\smoke.xnb
+D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\particle\snow.xnb
+D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\particle\star.xnb
+D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\sprites\canalisation1_16x13.xnb
 D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\sprites\cursorFire_8x4r.xnb
 D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\sprites\explosion0_8x6.xnb
 D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\sprites\explosion1_8x6.xnb
 D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\sprites\explosion2_8x8.xnb
 D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\sprites\explosion3_8x4.xnb
 D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\sprites\explosion4_8x8.xnb
-D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\sprites\spriteElectric_11x3r12r23.xnb
-D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\sprites\canalisation1_16x13.xnb
-D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\sprites\popGreen_8x4.xnb
-D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\selectionSound.xnb
-D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\TRODS.exe
-D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\TRODS.pdb
-D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\obj\x86\Debug\TRODS.pdb
-C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\map1\back1r.xnb
-C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\map1\fore1.xnb
-C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\map1\sky1.xnb
-C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\etoiles1_10x10r51r100.xnb
-C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\lueur1_10x4r21r40.xnb
-C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\authors.xnb
-C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\game\menu\box.xnb
-C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\game\menu\container.xnb
-C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\game\menu\containervide.xnb
-C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\menuAmbience.xnb
-C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\menuAmbience.wma
-C:\Users\kuchera\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\map1\back1r.xnb
-C:\Users\kuchera\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\map1\fore1.xnb
-C:\Users\kuchera\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\map1\sky1.xnb
-C:\Users\kuchera\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\etoiles1_10x10r51r100.xnb
-C:\Users\kuchera\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\lueur1_10x4r21r40.xnb
-C:\Users\kuchera\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\authors.xnb
-C:\Users\kuchera\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\game\menu\box.xnb
-C:\Users\kuchera\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\game\menu\container.xnb
-C:\Users\kuchera\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\game\menu\containervide.xnb
-C:\Users\kuchera\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\menuAmbience.xnb
-C:\Users\kuchera\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\menuAmbience.wma
-C:\Users\kuchera\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\beenTeam.xnb
-C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\beenTeam.xnb
-C:\Users\Kucher\Desktop\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\tittleText.xnb
-C:\Users\Kuchera\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\general\black.xnb
-C:\Users\Kuchera\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\general\cursor1.xnb
-C:\Users\Kuchera\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\general\nuages0.xnb
-C:\Users\Kuchera\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\general\white.xnb
-C:\Users\Kuchera\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\credit.xnb
-C:\Users\Kuchera\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\onde_8x4.xnb
-C:\Users\Kuchera\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\sizeSelection.xnb
-C:\Users\Kuchera\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\textCredit.xnb
-C:\Users\Kuchera\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\textExit.xnb
-C:\Users\Kuchera\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\textExtra.xnb
-C:\Users\Kuchera\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\textPlay.xnb
-C:\Users\Kuchera\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\wallpaper.xnb
-C:\Users\Kuchera\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\wallpaperText.xnb
-C:\Users\Kuchera\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\sprites\cursorFire_8x4r.xnb
-C:\Users\Kuchera\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\sprites\explosion0_8x6.xnb
-C:\Users\Kuchera\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\sprites\explosion1_8x6.xnb
-C:\Users\Kuchera\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\sprites\explosion2_8x8.xnb
-C:\Users\Kuchera\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\sprites\explosion3_8x4.xnb
-C:\Users\Kuchera\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\sprites\explosion4_8x8.xnb
-C:\Users\Kuchera\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\sprites\spriteElectric_11x3r12r23.xnb
-C:\Users\Kuchera\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\sprites\canalisation1_16x13.xnb
-C:\Users\Kuchera\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\sprites\popGreen_8x4.xnb
-C:\Users\Kuchera\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\map1\back1r.xnb
-C:\Users\Kuchera\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\map1\fore1.xnb
-C:\Users\Kuchera\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\map1\sky1.xnb
-C:\Users\Kuchera\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\etoiles1_10x10r51r100.xnb
-C:\Users\Kuchera\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\lueur1_10x4r21r40.xnb
-C:\Users\Kuchera\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\authors.xnb
-C:\Users\Kuchera\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\game\menu\box.xnb
-C:\Users\Kuchera\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\game\menu\container.xnb
-C:\Users\Kuchera\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\game\menu\containervide.xnb
-C:\Users\Kuchera\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\beenTeam.xnb
-C:\Users\Kuchera\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\tittleText.xnb
-C:\Users\Kuchera\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\selectionSound.xnb
-C:\Users\Kuchera\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\menuAmbience.xnb
-C:\Users\Kuchera\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\TRODS.exe
-C:\Users\Kuchera\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\TRODS.pdb
-C:\Users\Kuchera\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\obj\x86\Debug\TRODS.csprojResolveAssemblyReference.cache
-C:\Users\Kuchera\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
-C:\Users\Kuchera\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\obj\x86\Debug\TRODS.exe
-C:\Users\Kuchera\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\obj\x86\Debug\TRODS.pdb
-C:\Users\Kuchera\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\game\bear.xnb
-C:\Users\Kuchera\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\songCredit.xnb
-C:\Users\Kuchera\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\songCredit.wma
-C:\Users\Kuchera\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\soundEffect.xnb
-C:\Users\Kuchera\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\soundMusic.xnb
-C:\Users\Kuchera\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\textOptions.xnb
-C:\Users\Kuchera\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\sprites\fireWall_11x6r23r44.xnb
-C:\Users\Kuchera\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\menuAmbience.wma
-D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS - Copie\TRODS\TRODS\bin\x86\Debug\Content\game\bear.xnb
-D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS - Copie\TRODS\TRODS\bin\x86\Debug\Content\game\menu\box.xnb
-D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS - Copie\TRODS\TRODS\bin\x86\Debug\Content\game\menu\container.xnb
-D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS - Copie\TRODS\TRODS\bin\x86\Debug\Content\game\menu\containervide.xnb
-D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS - Copie\TRODS\TRODS\bin\x86\Debug\Content\general\black.xnb
-D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS - Copie\TRODS\TRODS\bin\x86\Debug\Content\general\cursor1.xnb
-D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS - Copie\TRODS\TRODS\bin\x86\Debug\Content\general\nuages0.xnb
-D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS - Copie\TRODS\TRODS\bin\x86\Debug\Content\general\white.xnb
-D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS - Copie\TRODS\TRODS\bin\x86\Debug\Content\map1\back1r.xnb
-D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS - Copie\TRODS\TRODS\bin\x86\Debug\Content\map1\fore1.xnb
-D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS - Copie\TRODS\TRODS\bin\x86\Debug\Content\map1\sky1.xnb
-D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS - Copie\TRODS\TRODS\bin\x86\Debug\Content\menu\authors.xnb
-D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS - Copie\TRODS\TRODS\bin\x86\Debug\Content\menu\beenTeam.xnb
-D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS - Copie\TRODS\TRODS\bin\x86\Debug\Content\menu\credit.xnb
-D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS - Copie\TRODS\TRODS\bin\x86\Debug\Content\menu\etoiles1_10x10r51r100.xnb
-D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS - Copie\TRODS\TRODS\bin\x86\Debug\Content\menu\lueur1_10x4r21r40.xnb
-D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS - Copie\TRODS\TRODS\bin\x86\Debug\Content\menu\onde_8x4.xnb
-D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS - Copie\TRODS\TRODS\bin\x86\Debug\Content\menu\sizeSelection.xnb
-D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS - Copie\TRODS\TRODS\bin\x86\Debug\Content\menu\soundEffect.xnb
-D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS - Copie\TRODS\TRODS\bin\x86\Debug\Content\menu\soundMusic.xnb
-D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS - Copie\TRODS\TRODS\bin\x86\Debug\Content\menu\textCredit.xnb
-D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS - Copie\TRODS\TRODS\bin\x86\Debug\Content\menu\textExit.xnb
-D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS - Copie\TRODS\TRODS\bin\x86\Debug\Content\menu\textExtra.xnb
-D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS - Copie\TRODS\TRODS\bin\x86\Debug\Content\menu\textOptions.xnb
-D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS - Copie\TRODS\TRODS\bin\x86\Debug\Content\menu\textPlay.xnb
-D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS - Copie\TRODS\TRODS\bin\x86\Debug\Content\menu\tittleText.xnb
-D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS - Copie\TRODS\TRODS\bin\x86\Debug\Content\menu\wallpaper.xnb
-D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS - Copie\TRODS\TRODS\bin\x86\Debug\Content\menu\wallpaperText.xnb
-D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS - Copie\TRODS\TRODS\bin\x86\Debug\Content\sprites\canalisation1_16x13.xnb
-D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS - Copie\TRODS\TRODS\bin\x86\Debug\Content\sprites\cursorFire_8x4r.xnb
-D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS - Copie\TRODS\TRODS\bin\x86\Debug\Content\sprites\explosion0_8x6.xnb
-D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS - Copie\TRODS\TRODS\bin\x86\Debug\Content\sprites\explosion1_8x6.xnb
-D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS - Copie\TRODS\TRODS\bin\x86\Debug\Content\sprites\explosion2_8x8.xnb
-D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS - Copie\TRODS\TRODS\bin\x86\Debug\Content\sprites\explosion3_8x4.xnb
-D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS - Copie\TRODS\TRODS\bin\x86\Debug\Content\sprites\explosion4_8x8.xnb
-D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS - Copie\TRODS\TRODS\bin\x86\Debug\Content\sprites\fireWall_11x6r23r44.xnb
-D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS - Copie\TRODS\TRODS\bin\x86\Debug\Content\sprites\popGreen_8x4.xnb
-D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS - Copie\TRODS\TRODS\bin\x86\Debug\Content\sprites\spriteElectric_11x3r12r23.xnb
-D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS - Copie\TRODS\TRODS\bin\x86\Debug\Content\menu\menuAmbience.xnb
-D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS - Copie\TRODS\TRODS\bin\x86\Debug\Content\menu\selectionSound.xnb
-D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS - Copie\TRODS\TRODS\bin\x86\Debug\Content\menu\songCredit.xnb
-D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS - Copie\TRODS\TRODS\bin\x86\Debug\Content\menu\menuAmbience.wma
-D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS - Copie\TRODS\TRODS\bin\x86\Debug\Content\menu\songCredit.wma
-D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS - Copie\TRODS\TRODS\bin\x86\Debug\TRODS.exe
-D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS - Copie\TRODS\TRODS\bin\x86\Debug\TRODS.pdb
-D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS - Copie\TRODS\TRODS\obj\x86\Debug\TRODS.csprojResolveAssemblyReference.cache
-D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS - Copie\TRODS\TRODS\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
-D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS - Copie\TRODS\TRODS\obj\x86\Debug\TRODS.exe
-D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS - Copie\TRODS\TRODS\obj\x86\Debug\TRODS.pdb
-D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\game\bear.xnb
-D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\game\menu\box.xnb
-D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\game\menu\container.xnb
-D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\game\menu\containervide.xnb
-D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\map1\back1r.xnb
-D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\map1\fore1.xnb
-D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\map1\sky1.xnb
-D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\authors.xnb
-D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\beenTeam.xnb
-D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\etoiles1_10x10r51r100.xnb
-D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\lueur1_10x4r21r40.xnb
-D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\soundEffect.xnb
-D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\soundMusic.xnb
-D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\textOptions.xnb
-D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\tittleText.xnb
 D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\sprites\fireWall_11x6r23r44.xnb
+D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\sprites\popGreen_8x4.xnb
+D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\sprites\spriteElectric_11x3r12r23.xnb
 D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\menuAmbience.xnb
+D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\selectionSound.xnb
 D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\songCredit.xnb
 D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\menuAmbience.wma
 D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\songCredit.wma
-C:\Users\Kuchera\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\contextualMenuBlackFull.xnb
-C:\Users\Kuchera\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\contextMenuText.xnb
-C:\Users\Kuchera\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\contextMenuTextMainMenu.xnb
-D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\contextMenuText.xnb
-D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\contextualMenuBlackFull.xnb
-D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\contextMenuTextMainMenu.xnb
-D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\particle\fire.xnb
-D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\particle\rain.xnb
-D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\particle\smoke.xnb
-D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\particle\snow.xnb
-D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\particle\star.xnb
-C:\Users\Kuchera\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\contextMenuExit.xnb
-C:\Users\Kuchera\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\particle\ash.xnb
-C:\Users\Kuchera\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\particle\fire.xnb
-C:\Users\Kuchera\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\particle\rain.xnb
-C:\Users\Kuchera\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\particle\smoke.xnb
-C:\Users\Kuchera\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\particle\snow.xnb
-C:\Users\Kuchera\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\particle\star.xnb
-D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\contextMenuExit.xnb
-D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\particle\ash.xnb
-C:\Users\NicompleX\Documents\Visual Studio 2010\Projects\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\game\bear.xnb
-C:\Users\NicompleX\Documents\Visual Studio 2010\Projects\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\game\menu\box.xnb
-C:\Users\NicompleX\Documents\Visual Studio 2010\Projects\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\game\menu\container.xnb
-C:\Users\NicompleX\Documents\Visual Studio 2010\Projects\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\game\menu\containervide.xnb
-C:\Users\NicompleX\Documents\Visual Studio 2010\Projects\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\general\black.xnb
-C:\Users\NicompleX\Documents\Visual Studio 2010\Projects\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\general\cursor1.xnb
-C:\Users\NicompleX\Documents\Visual Studio 2010\Projects\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\general\nuages0.xnb
-C:\Users\NicompleX\Documents\Visual Studio 2010\Projects\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\general\white.xnb
-C:\Users\NicompleX\Documents\Visual Studio 2010\Projects\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\map1\back1r.xnb
-C:\Users\NicompleX\Documents\Visual Studio 2010\Projects\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\map1\fore1.xnb
-C:\Users\NicompleX\Documents\Visual Studio 2010\Projects\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\map1\sky1.xnb
-C:\Users\NicompleX\Documents\Visual Studio 2010\Projects\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\authors.xnb
-C:\Users\NicompleX\Documents\Visual Studio 2010\Projects\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\beenTeam.xnb
-C:\Users\NicompleX\Documents\Visual Studio 2010\Projects\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\contextMenuExit.xnb
-C:\Users\NicompleX\Documents\Visual Studio 2010\Projects\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\contextMenuText.xnb
-C:\Users\NicompleX\Documents\Visual Studio 2010\Projects\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\contextMenuTextMainMenu.xnb
-C:\Users\NicompleX\Documents\Visual Studio 2010\Projects\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\contextualMenuBlackFull.xnb
-C:\Users\NicompleX\Documents\Visual Studio 2010\Projects\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\credit.xnb
-C:\Users\NicompleX\Documents\Visual Studio 2010\Projects\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\etoiles1_10x10r51r100.xnb
-C:\Users\NicompleX\Documents\Visual Studio 2010\Projects\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\lueur1_10x4r21r40.xnb
-C:\Users\NicompleX\Documents\Visual Studio 2010\Projects\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\onde_8x4.xnb
-C:\Users\NicompleX\Documents\Visual Studio 2010\Projects\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\sizeSelection.xnb
-C:\Users\NicompleX\Documents\Visual Studio 2010\Projects\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\soundEffect.xnb
-C:\Users\NicompleX\Documents\Visual Studio 2010\Projects\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\soundMusic.xnb
-C:\Users\NicompleX\Documents\Visual Studio 2010\Projects\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\textCredit.xnb
-C:\Users\NicompleX\Documents\Visual Studio 2010\Projects\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\textExit.xnb
-C:\Users\NicompleX\Documents\Visual Studio 2010\Projects\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\textExtra.xnb
-C:\Users\NicompleX\Documents\Visual Studio 2010\Projects\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\textOptions.xnb
-C:\Users\NicompleX\Documents\Visual Studio 2010\Projects\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\textPlay.xnb
-C:\Users\NicompleX\Documents\Visual Studio 2010\Projects\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\tittleText.xnb
-C:\Users\NicompleX\Documents\Visual Studio 2010\Projects\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\wallpaper.xnb
-C:\Users\NicompleX\Documents\Visual Studio 2010\Projects\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\wallpaperText.xnb
-C:\Users\NicompleX\Documents\Visual Studio 2010\Projects\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\particle\ash.xnb
-C:\Users\NicompleX\Documents\Visual Studio 2010\Projects\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\particle\fire.xnb
-C:\Users\NicompleX\Documents\Visual Studio 2010\Projects\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\particle\rain.xnb
-C:\Users\NicompleX\Documents\Visual Studio 2010\Projects\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\particle\smoke.xnb
-C:\Users\NicompleX\Documents\Visual Studio 2010\Projects\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\particle\snow.xnb
-C:\Users\NicompleX\Documents\Visual Studio 2010\Projects\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\particle\star.xnb
-C:\Users\NicompleX\Documents\Visual Studio 2010\Projects\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\sprites\canalisation1_16x13.xnb
-C:\Users\NicompleX\Documents\Visual Studio 2010\Projects\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\sprites\cursorFire_8x4r.xnb
-C:\Users\NicompleX\Documents\Visual Studio 2010\Projects\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\sprites\explosion0_8x6.xnb
-C:\Users\NicompleX\Documents\Visual Studio 2010\Projects\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\sprites\explosion1_8x6.xnb
-C:\Users\NicompleX\Documents\Visual Studio 2010\Projects\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\sprites\explosion2_8x8.xnb
-C:\Users\NicompleX\Documents\Visual Studio 2010\Projects\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\sprites\explosion3_8x4.xnb
-C:\Users\NicompleX\Documents\Visual Studio 2010\Projects\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\sprites\explosion4_8x8.xnb
-C:\Users\NicompleX\Documents\Visual Studio 2010\Projects\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\sprites\fireWall_11x6r23r44.xnb
-C:\Users\NicompleX\Documents\Visual Studio 2010\Projects\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\sprites\popGreen_8x4.xnb
-C:\Users\NicompleX\Documents\Visual Studio 2010\Projects\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\sprites\spriteElectric_11x3r12r23.xnb
-C:\Users\NicompleX\Documents\Visual Studio 2010\Projects\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\menuAmbience.xnb
-C:\Users\NicompleX\Documents\Visual Studio 2010\Projects\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\selectionSound.xnb
-C:\Users\NicompleX\Documents\Visual Studio 2010\Projects\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\songCredit.xnb
-C:\Users\NicompleX\Documents\Visual Studio 2010\Projects\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\menuAmbience.wma
-C:\Users\NicompleX\Documents\Visual Studio 2010\Projects\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\songCredit.wma
-C:\Users\NicompleX\Documents\Visual Studio 2010\Projects\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\TRODS.exe
-C:\Users\NicompleX\Documents\Visual Studio 2010\Projects\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\TRODS.pdb
-C:\Users\NicompleX\Documents\Visual Studio 2010\Projects\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\obj\x86\Debug\TRODS.csprojResolveAssemblyReference.cache
-C:\Users\NicompleX\Documents\Visual Studio 2010\Projects\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
-C:\Users\NicompleX\Documents\Visual Studio 2010\Projects\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\obj\x86\Debug\TRODS.exe
-C:\Users\NicompleX\Documents\Visual Studio 2010\Projects\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\obj\x86\Debug\TRODS.pdb
-C:\Users\kucher_e\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\game\bear.xnb
-C:\Users\kucher_e\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\game\menu\box.xnb
-C:\Users\kucher_e\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\game\menu\container.xnb
-C:\Users\kucher_e\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\game\menu\containervide.xnb
-C:\Users\kucher_e\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\general\black.xnb
-C:\Users\kucher_e\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\general\cursor1.xnb
-C:\Users\kucher_e\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\general\nuages0.xnb
-C:\Users\kucher_e\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\general\white.xnb
-C:\Users\kucher_e\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\map1\back1r.xnb
-C:\Users\kucher_e\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\map1\fore1.xnb
-C:\Users\kucher_e\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\map1\sky1.xnb
-C:\Users\kucher_e\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\authors.xnb
-C:\Users\kucher_e\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\beenTeam.xnb
-C:\Users\kucher_e\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\contextMenuExit.xnb
-C:\Users\kucher_e\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\contextMenuText.xnb
-C:\Users\kucher_e\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\contextMenuTextMainMenu.xnb
-C:\Users\kucher_e\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\contextualMenuBlackFull.xnb
-C:\Users\kucher_e\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\credit.xnb
-C:\Users\kucher_e\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\etoiles1_10x10r51r100.xnb
-C:\Users\kucher_e\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\lueur1_10x4r21r40.xnb
-C:\Users\kucher_e\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\onde_8x4.xnb
-C:\Users\kucher_e\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\sizeSelection.xnb
-C:\Users\kucher_e\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\soundEffect.xnb
-C:\Users\kucher_e\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\soundMusic.xnb
-C:\Users\kucher_e\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\textCredit.xnb
-C:\Users\kucher_e\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\textExit.xnb
-C:\Users\kucher_e\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\textExtra.xnb
-C:\Users\kucher_e\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\textOptions.xnb
-C:\Users\kucher_e\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\textPlay.xnb
-C:\Users\kucher_e\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\tittleText.xnb
-C:\Users\kucher_e\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\wallpaper.xnb
-C:\Users\kucher_e\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\wallpaperText.xnb
-C:\Users\kucher_e\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\particle\ash.xnb
-C:\Users\kucher_e\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\particle\fire.xnb
-C:\Users\kucher_e\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\particle\rain.xnb
-C:\Users\kucher_e\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\particle\smoke.xnb
-C:\Users\kucher_e\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\particle\snow.xnb
-C:\Users\kucher_e\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\particle\star.xnb
-C:\Users\kucher_e\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\sprites\canalisation1_16x13.xnb
-C:\Users\kucher_e\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\sprites\cursorFire_8x4r.xnb
-C:\Users\kucher_e\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\sprites\explosion0_8x6.xnb
-C:\Users\kucher_e\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\sprites\explosion1_8x6.xnb
-C:\Users\kucher_e\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\sprites\explosion2_8x8.xnb
-C:\Users\kucher_e\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\sprites\explosion3_8x4.xnb
-C:\Users\kucher_e\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\sprites\explosion4_8x8.xnb
-C:\Users\kucher_e\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\sprites\fireWall_11x6r23r44.xnb
-C:\Users\kucher_e\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\sprites\popGreen_8x4.xnb
-C:\Users\kucher_e\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\sprites\spriteElectric_11x3r12r23.xnb
-C:\Users\kucher_e\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\menuAmbience.xnb
-C:\Users\kucher_e\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\selectionSound.xnb
-C:\Users\kucher_e\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\songCredit.xnb
-C:\Users\kucher_e\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\menuAmbience.wma
-C:\Users\kucher_e\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\songCredit.wma
-C:\Users\kucher_e\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\TRODS.exe
-C:\Users\kucher_e\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\TRODS.pdb
-C:\Users\kucher_e\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\obj\x86\Debug\TRODS.csprojResolveAssemblyReference.cache
-C:\Users\kucher_e\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
-C:\Users\kucher_e\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\obj\x86\Debug\TRODS.exe
-C:\Users\kucher_e\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\obj\x86\Debug\TRODS.pdb
+D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\TRODS.exe
+D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\TRODS.pdb
+D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\obj\x86\Debug\TRODS.csprojResolveAssemblyReference.cache
+D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\obj\x86\Debug\TRODS.exe
+D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\obj\x86\Debug\TRODS.pdb

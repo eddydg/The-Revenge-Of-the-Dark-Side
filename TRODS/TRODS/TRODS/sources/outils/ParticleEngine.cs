@@ -14,7 +14,7 @@ namespace TRODS
     class ParticleEngine : AbstractScene
     {
         private Random random;
-        private Rectangle emitterLocation;
+        private DecimalRectangle emitterLocation;
         private List<Particle> particles;
         private List<Texture2D> textures;
         private int nbNewParticle;
@@ -48,7 +48,7 @@ namespace TRODS
         /// <param name="lifeTimeMin">Temps de vie minimal de la particule</param>
         /// <param name="lifeTimeMax">Temps de vie maximal de la particule</param>
         public ParticleEngine(Rectangle _windowSize,
-                              Rectangle emitterLocation,
+                              DecimalRectangle emitterLocation,
                               Vector3 SizeRange,
                               List<string> assetNames = null,
                               int nbNewParticle = 10,
@@ -107,23 +107,24 @@ namespace TRODS
 
         public override void WindowResized(Rectangle rect)
         {
-            double xRapport = rect.Width / windowSize.Width;
-            double yRapport = rect.Height / windowSize.Height;
+            float xRapport = (float)rect.Width / (float)windowSize.Width;
+            float yRapport = (float)rect.Height / (float)windowSize.Height;
 
             foreach (Particle p in particles)
                 p.WindowResized(xRapport, yRapport);
 
-            emitterLocation.X = (int)(emitterLocation.X * xRapport);
-            emitterLocation.Y = (int)(emitterLocation.Y * yRapport);
-            emitterLocation.Width = (int)(emitterLocation.Width * xRapport);
-            emitterLocation.Height = (int)(emitterLocation.Height * yRapport);
 
-            speedRange.X *= (float)xRapport;
-            speedRange.X *= (float)xRapport;
+            emitterLocation.X *= xRapport;
+            emitterLocation.Y *= yRapport;
+            emitterLocation.Width *= xRapport;
+            emitterLocation.Height *= yRapport;
 
-            sizeRange.X = (int)(sizeRange.X * xRapport);
-            sizeRange.Y = (int)(sizeRange.Y * xRapport);
-            sizeRange.Z = (int)(sizeRange.Z * yRapport);
+            speedRange.X *= xRapport;
+            speedRange.Y *= yRapport;
+
+            sizeRange.X *= xRapport;
+            sizeRange.Y *= xRapport;
+            sizeRange.Z *= yRapport;
 
             windowSize = rect;
         }
@@ -145,8 +146,8 @@ namespace TRODS
             return new Particle(
                 textures[random.Next(textures.Count)],
                 new DecimalRectangle(
-                    random.Next(emitterLocation.X, emitterLocation.X + emitterLocation.Width + 1),
-                    random.Next(emitterLocation.Y, emitterLocation.Y + emitterLocation.Height + 1),
+                    random.Next((int)emitterLocation.X, (int)emitterLocation.X + (int)emitterLocation.Width + 1),
+                    random.Next((int)emitterLocation.Y, (int)emitterLocation.Y + (int)emitterLocation.Height + 1),
                     sizeRange.Y * sizeScale,
                     sizeRange.Z * sizeScale),
                 new Vector2(v * (float)Math.Cos(alpha), v * (float)Math.Sin(alpha)),
@@ -193,7 +194,6 @@ namespace TRODS
             get { return lifeTime; }
         }
         private int totalLifeTime;
-        private int alphaTransparency;
 
         public Particle(Texture2D texture, DecimalRectangle position, Vector2 speed, float angle, float angularSpeed, Color color, int lifeTime)
         {
@@ -206,17 +206,14 @@ namespace TRODS
             this.color.A = 0;
             this.lifeTime = lifeTime;
             this.totalLifeTime = lifeTime;
-            this.alphaTransparency = 255;
         }
 
         public override void Update(float elapsedTime)
         {
             lifeTime -= (int)(elapsedTime / 16);
-            position.X += (int)(speed.X * (elapsedTime / 16));
-            position.Y += (int)(speed.Y * (elapsedTime / 16));
+            position.X += speed.X * (elapsedTime / 16);
+            position.Y += speed.Y * (elapsedTime / 16);
             angle += angularSpeed * (elapsedTime / 16);
-            if (lifeTime <= totalLifeTime / 2)
-                alphaTransparency = 255 * (lifeTime / (totalLifeTime / 2));
         }
 
         public override void Draw(SpriteBatch spriteBatch)
@@ -225,16 +222,18 @@ namespace TRODS
                 spriteBatch.Draw(texture, position.ToRectangle(), null, color, angle,
                 new Vector2(position.Width / 2, position.Height / 2), SpriteEffects.None, 0f);
             else
-                spriteBatch.Draw(texture, position.ToRectangle(), null, Color.FromNonPremultiplied(color.R, color.G, color.B, alphaTransparency), angle,
+                spriteBatch.Draw(texture, position.ToRectangle(), null,
+                    Color.FromNonPremultiplied(color.R, color.G, color.B, (int)(255f * ((float)lifeTime / ((float)totalLifeTime / 2f)))),
+                    angle,
                 new Vector2(position.Width / 2, position.Height / 2), SpriteEffects.None, 0f);
         }
 
-        public void WindowResized(double x, double y)
+        public void WindowResized(float x, float y)
         {
-            position.X = (int)(position.X * x);
-            position.Y = (int)(position.Y * y);
-            position.Width = (int)(position.Width * x);
-            position.Height = (int)(position.Height * y);
+            position.X *= x;
+            position.Y *= y;
+            position.Width *= x;
+            position.Height *= y;
 
             speed.X *= (float)x;
             speed.Y *= (float)y;

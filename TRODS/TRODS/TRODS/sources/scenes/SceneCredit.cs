@@ -30,20 +30,13 @@ namespace TRODS
             animations.Last<AnimatedSprite>().Vitesse = 0.1f;
             animations.Add(new AnimatedSprite(new Rectangle(0, 0, _windowSize.Width, 2 * _windowSize.Height / 5), _windowSize, "menu/credit"));
             animations.Add(new AnimatedSprite(new Rectangle(-300, _windowSize.Height - 100, _windowSize.Width + 300, 100), _windowSize, "menu/lueur1_10x4r21r40", 10, 4, 15, 21, 40, 1));
-            /*_particles = new ParticleEngine(
-                _windowSize,
-                new Rectangle(0, 0, _windowSize.Width, 0),
-                new Vector3(3, 20, 20),
-                new List<string>() { "particle/ash" },
-                10, 1f, 2f, -90f, 25, 0, 180, -2, 2, 1000f, 1200f);
-            _particles.SetColorRange(120, 120, 120, 120, 120, 120);*/
             _particles = new ParticleEngine(
                 _windowSize,
-                new Rectangle(450, 300, 0, 0),
-                new Vector3(3, 20, 20),
-                new List<string>() { "particle/fire" },
-                3, 1f, 1.2f, 0f, 180, 0, 180, -2, 2, 100, 120);
-            _particles.SetColorRange(120, 120, 120, 120, 120, 120);
+                new DecimalRectangle(0, 0, _windowSize.Width, 0),
+                new Vector3(0.2f, 10f, 10f),
+                new List<string>() { "particle/ash" },
+                10, 0.3f, 1.2f, -90f, 25, 0, 180, -2, 2, 500f, 700f);
+            _particles.SetColorRange(80, 80, 80, 80, 80, 80);
         }
 
         public override void LoadContent(ContentManager content)
@@ -92,9 +85,6 @@ namespace TRODS
         {
             foreach (AnimatedSprite s in animations)
                 s.ActualPicture = 1;
-            Rectangle r = animations.ElementAt<AnimatedSprite>(2).Position;
-            r.Y = _windowSize.Height;
-            animations.ElementAt<AnimatedSprite>(2).Position = r;
             parent.son.Play(Musiques.CreditMusic);
         }
 
