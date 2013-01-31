@@ -19,18 +19,13 @@ namespace TRODS
 
     class Character : AbstractScene
     {
+        private Rectangle _windowSize;
         private AnimatedSprite _sprite;
         private Vector2 _position;
         public Vector2 Position
         {
             get { return _position; }
             set { _position = value; }
-        }
-        private Vector2 _speed;
-        public Vector2 Speed
-        {
-            get { return _speed; }
-            set { _speed = value; }
         }
         public bool _canMove { get; private set; }
         public bool _jumping { get; private set; }
@@ -39,24 +34,49 @@ namespace TRODS
         private bool _direction;
         private int _timer;
 
-        public Character(Vector2 position, int width, int height, string assetName, Vector2 speed)
+        public int _lifePoints { get; private set; }
+
+        public Character(Rectangle winSize, Vector2 position, int width, int height, string assetName, int textureColumns, int textureLines, Vector2 speed, int jumpHeight)
         {
+            _windowSize = winSize;
+            _position = position;
+            _sprite = new AnimatedSprite(new Rectangle((int)position.X + width / 2, (int)position.Y - height, width, height), winSize, assetName, textureColumns, textureLines);
+            _canMove = true;
+            _jumping = false;
+            _jumpHeight = 0;
+            _jumpMaxHeight = jumpHeight;
+            _direction = true; // = right
+            _timer = 0;
         }
 
         public override void LoadContent(ContentManager content)
         {
+            _sprite.LoadContent(content);
         }
         public override void Draw(SpriteBatch spriteBatch)
         {
+            _sprite.Draw(spriteBatch);
         }
         public override void Update(float elapsedTime)
         {
+            _sprite.Update(elapsedTime);
         }
         public override void HandleInput(KeyboardState newKeyboardState, MouseState newMouseState, Game1 parent)
         {
         }
         public override void WindowResized(Rectangle rect)
         {
+            _sprite.windowResized(rect);
+
+            float x = (float)rect.Width / (float)_windowSize.Width, y = (float)rect.Height / (float)_windowSize.Height;
+
+            _position.X *= x;
+            _position.Y *= y;
+
+            _jumpHeight = (int)((float)_jumpHeight * y);
+            _jumpMaxHeight = (int)((float)_jumpMaxHeight * y);
+
+            _windowSize = rect;
         }
 
         /// <summary>
