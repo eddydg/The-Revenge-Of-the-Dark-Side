@@ -8,7 +8,7 @@ using Microsoft.Xna.Framework.GamerServices;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
- 
+
 namespace TRODS
 {
     /// <summary>
@@ -52,14 +52,14 @@ namespace TRODS
         /// Fonction a appeler avant d'utiliser la scene
         /// </summary>
         /// <param name="parent">Reference de la classe parent</param>
-        public virtual void Activation(Game1 parent)
+        public virtual void Activation(Game1 parent = null)
         {
         }
         /// <summary>
         /// Fonction a appeler avant de changer de scene
         /// </summary>
         /// <param name="parent">Reference de la classe parent</param>
-        public virtual void EndScene(Game1 parent)
+        public virtual void EndScene(Game1 parent = null)
         {
         }
         /// <summary>

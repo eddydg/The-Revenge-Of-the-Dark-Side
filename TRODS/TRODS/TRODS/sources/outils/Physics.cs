@@ -3,43 +3,45 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace TRODS.sources.outils
+namespace TRODS
 {
     class Physics
     {
         public int MaxHeight { get; set; }
         public int TimeOnFlat { get; set; }
+        public int Time;
 
         /// <summary>
         /// Constructeur.
         /// </summary>
         /// <param name="MaxHeight">Hauteur maximale du saut.</param>
         /// <param name="TimeOnFlat">Duree du saut sur une surface plate. (en ms)</param>
-        public Physics(int MaxHeight = 200, int TimeOnFlat = 1000)
+        public Physics(int maxHeight = 200, int timeOnFlat = 1000)
         {
+            MaxHeight = maxHeight;
+            TimeOnFlat = timeOnFlat;
+            Time = 0;
         }
 
-        /// <summary>
-        /// Calcul de la hauteur du saut.
-        /// </summary>
-        /// <param name="time">Temps. (en ms, partant de 0)</param>
-        /// <returns>Hauteut du saut.</returns>
-        public int Jump(int time)
+        public void Jump()
         {
-            // f(x) = -(x+timeOnflat)2 + maxHeight
-            return 0;
+            Time = 0;
         }
 
-        /// <summary>
-        /// Calcul de la hauteur de la chute.
-        /// </summary>
-        /// <param name="time">Temps. (en ms, partant de 0)</param>
-        /// <returns>Hauteur de la chute. (negative)</returns>
-        public int Fall(int time)
+        public void Fall()
         {
-            // f(x) = -x2
-            return 0;
+            Time = TimeOnFlat / 2;
         }
 
+        public int Update(float elapsedTime)
+        {
+            Time += (int)elapsedTime;
+            return f(Time) - f(Time - (int)elapsedTime);
+        }
+
+        private int f(int x)
+        {
+            return -(x - TimeOnFlat / 2) * (x - TimeOnFlat / 2) * 4 * MaxHeight / (TimeOnFlat * TimeOnFlat) + MaxHeight;
+        }
     }
 }
