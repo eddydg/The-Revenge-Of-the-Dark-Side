@@ -98,6 +98,13 @@ namespace TRODS
         public int _jumpHeight { get; private set; }
         private bool _direction;
         private int _timer;
+        private List<Attac> _attacks;
+        public List<Attac> Attacks1
+        {
+            get { return _attacks; }
+            set { _attacks = value; }
+        }
+
 
         public int _lifePoints { get; private set; }
 
@@ -105,7 +112,7 @@ namespace TRODS
         {
             _windowSize = winSize;
             _position = position;
-            _sprite = new AnimatedSprite(new Rectangle((int)position.X + width / 2, (int)position.Y - height, width, height), winSize, assetName, textureColumns, textureLines, 30, 1, -1, -1, true);
+            _sprite = new AnimatedSprite(new Rectangle((int)position.X - width / 2, (int)position.Y - height, width, height), winSize, assetName, textureColumns, textureLines, 30, 1, -1, -1, true);
             _canMove = true;
             _jumping = false;
             _jumpHeight = 0;
@@ -124,6 +131,7 @@ namespace TRODS
         }
         public override void Update(float elapsedTime)
         {
+            _timer -= (int)elapsedTime;
             _sprite.Update(elapsedTime);
             if (_jumping)
                 _jumpHeight += _physics.Update(elapsedTime);
@@ -135,9 +143,19 @@ namespace TRODS
                 else
                     _action = Actions.StandLeft;
             }
+            for (int i = 0; i < _attacks.Count; i++)
+            {
+                _attacks[i].Update(elapsedTime);
+                if (_attacks[i]._duree < 0)
+                {
+                    _attacks.RemoveAt(i);
+                    i--;
+                }
+            }
         }
         public override void HandleInput(KeyboardState newKeyboardState, MouseState newMouseState, Game1 parent)
         {
+            // Pour les personnages de type joueur
         }
         public override void WindowResized(Rectangle rect)
         {
@@ -150,28 +168,16 @@ namespace TRODS
 
             _jumpHeight = (int)((float)_jumpHeight * y);
 
-            _windowSize = rect;
-        }
-
-        /// <summary>
-        /// Gestion de l'atterissage du personnage
-        /// </summary>
-        /// <returns>Si le personnage</returns>
-        private bool testOnGround()
-        {
-            if (_jumpHeight < 0)
+            Rectangle r = new Rectangle();
+            foreach (Attac a in _attacks)
             {
-                _jumping = false;
-                if (_direction) // right
-                    _action = Actions.StandRight;
-                else
-                    _action = Actions.StandLeft;
-                Vector3 b = _graphicalBounds.get(_action);
-                _sprite.SetPictureBounds((int)b.X, (int)b.Y, (int)b.Z, true);
-                return true;
+                r.X = (int)((float)a.Portee.X * x);
+                r.Y = (int)((float)a.Portee.Y * y);
+                r.Width = (int)((float)a.Portee.Width * x);
+                r.Height = (int)((float)a.Portee.Height * y);
             }
-            else
-                return false;
+
+            _windowSize = rect;
         }
 
         /// <summary>
@@ -209,7 +215,7 @@ namespace TRODS
         /// <returns>Booleen indiquant si l'attaque a bien ete executee.</returns>
         public bool Attack(Attacks attack)
         {
-            return false;
+            return true;
         }
         /// <summary>
         /// Execute un deplacement rapide.
@@ -218,6 +224,46 @@ namespace TRODS
         public bool DoubleDash()
         {
             return false;
+        }
+
+        /// <summary>
+        /// Gestion de l'atterissage du personnage
+        /// </summary>
+        /// <returns>Si le personnage</returns>
+        private bool testOnGround()
+        {
+            if (_jumpHeight < 0)
+            {
+                _jumping = false;
+                if (_direction) // right
+                    _action = Actions.StandRight;
+                else
+                    _action = Actions.StandLeft;
+                Vector3 b = _graphicalBounds.get(_action);
+                _sprite.SetPictureBounds((int)b.X, (int)b.Y, (int)b.Z, true);
+                _jumpHeight = 0;
+                return true;
+            }
+            else
+                return false;
+        }
+        private void actualizeSpritePosition()
+        {
+            _sprite.setRelatvePos(
+                new Rectangle(
+                    (int)_position.X - _sprite.Position.Width / 2,
+                    (int)_position.Y - _sprite.Position.Height,
+                    _sprite.Position.Width,
+                    _sprite.Position.Height),
+                    _windowSize.Width, _windowSize.Height);
+        }
+        private void actualizeSpriteGraphicalBounds()
+        {
+            _sprite.SetPictureBounds(
+                (int)_graphicalBounds.get(_action).X,
+                (int)_graphicalBounds.get(_action).Y,
+                (int)_graphicalBounds.get(_action).Z,
+                true);
         }
     }
 }

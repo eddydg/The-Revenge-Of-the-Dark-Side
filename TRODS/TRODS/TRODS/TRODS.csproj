@@ -110,6 +110,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="sources\outils\Attac.cs" />
     <Compile Include="sources\outils\IA.cs" />
     <Compile Include="sources\outils\ContextMenu.cs" />
     <Compile Include="sources\outils\Character.cs" />
