@@ -26,16 +26,16 @@ namespace TRODS
         /// </summary>
         public enum Actions
         {
-            StandRight, StandLeft, WalkLeft, WalkRight, Jump, Attack
+            StandRight, StandLeft, WalkLeft, WalkRight, Jump, Attack, Fall, Paralized
         }
         /// <summary>
         /// Permet de definir les bornes de parcours des images dans un sprite pour des mouvements donnes.
         /// </summary>
         public struct GraphicalBounds
         {
-            public GraphicalBounds(Dictionary<Actions, Vector3> BoundList)
+            public GraphicalBounds(Dictionary<Actions, Vector3> boundList)
             {
-                this.BoundList = BoundList;
+                this.BoundList = boundList;
             }
             Dictionary<Actions, Vector3> BoundList;
             /// <summary>
@@ -78,27 +78,33 @@ namespace TRODS
             }
         }
 
-        private Rectangle _windowSize;
-        private GraphicalBounds _graphicalBounds;
-        private Actions _action;
-        private AnimatedSprite _sprite;
+        internal Rectangle _windowSize;
+        internal GraphicalBounds _graphicalBounds;
+        internal Actions _action;
+        internal AnimatedSprite _sprite;
         /// <summary>
         /// En bas au milieu du sprite
         /// </summary>
-        private Vector2 _position;
+        internal Vector2 _position;
         public Vector2 Position
         {
             get { return _position; }
             set { _position = value; }
         }
-        private Physics _physics;
-        public bool _canMove { get; private set; }
-        public bool _isOnGround { get; private set; }
-        public bool _jumping { get; private set; }
-        public int _jumpHeight { get; private set; }
-        private bool _direction;
-        private int _timer;
-        private List<Attac> _attacks;
+        internal Vector2 _speed;
+        public Vector2 Speed
+        {
+            get { return _speed; }
+            internal set { _speed = value; }
+        }
+        internal Physics _physics;
+        public bool _canMove { get; internal set; }
+        public bool _isOnGround { get; internal set; }
+        public bool _jumping { get; internal set; }
+        public int _jumpHeight { get; internal set; }
+        internal bool _direction;
+        internal int _timer;
+        internal List<Attac> _attacks;
         public List<Attac> Attacks1
         {
             get { return _attacks; }
@@ -112,6 +118,7 @@ namespace TRODS
         {
             _windowSize = winSize;
             _position = position;
+            _graphicalBounds = new GraphicalBounds(new Dictionary<Actions, Vector3>());
             _sprite = new AnimatedSprite(new Rectangle((int)position.X - width / 2, (int)position.Y - height, width, height), winSize, assetName, textureColumns, textureLines, 30, 1, -1, -1, true);
             _canMove = true;
             _jumping = false;
@@ -119,6 +126,7 @@ namespace TRODS
             _direction = true; // = right
             _timer = 0;
             _physics = new Physics();
+            _speed = speed;
         }
 
         public override void LoadContent(ContentManager content)
@@ -133,15 +141,24 @@ namespace TRODS
         {
             _timer -= (int)elapsedTime;
             _sprite.Update(elapsedTime);
+            switch (_action)
+            {
+                case Actions.WalkRight:
+                    _position.X += _speed.X * elapsedTime;
+                    break;
+                case Actions.WalkLeft:
+                    _position.X -= _speed.X * elapsedTime;
+                    break;
+            }
             if (_jumping)
                 _jumpHeight += _physics.Update(elapsedTime);
             testOnGround();
             if (_timer < 0)
             {
-                if (_direction) // right
+                /*if (_direction) // right
                     _action = Actions.StandRight;
                 else
-                    _action = Actions.StandLeft;
+                    _action = Actions.StandLeft;*/
             }
             for (int i = 0; i < _attacks.Count; i++)
             {
@@ -194,6 +211,14 @@ namespace TRODS
         /// <param name="right"></param>
         public void Move(bool right)
         {
+            if (_canMove)
+            {
+                _direction = right;
+                if (right)
+                    _action = Actions.WalkRight;
+                else
+                    _action = Actions.WalkLeft;
+            }
         }
         /// <summary>
         /// Paralise le personnage empechant tout mouvement.
@@ -201,12 +226,16 @@ namespace TRODS
         /// <param name="time">Temps de bloquage.</param>
         public void Paralize(int time)
         {
+            _canMove = false;
+            _timer = time;
+            _action = Actions.Paralized;
         }
         /// <summary>
         /// Libere les mouvements du personnage.
         /// </summary>
         public void Free()
         {
+            _canMove = true;
         }
         /// <summary>
         /// Execute une attaque.
@@ -226,10 +255,10 @@ namespace TRODS
             return false;
         }
 
-        /// <summary>
-        /// Gestion de l'atterissage du personnage
-        /// </summary>
-        /// <returns>Si le personnage</returns>
+        public void windowResized(Rectangle rect)
+        {
+        }
+
         private bool testOnGround()
         {
             if (_jumpHeight < 0)

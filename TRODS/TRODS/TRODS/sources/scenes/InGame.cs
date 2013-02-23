@@ -24,9 +24,7 @@ namespace TRODS
         private Sprite mouse;
         private AbstractMap map;
         private ContextMenu _menu;
-
-        //========= TEMP ==========
-        private Sprite personnage;
+        private Personnage personnage;
 
         public InGame(Rectangle windowSize, KeyboardState keyboardState, MouseState mouseState)
         {
@@ -50,7 +48,7 @@ namespace TRODS
             map.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(5, 150, _windowSize.Width / 2, _windowSize.Height - 150), _windowSize, "sprites/fireWall_11x6r23r44", 11, 6, 30, 23, 44, 1, true), 1f, 0.5f));
             map.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(1800 + _windowSize.Width / 2, 150, _windowSize.Width / 2 - 20, _windowSize.Height - 150), _windowSize, "sprites/fireWall_11x6r23r44", 11, 6, 30, 23, 44, 1, true), 1f, 0.5f));
 
-            personnage = new Sprite(new Rectangle((int)map.VuePosition.X - 50, (int)map.VuePosition.Y - 50, 100, 100), _windowSize, "game/bear");
+            personnage = new Personnage(_windowSize, new Vector2(500, 400));
         }
 
         public override void LoadContent(ContentManager content)

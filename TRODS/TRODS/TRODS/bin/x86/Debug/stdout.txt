@@ -1,0 +1,25 @@
+
+Loading ressources error.
+Microsoft.Xna.Framework.Content.ContentLoadException: Error loading "game\perso.png". File not found. ---> System.IO.FileNotFoundException: Error loading "Content\game\perso.png.xnb". File not found.
+   à Microsoft.Xna.Framework.TitleContainer.OpenStream(String name)
+   à Microsoft.Xna.Framework.Content.ContentManager.OpenStream(String assetName)
+   --- Fin de la trace de la pile d'exception interne ---
+   à Microsoft.Xna.Framework.Content.ContentManager.OpenStream(String assetName)
+   à Microsoft.Xna.Framework.Content.ContentManager.ReadAsset[T](String assetName, Action`1 recordDisposableObject)
+   à Microsoft.Xna.Framework.Content.ContentManager.Load[T](String assetName)
+   à TRODS.Sprite.LoadContent(ContentManager content, String assetName) dans C:\Users\kucher_e\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\outils\Sprite.cs:ligne 102
+   à TRODS.Character.LoadContent(ContentManager content) dans C:\Users\kucher_e\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\outils\Character.cs:ligne 134
+   à TRODS.InGame.LoadContent(ContentManager content) dans C:\Users\kucher_e\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\scenes\InGame.cs:ligne 56
+   à TRODS.Game1.LoadContent() dans C:\Users\kucher_e\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\Game1.cs:ligne 80
+Loading ressources error.
+Microsoft.Xna.Framework.Content.ContentLoadException: Error loading "game\perso.png". File not found. ---> System.IO.FileNotFoundException: Error loading "Content\game\perso.png.xnb". File not found.
+   à Microsoft.Xna.Framework.TitleContainer.OpenStream(String name)
+   à Microsoft.Xna.Framework.Content.ContentManager.OpenStream(String assetName)
+   --- Fin de la trace de la pile d'exception interne ---
+   à Microsoft.Xna.Framework.Content.ContentManager.OpenStream(String assetName)
+   à Microsoft.Xna.Framework.Content.ContentManager.ReadAsset[T](String assetName, Action`1 recordDisposableObject)
+   à Microsoft.Xna.Framework.Content.ContentManager.Load[T](String assetName)
+   à TRODS.Sprite.LoadContent(ContentManager content, String assetName) dans C:\Users\kucher_e\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\outils\Sprite.cs:ligne 102
+   à TRODS.Character.LoadContent(ContentManager content) dans C:\Users\kucher_e\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\outils\Character.cs:ligne 134
+   à TRODS.InGame.LoadContent(ContentManager content) dans C:\Users\kucher_e\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\scenes\InGame.cs:ligne 56
+   à TRODS.Game1.LoadContent() dans C:\Users\kucher_e\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\Game1.cs:ligne 80
