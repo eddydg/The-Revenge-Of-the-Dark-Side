@@ -11,11 +11,6 @@ using Microsoft.Xna.Framework.Media;
 
 namespace TRODS
 {
-    /// <summary>
-    /// Classe de test temporaire
-    /// qui contiendra le moteur de jeu
-    /// ( La plus bg des classes les plus importantes )
-    /// </summary>
     class InGame : AbstractScene
     {
         private KeyboardState _keyboardState;
@@ -98,6 +93,8 @@ namespace TRODS
             if (_menu.Choise == 0)
                 parent.SwitchScene(Scene.MainMenu);
 
+
+            //// TEMPORAIRE ////
             if (newKeyboardState.IsKeyDown(Keys.Right))
                 map.Moving(new Vector2(5, 0), true);
             if (newKeyboardState.IsKeyDown(Keys.Left))
@@ -106,7 +103,7 @@ namespace TRODS
                 map.Moving(new Vector2(0, -5), true);
             if (newKeyboardState.IsKeyDown(Keys.Down))
                 map.Moving(new Vector2(0, 5), true);
-
+            ////////////////////
             personnage.HandleInput(newKeyboardState, newMouseState, parent);
 
             _keyboardState = newKeyboardState;

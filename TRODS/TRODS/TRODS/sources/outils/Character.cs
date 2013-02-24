@@ -119,6 +119,7 @@ namespace TRODS
             _windowSize = winSize;
             _position = position;
             _graphicalBounds = new GraphicalBounds(new Dictionary<Actions, Vector3>());
+            _attacks = new List<Attac>();
             _sprite = new AnimatedSprite(new Rectangle((int)position.X - width / 2, (int)position.Y - height, width, height), winSize, assetName, textureColumns, textureLines, 30, 1, -1, -1, true);
             _canMove = true;
             _jumping = false;
@@ -153,16 +154,15 @@ namespace TRODS
             if (_jumping)
                 _jumpHeight += _physics.Update(elapsedTime);
             testOnGround();
-            if (_timer < 0)
+            // Fonctionnalite pas finie.
+            /*if (_timer < 0)
             {
-                /*if (_direction) // right
+                if (_direction) // right
                     _action = Actions.StandRight;
                 else
-                    _action = Actions.StandLeft;*/
-            }
-            //la boucle suivante est commenté car _attacks n'est pas instancier pour l'instant et donc sa plante
-            //et j'vois pas bien comment l'utilisé
-            /*for (int i = 0; i < _attacks.Count; i++)
+                    _action = Actions.StandLeft;
+            }*/
+            for (int i = 0; i < _attacks.Count; i++)
             {
                 _attacks[i].Update(elapsedTime);
                 if (_attacks[i]._duree < 0)
@@ -170,7 +170,7 @@ namespace TRODS
                     _attacks.RemoveAt(i);
                     i--;
                 }
-            }*/
+            }
         }
         public override void HandleInput(KeyboardState newKeyboardState, MouseState newMouseState, Game1 parent)
         {
@@ -188,15 +188,13 @@ namespace TRODS
             _jumpHeight = (int)((float)_jumpHeight * y);
 
             Rectangle r = new Rectangle();
-            //la boucle suivante est commenté car _attacks n'est pas instancier pour l'instant et donc sa plante
-            //et j'vois pas bien comment l'utilisé
-            /*foreach (Attac a in _attacks)
+            foreach (Attac a in _attacks)
             {
                 r.X = (int)((float)a.Portee.X * x);
                 r.Y = (int)((float)a.Portee.Y * y);
                 r.Width = (int)((float)a.Portee.Width * x);
                 r.Height = (int)((float)a.Portee.Height * y);
-            }*/
+            }
 
             _windowSize = rect;
         }
@@ -217,12 +215,13 @@ namespace TRODS
         {
             if (_canMove)
             {
-                /*_direction = right;
+                _direction = right;
                 if (right)
                     _action = Actions.WalkRight;
                 else
-                    _action = Actions.WalkLeft;*/
-                Vector3 bounds = _graphicalBounds.get(_action);
+                    _action = Actions.WalkLeft;
+                // C'est pas le personnage qui bouge mais la map
+                /*Vector3 bounds = _graphicalBounds.get(_action);
                 _sprite.SetPictureBounds((int)bounds.Y, (int)bounds.Z, (int)bounds.X);
                 switch (_action)
                 {
@@ -237,7 +236,7 @@ namespace TRODS
                     case Actions.Jump:
                         Jump();
                         break;
-                }
+                }*/
             }
         }
         /// <summary>
@@ -275,7 +274,7 @@ namespace TRODS
             return false;
         }
 
-        private bool testOnGround()
+        internal bool testOnGround()
         {
             if (_jumpHeight < 0)
             {
@@ -292,7 +291,7 @@ namespace TRODS
             else
                 return false;
         }
-        private void actualizeSpritePosition()
+        internal void actualizeSpritePosition()
         {
             _sprite.setRelatvePos(
                 new Rectangle(
@@ -302,7 +301,7 @@ namespace TRODS
                     _sprite.Position.Height),
                     _windowSize.Width, _windowSize.Height);
         }
-        private void actualizeSpriteGraphicalBounds()
+        internal void actualizeSpriteGraphicalBounds()
         {
             _sprite.SetPictureBounds(
                 (int)_graphicalBounds.get(_action).X,
