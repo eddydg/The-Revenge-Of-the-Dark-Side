@@ -48,7 +48,7 @@ namespace TRODS
             map.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(5, 150, _windowSize.Width / 2, _windowSize.Height - 150), _windowSize, "sprites/fireWall_11x6r23r44", 11, 6, 30, 23, 44, 1, true), 1f, 0.5f));
             map.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(1800 + _windowSize.Width / 2, 150, _windowSize.Width / 2 - 20, _windowSize.Height - 150), _windowSize, "sprites/fireWall_11x6r23r44", 11, 6, 30, 23, 44, 1, true), 1f, 0.5f));
 
-            personnage = new Personnage(_windowSize, new Vector2(500, 400));
+            personnage = new Personnage(_windowSize, new Vector2(500,550));
         }
 
         public override void LoadContent(ContentManager content)
@@ -75,6 +75,7 @@ namespace TRODS
         {
             map.Update(elapsedTime);
             _menu.Update(elapsedTime);
+            personnage.Update(elapsedTime);
         }
 
         public override void HandleInput(KeyboardState newKeyboardState, MouseState newMouseState, Game1 parent)
@@ -106,6 +107,8 @@ namespace TRODS
             if (newKeyboardState.IsKeyDown(Keys.Down))
                 map.Moving(new Vector2(0, 5), true);
 
+            personnage.HandleInput(newKeyboardState, newMouseState, parent);
+
             _keyboardState = newKeyboardState;
             _mouseState = newMouseState;
         }
@@ -128,7 +131,7 @@ namespace TRODS
         /// <param name="rect">Nouvelle dimension de la fenetre obtenue par *Game1*.Window.ClientBounds()</param>
         private void windowResized(Rectangle rect)
         {
-            personnage.windowResized(rect);
+            personnage.WindowResized(rect);
             map.WindowResized(rect);
             _menu.WindowResized(rect);
         }

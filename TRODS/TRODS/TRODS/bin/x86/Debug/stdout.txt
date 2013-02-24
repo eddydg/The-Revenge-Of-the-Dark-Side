@@ -23,3 +23,7 @@ Microsoft.Xna.Framework.Content.ContentLoadException: Error loading "game\perso.
    à TRODS.Character.LoadContent(ContentManager content) dans C:\Users\kucher_e\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\outils\Character.cs:ligne 134
    à TRODS.InGame.LoadContent(ContentManager content) dans C:\Users\kucher_e\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\scenes\InGame.cs:ligne 56
    à TRODS.Game1.LoadContent() dans C:\Users\kucher_e\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\Game1.cs:ligne 80
+System.NullReferenceException: La référence d'objet n'est pas définie à une instance d'un objet.
+   à TRODS.Character.Update(Single elapsedTime) dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\outils\Character.cs:ligne 163
+   à TRODS.InGame.Update(Single elapsedTime) dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\scenes\InGame.cs:ligne 78
+   à TRODS.Game1.Update(GameTime gameTime) dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\Game1.cs:ligne 114

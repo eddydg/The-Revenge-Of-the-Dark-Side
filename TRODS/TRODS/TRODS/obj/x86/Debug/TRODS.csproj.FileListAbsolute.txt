@@ -176,3 +176,4 @@ C:\Users\kucher_e\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\b
 C:\Users\kucher_e\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\TRODS.pdb
 C:\Users\kucher_e\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\obj\x86\Debug\TRODS.pdb
 C:\Users\kucher_e\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\game\perso.xnb
+D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\game\perso.xnb

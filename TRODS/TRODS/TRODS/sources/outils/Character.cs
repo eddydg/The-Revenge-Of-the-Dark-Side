@@ -160,7 +160,9 @@ namespace TRODS
                 else
                     _action = Actions.StandLeft;*/
             }
-            for (int i = 0; i < _attacks.Count; i++)
+            //la boucle suivante est commenté car _attacks n'est pas instancier pour l'instant et donc sa plante
+            //et j'vois pas bien comment l'utilisé
+            /*for (int i = 0; i < _attacks.Count; i++)
             {
                 _attacks[i].Update(elapsedTime);
                 if (_attacks[i]._duree < 0)
@@ -168,7 +170,7 @@ namespace TRODS
                     _attacks.RemoveAt(i);
                     i--;
                 }
-            }
+            }*/
         }
         public override void HandleInput(KeyboardState newKeyboardState, MouseState newMouseState, Game1 parent)
         {
@@ -186,13 +188,15 @@ namespace TRODS
             _jumpHeight = (int)((float)_jumpHeight * y);
 
             Rectangle r = new Rectangle();
-            foreach (Attac a in _attacks)
+            //la boucle suivante est commenté car _attacks n'est pas instancier pour l'instant et donc sa plante
+            //et j'vois pas bien comment l'utilisé
+            /*foreach (Attac a in _attacks)
             {
                 r.X = (int)((float)a.Portee.X * x);
                 r.Y = (int)((float)a.Portee.Y * y);
                 r.Width = (int)((float)a.Portee.Width * x);
                 r.Height = (int)((float)a.Portee.Height * y);
-            }
+            }*/
 
             _windowSize = rect;
         }
@@ -213,11 +217,27 @@ namespace TRODS
         {
             if (_canMove)
             {
-                _direction = right;
+                /*_direction = right;
                 if (right)
                     _action = Actions.WalkRight;
                 else
-                    _action = Actions.WalkLeft;
+                    _action = Actions.WalkLeft;*/
+                Vector3 bounds = _graphicalBounds.get(_action);
+                _sprite.SetPictureBounds((int)bounds.Y, (int)bounds.Z, (int)bounds.X);
+                switch (_action)
+                {
+                    case Actions.WalkRight:
+                    case Actions.WalkLeft:
+                        _sprite.Speed = 24;
+                        break;
+                    case Actions.StandRight:
+                    case Actions.StandLeft:
+                        _sprite.Speed = 3;
+                        break;
+                    case Actions.Jump:
+                        Jump();
+                        break;
+                }
             }
         }
         /// <summary>
@@ -253,10 +273,6 @@ namespace TRODS
         public bool DoubleDash()
         {
             return false;
-        }
-
-        public void windowResized(Rectangle rect)
-        {
         }
 
         private bool testOnGround()

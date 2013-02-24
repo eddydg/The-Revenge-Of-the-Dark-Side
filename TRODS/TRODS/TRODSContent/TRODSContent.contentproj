@@ -62,6 +62,11 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
+    <Compile Include="game\perso.png">
+      <Name>perso</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
     <Compile Include="general\black.png">
       <Name>black</Name>
       <Importer>TextureImporter</Importer>
@@ -294,13 +299,6 @@
     </Compile>
     <Compile Include="sprites\spriteElectric_11x3r12r23.png">
       <Name>spriteElectric_11x3r12r23</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="game\perso.png">
-      <Name>perso</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>

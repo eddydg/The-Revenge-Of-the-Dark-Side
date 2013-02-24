@@ -2,6 +2,7 @@ Content\game\bear.xnb
 Content\game\menu\box.xnb
 Content\game\menu\container.xnb
 Content\game\menu\containervide.xnb
+Content\game\perso.xnb
 Content\general\black.xnb
 Content\general\cursor1.xnb
 Content\general\nuages0.xnb
@@ -51,4 +52,3 @@ Content\menu\menuAmbience.wma
 Content\menu\selectionSound.xnb
 Content\menu\songCredit.xnb
 Content\menu\songCredit.wma
-Content\game\perso.xnb
