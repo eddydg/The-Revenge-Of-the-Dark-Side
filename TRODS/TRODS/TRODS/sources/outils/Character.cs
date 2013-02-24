@@ -33,23 +33,17 @@ namespace TRODS
         /// </summary>
         public struct GraphicalBounds
         {
-            public GraphicalBounds(Dictionary<Actions, Vector3> boundList)
+            public GraphicalBounds(Dictionary<Actions, Rectangle> boundList)
             {
                 this.BoundList = boundList;
             }
-            Dictionary<Actions, Vector3> BoundList;
-            /// <summary>
-            /// Definit une nouvelle borne.
-            /// </summary>
-            /// <param name="a">Action a definir</param>
-            /// <param name="x">Image de debut de l'animation</param>
-            /// <param name="y">Premiere image pour la repetition de l'animation</param>
-            /// <param name="z">Image de fin de l'animation</param>
-            public void set(Actions a, int x, int y, int z)
+            Dictionary<Actions, Rectangle> BoundList;
+
+            public void set(Actions ac, int first, int firstRepeat, int last, int speed = 30)
             {
-                if (BoundList.ContainsKey(a))
-                    BoundList.Remove(a);
-                BoundList.Add(a, new Vector3(x, y, z));
+                if (BoundList.ContainsKey(ac))
+                    BoundList.Remove(ac);
+                BoundList.Add(ac, new Rectangle(first, firstRepeat, last, speed));
             }
             /// <summary>
             /// Definit une nouvelle borne.
@@ -59,20 +53,20 @@ namespace TRODS
             /// X : Image de debut de l'animation
             /// Y : Premiere image pour la repetition de l'animation
             /// Z : Image de fin de l'animation</param>
-            public void set(Actions a, Vector3 v)
+            public void set(Actions a, Rectangle r)
             {
                 if (BoundList.ContainsKey(a))
                     BoundList.Remove(a);
-                BoundList.Add(a, v);
+                BoundList.Add(a, r);
             }
             /// <summary>
             /// Petmet d'obtenir les bornes d'une action definie
             /// </summary>
             /// <param name="a">Action</param>
             /// <returns>Resultat de type Vector3</returns>
-            public Vector3 get(Actions a)
+            public Rectangle get(Actions a)
             {
-                Vector3 r = new Vector3();
+                Rectangle r = new Rectangle();
                 BoundList.TryGetValue(a, out r);
                 return r;
             }
@@ -102,7 +96,6 @@ namespace TRODS
         public bool _isOnGround { get; internal set; }
         public bool _jumping { get; internal set; }
         public int _jumpHeight { get; internal set; }
-        public int _maxJumpHeight;
         internal bool _direction;
         internal int _timer;
         internal List<Attac> _attacks;
@@ -119,13 +112,12 @@ namespace TRODS
         {
             _windowSize = winSize;
             _position = position;
-            _graphicalBounds = new GraphicalBounds(new Dictionary<Actions, Vector3>());
+            _graphicalBounds = new GraphicalBounds(new Dictionary<Actions, Rectangle>());
             _attacks = new List<Attac>();
             _sprite = new AnimatedSprite(new Rectangle((int)position.X - width / 2, (int)position.Y - height, width, height), winSize, assetName, textureColumns, textureLines, 30, 1, -1, -1, true);
             _canMove = true;
             _jumping = false;
             _jumpHeight = 0;
-            _maxJumpHeight = 0;
             _direction = true; // = right
             _timer = 0;
             _physics = new Physics();
@@ -160,14 +152,14 @@ namespace TRODS
             if (_jumping)
                 _jumpHeight += _physics.Update(elapsedTime);
             testOnGround();
-            // Fonctionnalite pas finie.
-            /*if (_timer < 0)
+            if (_timer < 0)
             {
-                if (_direction) // right
+                _timer = 0;
+                /*if (_direction) // right
                     _action = Actions.StandRight;
                 else
-                    _action = Actions.StandLeft;
-            }*/
+                    _action = Actions.StandLeft;*/
+            }
             for (int i = 0; i < _attacks.Count; i++)
             {
                 _attacks[i].Update(elapsedTime);
@@ -177,10 +169,6 @@ namespace TRODS
                     i--;
                 }
             }
-        }
-        public override void HandleInput(KeyboardState newKeyboardState, MouseState newMouseState, Game1 parent)
-        {
-            // Pour les personnages de type joueur
         }
         public override void WindowResized(Rectangle rect)
         {
@@ -205,6 +193,16 @@ namespace TRODS
             _windowSize = rect;
         }
 
+        public void Stand(bool right)
+        {
+            _jumping = false;
+            _direction = right;
+            if (_direction)
+                _action = Actions.StandRight;
+            else
+                _action = Actions.StandLeft;
+            actualizeSpriteGraphicalBounds();
+        }
         /// <summary>
         /// Execute un saut.
         /// </summary>
@@ -238,23 +236,6 @@ namespace TRODS
                 else
                     _action = Actions.WalkLeft;
                 actualizeSpriteGraphicalBounds();
-                // C'est pas le personnage qui bouge mais la map
-                /*Vector3 bounds = _graphicalBounds.get(_action);
-                _sprite.SetPictureBounds((int)bounds.Y, (int)bounds.Z, (int)bounds.X);
-                switch (_action)
-                {
-                    case Actions.WalkRight:
-                    case Actions.WalkLeft:
-                        _sprite.Speed = 24;
-                        break;
-                    case Actions.StandRight:
-                    case Actions.StandLeft:
-                        _sprite.Speed = 3;
-                        break;
-                    case Actions.Jump:
-                        Jump();
-                        break;
-                }*/
             }
         }
         /// <summary>
@@ -320,11 +301,9 @@ namespace TRODS
         }
         internal void actualizeSpriteGraphicalBounds()
         {
-            _sprite.SetPictureBounds(
-                (int)_graphicalBounds.get(_action).X,
-                (int)_graphicalBounds.get(_action).Y,
-                (int)_graphicalBounds.get(_action).Z,
-                true);
+            Rectangle r = _graphicalBounds.get(_action);
+            _sprite.SetPictureBounds(r.Y, r.Width, r.X, true);
+            _sprite.Speed = r.Height;
         }
     }
 }
