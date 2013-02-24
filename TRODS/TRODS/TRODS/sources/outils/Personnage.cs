@@ -43,11 +43,14 @@ namespace TRODS
                         Move(false);
                     else
                     {
-                        if (_direction)
-                            _action = Actions.StandRight;
-                        else
-                            _action = Actions.StandLeft;
-                        actualizeSpriteGraphicalBounds();
+                        if (!_jumping)
+                        {
+                            if (_direction)
+                                _action = Actions.StandRight;
+                            else
+                                _action = Actions.StandLeft;
+                            actualizeSpriteGraphicalBounds();
+                        }
                     }
                     if (newKeyboardState.IsKeyDown(Keys.Space) && oldKeyboardState.IsKeyUp(Keys.Space))//appuie sur espace.
                     {

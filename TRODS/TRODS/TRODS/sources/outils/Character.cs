@@ -209,17 +209,20 @@ namespace TRODS
         /// Execute un saut.
         /// </summary>
         /// <returns>Booleen indiquand si le saut a bien ete execute.</returns>
-        public bool Jump()
+        public void Jump()
         {
-            if (_direction)
-                _action = Actions.JumpRight;
-            else
-                _action = Actions.JumpLeft;
-            actualizeSpriteGraphicalBounds();
-            _jumpHeight = 0;
-            _jumping = true;
-            _isOnGround = false;
-            return false;
+            if (_canMove && !_jumping)
+            {
+                if (_direction)
+                    _action = Actions.JumpRight;
+                else
+                    _action = Actions.JumpLeft;
+                actualizeSpriteGraphicalBounds();
+                _jumpHeight = 0;
+                _jumping = true;
+                _isOnGround = false;
+                _physics.Jump();
+            }
         }
         /// <summary>
         /// Met a jour la direction du personnage et actualise l'animation.
