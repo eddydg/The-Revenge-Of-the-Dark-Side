@@ -26,7 +26,7 @@ namespace TRODS
         /// </summary>
         public enum Actions
         {
-            StandRight, StandLeft, WalkLeft, WalkRight, Jump, Attack, Fall, Paralized
+            StandRight, StandLeft, WalkLeft, WalkRight, JumpRight, JumpLeft, Attack, Fall, Paralized
         }
         /// <summary>
         /// Permet de definir les bornes de parcours des images dans un sprite pour des mouvements donnes.
@@ -102,6 +102,7 @@ namespace TRODS
         public bool _isOnGround { get; internal set; }
         public bool _jumping { get; internal set; }
         public int _jumpHeight { get; internal set; }
+        public int _maxJumpHeight;
         internal bool _direction;
         internal int _timer;
         internal List<Attac> _attacks;
@@ -124,10 +125,12 @@ namespace TRODS
             _canMove = true;
             _jumping = false;
             _jumpHeight = 0;
+            _maxJumpHeight = 0;
             _direction = true; // = right
             _timer = 0;
             _physics = new Physics();
             _speed = speed;
+            _action = Actions.StandRight;
         }
 
         public override void LoadContent(ContentManager content)
@@ -136,7 +139,10 @@ namespace TRODS
         }
         public override void Draw(SpriteBatch spriteBatch)
         {
-            _sprite.Draw(spriteBatch);
+            if (!_jumping)
+                _sprite.Draw(spriteBatch);
+            else
+                _sprite.Draw(spriteBatch, Color.White, _sprite.Position.X, _sprite.Position.Y - _jumpHeight);
         }
         public override void Update(float elapsedTime)
         {
@@ -205,6 +211,14 @@ namespace TRODS
         /// <returns>Booleen indiquand si le saut a bien ete execute.</returns>
         public bool Jump()
         {
+            if (_direction)
+                _action = Actions.JumpRight;
+            else
+                _action = Actions.JumpLeft;
+            actualizeSpriteGraphicalBounds();
+            _jumpHeight = 0;
+            _jumping = true;
+            _isOnGround = false;
             return false;
         }
         /// <summary>
@@ -220,6 +234,7 @@ namespace TRODS
                     _action = Actions.WalkRight;
                 else
                     _action = Actions.WalkLeft;
+                actualizeSpriteGraphicalBounds();
                 // C'est pas le personnage qui bouge mais la map
                 /*Vector3 bounds = _graphicalBounds.get(_action);
                 _sprite.SetPictureBounds((int)bounds.Y, (int)bounds.Z, (int)bounds.X);
@@ -283,9 +298,8 @@ namespace TRODS
                     _action = Actions.StandRight;
                 else
                     _action = Actions.StandLeft;
-                Vector3 b = _graphicalBounds.get(_action);
-                _sprite.SetPictureBounds((int)b.X, (int)b.Y, (int)b.Z, true);
-                _jumpHeight = 0;
+                actualizeSpriteGraphicalBounds();
+                _isOnGround = true;
                 return true;
             }
             else

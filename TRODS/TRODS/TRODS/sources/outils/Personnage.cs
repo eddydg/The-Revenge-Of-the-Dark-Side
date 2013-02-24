@@ -23,30 +23,38 @@ namespace TRODS
             _graphicalBounds.set(Actions.WalkLeft, 20, 25, 30);
             _graphicalBounds.set(Actions.StandRight, 1, 1, 2);
             _graphicalBounds.set(Actions.StandLeft, 16, 16, 17);
+            _graphicalBounds.set(Actions.JumpRight, 31, 31, 35);
+            _graphicalBounds.set(Actions.JumpLeft, 36, 36, 40);
             _action = Actions.StandRight;
+            _maxJumpHeight = 400;
             actualizeSpriteGraphicalBounds();
+            actualizeSpritePosition();
         }
 
         public override void HandleInput(KeyboardState newKeyboardState, MouseState newMouseState, Game1 parent)
         {
             if (oldKeyboardState != newKeyboardState)//gestion des entrées clavier.
             {
-                if (newKeyboardState.IsKeyDown(Keys.Right) && oldKeyboardState.IsKeyUp(Keys.Right))//apuie a droite
-                    Move(true);
-                else if (newKeyboardState.IsKeyDown(Keys.Left) && oldKeyboardState.IsKeyUp(Keys.Left))//appuie a gauche
-                    Move(false);
-                else if (newKeyboardState.IsKeyUp(Keys.Right) && newKeyboardState.IsKeyUp(Keys.Left)) //appuie ni a droite ni a gauche(on s'arrete)
+                if (_canMove)
                 {
-                    if (_direction)
-                        _action = Actions.StandRight;
+                    if (newKeyboardState.IsKeyDown(Keys.Right) && oldKeyboardState.IsKeyUp(Keys.Right))//apuie a droite
+                        Move(true);
+                    else if (newKeyboardState.IsKeyDown(Keys.Left) && oldKeyboardState.IsKeyUp(Keys.Left))//appuie a gauche
+                        Move(false);
                     else
-                        _action = Actions.StandLeft;
+                    {
+                        if (_direction)
+                            _action = Actions.StandRight;
+                        else
+                            _action = Actions.StandLeft;
+                        actualizeSpriteGraphicalBounds();
+                    }
+                    if (newKeyboardState.IsKeyDown(Keys.Space) && oldKeyboardState.IsKeyUp(Keys.Space))//appuie sur espace.
+                    {
+                        if (!_jumping)
+                            Jump();
+                    }
                 }
-                if (newKeyboardState.IsKeyDown(Keys.Space) && oldKeyboardState.IsKeyUp(Keys.Space))//appuie sur espace.
-                {
-                    Jump();
-                }
-                actualizeSpriteGraphicalBounds();
             }
             oldKeyboardState = newKeyboardState;
             oldMouseState = newMouseState;
