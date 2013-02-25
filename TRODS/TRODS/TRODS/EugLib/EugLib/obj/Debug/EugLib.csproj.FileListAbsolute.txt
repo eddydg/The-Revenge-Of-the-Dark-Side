@@ -1,0 +1,9 @@
+C:\Users\Kuchera\Documents\Visual Studio 2010\Projects\EugLib\EugLib\bin\Debug\EugLib.dll
+C:\Users\Kuchera\Documents\Visual Studio 2010\Projects\EugLib\EugLib\bin\Debug\EugLib.pdb
+C:\Users\Kuchera\Documents\Visual Studio 2010\Projects\EugLib\EugLib\obj\Debug\EugLib.dll
+C:\Users\Kuchera\Documents\Visual Studio 2010\Projects\EugLib\EugLib\obj\Debug\EugLib.pdb
+C:\Users\Kuchera\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\EugLib\EugLib\bin\Debug\EugLib.dll
+C:\Users\Kuchera\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\EugLib\EugLib\bin\Debug\EugLib.pdb
+C:\Users\Kuchera\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\EugLib\EugLib\obj\Debug\EugLib.dll
+C:\Users\Kuchera\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\EugLib\EugLib\obj\Debug\EugLib.pdb
+C:\Users\Kuchera\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\EugLib\EugLib\obj\Debug\EugLib.csprojResolveAssemblyReference.cache

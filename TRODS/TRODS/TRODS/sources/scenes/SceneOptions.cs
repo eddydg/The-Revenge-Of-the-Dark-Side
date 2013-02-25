@@ -43,7 +43,7 @@ namespace TRODS
             _soundMusic.LoadContent(content);
             _soundEffect.LoadContent(content);
 
-            List<string> par = EugLib.Tools.toArgv(EugLib.FileStream.readFile(SOUND_FILENAME));
+            List<string> par = EugLib.IO.Tools.toArgv(EugLib.IO.FileStream.readFile(SOUND_FILENAME));
             if (par.Count < 2 ||
                 !float.TryParse(par.ElementAt<string>(0), out _volumeMusic) ||
                 !float.TryParse(par.ElementAt<string>(1), out _volumeEffect))
@@ -79,7 +79,7 @@ namespace TRODS
                 parent.son.MusiquesVolume = _volumeMusic;
                 parent.son.SonsVolume = _volumeEffect;
 
-                EugLib.FileStream.writeFile(SOUND_FILENAME, _volumeMusic + " " + _volumeEffect);
+                EugLib.IO.FileStream.writeFile(SOUND_FILENAME, _volumeMusic + " " + _volumeEffect);
             }
 
             _keyboardState = newKeyboardState;

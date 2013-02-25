@@ -87,7 +87,7 @@ namespace TRODS
             }
             catch (Exception e)
             {
-                EugLib.FileStream.toStdOut(e.ToString());
+                EugLib.IO.FileStream.toStdOut(e.ToString());
             }
         }
         /// <summary>
@@ -103,7 +103,7 @@ namespace TRODS
             }
             catch (Exception e)
             {
-                EugLib.FileStream.toStdOut(e.ToString());
+                EugLib.IO.FileStream.toStdOut(e.ToString());
             }
         }
         /// <summary>
