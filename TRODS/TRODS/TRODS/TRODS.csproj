@@ -113,22 +113,24 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="sources\outils\Attac.cs" />
-    <Compile Include="sources\outils\IA.cs" />
-    <Compile Include="sources\outils\ContextMenu.cs" />
-    <Compile Include="sources\outils\Character.cs" />
-    <Compile Include="sources\outils\DecimalRectangle.cs" />
-    <Compile Include="sources\outils\InputManager.cs" />
-    <Compile Include="sources\outils\ParticleEngine.cs" />
-    <Compile Include="sources\outils\Personnage.cs" />
-    <Compile Include="sources\outils\Physics.cs" />
+    <Compile Include="sources\character\Attac.cs" />
+    <Compile Include="sources\character\IA.cs" />
+    <Compile Include="sources\character\Weapon.cs" />
+    <Compile Include="sources\graphics\GraphicalBounds.cs" />
+    <Compile Include="sources\tools\ContextMenu.cs" />
+    <Compile Include="sources\character\Character.cs" />
+    <Compile Include="sources\tools\DecimalRectangle.cs" />
+    <Compile Include="sources\tools\InputManager.cs" />
+    <Compile Include="sources\graphics\ParticleEngine.cs" />
+    <Compile Include="sources\character\Personnage.cs" />
+    <Compile Include="sources\tools\Physics.cs" />
     <Compile Include="sources\scenes\SceneOptions.cs" />
     <Compile Include="sources\scenes\SceneTitre.cs" />
-    <Compile Include="sources\outils\AbstractMap.cs" />
-    <Compile Include="sources\outils\AbstractScene.cs" />
-    <Compile Include="sources\outils\AnimatedSprite.cs" />
-    <Compile Include="sources\outils\Enumerations.cs" />
-    <Compile Include="sources\outils\Son.cs" />
+    <Compile Include="sources\tools\AbstractMap.cs" />
+    <Compile Include="sources\tools\AbstractScene.cs" />
+    <Compile Include="sources\graphics\AnimatedSprite.cs" />
+    <Compile Include="sources\tools\Enumerations.cs" />
+    <Compile Include="sources\tools\Son.cs" />
     <Compile Include="sources\scenes\InGame.cs" />
     <Compile Include="sources\scenes\MainMenu.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -136,7 +138,7 @@
     <Compile Include="sources\Game1.cs" />
     <Compile Include="sources\scenes\SceneCredit.cs" />
     <Compile Include="sources\scenes\SceneExtras.cs" />
-    <Compile Include="sources\outils\Sprite.cs" />
+    <Compile Include="sources\graphics\Sprite.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Game.ico" />

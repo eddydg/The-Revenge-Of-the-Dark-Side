@@ -42,11 +42,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="game\bear.png">
-      <Name>bear</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
     <Compile Include="game\menu\box.png">
       <Name>box</Name>
       <Importer>TextureImporter</Importer>
@@ -299,6 +294,13 @@
     </Compile>
     <Compile Include="sprites\spriteElectric_11x3r12r23.png">
       <Name>spriteElectric_11x3r12r23</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="game\epee.png">
+      <Name>epee</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>

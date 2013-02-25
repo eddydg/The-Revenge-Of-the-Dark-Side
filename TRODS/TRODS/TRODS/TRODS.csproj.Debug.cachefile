@@ -1,4 +1,3 @@
-Content\game\bear.xnb
 Content\game\menu\box.xnb
 Content\game\menu\container.xnb
 Content\game\menu\containervide.xnb
@@ -47,6 +46,7 @@ Content\sprites\explosion4_8x8.xnb
 Content\sprites\fireWall_11x6r23r44.xnb
 Content\sprites\popGreen_8x4.xnb
 Content\sprites\spriteElectric_11x3r12r23.xnb
+Content\game\epee.xnb
 Content\menu\menuAmbience.xnb
 Content\menu\selectionSound.xnb
 Content\menu\songCredit.xnb
