@@ -81,7 +81,7 @@ namespace TRODS
         internal bool _direction;
         internal int _timer;
         internal List<Attac> _attacks;
-        public List<Attac> AttackLst
+        public List<Attac> AttackList
         {
             get { return _attacks; }
             set { _attacks = value; }
@@ -154,13 +154,9 @@ namespace TRODS
 
             _jumpHeight = (int)((float)_jumpHeight * y);
 
-            Rectangle r = new Rectangle();
             foreach (Attac a in _attacks)
             {
-                r.X = (int)((float)a.Portee.X * x);
-                r.Y = (int)((float)a.Portee.Y * y);
-                r.Width = (int)((float)a.Portee.Width * x);
-                r.Height = (int)((float)a.Portee.Height * y);
+                a.Sprite.windowResized(rect);
             }
 
             _windowSize = rect;

@@ -13,22 +13,32 @@ namespace TRODS
 {
     class Attac
     {
-        private Rectangle _portee;
-        public Rectangle Portee
+        private AnimatedSprite _sprite;
+        internal AnimatedSprite Sprite
         {
-            get { return _portee; }
-            set { _portee = value; }
+            get { return _sprite; }
+            private set { _sprite = value; }
         }
         public int _duree { get; set; }
 
-        public Attac(int duree = 0, Rectangle portee = new Rectangle())
+        public Attac(AnimatedSprite s, int duree = 10)
         {
             _duree = duree;
-            _portee = portee;
+            _sprite = s;
+        }
+
+        public void Draw(SpriteBatch s)
+        {
+            _sprite.Draw(s);
         }
         public void Update(float elapsedTime)
         {
             _duree -= (int)elapsedTime;
+            _sprite.Update(elapsedTime);
+        }
+        public bool Over()
+        {
+            return _duree < 0;
         }
     }
 }
