@@ -28,7 +28,7 @@ namespace TRODS
             animations.Add(new AnimatedSprite(new Rectangle(394, _windowSize.Height, 280, 130), _windowSize, "menu/authors"));
             animations.Last<AnimatedSprite>().Direction = new Vector2(0, -1);
             animations.Last<AnimatedSprite>().Vitesse = 0.1f;
-            animations.Add(new AnimatedSprite(new Rectangle(0, 0, _windowSize.Width, 2 * _windowSize.Height / 5), _windowSize, "menu/credit"));
+            animations.Add(new AnimatedSprite(new Rectangle(0, 0, _windowSize.Width, 2 * _windowSize.Height / 8), _windowSize, "menu/credit"));
             animations.Add(new AnimatedSprite(new Rectangle(-300, _windowSize.Height - 100, _windowSize.Width + 300, 100), _windowSize, "menu/lueur1_10x4r21r40", 10, 4, 15, 21, 40, 1));
             _particles = new ParticleEngine(
                 _windowSize,

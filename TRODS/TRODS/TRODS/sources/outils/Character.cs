@@ -20,7 +20,7 @@ namespace TRODS
         }
         public enum Actions
         {
-            StandRight, StandLeft, WalkLeft, WalkRight, JumpRight, JumpLeft, Attack, Fall, Paralized
+            StandRight, StandLeft, WalkLeft, WalkRight, WalkUp, WalkDown, JumpRight, JumpLeft, Attack, Fall, Paralized
         }
         public struct GraphicalBounds
         {
@@ -86,6 +86,9 @@ namespace TRODS
             get { return _attacks; }
             set { _attacks = value; }
         }
+
+        internal KeyboardState _oldKeyboardState;
+        internal MouseState _oldMouseState;
 
         public Character(Rectangle winSize, Vector2 position, int width, int height,
             string assetName, int textureColumns, int textureLines)
@@ -222,12 +225,9 @@ namespace TRODS
             {
                 _jumping = false;
                 _jumpHeight = 0;
-                if (_direction) // right
-                    _action = Actions.StandRight;
-                else
-                    _action = Actions.StandLeft;
-                actualizeSpriteGraphicalBounds();
                 _isOnGround = true;
+                Stand(_direction);
+                _oldKeyboardState = new KeyboardState();
                 return true;
             }
             else

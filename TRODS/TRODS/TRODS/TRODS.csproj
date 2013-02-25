@@ -118,6 +118,7 @@
     <Compile Include="sources\outils\ContextMenu.cs" />
     <Compile Include="sources\outils\Character.cs" />
     <Compile Include="sources\outils\DecimalRectangle.cs" />
+    <Compile Include="sources\outils\InputManager.cs" />
     <Compile Include="sources\outils\ParticleEngine.cs" />
     <Compile Include="sources\outils\Personnage.cs" />
     <Compile Include="sources\outils\Physics.cs" />
