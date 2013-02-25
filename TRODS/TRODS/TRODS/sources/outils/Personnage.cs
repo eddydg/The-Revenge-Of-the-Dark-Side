@@ -19,11 +19,11 @@ namespace TRODS
             : base(winsize, position, 140, 190, @"game\perso", 5, 8)
         {
             _graphicalBounds = new GraphicalBounds(new Dictionary<Actions, Rectangle>());
-            _graphicalBounds.set(Actions.WalkRight, 3, 15, 15);
-            _graphicalBounds.set(Actions.WalkLeft, 20, 25, 30);
-            _graphicalBounds.set(Actions.StandRight, 1, 1, 2, 10);
-            _graphicalBounds.set(Actions.StandLeft, 16, 16, 17, 10);
-            _graphicalBounds.set(Actions.JumpRight, 31, 31, 35);
+            _graphicalBounds.set(Actions.WalkRight, 1, 6, 15);
+            _graphicalBounds.set(Actions.WalkLeft, 16, 21, 30);
+            _graphicalBounds.set(Actions.StandRight, 1, 1, 2, 4);
+            _graphicalBounds.set(Actions.StandLeft, 16, 16, 17, 4);
+            _graphicalBounds.set(Actions.JumpRight,31, 31, 35);
             _graphicalBounds.set(Actions.JumpLeft, 36, 36, 40);
             _action = Actions.StandRight;
             actualizeSpriteGraphicalBounds();
@@ -42,8 +42,9 @@ namespace TRODS
                         Move(true);
                     if (newKeyboardState.IsKeyDown(Keys.Left) && oldKeyboardState.IsKeyUp(Keys.Left))//appuie a gauche
                         Move(false);
-                    if (!newKeyboardState.IsKeyDown(Keys.Left) && !oldKeyboardState.IsKeyDown(Keys.Right))// aucun des deux
-                    {
+                    //si aucune touche n'est enfoncé (c'est un peu "sale" comme test, faudra trouvé autre chose)
+                    if (newKeyboardState.IsKeyUp(Keys.Left) && newKeyboardState.IsKeyUp(Keys.Right) && newKeyboardState.IsKeyUp(Keys.Space))
+                     {
                         if (_direction)
                             _action = Actions.StandRight;
                         else

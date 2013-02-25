@@ -113,7 +113,7 @@ namespace TRODS
             if (!_jumping)
                 _sprite.Draw(spriteBatch);
             else
-                _sprite.Draw(spriteBatch, Color.White, _sprite.Position.X, _sprite.Position.Y - _jumpHeight);
+                _sprite.Draw(spriteBatch, new Vector2(_sprite.Position.X, _sprite.Position.Y - _jumpHeight));
         }
         public override void Update(float elapsedTime)
         {
@@ -221,6 +221,7 @@ namespace TRODS
             if (_jumpHeight < 0)
             {
                 _jumping = false;
+                _jumpHeight = 0;
                 if (_direction) // right
                     _action = Actions.StandRight;
                 else
