@@ -43,5 +43,10 @@ namespace TRODS
         {
             return -(x - TimeOnFlat / 2) * (x - TimeOnFlat / 2) * 4 * MaxHeight / (TimeOnFlat * TimeOnFlat) + MaxHeight;
         }
+
+        public void WindowResized(float yRapt)
+        {
+            MaxHeight = (int)(yRapt * (float)MaxHeight);
+        }
     }
 }

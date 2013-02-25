@@ -22,7 +22,7 @@ namespace TRODS
         private InputManager<KeysActions, Keys> _inputManager;
 
         public Personnage(Rectangle winsize, Vector2 position)
-            : base(winsize, position, 140, 190, @"game\perso", 5, 8)
+            : base(winsize, position, 140, 190, @"game\perso", 15, 4)
         {
             _graphicalBounds = new GraphicalBounds<CharacterActions>(new Dictionary<CharacterActions, Rectangle>());
             _graphicalBounds.set(CharacterActions.WalkRight, 3, 6, 15);
@@ -31,36 +31,46 @@ namespace TRODS
             _graphicalBounds.set(CharacterActions.StandLeft, 16, 16, 17, 4);
             _graphicalBounds.set(CharacterActions.JumpRight, 31, 31, 35);
             _graphicalBounds.set(CharacterActions.JumpLeft, 36, 36, 40);
-            _graphicalBounds.set(CharacterActions.Attack1Right, 42, 42, 50, 20);
-            _graphicalBounds.set(CharacterActions.Attack1Left, 47, 47, 60, 20);
+            _graphicalBounds.set(CharacterActions.Attack1Right, 41, 41, 50, 35);
+            _graphicalBounds.set(CharacterActions.Attack1Left, 50, 50, 58, 35);
             _action = CharacterActions.StandRight;
-            actualizeSpriteGraphicalBounds();
-            actualizeSpritePosition();
             _physics.MaxHeight = 400;
             _physics.TimeOnFlat = 500;
             _inputManager = new InputManager<KeysActions, Keys>();
-            _weapon = new Weapon(@"game/epee", _sprite.Lignes, _sprite.Colonnes);
+            _weapon = new Weapon(@"game/epee1", _sprite.Lignes, _sprite.Colonnes, _sprite.Position.Width, _sprite.Position.Height);
             InitKeys();
+            actualizeSpriteGraphicalBounds();
+            actualizeSpritePosition();
         }
 
         public override void HandleInput(KeyboardState newKeyboardState, MouseState newMouseState, Game1 parent)
         {
             if (_oldKeyboardState != newKeyboardState)//gestion des entrées clavier.
             {
-                if (_canMove && !_jumping)
+                if (_canMove)
                 {
-                    if (newKeyboardState.IsKeyDown(_inputManager.Get(KeysActions.WalkRight)) && _action != CharacterActions.WalkRight)
-                        Move(true);
-                    else if (newKeyboardState.IsKeyDown(_inputManager.Get(KeysActions.WalkLeft)) && _action != CharacterActions.WalkLeft)
-                        Move(false);
-                    else if (newKeyboardState.IsKeyDown(_inputManager.Get(KeysActions.WalkUp)) && _action != CharacterActions.WalkUp)
-                        Move(_direction);
-                    else if (newKeyboardState.IsKeyDown(_inputManager.Get(KeysActions.WalkDown)) && _action != CharacterActions.WalkDown)
-                        Move(_direction);
-                    else
-                        Stand(_direction);
-                    if (newKeyboardState.IsKeyDown(_inputManager.Get(KeysActions.Jump)))
-                        Jump();
+                    if (!_jumping)
+                    {
+                        if (newKeyboardState.IsKeyDown(_inputManager.Get(KeysActions.WalkRight)) && _action != CharacterActions.WalkRight)
+                            Move(true);
+                        else if (newKeyboardState.IsKeyDown(_inputManager.Get(KeysActions.WalkLeft)) && _action != CharacterActions.WalkLeft)
+                            Move(false);
+                        else if (newKeyboardState.IsKeyDown(_inputManager.Get(KeysActions.WalkUp)) && _action != CharacterActions.WalkUp)
+                            Move(_direction);
+                        else if (newKeyboardState.IsKeyDown(_inputManager.Get(KeysActions.WalkDown)) && _action != CharacterActions.WalkDown)
+                            Move(_direction);
+                        else
+                            Stand(_direction);
+                        if (newKeyboardState.IsKeyDown(_inputManager.Get(KeysActions.Jump)))
+                            Jump();
+                    }
+                    if (newKeyboardState.IsKeyDown(_inputManager.Get(KeysActions.Attack1)))
+                    {
+                        _canMove = false;
+                        _timer = 400;
+                        _action = _direction ? CharacterActions.Attack1Right : CharacterActions.Attack1Left;
+                        actualizeSpriteGraphicalBounds();
+                    }
                 }
             }
             _oldKeyboardState = newKeyboardState;

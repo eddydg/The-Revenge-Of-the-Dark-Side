@@ -35,7 +35,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Kuchera\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\game\perso.xnb</Output>
-      <Time>2013-02-25T19:15:57.5436617+01:00</Time>
+      <Time>2013-02-25T23:45:07.1652121+01:00</Time>
     </Item>
     <Item>
       <Source>general\black.png</Source>
@@ -434,15 +434,6 @@
       <Time>2013-01-21T20:58:52.698457+01:00</Time>
     </Item>
     <Item>
-      <Source>game\epee.png</Source>
-      <Name>game\epee</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Kuchera\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\game\epee.xnb</Output>
-      <Time>2013-02-25T20:02:48+01:00</Time>
-    </Item>
-    <Item>
       <Source>menu\menuAmbience.wav</Source>
       <Name>menu\menuAmbience</Name>
       <Importer>WavImporter</Importer>
@@ -470,6 +461,15 @@
       <Output>C:\Users\Kuchera\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\songCredit.xnb</Output>
       <Extra>C:\Users\Kuchera\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\songCredit.wma</Extra>
       <Time>2013-01-21T20:58:51.4222923+01:00</Time>
+    </Item>
+    <Item>
+      <Source>game\epee1.png</Source>
+      <Name>game\epee1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Kuchera\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\game\epee1.xnb</Output>
+      <Time>2013-02-26T00:01:46.6316119+01:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

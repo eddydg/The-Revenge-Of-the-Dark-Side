@@ -57,11 +57,6 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="game\perso.png">
-      <Name>perso</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
     <Compile Include="general\black.png">
       <Name>black</Name>
       <Importer>TextureImporter</Importer>
@@ -299,8 +294,15 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="game\epee.png">
-      <Name>epee</Name>
+    <Compile Include="game\perso.png">
+      <Name>perso</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="game\epee1.png">
+      <Name>epee1</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>

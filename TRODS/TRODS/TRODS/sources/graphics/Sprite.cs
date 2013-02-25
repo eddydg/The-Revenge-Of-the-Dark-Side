@@ -124,6 +124,10 @@ namespace TRODS
         {
             spriteBatch.Draw(Texture, _position, color);
         }
+        public virtual void Draw(SpriteBatch spriteBatch, Rectangle position)
+        {
+            spriteBatch.Draw(Texture, position, Color.White);
+        }
         public virtual void Draw(SpriteBatch spriteBatch, byte alpha)
         {
             spriteBatch.Draw(Texture, _position, Color.FromNonPremultiplied(255, 255, 255, alpha));

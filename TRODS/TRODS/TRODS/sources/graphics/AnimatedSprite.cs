@@ -149,5 +149,13 @@ namespace TRODS
                                           Texture.Width / Colonnes,
                                           Texture.Height / Lignes), Color.White);
         }
+        public override void Draw(SpriteBatch spriteBatch, Rectangle position)
+        {
+            spriteBatch.Draw(Texture, position,
+                            new Rectangle((ActualPicture - 1) % Colonnes * Texture.Width / Colonnes,
+                                          (ActualPicture - 1) / Colonnes * Texture.Height / Lignes,
+                                          Texture.Width / Colonnes,
+                                          Texture.Height / Lignes), Color.White);
+        }
     }
 }

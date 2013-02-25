@@ -90,9 +90,11 @@ namespace TRODS
             if (_jumping)
                 _jumpHeight += _physics.Update(elapsedTime);
             testOnGround();
-            if (_timer < 0)
+            if (_timer < 0 && _canMove == false)
             {
                 _timer = 0;
+                _canMove = true;
+                Stand(_direction);
                 /*if (_direction) // right
                     _action = Actions.StandRight;
                 else
@@ -111,8 +113,12 @@ namespace TRODS
         public override void WindowResized(Rectangle rect)
         {
             _sprite.windowResized(rect);
+            if (_weapon != null)
+                _weapon.WindowResized(rect);
 
             float x = (float)rect.Width / (float)_windowSize.Width, y = (float)rect.Height / (float)_windowSize.Height;
+
+            _physics.WindowResized(y);
 
             _position.X *= x;
             _position.Y *= y;

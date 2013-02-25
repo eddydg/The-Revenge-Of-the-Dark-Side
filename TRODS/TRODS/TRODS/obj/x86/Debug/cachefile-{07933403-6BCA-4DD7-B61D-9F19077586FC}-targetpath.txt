@@ -46,9 +46,9 @@ Content\sprites\explosion4_8x8.xnb
 Content\sprites\fireWall_11x6r23r44.xnb
 Content\sprites\popGreen_8x4.xnb
 Content\sprites\spriteElectric_11x3r12r23.xnb
-Content\game\epee.xnb
 Content\menu\menuAmbience.xnb
 Content\menu\menuAmbience.wma
 Content\menu\selectionSound.xnb
 Content\menu\songCredit.xnb
 Content\menu\songCredit.wma
+Content\game\epee1.xnb
