@@ -19,7 +19,7 @@ namespace TRODS
         private Sprite wallpaper;
         private Sprite wallpaperText;
         private Sprite nuages;
-        private AnimatedSprite mouse;
+        private ParticleEngine mouse;
         private List<AnimatedSprite> sprites;
         private Texture2D cursorClic;
 
@@ -46,7 +46,9 @@ namespace TRODS
             nuages = new Sprite(new Rectangle(0, 0, windowWidth * 3, windowHeight), windowSize);
             nuages.Direction = new Vector2(-1, 0);
             nuages.Vitesse = 0.1f; // 1f = 1000 px/sec
-            mouse = new AnimatedSprite(new Rectangle(-100, -100, 80, 100), windowSize, 8, 4, 40);
+            mouse = new ParticleEngine(windowSize, new DecimalRectangle(-200, -200, 0, 0), new Vector3(1, 10, 10),
+                                new List<string>() { "particle/star"}, 5, 0.1f, 2f, -45f, 15f, 0f, 180f, -1f, 1f, 10f, 150f);
+            mouse.SetColorRange(0, 100, 0, 30, 0, 30);
             relativeAmplitudeVibrationSelection = (float)amplitudeVibrationSelection / (float)(windowHeight + windowWidth);
             sprites = new List<AnimatedSprite>();
 
@@ -63,7 +65,7 @@ namespace TRODS
             wallpaper.LoadContent(content, "menu/wallpaper");
             wallpaperText.LoadContent(content, "menu/wallpaperText");
             nuages.LoadContent(content, "general/nuages0");
-            mouse.LoadContent(content, "sprites/cursorFire_8x4r");
+            mouse.LoadContent(content);
             cursorClic = content.Load<Texture2D>("menu/onde_8x4");
             foreach (Sprite s in menuItems.Values)
                 s.LoadContent(content);
@@ -118,11 +120,11 @@ namespace TRODS
                 if (mousestate != newMouseState)
                 {
                     bool isClicked = newMouseState.LeftButton == ButtonState.Pressed && mousestate.LeftButton == ButtonState.Released;
-                    mouse.Position = new Rectangle(newMouseState.X, newMouseState.Y, mouse.Position.Width, mouse.Position.Height);
+                    mouse.EmitterLocation = new DecimalRectangle(newMouseState.X, newMouseState.Y,0,0);
                     int i = 0;
                     foreach (Sprite st in menuItems.Values)
                     {
-                        if (st.Position.Intersects(new Rectangle(mouse.Position.X, mouse.Position.Y, 1, 1)))
+                        if (st.Position.Intersects(new Rectangle((int)mouse.EmitterLocation.X, (int)mouse.EmitterLocation.Y, 1, 1)))
                         {
                             if ((int)selection != i)
                                 parent.son.Play(Sons.MenuSelection);
@@ -203,7 +205,7 @@ namespace TRODS
         {
             mousestate = Mouse.GetState();
             sprites.Clear();
-            mouse.Position = new Rectangle(-100, -100, mouse.Position.Width, mouse.Position.Height);
+            mouse.EmitterLocation = new DecimalRectangle(-100, -100, 0, 0);
             parent.son.Play(Musiques.MenuMusic);
         }
 
@@ -253,7 +255,7 @@ namespace TRODS
             windowWidth = rect.Width;
             windowHeight = rect.Height;
             amplitudeVibrationSelection = (int)(relativeAmplitudeVibrationSelection * (windowWidth + windowHeight));
-            mouse.windowResized(rect);
+            mouse.WindowResized(rect);
             foreach (AnimatedSprite p in sprites)
                 p.windowResized(rect);
         }

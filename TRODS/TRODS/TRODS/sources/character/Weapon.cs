@@ -15,9 +15,9 @@ namespace TRODS
     {
         private AnimatedSprite _sprite;
 
-        public Weapon(string assetName, int lignes, int colones, int width, int height)
+        public Weapon(Rectangle winsize, string assetName, int lignes, int colones, int width, int height)
         {
-            _sprite = new AnimatedSprite(new Rectangle(0, 0, width, height), new Rectangle(), assetName, colones, lignes);
+            _sprite = new AnimatedSprite(new Rectangle(0, 0, width, height), winsize, assetName, colones, lignes);
         }
 
         public void LoadContent(ContentManager content)

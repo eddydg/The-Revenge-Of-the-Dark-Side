@@ -15,6 +15,11 @@ namespace TRODS
     {
         private Random random;
         private DecimalRectangle emitterLocation;
+        internal DecimalRectangle EmitterLocation
+        {
+            get { return emitterLocation; }
+            set { emitterLocation = value; }
+        }
         private List<Particle> particles;
         private List<Texture2D> textures;
         private int nbNewParticle;

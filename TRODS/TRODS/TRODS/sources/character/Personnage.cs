@@ -31,16 +31,17 @@ namespace TRODS
             _graphicalBounds.set(CharacterActions.StandLeft, 16, 16, 17, 4);
             _graphicalBounds.set(CharacterActions.JumpRight, 31, 31, 35);
             _graphicalBounds.set(CharacterActions.JumpLeft, 36, 36, 40);
-            _graphicalBounds.set(CharacterActions.Attack1Right, 41, 41, 50, 35);
+            _graphicalBounds.set(CharacterActions.Attack1Right, 41, 41, 49, 35);
             _graphicalBounds.set(CharacterActions.Attack1Left, 50, 50, 58, 35);
             _action = CharacterActions.StandRight;
             _physics.MaxHeight = 400;
             _physics.TimeOnFlat = 500;
             _inputManager = new InputManager<KeysActions, Keys>();
-            _weapon = new Weapon(@"game/weapon2", _sprite.Lignes, _sprite.Colonnes, _sprite.Position.Width, _sprite.Position.Height);
+            _weapon = new Weapon(winsize,@"game/weapon2", _sprite.Lignes, _sprite.Colonnes, _sprite.Position.Width, _sprite.Position.Height);
             InitKeys();
             actualizeSpriteGraphicalBounds();
             actualizeSpritePosition();
+            Jump();
         }
 
         public override void HandleInput(KeyboardState newKeyboardState, MouseState newMouseState, Game1 parent)

@@ -22,6 +22,8 @@ namespace TRODS
         private Sprite _nuages;
         private Sprite _text;
 
+        private ParticleEngine _particles;
+
         public SceneTitre(Rectangle windowSize,KeyboardState keyboardState,MouseState mouseState)
         {
             _windowSize = windowSize;
@@ -33,7 +35,9 @@ namespace TRODS
             _nuages = new Sprite(new Rectangle(0, 0, windowSize.Width * 3, windowSize.Height), windowSize, "general/nuages0");
             _nuages.Direction = new Vector2(-1, 0);
             _nuages.Vitesse = 0.1f; // 1f = 1000 px/sec
-            _text = new Sprite(new Rectangle(_windowSize.Width / 2 - 100, 5 * _windowSize.Height / 6, 200, 70), _windowSize, "menu/tittleText");
+            _text = new Sprite(new Rectangle(_windowSize.Width / 2 - 100, 4 * _windowSize.Height / 6+45, 200, 70), _windowSize, "menu/tittleText");
+            _particles = new ParticleEngine(windowSize, new DecimalRectangle(0, windowSize.Height, windowSize.Width, 0), new Vector3(1, 15, 15),
+                                new List<string>() { "particle/fire", "particle/smoke" }, 30, 0.2f, 1f, 90f, 20f, 0f, 360f, -2, 2, 20f, 200f);
         }
 
         public override void HandleInput(KeyboardState newKeyboardState, MouseState newMouseState, Game1 parent)
@@ -58,6 +62,7 @@ namespace TRODS
             _wallpaperText.LoadContent(content);
             _nuages.LoadContent(content);
             _text.LoadContent(content);
+            _particles.LoadContent(content);
         }
 
         public override void Update(float elapsedTime)
@@ -67,6 +72,7 @@ namespace TRODS
                 _nuages.Position = new Rectangle(0, p.Y, p.Width, p.Height);
             else
                 _nuages.Update(elapsedTime);
+            _particles.Update(elapsedTime);
         }
 
         public override void Draw(SpriteBatch spriteBatch)
@@ -76,6 +82,7 @@ namespace TRODS
             _nuages.Draw(spriteBatch);
             if (_nuages.Position.X + _nuages.Position.Width <= _windowSize.Width)
                 _nuages.Draw(spriteBatch, new Vector2(_nuages.Position.X + _nuages.Position.Width,0));
+            _particles.Draw(spriteBatch);
             _wallpaperText.Draw(spriteBatch);
             _text.Draw(spriteBatch);
             spriteBatch.End();
@@ -87,6 +94,7 @@ namespace TRODS
             _nuages.windowResized(rect);
             _wallpaperText.windowResized(rect);
             _text.windowResized(rect);
+            _particles.WindowResized(rect);
         }
 
         public override void Activation(Game1 parent)
