@@ -35,15 +35,20 @@ namespace TRODS
 
             mouse = new Sprite(new Rectangle(-100, -100, 30, 50), _windowSize);
             map = new AbstractMap(_windowSize);
-            map.Visitable.Add(new Rectangle(450, 330, 1800, 150));
-            map.VuePosition = new Vector2(460, 330 + 150 - 1);
-            map.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(0, 0, _windowSize.Width, _windowSize.Height), _windowSize, "map1/sky1"), 0.2f, 0, true));
+            map.Visitable.Add(new Rectangle(450, 450, 1800, 130));
+            map.VuePosition = new Vector2(460, 450+130-1);
+            /*map.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(0, 0, _windowSize.Width, _windowSize.Height), _windowSize, "map1/sky1"), 0.2f, 0, true));
             map.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(0, 0, _windowSize.Width, _windowSize.Height), _windowSize, "map1/back1r"), 0.8f, 0.2f, true));
-            map.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(0, _windowSize.Height / 2, _windowSize.Width, _windowSize.Height / 2), _windowSize, "map1/fore1"), 1f, 0.5f, true));
+            map.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(0, _windowSize.Height / 2, _windowSize.Width, _windowSize.Height / 2), _windowSize, "map1/fore1"), 1f, 0.5f, true));*/
+            map.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(0, 0, 1040, 320), windowSize, "map2/sky"), 0.2f, 0,true));
+            map.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(0, 190, 960, 300), windowSize, "map2/mountain"), 0.8f, 0.2f,true));
+            map.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(0, 415, 1082, 193), windowSize, "map2/sand"), 1f, 0.5f, true));
+            map.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(0, 515, 1066, 92), windowSize, "map2/rock"), 1f, 0.5f, true,true));
             map.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(5, 150, _windowSize.Width / 2, _windowSize.Height - 150), _windowSize, "sprites/fireWall_11x6r23r44", 11, 6, 30, 23, 44, 1, true), 1f, 0.5f));
             map.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(1800 + _windowSize.Width / 2, 150, _windowSize.Width / 2 - 20, _windowSize.Height - 150), _windowSize, "sprites/fireWall_11x6r23r44", 11, 6, 30, 23, 44, 1, true), 1f, 0.5f));
 
-            personnage = new Personnage(_windowSize, new Vector2(500, 530));
+
+            personnage = new Personnage(_windowSize,map.VuePosition);
         }
 
         public override void LoadContent(ContentManager content)
@@ -58,8 +63,9 @@ namespace TRODS
         {
             spriteBatch.Begin();
 
-            map.Draw(spriteBatch);
+            map.Draw(spriteBatch, false);
             personnage.Draw(spriteBatch);
+            map.Draw(spriteBatch, true);
             _menu.Draw(spriteBatch);
             mouse.Draw(spriteBatch);
 

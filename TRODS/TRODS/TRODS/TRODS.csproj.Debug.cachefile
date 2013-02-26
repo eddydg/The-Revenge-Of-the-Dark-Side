@@ -47,9 +47,13 @@ Content\sprites\popGreen_8x4.xnb
 Content\sprites\spriteElectric_11x3r12r23.xnb
 Content\game\perso.xnb
 Content\game\epee1.xnb
+Content\game\weapon2.xnb
+Content\map2\mountain.xnb
+Content\map2\rock.xnb
+Content\map2\sand.xnb
+Content\map2\sky.xnb
 Content\menu\menuAmbience.xnb
 Content\menu\selectionSound.xnb
 Content\menu\songCredit.xnb
-Content\game\weapon2.xnb
 Content\menu\menuAmbience.wma
 Content\menu\songCredit.wma

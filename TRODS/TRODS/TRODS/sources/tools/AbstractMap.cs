@@ -39,31 +39,31 @@ namespace TRODS
             }
         }
 
-        protected List<Element> _elements;
+        internal List<Element> _elements;
         public List<Element> Elements
         {
             get { return _elements; }
             set { _elements = value; }
         }
-        protected Rectangle _windowSize;
+        internal Rectangle _windowSize;
         public Rectangle WindowSize
         {
             get { return _windowSize; }
             set { _windowSize = value; }
         }
-        protected Vector2 _vuePosition;
+        internal Vector2 _vuePosition;
         public Vector2 VuePosition
         {
             get { return _vuePosition; }
             set { _vuePosition = value; }
         }
-        protected List<Rectangle> _visitable;
+        internal List<Rectangle> _visitable;
         public List<Rectangle> Visitable
         {
             get { return _visitable; }
             set { _visitable = value; }
         }
-        protected bool _isDrawingForeground;
+        internal bool _isDrawingForeground;
         public bool IsDrawingForeground
         {
             get { return _isDrawingForeground; }
@@ -186,6 +186,11 @@ namespace TRODS
             foreach (Element s in _elements)
                 s.sprite.Update(elapsedTime);
         }
+        public virtual void Draw(SpriteBatch s, bool foreground)
+        {
+            _isDrawingForeground = foreground;
+            Draw(s);
+        }
         public override void Draw(SpriteBatch spriteBatch)
         {
             Rectangle p;
@@ -195,7 +200,6 @@ namespace TRODS
                 {
                     if (e.repeating)
                     {
-
                         p = e.sprite.Position;
 
                         if (p.X > _windowSize.Width)
