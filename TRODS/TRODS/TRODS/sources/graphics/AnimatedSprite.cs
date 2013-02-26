@@ -88,6 +88,7 @@ namespace TRODS
                 ActualPicture = FirstPicture;
 
             _elapsedTime = 0;
+            _repeating = repeating;
         }
         /// <summary>
         /// Change la position de l'image

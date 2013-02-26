@@ -37,7 +37,7 @@ namespace TRODS
             _physics.MaxHeight = 400;
             _physics.TimeOnFlat = 500;
             _inputManager = new InputManager<KeysActions, Keys>();
-            _weapon = new Weapon(@"game/epee1", _sprite.Lignes, _sprite.Colonnes, _sprite.Position.Width, _sprite.Position.Height);
+            _weapon = new Weapon(@"game/weapon2", _sprite.Lignes, _sprite.Colonnes, _sprite.Position.Width, _sprite.Position.Height);
             InitKeys();
             actualizeSpriteGraphicalBounds();
             actualizeSpritePosition();
@@ -45,36 +45,31 @@ namespace TRODS
 
         public override void HandleInput(KeyboardState newKeyboardState, MouseState newMouseState, Game1 parent)
         {
-            if (_oldKeyboardState != newKeyboardState)//gestion des entrées clavier.
+            if (_canMove)
             {
-                if (_canMove)
+                if (!_jumping)
                 {
-                    if (!_jumping)
-                    {
-                        if (newKeyboardState.IsKeyDown(_inputManager.Get(KeysActions.WalkRight)) && _action != CharacterActions.WalkRight)
-                            Move(true);
-                        else if (newKeyboardState.IsKeyDown(_inputManager.Get(KeysActions.WalkLeft)) && _action != CharacterActions.WalkLeft)
-                            Move(false);
-                        else if (newKeyboardState.IsKeyDown(_inputManager.Get(KeysActions.WalkUp)) && _action != CharacterActions.WalkUp)
-                            Move(_direction);
-                        else if (newKeyboardState.IsKeyDown(_inputManager.Get(KeysActions.WalkDown)) && _action != CharacterActions.WalkDown)
-                            Move(_direction);
-                        else
-                            Stand(_direction);
-                        if (newKeyboardState.IsKeyDown(_inputManager.Get(KeysActions.Jump)))
-                            Jump();
-                    }
-                    if (newKeyboardState.IsKeyDown(_inputManager.Get(KeysActions.Attack1)))
-                    {
-                        _canMove = false;
-                        _timer = 400;
-                        _action = _direction ? CharacterActions.Attack1Right : CharacterActions.Attack1Left;
-                        actualizeSpriteGraphicalBounds();
-                    }
+                    if (newKeyboardState.IsKeyDown(_inputManager.Get(KeysActions.WalkRight)))
+                        Move(true);
+                    else if (newKeyboardState.IsKeyDown(_inputManager.Get(KeysActions.WalkLeft)))
+                        Move(false);
+                    else if (newKeyboardState.IsKeyDown(_inputManager.Get(KeysActions.WalkUp)))
+                        Move(_direction);
+                    else if (newKeyboardState.IsKeyDown(_inputManager.Get(KeysActions.WalkDown)))
+                        Move(_direction);
+                    else
+                        Stand(_direction);
+                    if (newKeyboardState.IsKeyDown(_inputManager.Get(KeysActions.Jump)))
+                        Jump();
+                }
+                if (newKeyboardState.IsKeyDown(_inputManager.Get(KeysActions.Attack1)))
+                {
+                    _canMove = false;
+                    _timer = 400;
+                    _action = _direction ? CharacterActions.Attack1Right : CharacterActions.Attack1Left;
+                    actualizeSpriteGraphicalBounds();
                 }
             }
-            _oldKeyboardState = newKeyboardState;
-            _oldMouseState = newMouseState;
         }
 
         public void InitKeys()

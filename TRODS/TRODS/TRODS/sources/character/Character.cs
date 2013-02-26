@@ -39,9 +39,6 @@ namespace TRODS
         }
         internal Weapon _weapon;
 
-        internal KeyboardState _oldKeyboardState;
-        internal MouseState _oldMouseState;
-
         public Character(Rectangle winSize, Vector2 position, int width, int height,
             string assetName, int textureColumns, int textureLines)
         {
@@ -95,10 +92,6 @@ namespace TRODS
                 _timer = 0;
                 _canMove = true;
                 Stand(_direction);
-                /*if (_direction) // right
-                    _action = Actions.StandRight;
-                else
-                    _action = Actions.StandLeft;*/
             }
             for (int i = 0; i < _attacks.Count; i++)
             {
@@ -135,12 +128,15 @@ namespace TRODS
 
         public void Stand(bool right)
         {
-            _direction = right;
-            if (right)
-                _action = CharacterActions.StandRight;
-            else
-                _action = CharacterActions.StandLeft;
-            actualizeSpriteGraphicalBounds();
+            if (!(right == _direction && (_action == CharacterActions.StandRight || _action == CharacterActions.StandLeft)))
+            {
+                _direction = right;
+                if (right)
+                    _action = CharacterActions.StandRight;
+                else
+                    _action = CharacterActions.StandLeft;
+                actualizeSpriteGraphicalBounds();
+            }
         }
         public void Jump()
         {
@@ -159,7 +155,7 @@ namespace TRODS
         }
         public void Move(bool right)
         {
-            if (_canMove)
+            if (_canMove && !(right == _direction && (_action == CharacterActions.WalkRight || _action == CharacterActions.WalkLeft)))
             {
                 _direction = right;
                 if (right)
@@ -191,7 +187,6 @@ namespace TRODS
                 _jumpHeight = 0;
                 _isOnGround = true;
                 Stand(_direction);
-                _oldKeyboardState = new KeyboardState();
                 return true;
             }
             else

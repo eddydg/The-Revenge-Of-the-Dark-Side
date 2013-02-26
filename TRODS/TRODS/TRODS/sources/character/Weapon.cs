@@ -17,7 +17,7 @@ namespace TRODS
 
         public Weapon(string assetName, int lignes, int colones, int width, int height)
         {
-            _sprite = new AnimatedSprite(new Rectangle(0, 0, width, height), new Rectangle(), assetName,colones,lignes);
+            _sprite = new AnimatedSprite(new Rectangle(0, 0, width, height), new Rectangle(), assetName, colones, lignes);
         }
 
         public void LoadContent(ContentManager content)
@@ -26,9 +26,12 @@ namespace TRODS
         }
         public void Draw(SpriteBatch s, Rectangle character)
         {
+            /*_sprite.Draw(s, new Vector2(
+                character.X + character.Width / 2 - _sprite.Position.Width / 2,
+                character.Y + character.Height / 2 - _sprite.Position.Width / 2));*/
             _sprite.Draw(s, new Vector2(
                 character.X + character.Width / 2 - _sprite.Position.Width / 2,
-                character.Y + character.Height / 2 - _sprite.Position.Width / 2));
+                character.Y));
         }
         public void Update(float elapsedTime)
         {
