@@ -37,7 +37,7 @@ namespace TRODS
             _physics.MaxHeight = 400;
             _physics.TimeOnFlat = 500;
             _inputManager = new InputManager<KeysActions, Keys>();
-            _weapon = new Weapon(winsize,@"game/weapon2", _sprite.Lignes, _sprite.Colonnes, _sprite.Position.Width, _sprite.Position.Height);
+            _weapon = new Weapon(winsize,@"game/weapon", _sprite.Lignes, _sprite.Colonnes, _sprite.Position.Width, _sprite.Position.Height);
             InitKeys();
             actualizeSpriteGraphicalBounds();
             actualizeSpritePosition();

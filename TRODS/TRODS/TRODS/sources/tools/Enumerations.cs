@@ -7,7 +7,7 @@ namespace TRODS
 {
     public enum CharacterActions
     {
-        StandRight, StandLeft, WalkLeft, WalkRight, WalkUp, WalkDown, JumpRight, JumpLeft, Fall, Paralized,
+        StandRight, StandLeft, WalkLeft, WalkRight, WalkUp, WalkDown, JumpRight, JumpLeft, Fall, Paralized, ReceiveAttack,
         Attack1Right, Attack1Left
     }
     /// <summary>

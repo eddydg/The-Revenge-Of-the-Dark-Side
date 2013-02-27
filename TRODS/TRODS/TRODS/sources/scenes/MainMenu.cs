@@ -47,7 +47,7 @@ namespace TRODS
             nuages.Direction = new Vector2(-1, 0);
             nuages.Vitesse = 0.1f; // 1f = 1000 px/sec
             mouse = new ParticleEngine(windowSize, new DecimalRectangle(-200, -200, 0, 0), new Vector3(1, 10, 10),
-                                new List<string>() { "particle/star"}, 5, 0.1f, 2f, -45f, 15f, 0f, 180f, -1f, 1f, 10f, 150f);
+                                new List<string>() { "particle/star"}, 10, 0.1f, 2f, -45f, 15f, 0f, 180f, -1f, 1f, 10f, 150f);
             mouse.SetColorRange(0, 100, 0, 30, 0, 30);
             relativeAmplitudeVibrationSelection = (float)amplitudeVibrationSelection / (float)(windowHeight + windowWidth);
             sprites = new List<AnimatedSprite>();

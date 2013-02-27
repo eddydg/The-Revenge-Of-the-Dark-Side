@@ -39,31 +39,31 @@ namespace TRODS
             }
         }
 
-        internal List<Element> _elements;
+        protected List<Element> _elements;
         public List<Element> Elements
         {
             get { return _elements; }
             set { _elements = value; }
         }
-        internal Rectangle _windowSize;
+        protected Rectangle _windowSize;
         public Rectangle WindowSize
         {
             get { return _windowSize; }
             set { _windowSize = value; }
         }
-        internal Vector2 _vuePosition;
+        protected Vector2 _vuePosition;
         public Vector2 VuePosition
         {
             get { return _vuePosition; }
             set { _vuePosition = value; }
         }
-        internal List<Rectangle> _visitable;
+        protected List<Rectangle> _visitable;
         public List<Rectangle> Visitable
         {
             get { return _visitable; }
             set { _visitable = value; }
         }
-        internal bool _isDrawingForeground;
+        protected bool _isDrawingForeground;
         public bool IsDrawingForeground
         {
             get { return _isDrawingForeground; }

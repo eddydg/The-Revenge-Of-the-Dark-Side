@@ -19,6 +19,8 @@ namespace TRODS
         private Sprite _wallpaper;
         private AnimatedSprite _mouse;
         public static string SOUND_FILENAME = "files/sound";
+        private Sprite _textMusic;
+        private Sprite _textEffects;
         private Sprite _soundMusic;
         private Sprite _soundEffect;
         private float _volumeMusic;
@@ -32,8 +34,10 @@ namespace TRODS
 
             _wallpaper = new Sprite(new Rectangle(0, 0, _windowSize.Width, _windowSize.Height), _windowSize, "menu/wallpaper");
             _mouse = new AnimatedSprite(new Rectangle(-100, -100, 80, 100), windowSize, "sprites/cursorFire_8x4r", 8, 4, 40);
-            _soundMusic = new Sprite(new Rectangle(100, 423, 110, 55), _windowSize, "menu/soundMusic");
-            _soundEffect = new Sprite(new Rectangle(170, 480, 110, 55), _windowSize, "menu/soundEffect");
+            _textMusic = new Sprite(new Rectangle(70, 433, 110, 40), _windowSize, "menu/soundMusic");
+            _textEffects = new Sprite(new Rectangle(150, 490, 110, 40), _windowSize, "menu/soundEffect");
+            _soundMusic = new Sprite(new Rectangle(180, 423, 110, 55), _windowSize, "menu/soundBars");
+            _soundEffect = new Sprite(new Rectangle(260, 480, 110, 55), _windowSize, "menu/soundBars");
         }
 
         public override void LoadContent(ContentManager content)
@@ -42,6 +46,8 @@ namespace TRODS
             _mouse.LoadContent(content);
             _soundMusic.LoadContent(content);
             _soundEffect.LoadContent(content);
+            _textMusic.LoadContent(content);
+            _textEffects.LoadContent(content);
 
             List<string> par = EugLib.IO.Tools.toArgv(EugLib.IO.FileStream.readFile(SOUND_FILENAME));
             if (par.Count < 2 ||
@@ -101,6 +107,8 @@ namespace TRODS
                                 new Rectangle(_soundEffect.Position.X, _soundEffect.Position.Y, (int)(_volumeEffect * _soundEffect.Position.Width), _soundEffect.Position.Height),
                                 new Rectangle(0, 0, (int)(_volumeEffect * _soundEffect.Texture.Width), _soundEffect.Texture.Height),
                                 Color.White);
+            _textMusic.Draw(spriteBatch);
+            _textEffects.Draw(spriteBatch);
             _mouse.Draw(spriteBatch);
 
             spriteBatch.End();
@@ -116,6 +124,8 @@ namespace TRODS
             _wallpaper.windowResized(rect);
             _soundEffect.windowResized(rect);
             _soundMusic.windowResized(rect);
+            _textMusic.windowResized(rect);
+            _textEffects.windowResized(rect);
         }
     }
 }

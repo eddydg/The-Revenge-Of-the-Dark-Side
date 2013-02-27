@@ -14,30 +14,30 @@ namespace TRODS
 {
     class Character : AbstractScene
     {
-        internal Rectangle _windowSize;
-        internal GraphicalBounds<CharacterActions> _graphicalBounds;
-        internal CharacterActions _action;
-        internal AnimatedSprite _sprite;
-        internal Vector2 _position;
+        protected Rectangle _windowSize;
+        protected GraphicalBounds<CharacterActions> _graphicalBounds;
+        protected CharacterActions _action;
+        protected AnimatedSprite _sprite;
+        protected Vector2 _position;
         public Vector2 Position
         {
             get { return _position; }
             set { _position = value; }
         }
-        internal Physics _physics;
-        public bool _canMove { get; internal set; }
-        public bool _isOnGround { get; internal set; }
-        public bool _jumping { get; internal set; }
-        public int _jumpHeight { get; internal set; }
-        internal bool _direction;
-        internal int _timer;
-        internal List<Attac> _attacks;
+        protected Physics _physics;
+        public bool _canMove { get; protected set; }
+        public bool _isOnGround { get; protected set; }
+        public bool _jumping { get; protected set; }
+        public int _jumpHeight { get; protected set; }
+        protected bool _direction;
+        protected int _timer;
+        protected List<Attac> _attacks;
         public List<Attac> AttackList
         {
             get { return _attacks; }
             set { _attacks = value; }
         }
-        internal Weapon _weapon;
+        protected Weapon _weapon;
 
         public Character(Rectangle winSize, Vector2 position, int width, int height,
             string assetName, int textureColumns, int textureLines)
@@ -81,7 +81,8 @@ namespace TRODS
         {
             _timer -= (int)elapsedTime;
             _sprite.Update(elapsedTime);
-            _weapon.Update(elapsedTime);
+            if (_weapon != null)
+                _weapon.Update(elapsedTime);
             if (!_sprite._repeating && _sprite.IsEnd())
                 Stand(_direction);
             if (_jumping)
@@ -126,6 +127,13 @@ namespace TRODS
             _windowSize = rect;
         }
 
+        public void ReceiveAttack(int damage = 0, int blockTime = 100)
+        {
+            _action = CharacterActions.ReceiveAttack;
+            _canMove = false;
+            _timer = blockTime;
+            actualizeSpriteGraphicalBounds();
+        }
         public void Stand(bool right)
         {
             if (!(right == _direction && (_action == CharacterActions.StandRight || _action == CharacterActions.StandLeft)))
@@ -179,7 +187,7 @@ namespace TRODS
         {
         }
 
-        internal bool testOnGround()
+        protected bool testOnGround()
         {
             if (_jumpHeight < 0)
             {
@@ -192,7 +200,7 @@ namespace TRODS
             else
                 return false;
         }
-        internal void actualizeSpritePosition()
+        protected void actualizeSpritePosition()
         {
             _sprite.setRelatvePos(
                 new Rectangle(
@@ -202,7 +210,7 @@ namespace TRODS
                     _sprite.Position.Height),
                     _windowSize.Width, _windowSize.Height);
         }
-        internal void actualizeSpriteGraphicalBounds()
+        protected void actualizeSpriteGraphicalBounds()
         {
             Rectangle r = _graphicalBounds.get(_action);
             _sprite.SetPictureBounds(r.Y, r.Width, r.X, true);

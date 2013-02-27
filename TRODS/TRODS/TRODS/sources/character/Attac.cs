@@ -14,7 +14,7 @@ namespace TRODS
     class Attac
     {
         private AnimatedSprite _sprite;
-        internal AnimatedSprite Sprite
+        public AnimatedSprite Sprite
         {
             get { return _sprite; }
             private set { _sprite = value; }

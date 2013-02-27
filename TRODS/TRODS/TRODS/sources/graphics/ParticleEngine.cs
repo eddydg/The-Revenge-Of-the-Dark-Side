@@ -15,7 +15,7 @@ namespace TRODS
     {
         private Random random;
         private DecimalRectangle emitterLocation;
-        internal DecimalRectangle EmitterLocation
+        public DecimalRectangle EmitterLocation
         {
             get { return emitterLocation; }
             set { emitterLocation = value; }

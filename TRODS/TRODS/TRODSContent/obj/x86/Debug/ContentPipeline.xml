@@ -197,7 +197,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\soundEffect.xnb</Output>
-      <Time>2013-01-26T17:25:47.9449833+01:00</Time>
+      <Time>2013-02-26T22:26:29.4166855+01:00</Time>
     </Item>
     <Item>
       <Source>menu\soundMusic.png</Source>
@@ -206,7 +206,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\soundMusic.xnb</Output>
-      <Time>2013-01-26T17:25:47.946324+01:00</Time>
+      <Time>2013-02-26T22:26:29.4206855+01:00</Time>
     </Item>
     <Item>
       <Source>menu\textCredit.png</Source>
@@ -425,15 +425,6 @@
       <Time>2013-01-26T17:25:49.2643023+01:00</Time>
     </Item>
     <Item>
-      <Source>game\perso.png</Source>
-      <Name>game\perso</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\game\perso.xnb</Output>
-      <Time>2013-02-26T00:36:20.9206807+01:00</Time>
-    </Item>
-    <Item>
       <Source>game\epee1.png</Source>
       <Name>game\epee1</Name>
       <Importer>TextureImporter</Importer>
@@ -441,15 +432,6 @@
       <Options>None</Options>
       <Output>D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\game\epee1.xnb</Output>
       <Time>2013-02-26T00:36:20.8651728+01:00</Time>
-    </Item>
-    <Item>
-      <Source>game\weapon2.png</Source>
-      <Name>game\weapon2</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\game\weapon2.xnb</Output>
-      <Time>2013-02-26T01:51:26+01:00</Time>
     </Item>
     <Item>
       <Source>map2\mountain.png</Source>
@@ -488,6 +470,15 @@
       <Time>2013-02-26T12:00:40+01:00</Time>
     </Item>
     <Item>
+      <Source>game\perso.png</Source>
+      <Name>game\perso</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\game\perso.xnb</Output>
+      <Time>2013-02-26T23:09:51.8650354+01:00</Time>
+    </Item>
+    <Item>
       <Source>menu\menuAmbience.wav</Source>
       <Name>menu\menuAmbience</Name>
       <Importer>WavImporter</Importer>
@@ -515,6 +506,33 @@
       <Output>D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\songCredit.xnb</Output>
       <Extra>D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\songCredit.wma</Extra>
       <Time>2013-01-26T17:25:47.9409843+01:00</Time>
+    </Item>
+    <Item>
+      <Source>menu\soundBars.png</Source>
+      <Name>menu\soundBars</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\soundBars.xnb</Output>
+      <Time>2013-02-26T22:26:29.4406886+01:00</Time>
+    </Item>
+    <Item>
+      <Source>game\weapon.png</Source>
+      <Name>game\weapon</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\game\weapon.xnb</Output>
+      <Time>2013-02-26T23:10:07+01:00</Time>
+    </Item>
+    <Item>
+      <Source>game\blitz.png</Source>
+      <Name>game\blitz</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\game\blitz.xnb</Output>
+      <Time>2013-02-27T01:48:17.6415992+01:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
