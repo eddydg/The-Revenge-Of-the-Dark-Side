@@ -20,6 +20,7 @@ namespace TRODS
         private AbstractMap map;
         private ContextMenu _menu;
         private Personnage personnage;
+        private Random rand;
         private List<Mob> _mobs;
 
         public InGame(Rectangle windowSize, KeyboardState keyboardState, MouseState mouseState)
@@ -50,11 +51,9 @@ namespace TRODS
 
             personnage = new Personnage(_windowSize, map.VuePosition);
             _mobs = new List<Mob>();
-            Random rand = new Random();
+            rand = new Random();
             for (int i = 0; i < 5; i++)
                 _mobs.Add(new Mob(_windowSize, rand.Next(), new Vector2(1000, 580), 100, 200, "game/blitz", 5, 2, new Vector2(3f, 3f), new Vector2(1f, 0.5f), 300, 50, new Rectangle(900, 485, 500, 100)));
-            for (int i = 0; i < 5; i++)
-                _mobs.Add(new Mob(_windowSize, rand.Next(), new Vector2(2000, 580), 100, 200, "game/blitz", 5, 2, new Vector2(3f, 3f), new Vector2(1f, 0.5f), 300, 50, new Rectangle(2800, 485, 450, 100)));
             foreach (Mob m in _mobs)
             {
                 m.AddGraphicalBounds(CharacterActions.WalkRight, new Rectangle(6, 6, 10, 30));
@@ -121,6 +120,16 @@ namespace TRODS
             if (_menu.Choise == 0)
                 parent.SwitchScene(Scene.MainMenu);
 
+            /////////////////////////////////////////////////////////
+            if (newKeyboardState.IsKeyDown(Keys.M) && _keyboardState.IsKeyUp(Keys.M))
+            {
+                _mobs.Add(new Mob(_windowSize, rand.Next(), personnage.Position, 100, 200, "game/blitz", 5, 2, new Vector2(3f, 3f), new Vector2(1f, 0.5f), 300, 50, new Rectangle(3000-(int)map.VuePosition.X, 485, 450, 100)));
+                _mobs.Last().LoadContent(parent.Content);
+                _mobs.Last().AddGraphicalBounds(CharacterActions.WalkRight, new Rectangle(6, 6, 10, 30));
+                _mobs.Last().AddGraphicalBounds(CharacterActions.WalkLeft, new Rectangle(1, 1, 5, 30));
+                _mobs.Last().AddGraphicalBounds(CharacterActions.StandLeft, new Rectangle(3, 3, 3, 30));
+                _mobs.Last().AddGraphicalBounds(CharacterActions.StandRight, new Rectangle(8, 8, 8, 30));
+            }
 
             //// MOUVEMENT ////
             if (newKeyboardState.IsKeyDown(Keys.Right) && personnage._canMove)
