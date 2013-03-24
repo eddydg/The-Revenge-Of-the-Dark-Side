@@ -13,6 +13,10 @@ namespace TRODS.sources.scenes
 {
     class SceneDialog : AbstractScene
     {
-        
+        public enum Options
+        {
+            Ok,YesNo,OkCancel
+        }
+
     }
 }
