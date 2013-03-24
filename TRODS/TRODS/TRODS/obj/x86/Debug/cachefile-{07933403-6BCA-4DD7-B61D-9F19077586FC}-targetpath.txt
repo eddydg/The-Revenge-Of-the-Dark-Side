@@ -19,8 +19,6 @@ Content\menu\etoiles1_10x10r51r100.xnb
 Content\menu\lueur1_10x4r21r40.xnb
 Content\menu\onde_8x4.xnb
 Content\menu\sizeSelection.xnb
-Content\menu\soundEffect.xnb
-Content\menu\soundMusic.xnb
 Content\menu\textCredit.xnb
 Content\menu\textExit.xnb
 Content\menu\textExtra.xnb
@@ -51,11 +49,14 @@ Content\map2\rock.xnb
 Content\map2\sand.xnb
 Content\map2\sky.xnb
 Content\game\perso.xnb
+Content\game\weapon.xnb
+Content\menu\soundBars.xnb
+Content\menu\soundEffect.xnb
+Content\menu\soundMusic.xnb
+Content\game\blitz.xnb
 Content\menu\menuAmbience.xnb
 Content\menu\menuAmbience.wma
 Content\menu\selectionSound.xnb
 Content\menu\songCredit.xnb
 Content\menu\songCredit.wma
-Content\menu\soundBars.xnb
-Content\game\weapon.xnb
-Content\game\blitz.xnb
+Content\SpriteFont1.xnb

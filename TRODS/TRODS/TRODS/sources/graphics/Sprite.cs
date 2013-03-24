@@ -93,13 +93,17 @@ namespace TRODS
         /// </summary>
         /// <param name="content">Gertionnaire de contenu de XNA</param>
         /// <param name="assetName">Nom de la texture</param>
-        public virtual void LoadContent(ContentManager content, string assetName = "")
+        public virtual void LoadContent(ContentManager content, string assetName)
         {
             if (assetName == "")
                 assetName = AssetName;
             else
                 AssetName = assetName;
             Texture = content.Load<Texture2D>(assetName);
+        }
+        public override void LoadContent(ContentManager content)
+        {
+            Texture = content.Load<Texture2D>(AssetName);
         }
         /// <summary>
         /// Assigne la texture

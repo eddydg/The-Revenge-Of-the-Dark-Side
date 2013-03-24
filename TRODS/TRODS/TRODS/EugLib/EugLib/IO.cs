@@ -35,6 +35,28 @@ namespace EugLib.IO
                 ret.Add("");
             return ret;
         }
+
+        /// <summary>
+        /// Genere  un fichier .spritefont
+        /// </summary>
+        /// <param name="outputFile">Fichier de sortie</param>
+        /// <param name="fontName">Nom de la police</param>
+        /// <param name="size">Taille de la police</param>
+        /// <param name="style">Style de la police (ex : "Bold,Italic" )</param>
+        public static void SpriteFontGenerator(string outputFile, string fontName = "Impact", int size = 14, string style = "Regular")
+        {
+            String xml = "<?xml version=\"1.0\" encoding=\"utf-8\"?>" +
+                            "<XnaContent xmlns:Graphics=\"Microsoft.Xna.Framework.Content.Pipeline.Graphics\">" +
+                            "<Asset Type=\"Graphics:FontDescription\">" +
+                            " <FontName>";
+            xml += fontName;
+            xml += "</FontName><Size>";
+            xml += size.ToString();
+            xml+="</Size><Spacing>0</Spacing><UseKerning>true</UseKerning><Style>";
+            xml += style;
+            xml += "</Style><CharacterRegions><CharacterRegion><Start>&#32;</Start><End>&#256;</End></CharacterRegion></CharacterRegions></Asset></XnaContent>";
+            FileStream.writeFile(outputFile, xml);
+        }
     }
     public class FileStream
     {

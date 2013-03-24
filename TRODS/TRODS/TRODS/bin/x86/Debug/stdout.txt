@@ -10,3 +10,50 @@ System.NullReferenceException: La référence d'objet n'est pas définie à une 
    à TRODS.Character.Draw(SpriteBatch spriteBatch) dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\character\Character.cs:ligne 69
    à TRODS.InGame.Draw(SpriteBatch spriteBatch) dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\scenes\InGame.cs:ligne 82
    à TRODS.Game1.Draw(GameTime gameTime) dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\Game1.cs:ligne 130
+Loading ressources error.
+Microsoft.Xna.Framework.Content.ContentLoadException: Error loading "SpriteFont1". File contains Microsoft.Xna.Framework.Graphics.SpriteFont but trying to load as Microsoft.Xna.Framework.Graphics.Texture2D.
+   à Microsoft.Xna.Framework.Content.ContentReader.InvokeReader[T](ContentTypeReader reader, Object existingInstance)
+   à Microsoft.Xna.Framework.Content.ContentReader.ReadObjectInternal[T](Object existingInstance)
+   à Microsoft.Xna.Framework.Content.ContentReader.ReadObject[T]()
+   à Microsoft.Xna.Framework.Content.ContentReader.ReadAsset[T]()
+   à Microsoft.Xna.Framework.Content.ContentManager.ReadAsset[T](String assetName, Action`1 recordDisposableObject)
+   à Microsoft.Xna.Framework.Content.ContentManager.Load[T](String assetName)
+   à TRODS.Sprite.LoadContent(ContentManager content, String assetName) dans C:\Users\Kuchera\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\graphics\Sprite.cs:ligne 102
+   à TRODS.SceneTitre.LoadContent(ContentManager content) dans C:\Users\Kuchera\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\scenes\SceneTitre.cs:ligne 76
+   à TRODS.Game1.LoadContent() dans C:\Users\Kuchera\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\Game1.cs:ligne 80
+Loading ressources error.
+Microsoft.Xna.Framework.Content.ContentLoadException: Error loading "SpriteFont1". File contains Microsoft.Xna.Framework.Graphics.SpriteFont but trying to load as Microsoft.Xna.Framework.Graphics.Texture2D.
+   à Microsoft.Xna.Framework.Content.ContentReader.InvokeReader[T](ContentTypeReader reader, Object existingInstance)
+   à Microsoft.Xna.Framework.Content.ContentReader.ReadObjectInternal[T](Object existingInstance)
+   à Microsoft.Xna.Framework.Content.ContentReader.ReadObject[T]()
+   à Microsoft.Xna.Framework.Content.ContentReader.ReadAsset[T]()
+   à Microsoft.Xna.Framework.Content.ContentManager.ReadAsset[T](String assetName, Action`1 recordDisposableObject)
+   à Microsoft.Xna.Framework.Content.ContentManager.Load[T](String assetName)
+   à TRODS.Sprite.LoadContent(ContentManager content, String assetName) dans C:\Users\Kuchera\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\graphics\Sprite.cs:ligne 102
+   à TRODS.SceneTitre.LoadContent(ContentManager content) dans C:\Users\Kuchera\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\scenes\SceneTitre.cs:ligne 76
+   à TRODS.Game1.LoadContent() dans C:\Users\Kuchera\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\Game1.cs:ligne 80
+Loading ressources error.
+Microsoft.Xna.Framework.Content.ContentLoadException: Error loading "SpriteFont1". File contains Microsoft.Xna.Framework.Graphics.SpriteFont but trying to load as Microsoft.Xna.Framework.Graphics.Texture2D.
+   à Microsoft.Xna.Framework.Content.ContentReader.InvokeReader[T](ContentTypeReader reader, Object existingInstance)
+   à Microsoft.Xna.Framework.Content.ContentReader.ReadObjectInternal[T](Object existingInstance)
+   à Microsoft.Xna.Framework.Content.ContentReader.ReadObject[T]()
+   à Microsoft.Xna.Framework.Content.ContentReader.ReadAsset[T]()
+   à Microsoft.Xna.Framework.Content.ContentManager.ReadAsset[T](String assetName, Action`1 recordDisposableObject)
+   à Microsoft.Xna.Framework.Content.ContentManager.Load[T](String assetName)
+   à TRODS.Sprite.LoadContent(ContentManager content, String assetName) dans C:\Users\Kuchera\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\graphics\Sprite.cs:ligne 102
+   à TRODS.SceneTitre.LoadContent(ContentManager content) dans C:\Users\Kuchera\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\scenes\SceneTitre.cs:ligne 76
+   à TRODS.Game1.LoadContent() dans C:\Users\Kuchera\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\Game1.cs:ligne 80
+Erreur d'affichage :
+System.ArgumentNullException: La valeur ne peut pas être null.
+Nom du paramètre : text
+   à Microsoft.Xna.Framework.Graphics.SpriteFont.MeasureString(String text)
+   à TRODS.TextSprite.Draw(SpriteBatch spriteBatch) dans C:\Users\Kuchera\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\graphics\TextSprite.cs:ligne 39
+   à TRODS.SceneTitre.Draw(SpriteBatch spriteBatch) dans C:\Users\Kuchera\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\scenes\SceneTitre.cs:ligne 107
+   à TRODS.Game1.Draw(GameTime gameTime) dans C:\Users\Kuchera\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\Game1.cs:ligne 130
+Erreur d'affichage :
+System.ArgumentNullException: La valeur ne peut pas être null.
+Nom du paramètre : text
+   à Microsoft.Xna.Framework.Graphics.SpriteFont.MeasureString(String text)
+   à TRODS.TextSprite.Draw(SpriteBatch spriteBatch) dans C:\Users\Kuchera\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\graphics\TextSprite.cs:ligne 39
+   à TRODS.SceneTitre.Draw(SpriteBatch spriteBatch) dans C:\Users\Kuchera\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\scenes\SceneTitre.cs:ligne 107
+   à TRODS.Game1.Draw(GameTime gameTime) dans C:\Users\Kuchera\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\Game1.cs:ligne 130
