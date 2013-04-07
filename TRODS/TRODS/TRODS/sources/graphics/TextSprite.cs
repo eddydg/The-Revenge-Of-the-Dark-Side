@@ -26,14 +26,11 @@ namespace TRODS
 
         public override void LoadContent(ContentManager content)
         {
-            try
-            {
-                _spriteFont = content.Load<SpriteFont>(AssetName);
-            }
-            catch (Exception)
-            {
-                EugLib.IO.FileStream.toStdOut("ERRREEEEEEURR");
-            }
+            _spriteFont = content.Load<SpriteFont>(AssetName);
+        }
+        public void LoadContent(SpriteFont spritefont)
+        {
+            _spriteFont = spritefont;
         }
         public override void Draw(SpriteBatch spriteBatch)
         {
@@ -51,6 +48,10 @@ namespace TRODS
         private float min(float a, float b)
         {
             return a > b ? b : a;
+        }
+        public Vector2 GetOriginalTextSize()
+        {
+            return _spriteFont.MeasureString(Text);
         }
     }
 }

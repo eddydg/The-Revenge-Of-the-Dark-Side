@@ -118,6 +118,7 @@
     <Compile Include="sources\character\IA.cs" />
     <Compile Include="sources\character\Weapon.cs" />
     <Compile Include="sources\graphics\GraphicalBounds.cs" />
+    <Compile Include="sources\graphics\MultipleTextSprite.cs" />
     <Compile Include="sources\graphics\TextSprite.cs" />
     <Compile Include="sources\scenes\SceneDialog.cs" />
     <Compile Include="sources\tools\ContextMenu.cs" />

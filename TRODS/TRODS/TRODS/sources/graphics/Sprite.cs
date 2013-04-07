@@ -175,9 +175,9 @@ namespace TRODS
         /// et la _vitesse a celle de la fenetre
         /// </summary>
         /// <param name="rect"></param>
-        public virtual void windowResized(Rectangle rect, Rectangle oldRect = new Rectangle())
+        public virtual void windowResized(Rectangle rect, Rectangle oldWindowSize = new Rectangle())
         {
-            if (oldRect == new Rectangle())
+            if (oldWindowSize == new Rectangle())
             {
                 if (_isRelativePos)
                 {
@@ -191,7 +191,7 @@ namespace TRODS
             }
             else
             {
-                setRelatvePos(_position, oldRect.Width, oldRect.Height);
+                setRelatvePos(_position, oldWindowSize.Width, oldWindowSize.Height);
                 windowResized(rect);
             }
         }

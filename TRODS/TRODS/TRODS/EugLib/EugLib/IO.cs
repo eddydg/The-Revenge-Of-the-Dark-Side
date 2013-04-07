@@ -64,8 +64,6 @@ namespace EugLib.IO
         /// <summary>
         /// Prends en parametre un nom de fichiers
         /// Renvoie le contenu du fichier
-        /// Renvoie une chaine vide et cree le fichier
-        /// si il n'existait pas
         /// </summary>
         /// <param name="name">Nom du fichier</param>
         /// <returns>Contenu du fichier</returns>
@@ -78,21 +76,31 @@ namespace EugLib.IO
                 instream.Close();
                 return str;
             }
-            catch (System.IO.FileNotFoundException)
-            {
-                writeFile(name, "");
-                return "";
-            }
-            catch (System.IO.DirectoryNotFoundException)
-            {
-                writeFile(name, "");
-                return "";
-            }
             catch (Exception)
             {
                 Console.WriteLine("FileStream.readFile : Erreur lors de la lecture du fichier " + name);
                 return "";
             }
+        }
+
+        public static List<string> readFileLines(string name)
+        {
+            List<string> ret = new List<string>();
+            string str = "";
+            try
+            {
+                System.IO.StreamReader instream = new System.IO.StreamReader(name);
+                while ((str = instream.ReadLine()) != null)
+                {
+                    ret.Add(str);
+                }
+                instream.Close();
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("FileStream.readFile : Erreur lors de la lecture du fichier " + name);
+            }
+            return ret;
         }
 
         /// <summary>
