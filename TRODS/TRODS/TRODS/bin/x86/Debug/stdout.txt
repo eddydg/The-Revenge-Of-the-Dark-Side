@@ -57,3 +57,9 @@ Nom du paramètre : text
    à TRODS.TextSprite.Draw(SpriteBatch spriteBatch) dans C:\Users\Kuchera\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\graphics\TextSprite.cs:ligne 39
    à TRODS.SceneTitre.Draw(SpriteBatch spriteBatch) dans C:\Users\Kuchera\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\scenes\SceneTitre.cs:ligne 107
    à TRODS.Game1.Draw(GameTime gameTime) dans C:\Users\Kuchera\Documents\Git\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\Game1.cs:ligne 130
+Erreur d'affichage :
+System.InvalidOperationException: Begin cannot be called again until End has been successfully called.
+   à Microsoft.Xna.Framework.Graphics.SpriteBatch.Begin(SpriteSortMode sortMode, BlendState blendState, SamplerState samplerState, DepthStencilState depthStencilState, RasterizerState rasterizerState, Effect effect, Matrix transformMatrix)
+   à Microsoft.Xna.Framework.Graphics.SpriteBatch.Begin()
+   à TRODS.SceneCredit.Draw(SpriteBatch spriteBatch) dans C:\Users\Kuchera\Documents\GitHub\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\scenes\SceneCredit.cs:ligne 51
+   à TRODS.Game1.Draw(GameTime gameTime) dans C:\Users\Kuchera\Documents\GitHub\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\Game1.cs:ligne 130

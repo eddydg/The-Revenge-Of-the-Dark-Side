@@ -12,3 +12,8 @@ D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side
 D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\EugLib\EugLib\obj\Debug\EugLib.csprojResolveAssemblyReference.cache
 D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\EugLib\EugLib\obj\Debug\EugLib.dll
 D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\EugLib\EugLib\obj\Debug\EugLib.pdb
+C:\Users\Kuchera\Documents\GitHub\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\EugLib\EugLib\bin\Debug\EugLib.dll
+C:\Users\Kuchera\Documents\GitHub\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\EugLib\EugLib\bin\Debug\EugLib.pdb
+C:\Users\Kuchera\Documents\GitHub\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\EugLib\EugLib\obj\Debug\EugLib.csprojResolveAssemblyReference.cache
+C:\Users\Kuchera\Documents\GitHub\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\EugLib\EugLib\obj\Debug\EugLib.dll
+C:\Users\Kuchera\Documents\GitHub\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\EugLib\EugLib\obj\Debug\EugLib.pdb

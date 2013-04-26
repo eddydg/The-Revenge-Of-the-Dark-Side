@@ -52,6 +52,7 @@ namespace TRODS
             _particles.Draw(spriteBatch);
             foreach (AnimatedSprite s in animations)
                 s.Draw(spriteBatch);
+            spriteBatch.End();
         }
 
         public override void Update(float elapsedTime)
