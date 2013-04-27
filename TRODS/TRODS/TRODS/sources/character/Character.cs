@@ -38,6 +38,7 @@ namespace TRODS
             set { _attacks = value; }
         }
         protected Weapon _weapon;
+        public float Life { get; set; }
 
         public Character(Rectangle winSize, Vector2 position, int width, int height,
             string assetName, int textureColumns, int textureLines)
@@ -53,6 +54,7 @@ namespace TRODS
             _direction = true; // = right
             _timer = 0;
             _physics = new Physics();
+            Life = 1;
             _action = CharacterActions.StandRight;
         }
 
@@ -103,6 +105,11 @@ namespace TRODS
                     i--;
                 }
             }
+
+            if (Life < 0)
+                Life = 0;
+            else if (Life > 1)
+                Life = 1;
         }
         public override void WindowResized(Rectangle rect)
         {

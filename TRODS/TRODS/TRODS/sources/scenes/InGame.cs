@@ -53,13 +53,15 @@ namespace TRODS
             _mobs = new List<Mob>();
             rand = new Random();
             for (int i = 0; i < 5; i++)
-                _mobs.Add(new Mob(_windowSize, rand.Next(), new Vector2(1000, 580), 100, 200, "game/blitz", 5, 2, new Vector2(3f, 3f), new Vector2(1f, 0.5f), 300, 50, new Rectangle(900, 485, 500, 100)));
+                _mobs.Add(new Mob(_windowSize, rand.Next(), new Vector2(1000, 580), 100, 200, "game/blitz", 5, 4, new Vector2(3f, 3f), new Vector2(1f, 0.5f), 300, 50, new Rectangle(900, 485, 500, 100)));
             foreach (Mob m in _mobs)
             {
                 m.AddGraphicalBounds(CharacterActions.WalkRight, new Rectangle(6, 6, 10, 30));
                 m.AddGraphicalBounds(CharacterActions.WalkLeft, new Rectangle(1, 1, 5, 30));
                 m.AddGraphicalBounds(CharacterActions.StandLeft, new Rectangle(3, 3, 3, 30));
                 m.AddGraphicalBounds(CharacterActions.StandRight, new Rectangle(8, 8, 8, 30));
+                m.AddGraphicalBounds(CharacterActions.Attack1Left, new Rectangle(11, 11, 12, 4));
+                m.AddGraphicalBounds(CharacterActions.Attack1Right, new Rectangle(16, 16, 17, 4));
             }
         }
 
@@ -78,9 +80,43 @@ namespace TRODS
             spriteBatch.Begin();
 
             map.Draw(spriteBatch, false);
-            foreach (Mob m in _mobs)
-                m.Draw(spriteBatch);
-            personnage.Draw(spriteBatch);
+            bool pdrn = false;
+                            // gestion profondeur des biatches
+                            if (_mobs != null)
+                            {
+                                int l = 0;
+                                float min = float.MaxValue;
+                                bool dp = false;
+                                List<int> done = new List<int>();
+                                while (done.Count < _mobs.Count + 1)
+                                {
+                                    min = float.MaxValue;
+                                    for (int i = 0; i < _mobs.Count; i++)
+                                    {
+                                        if (_mobs[i].Position.Y < min && !done.Contains(i))
+                                        {
+                                            min = _mobs[i].Position.Y;
+                                            l = i;
+                                            if (!pdrn && personnage.Position.Y < _mobs[i].Position.Y)
+                                                dp = true;
+                                            i = _mobs.Count + 1;
+                                        }
+                                    }
+                                    if (dp)
+                                    {
+                                        personnage.Draw(spriteBatch);
+                                        dp = false;
+                                        pdrn = true;
+                                    }
+                                    else
+                                    {
+                                        _mobs[l].Draw(spriteBatch);
+                                        done.Add(l);
+                                    }
+                                }
+                            }
+            if (!pdrn)
+                personnage.Draw(spriteBatch);
             map.Draw(spriteBatch, true);
             _menu.Draw(spriteBatch);
             mouse.Draw(spriteBatch);
@@ -104,7 +140,6 @@ namespace TRODS
         {
             if (parent.Window.ClientBounds != _windowSize)
             {
-                _windowSize = parent.Window.ClientBounds;
                 windowResized(parent.Window.ClientBounds);
             }
             if (!newKeyboardState.IsKeyDown(Keys.Escape) && _keyboardState.IsKeyDown(Keys.Escape))
@@ -119,17 +154,6 @@ namespace TRODS
             _menu.HandleInput(newKeyboardState, newMouseState, parent);
             if (_menu.Choise == 0)
                 parent.SwitchScene(Scene.MainMenu);
-
-            /////////////////////////////////////////////////////////
-            if (newKeyboardState.IsKeyDown(Keys.M) && _keyboardState.IsKeyUp(Keys.M))
-            {
-                _mobs.Add(new Mob(_windowSize, rand.Next(), personnage.Position, 100, 200, "game/blitz", 5, 2, new Vector2(3f, 3f), new Vector2(1f, 0.5f), 300, 50, new Rectangle(3000-(int)map.VuePosition.X, 485, 450, 100)));
-                _mobs.Last().LoadContent(parent.Content);
-                _mobs.Last().AddGraphicalBounds(CharacterActions.WalkRight, new Rectangle(6, 6, 10, 30));
-                _mobs.Last().AddGraphicalBounds(CharacterActions.WalkLeft, new Rectangle(1, 1, 5, 30));
-                _mobs.Last().AddGraphicalBounds(CharacterActions.StandLeft, new Rectangle(3, 3, 3, 30));
-                _mobs.Last().AddGraphicalBounds(CharacterActions.StandRight, new Rectangle(8, 8, 8, 30));
-            }
 
             //// MOUVEMENT ////
             if (newKeyboardState.IsKeyDown(Keys.Right) && personnage._canMove)
@@ -185,6 +209,7 @@ namespace TRODS
             _menu.WindowResized(rect);
             foreach (Mob m in _mobs)
                 m.WindowResized(rect);
+            _windowSize = rect;
         }
     }
 }

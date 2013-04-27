@@ -14,10 +14,20 @@ namespace TRODS
     class IA : AbstractScene
     {
         private Random _rand;
+        public Random Rand
+        {
+            get { return _rand; }
+            private set { _rand = value; }
+        }
         private int _attackSpeed;
         private int _attackDistance;
         private float _timer;
         private bool _isNearPerso;
+        public bool IsNearPerso
+        {
+            get { return _isNearPerso; }
+            private set { _isNearPerso = value; }
+        }
         public bool _attack { get; set; }
         private Rectangle _windowSize;
         private Vector2 _deplacement;
@@ -26,8 +36,9 @@ namespace TRODS
             get { return _deplacement; }
             set { _deplacement = value; }
         }
+        private int _visionRange;
 
-        public IA(Rectangle windowsize, int seed, Vector2 speed,int attacDistance, int attackSpeed = 300)
+        public IA(Rectangle windowsize, int seed, Vector2 speed,int attacDistance, int visionRange, int attackSpeed = 300)
         {
             _attackDistance=attacDistance;
             this._attackSpeed = attackSpeed;
@@ -37,6 +48,7 @@ namespace TRODS
             this._attack = false;
             _rand = new Random(seed);
             _deplacement = new Vector2(1, 1);
+            this._visionRange = visionRange;
             _deplacement.Normalize();
         }
 
@@ -63,16 +75,21 @@ namespace TRODS
         }
         public void Actualize(Vector2 posPerso, Vector2 posMob, Rectangle playingZone)
         {
-            _isNearPerso = playingZone.Contains(new Rectangle((int)posPerso.X, (int)posPerso.Y, 1, 1));
-            if (!playingZone.Contains(new Rectangle((int)posMob.X, (int)posMob.Y, 1, 1)))
+            _isNearPerso = isNear(posPerso, posMob,_attackDistance);
+            if (!_isNearPerso && isNear(posPerso, posMob, _visionRange))
+                _deplacement = new Vector2(posPerso.X - posMob.X, posPerso.Y - posMob.Y);
+            else if (_isNearPerso)
+                _deplacement = Vector2.Zero;
+            else if (!playingZone.Contains(new Rectangle((int)posMob.X, (int)posMob.Y, 1, 1)))
             {
                 _deplacement = new Vector2((float)_rand.Next(playingZone.Width) + (float)playingZone.X - posMob.X, (float)_rand.Next(playingZone.Height) + (float)playingZone.Y - posMob.Y);
             }
-            else if (_isNearPerso)
-            {
-                _deplacement = new Vector2(posPerso.X - posMob.X, posPerso.Y - posMob.Y);
-            }
             _deplacement.Normalize();
+        }
+
+        private bool isNear(Vector2 posPerso, Vector2 posMob,int distance)
+        {
+            return (posPerso.X - posMob.X) * (posPerso.X - posMob.X) + (posPerso.Y - posMob.Y) * (posPerso.Y - posMob.Y) <= distance * distance;
         }
 
         public override void WindowResized(Rectangle rect)
@@ -84,6 +101,7 @@ namespace TRODS
             _deplacement.Normalize();
             _windowSize = rect;
             _attackDistance = (int)((float)_attackDistance * x);
+            _visionRange = (int)((float)_visionRange * x);
         }
     }
 }

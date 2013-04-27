@@ -63,3 +63,12 @@ System.InvalidOperationException: Begin cannot be called again until End has bee
    à Microsoft.Xna.Framework.Graphics.SpriteBatch.Begin()
    à TRODS.SceneCredit.Draw(SpriteBatch spriteBatch) dans C:\Users\Kuchera\Documents\GitHub\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\scenes\SceneCredit.cs:ligne 51
    à TRODS.Game1.Draw(GameTime gameTime) dans C:\Users\Kuchera\Documents\GitHub\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\Game1.cs:ligne 130
+Erreur d'affichage :
+System.OutOfMemoryException: Une exception de type 'System.OutOfMemoryException' a été levée.
+   à System.Array.Resize[T](T[]& array, Int32 newSize)
+   à Microsoft.Xna.Framework.Graphics.SpriteBatch.InternalDraw(Texture2D texture, Vector4& destination, Boolean scaleDestination, Nullable`1& sourceRectangle, Color color, Single rotation, Vector2& origin, SpriteEffects effects, Single depth)
+   à Microsoft.Xna.Framework.Graphics.SpriteBatch.Draw(Texture2D texture, Rectangle destinationRectangle, Nullable`1 sourceRectangle, Color color)
+   à TRODS.AnimatedSprite.Draw(SpriteBatch spriteBatch) dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\graphics\AnimatedSprite.cs:ligne 138
+   à TRODS.Character.Draw(SpriteBatch spriteBatch) dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\character\Character.cs:ligne 69
+   à TRODS.InGame.Draw(SpriteBatch spriteBatch) dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\scenes\InGame.cs:ligne 107
+   à TRODS.Game1.Draw(GameTime gameTime) dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\Game1.cs:ligne 130
