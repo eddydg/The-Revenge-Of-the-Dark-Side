@@ -503,7 +503,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\game\blitz.xnb</Output>
-      <Time>2013-04-27T17:14:35.7884268+02:00</Time>
+      <Time>2013-04-28T17:59:11.3120134+02:00</Time>
     </Item>
     <Item>
       <Source>menu\menuAmbience.wav</Source>
@@ -551,6 +551,15 @@
       <Options>None</Options>
       <Output>D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\game\life_mob.xnb</Output>
       <Time>2013-04-27T18:42:48.275546+02:00</Time>
+    </Item>
+    <Item>
+      <Source>game\HUD.png</Source>
+      <Name>game\HUD</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\game\HUD.xnb</Output>
+      <Time>2013-04-28T15:22:06.2626021+02:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

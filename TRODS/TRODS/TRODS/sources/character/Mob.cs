@@ -22,6 +22,12 @@ namespace TRODS
         private Vector2 _mapSpeed;
         private Vector2 _speed;
         private IA _ia;
+
+        internal IA Ia
+        {
+            get { return _ia; }
+            set { _ia = value; }
+        }
         private Sprite _lifeSprite;
 
         public Mob(Rectangle winSize, int seed, Vector2 position, int width, int height, string assetName, int textureColumns, int textureLines, Vector2 speed, Vector2 mapSpeed, int attackSpeed, int attackDistance, Rectangle playingZone)
@@ -52,9 +58,9 @@ namespace TRODS
                     _position += _ia.Deplacement * _speed;
                 else if (!_ia._attack)
                     Stand(_direction);
-                if (_ia._attack && _action != CharacterActions.Attack1Left && _action != CharacterActions.Attack1Right)
+                if (_ia._attack && Action != CharacterActions.Attack1Left && Action != CharacterActions.Attack1Right)
                 {
-                    _action = _direction ? CharacterActions.Attack1Right : CharacterActions.Attack1Left;
+                    Action = _direction ? CharacterActions.Attack1Right : CharacterActions.Attack1Left;
                     _canMove = false;
                     _timer = 500;
                     actualizeSpriteGraphicalBounds();
@@ -64,7 +70,6 @@ namespace TRODS
                     Move(_ia.Deplacement.X > 0);
             }
             _lifeSprite.setRelatvePos(new Rectangle(_sprite.Position.X+_sprite.Position.Width/4, _sprite.Position.Y - (int)((1f / 20f) * (float)_sprite.Position.Height), _sprite.Position.Width-_sprite.Position.Width/2, (int)((1f / 20f) * (float)_sprite.Position.Height)), _windowSize.Width, _windowSize.Height);
-            Life += ((float)_ia.Rand.Next(10) - 5f) / 50f;
             actualizeSpritePosition();
         }
         public override void LoadContent(ContentManager content)

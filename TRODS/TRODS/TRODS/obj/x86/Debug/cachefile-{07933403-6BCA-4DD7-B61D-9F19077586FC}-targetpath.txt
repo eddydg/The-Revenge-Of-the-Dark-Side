@@ -61,3 +61,4 @@ Content\menu\songCredit.xnb
 Content\menu\songCredit.wma
 Content\SpriteFont1.xnb
 Content\game\life_mob.xnb
+Content\game\HUD.xnb

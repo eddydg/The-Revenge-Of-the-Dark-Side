@@ -113,11 +113,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="sources\character\AttackEnvironment.cs" />
     <Compile Include="sources\character\Mob.cs" />
     <Compile Include="sources\character\Attac.cs" />
     <Compile Include="sources\character\IA.cs" />
     <Compile Include="sources\character\Weapon.cs" />
     <Compile Include="sources\graphics\GraphicalBounds.cs" />
+    <Compile Include="sources\graphics\HUD.cs" />
     <Compile Include="sources\graphics\MultipleTextSprite.cs" />
     <Compile Include="sources\graphics\TextSprite.cs" />
     <Compile Include="sources\scenes\SceneDialog.cs" />

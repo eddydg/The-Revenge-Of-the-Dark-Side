@@ -16,7 +16,13 @@ namespace TRODS
     {
         protected Rectangle _windowSize;
         protected GraphicalBounds<CharacterActions> _graphicalBounds;
-        protected CharacterActions _action;
+        private CharacterActions _action;
+
+        public CharacterActions Action
+        {
+            get { return _action; }
+            set { _action = value; }
+        }
         protected AnimatedSprite _sprite;
         protected Vector2 _position;
         public Vector2 Position
@@ -24,6 +30,7 @@ namespace TRODS
             get { return _position; }
             set { _position = value; }
         }
+        public Rectangle DrawingRectangle { get { return _sprite != null ? _sprite.Position : new Rectangle(); } }
         protected Physics _physics;
         public bool _canMove { get; protected set; }
         public bool _isOnGround { get; protected set; }
@@ -31,13 +38,12 @@ namespace TRODS
         public int _jumpHeight { get; protected set; }
         protected bool _direction;
         protected int _timer;
-        protected List<Attac> _attacks;
-        public List<Attac> AttackList
+        private Weapon _weapon;
+        public Weapon Weapon
         {
-            get { return _attacks; }
-            set { _attacks = value; }
+            get { return _weapon; }
+            set { _weapon = value; }
         }
-        protected Weapon _weapon;
         public float Life { get; set; }
 
         public Character(Rectangle winSize, Vector2 position, int width, int height,
@@ -46,7 +52,6 @@ namespace TRODS
             _windowSize = winSize;
             _position = position;
             _graphicalBounds = new GraphicalBounds<CharacterActions>(new Dictionary<CharacterActions, Rectangle>());
-            _attacks = new List<Attac>();
             _sprite = new AnimatedSprite(new Rectangle((int)position.X - width / 2, (int)position.Y - height, width, height), winSize, assetName, textureColumns, textureLines, 30, 1, -1, -1, true);
             _canMove = true;
             _jumping = false;
@@ -96,15 +101,6 @@ namespace TRODS
                 _canMove = true;
                 Stand(_direction);
             }
-            for (int i = 0; i < _attacks.Count; i++)
-            {
-                _attacks[i].Update(elapsedTime);
-                if (_attacks[i]._duree < 0)
-                {
-                    _attacks.RemoveAt(i);
-                    i--;
-                }
-            }
 
             if (Life < 0)
                 Life = 0;
@@ -126,20 +122,16 @@ namespace TRODS
 
             _jumpHeight = (int)((float)_jumpHeight * y);
 
-            foreach (Attac a in _attacks)
-            {
-                a.Sprite.windowResized(rect);
-            }
-
             _windowSize = rect;
         }
 
-        public void ReceiveAttack(int damage = 0, int blockTime = 100)
+        public void ReceiveAttack(float damage = 0, int blockTime = 100)
         {
-            _action = CharacterActions.ReceiveAttack;
+            _action = _direction ? CharacterActions.ReceiveAttackRight : CharacterActions.ReceiveAttackLeft;
             _canMove = false;
             _timer = blockTime;
             actualizeSpriteGraphicalBounds();
+            Life -= damage;
         }
         public void Stand(bool right)
         {

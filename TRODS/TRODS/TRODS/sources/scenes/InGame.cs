@@ -22,6 +22,7 @@ namespace TRODS
         private Personnage personnage;
         private Random rand;
         private List<Mob> _mobs;
+        private HUD _hud;
 
         public InGame(Rectangle windowSize, KeyboardState keyboardState, MouseState mouseState)
         {
@@ -62,7 +63,11 @@ namespace TRODS
                 m.AddGraphicalBounds(CharacterActions.StandRight, new Rectangle(8, 8, 8, 30));
                 m.AddGraphicalBounds(CharacterActions.Attack1Left, new Rectangle(11, 11, 12, 4));
                 m.AddGraphicalBounds(CharacterActions.Attack1Right, new Rectangle(16, 16, 17, 4));
+                m.AddGraphicalBounds(CharacterActions.ReceiveAttackLeft, new Rectangle(13, 13, 13, 4));
+                m.AddGraphicalBounds(CharacterActions.ReceiveAttackRight, new Rectangle(18, 18, 18, 4));
             }
+
+            _hud = new HUD(_windowSize, new string[] { "game/HUD", "game/life_mob" });
         }
 
         public override void LoadContent(ContentManager content)
@@ -73,6 +78,7 @@ namespace TRODS
             _menu.LoadContent(content);
             foreach (Mob m in _mobs)
                 m.LoadContent(content);
+            _hud.LoadContent(content);
         }
 
         public override void Draw(SpriteBatch spriteBatch)
@@ -81,43 +87,44 @@ namespace TRODS
 
             map.Draw(spriteBatch, false);
             bool pdrn = false;
-                            // gestion profondeur des biatches
-                            if (_mobs != null)
-                            {
-                                int l = 0;
-                                float min = float.MaxValue;
-                                bool dp = false;
-                                List<int> done = new List<int>();
-                                while (done.Count < _mobs.Count + 1)
-                                {
-                                    min = float.MaxValue;
-                                    for (int i = 0; i < _mobs.Count; i++)
-                                    {
-                                        if (_mobs[i].Position.Y < min && !done.Contains(i))
-                                        {
-                                            min = _mobs[i].Position.Y;
-                                            l = i;
-                                            if (!pdrn && personnage.Position.Y < _mobs[i].Position.Y)
-                                                dp = true;
-                                            i = _mobs.Count + 1;
-                                        }
-                                    }
-                                    if (dp)
-                                    {
-                                        personnage.Draw(spriteBatch);
-                                        dp = false;
-                                        pdrn = true;
-                                    }
-                                    else
-                                    {
-                                        _mobs[l].Draw(spriteBatch);
-                                        done.Add(l);
-                                    }
-                                }
-                            }
+            // gestion profondeur des biatches
+            if (_mobs != null && _mobs.Count > 0)
+            {
+                int l = 0;
+                float min = float.MaxValue;
+                bool dp = false;
+                List<int> done = new List<int>();
+                while (done.Count < _mobs.Count + 1)
+                {
+                    min = float.MaxValue;
+                    for (int i = 0; i < _mobs.Count; i++)
+                    {
+                        if (_mobs[i].Position.Y < min && !done.Contains(i))
+                        {
+                            min = _mobs[i].Position.Y;
+                            l = i;
+                            if (!pdrn && personnage.Position.Y < _mobs[i].Position.Y)
+                                dp = true;
+                            i = _mobs.Count + 1;
+                        }
+                    }
+                    if (dp)
+                    {
+                        personnage.Draw(spriteBatch);
+                        dp = false;
+                        pdrn = true;
+                    }
+                    else
+                    {
+                        _mobs[l].Draw(spriteBatch);
+                        done.Add(l);
+                    }
+                }
+            }
             if (!pdrn)
                 personnage.Draw(spriteBatch);
             map.Draw(spriteBatch, true);
+            _hud.Draw(spriteBatch);
             _menu.Draw(spriteBatch);
             mouse.Draw(spriteBatch);
 
@@ -133,6 +140,37 @@ namespace TRODS
             {
                 m.Actualize(personnage.Position);
                 m.Update(elapsedTime);
+            }
+            _hud.Update(elapsedTime);
+            _hud.LifeLevel = personnage.Life;
+            if (_hud.LifeLevel > 1)
+                _hud.LifeLevel = 1;
+            else if (_hud.LifeLevel < 0)
+                _hud.LifeLevel = 0;
+
+
+            if (personnage.Action == CharacterActions.Attack1Left || personnage.Action == CharacterActions.Attack1Right)
+            {
+                for (int i = 0; i < _mobs.Count; i++)
+                {
+                    if (personnage.Weapon.Position.Intersects(_mobs[i].DrawingRectangle))
+                    {
+                        _mobs[i].ReceiveAttack(0.01f);
+                    }
+                    if (_mobs[i].Life <= 0)
+                    {
+                        _mobs.RemoveAt(i);
+                        i--;
+                    }
+                }
+            }
+
+            foreach (Mob m in _mobs)
+            {
+                if (m.Ia._attack && m.DrawingRectangle.Intersects(personnage.DrawingRectangle))
+                {
+                    personnage.ReceiveAttack(0.01f);
+                }
             }
         }
 
@@ -181,6 +219,10 @@ namespace TRODS
                         m.Move(0, 5);
             }
             personnage.HandleInput(newKeyboardState, newMouseState, parent);
+            _hud.HandleInput(newKeyboardState, newMouseState, parent);
+
+            if (personnage.Life <= 0)
+                parent.SwitchScene(Scene.MainMenu);
 
             _keyboardState = newKeyboardState;
             _mouseState = newMouseState;
@@ -195,6 +237,13 @@ namespace TRODS
 
         public override void EndScene(Game1 parent)
         {
+            map.Elements.Clear();
+            map.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(0, 0, 1040, 320), _windowSize, "map2/sky"), 0.2f, 0, true));
+            map.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(0, 190, 960, 300), _windowSize, "map2/mountain"), 0.8f, 0.2f, true));
+            map.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(0, 415, 1082, 193), _windowSize, "map2/sand"), 1f, 0.5f, true));
+            map.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(0, 515, 1066, 92), _windowSize, "map2/rock"), 1f, 0.5f, true, true));
+            map.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(5, 150, _windowSize.Width / 2, _windowSize.Height - 150), _windowSize, "sprites/fireWall_11x6r23r44", 11, 6, 30, 23, 44, 1, true), 1f, 0.5f));
+            map.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(2800 + _windowSize.Width / 2, 150, _windowSize.Width / 2 - 20, _windowSize.Height - 150), _windowSize, "sprites/fireWall_11x6r23r44", 11, 6, 30, 23, 44, 1, true), 1f, 0.5f));
         }
 
         /// <summary>
@@ -210,6 +259,7 @@ namespace TRODS
             foreach (Mob m in _mobs)
                 m.WindowResized(rect);
             _windowSize = rect;
+            _hud.WindowResized(rect);
         }
     }
 }
