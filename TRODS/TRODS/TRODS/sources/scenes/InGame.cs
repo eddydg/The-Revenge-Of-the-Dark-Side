@@ -69,7 +69,7 @@ namespace TRODS
                 m.AddGraphicalBounds(CharacterActions.ReceiveAttackRight, new Rectangle(18, 18, 18, 4));
             }
 
-            _hud = new HUD(_windowSize, new string[] { "game/HUD", "game/life_mob", "game/mana", "game/xp", "SpriteFont1" });
+            _hud = new HUD(_windowSize);
         }
 
         public override void LoadContent(ContentManager content)
@@ -148,6 +148,10 @@ namespace TRODS
             _hud.ManaLevel = personnage.Mana;
             _hud.XpLevel = personnage.Experience.Percentage;
             _hud.LevelText = personnage.Experience.Level.ToString();
+            if (_mobs != null)
+                _hud.EnnemiesText = _mobs.Count.ToString();
+            else
+                _hud.EnnemiesText = "--";
 
             if (personnage.Action == CharacterActions.Attack1Left || personnage.Action == CharacterActions.Attack1Right)
             {

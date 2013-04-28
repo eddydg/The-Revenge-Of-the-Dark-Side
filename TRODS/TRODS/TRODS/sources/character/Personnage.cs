@@ -57,6 +57,9 @@ namespace TRODS
         public override void Update(float elapsedTime)
         {
             base.Update(elapsedTime);
+            if (Action == CharacterActions.Attack1Left || Action == CharacterActions.Attack1Right || Action == CharacterActions.JumpLeft || Action == CharacterActions.JumpRight)
+                Mana -= 0.01f;
+            Mana += elapsedTime / 16000;
             if (Mana > 1)
                 Mana = 1;
             else if (Mana < 0)

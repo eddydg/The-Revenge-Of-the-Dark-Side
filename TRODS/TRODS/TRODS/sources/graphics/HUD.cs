@@ -24,27 +24,32 @@ namespace TRODS
             get { return _level.Text; }
             set { _level.Text = value; }
         }
+        private AnimatedSprite _portrait;
+        private TextSprite _ennemiesLeftText;
+        private TextSprite _ennemiesLeft;
+        public String EnnemiesText
+        {
+            get { return _ennemiesLeft.Text; }
+            set { _ennemiesLeft.Text = value; }
+        }
 
         public float LifeLevel { get; set; }
         public float ManaLevel { get; set; }
         public float XpLevel { get; set; }
 
-        public HUD(Rectangle windowsize, string[] assetName)
+        public HUD(Rectangle windowsize)
         {
+            //"game/HUD", "game/life_mob", "game/mana", "game/xp", "SpriteFont1"
             LifeLevel = 0;
-            if (assetName.Length > 0)
-                _background = new Sprite(new Rectangle(0, 0, windowsize.Width, windowsize.Height / 5), windowsize, assetName[0]);
-            if (assetName.Length > 1)
-                _life = new AnimatedSprite(new Rectangle(278, 20, 300, 10), windowsize, assetName[1]);
-            if (assetName.Length > 2)
-                _mana = new AnimatedSprite(new Rectangle(278, 50, 300, 10), windowsize, assetName[2]);
-            if (assetName.Length > 3)
-                _xp = new AnimatedSprite(new Rectangle(278, 80, 300, 10), windowsize, assetName[3]);
-            if (assetName.Length > 4)
-            {
-                _levelText = new TextSprite(assetName[4], windowsize, new Rectangle(600, 20, 50, 20), "Level", Color.Gold);
-                _level = new TextSprite(assetName[4], windowsize, new Rectangle(600, 40, 50, 70), "1", Color.Gold);
-            }
+            _background = new Sprite(new Rectangle(0, 0, windowsize.Width, windowsize.Height / 5), windowsize, "game/HUD");
+            _life = new AnimatedSprite(new Rectangle(278, 20, 300, 10), windowsize, "game/life_mob");
+            _mana = new AnimatedSprite(new Rectangle(278, 50, 300, 10), windowsize, "game/mana");
+            _xp = new AnimatedSprite(new Rectangle(278, 80, 300, 10), windowsize, "game/xp");
+            _levelText = new TextSprite("SpriteFont1", windowsize, new Rectangle(600, 20, 50, 20), "Level", Color.Gold);
+            _level = new TextSprite("SpriteFont1", windowsize, new Rectangle(600, 40, 50, 70), "1", Color.Gold);
+            _ennemiesLeftText = new TextSprite("SpriteFont1", windowsize, new Rectangle(700, 20, 60, 20), "Ennemies", Color.DarkRed);
+            _ennemiesLeft = new TextSprite("SpriteFont1", windowsize, new Rectangle(700, 40, 60, 70), "--", Color.DarkRed);
+            _portrait = new AnimatedSprite(new Rectangle(10, 10, 175, 90), windowsize, "game/persoPortrait");
         }
 
         public override void HandleInput(KeyboardState newKeyboardState, MouseState newMouseState, Game1 parent)
@@ -60,6 +65,9 @@ namespace TRODS
             _xp.LoadContent(content);
             _levelText.LoadContent(content);
             _level.LoadContent(content);
+            _portrait.LoadContent(content);
+            _ennemiesLeftText.LoadContent(content);
+            _ennemiesLeft.LoadContent(content);
         }
 
         public override void Draw(SpriteBatch spriteBatch)
@@ -96,6 +104,9 @@ namespace TRODS
                                                 _xp.Position.Height), Color.White);
             _levelText.Draw(spriteBatch);
             _level.Draw(spriteBatch);
+            _portrait.Draw(spriteBatch);
+            _ennemiesLeftText.Draw(spriteBatch);
+            _ennemiesLeft.Draw(spriteBatch);
         }
 
         public override void Update(float elapsedTime)
@@ -106,6 +117,9 @@ namespace TRODS
             _xp.Update(elapsedTime);
             _levelText.Update(elapsedTime);
             _level.Update(elapsedTime);
+            _portrait.Update(elapsedTime);
+            _ennemiesLeftText.Update(elapsedTime);
+            _ennemiesLeft.Update(elapsedTime);
         }
 
         public override void WindowResized(Rectangle rect)
@@ -116,6 +130,9 @@ namespace TRODS
             _xp.windowResized(rect);
             _levelText.windowResized(rect);
             _level.windowResized(rect);
+            _portrait.windowResized(rect);
+            _ennemiesLeftText.windowResized(rect);
+            _ennemiesLeft.windowResized(rect);
         }
     }
 }

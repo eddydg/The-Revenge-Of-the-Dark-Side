@@ -589,6 +589,15 @@
       <Output>C:\Users\Kuchera\Documents\GitHub\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\game\xp.xnb</Output>
       <Time>2013-04-28T23:01:15.9277695+02:00</Time>
     </Item>
+    <Item>
+      <Source>game\persoPortrait.png</Source>
+      <Name>game\persoPortrait</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Kuchera\Documents\GitHub\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\game\persoPortrait.xnb</Output>
+      <Time>2013-04-29T00:55:12.7605712+02:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>
