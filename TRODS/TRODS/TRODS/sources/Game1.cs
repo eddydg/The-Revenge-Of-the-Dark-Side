@@ -65,7 +65,8 @@ namespace TRODS
             scenes.Add(Scene.Credit, new SceneCredit(winsize, keyboardState, mouseState));
             scenes.Add(Scene.Titre, new SceneTitre(winsize, keyboardState, mouseState));
             scenes.Add(Scene.Options, new SceneOptions(winsize, keyboardState, mouseState));
-            currentScene = Scene.Titre;
+            scenes.Add(Scene.IntroVid, new VideoReader("general/introduction_trods"));
+            currentScene = Scene.IntroVid;
         }
         protected override void Initialize()
         {
@@ -98,6 +99,7 @@ namespace TRODS
                 EugLib.IO.FileStream.toStdOut(e.ToString());
                 this.Exit();
             }
+            scenes[currentScene].Activation(this);
         }
         protected override void UnloadContent()
         {

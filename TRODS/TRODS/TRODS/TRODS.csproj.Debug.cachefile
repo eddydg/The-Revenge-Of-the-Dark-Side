@@ -54,11 +54,13 @@ Content\menu\soundBars.xnb
 Content\menu\soundEffect.xnb
 Content\menu\soundMusic.xnb
 Content\game\blitz.xnb
+Content\game\life_mob.xnb
+Content\game\HUD.xnb
 Content\menu\menuAmbience.xnb
 Content\menu\selectionSound.xnb
 Content\menu\songCredit.xnb
 Content\SpriteFont1.xnb
-Content\game\life_mob.xnb
-Content\game\HUD.xnb
+Content\general\introduction_trods.xnb
 Content\menu\menuAmbience.wma
 Content\menu\songCredit.wma
+Content\general\introduction_trods.wmv
