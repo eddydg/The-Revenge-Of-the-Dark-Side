@@ -114,6 +114,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="sources\character\AttackEnvironment.cs" />
+    <Compile Include="sources\character\ExperienceCounter.cs" />
     <Compile Include="sources\character\Mob.cs" />
     <Compile Include="sources\character\Attac.cs" />
     <Compile Include="sources\character\IA.cs" />

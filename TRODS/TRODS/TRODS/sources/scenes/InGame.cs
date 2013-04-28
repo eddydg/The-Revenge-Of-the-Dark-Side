@@ -23,12 +23,14 @@ namespace TRODS
         private Random rand;
         private List<Mob> _mobs;
         private HUD _hud;
+        private Rectangle _originalWindowSize;
 
         public InGame(Rectangle windowSize, KeyboardState keyboardState, MouseState mouseState)
         {
             _windowSize = windowSize;
             _mouseState = mouseState;
             _keyboardState = keyboardState;
+            _originalWindowSize = windowSize;
 
             _menu = new ContextMenu(_windowSize, new AnimatedSprite(new Rectangle(0, 30, 200, 50), _windowSize, "menu/ContextualMenuBlackFull"), "menu/contextMenuExit", 235);
             _menu.Title = new AnimatedSprite(new Rectangle(_menu.Position.Width / 2 - 75, 0, 150, 50), _windowSize, "menu/contextMenuText");
@@ -53,8 +55,8 @@ namespace TRODS
             personnage = new Personnage(_windowSize, map.VuePosition);
             _mobs = new List<Mob>();
             rand = new Random();
-            for (int i = 0; i < 5; i++)
-                _mobs.Add(new Mob(_windowSize, rand.Next(), new Vector2(1000, 580), 100, 200, "game/blitz", 5, 4, new Vector2(3f, 3f), new Vector2(1f, 0.5f), 300, 50, new Rectangle(900, 485, 500, 100)));
+            for (int i = 0; i < 50; i++)
+                _mobs.Add(new Mob(_windowSize, rand.Next(), new Vector2(1000, 580), 100, 200, "game/blitz", 5, 4, new Vector2(3f, 3f), new Vector2(1f, 0.5f), 300, 50, new Rectangle(900, 485, 2000, 100)));
             foreach (Mob m in _mobs)
             {
                 m.AddGraphicalBounds(CharacterActions.WalkRight, new Rectangle(6, 6, 10, 30));
@@ -67,7 +69,7 @@ namespace TRODS
                 m.AddGraphicalBounds(CharacterActions.ReceiveAttackRight, new Rectangle(18, 18, 18, 4));
             }
 
-            _hud = new HUD(_windowSize, new string[] { "game/HUD", "game/life_mob" });
+            _hud = new HUD(_windowSize, new string[] { "game/HUD", "game/life_mob", "game/mana", "game/xp", "SpriteFont1" });
         }
 
         public override void LoadContent(ContentManager content)
@@ -143,11 +145,9 @@ namespace TRODS
             }
             _hud.Update(elapsedTime);
             _hud.LifeLevel = personnage.Life;
-            if (_hud.LifeLevel > 1)
-                _hud.LifeLevel = 1;
-            else if (_hud.LifeLevel < 0)
-                _hud.LifeLevel = 0;
-
+            _hud.ManaLevel = personnage.Mana;
+            _hud.XpLevel = personnage.Experience.Percentage;
+            _hud.LevelText = personnage.Experience.Level.ToString();
 
             if (personnage.Action == CharacterActions.Attack1Left || personnage.Action == CharacterActions.Attack1Right)
             {
@@ -161,6 +161,7 @@ namespace TRODS
                     {
                         _mobs.RemoveAt(i);
                         i--;
+                        personnage.Experience.Add(50);
                     }
                 }
             }
@@ -237,13 +238,40 @@ namespace TRODS
 
         public override void EndScene(Game1 parent)
         {
-            map.Elements.Clear();
-            map.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(0, 0, 1040, 320), _windowSize, "map2/sky"), 0.2f, 0, true));
-            map.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(0, 190, 960, 300), _windowSize, "map2/mountain"), 0.8f, 0.2f, true));
-            map.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(0, 415, 1082, 193), _windowSize, "map2/sand"), 1f, 0.5f, true));
-            map.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(0, 515, 1066, 92), _windowSize, "map2/rock"), 1f, 0.5f, true, true));
-            map.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(5, 150, _windowSize.Width / 2, _windowSize.Height - 150), _windowSize, "sprites/fireWall_11x6r23r44", 11, 6, 30, 23, 44, 1, true), 1f, 0.5f));
-            map.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(2800 + _windowSize.Width / 2, 150, _windowSize.Width / 2 - 20, _windowSize.Height - 150), _windowSize, "sprites/fireWall_11x6r23r44", 11, 6, 30, 23, 44, 1, true), 1f, 0.5f));
+            _windowSize = parent.Window.ClientBounds;
+            map.VuePosition = new Vector2(460, 450 + 130 - 1);
+            map.Elements[0].sprite.setRelatvePos(new Rectangle(0, 0, 1040, 320), _originalWindowSize.Width, _originalWindowSize.Height);
+            map.Elements[1].sprite.setRelatvePos(new Rectangle(0, 190, 960, 300), _originalWindowSize.Width, _originalWindowSize.Height);
+            map.Elements[2].sprite.setRelatvePos(new Rectangle(0, 415, 1082, 193), _originalWindowSize.Width, _originalWindowSize.Height);
+            map.Elements[3].sprite.setRelatvePos(new Rectangle(0, 515, 1066, 92), _originalWindowSize.Width, _originalWindowSize.Height);
+            map.Elements[4].sprite.setRelatvePos(new Rectangle(5, 150, _windowSize.Width / 2, _windowSize.Height - 150), _originalWindowSize.Width, _originalWindowSize.Height);
+            map.Elements[5].sprite.setRelatvePos(new Rectangle(2800 + _windowSize.Width / 2, 150, _windowSize.Width / 2 - 20, _windowSize.Height - 150), _originalWindowSize.Width, _originalWindowSize.Height);
+            map.WindowResized(_windowSize);
+
+            rand = new Random();
+            _mobs.Clear();
+            for (int i = 0; i < 50; i++)
+                _mobs.Add(new Mob(_windowSize, rand.Next(), new Vector2(1000, 580), 100, 200, "game/blitz", 5, 4, new Vector2(3f, 3f), new Vector2(1f, 0.5f), 300, 50, new Rectangle(900, 485, 2000, 100)));
+            foreach (Mob m in _mobs)
+            {
+                m.AddGraphicalBounds(CharacterActions.WalkRight, new Rectangle(6, 6, 10, 30));
+                m.AddGraphicalBounds(CharacterActions.WalkLeft, new Rectangle(1, 1, 5, 30));
+                m.AddGraphicalBounds(CharacterActions.StandLeft, new Rectangle(3, 3, 3, 30));
+                m.AddGraphicalBounds(CharacterActions.StandRight, new Rectangle(8, 8, 8, 30));
+                m.AddGraphicalBounds(CharacterActions.Attack1Left, new Rectangle(11, 11, 12, 4));
+                m.AddGraphicalBounds(CharacterActions.Attack1Right, new Rectangle(16, 16, 17, 4));
+                m.AddGraphicalBounds(CharacterActions.ReceiveAttackLeft, new Rectangle(13, 13, 13, 4));
+                m.AddGraphicalBounds(CharacterActions.ReceiveAttackRight, new Rectangle(18, 18, 18, 4));
+            }
+            foreach (Mob m in _mobs)
+            {
+                m.LoadContent(parent.Content);
+                m.WindowResized(_windowSize);
+            }
+
+            personnage.Life = 1;
+            personnage.Mana = 1;
+            personnage.Experience.Reset();
         }
 
         /// <summary>

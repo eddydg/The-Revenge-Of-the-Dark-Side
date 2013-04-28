@@ -64,3 +64,5 @@ Content\menu\songCredit.wma
 Content\SpriteFont1.xnb
 Content\general\introduction_trods.xnb
 Content\general\introduction_trods.wmv
+Content\game\mana.xnb
+Content\game\xp.xnb

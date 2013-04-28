@@ -20,6 +20,14 @@ namespace TRODS
         };
 
         private InputManager<KeysActions, Keys> _inputManager;
+        public float Mana { get; set; }
+        private ExperienceCounter _experience;
+        internal ExperienceCounter Experience
+        {
+            get { return _experience; }
+            private set { _experience = value; }
+        }
+
 
         public Personnage(Rectangle winsize, Vector2 position)
             : base(winsize, position, 140, 190, @"game\perso", 15, 4)
@@ -42,6 +50,17 @@ namespace TRODS
             actualizeSpriteGraphicalBounds();
             actualizeSpritePosition();
             Jump();
+            Mana = 1;
+            _experience = new ExperienceCounter(ExperienceCounter.Growth.Cuadratic);
+        }
+
+        public override void Update(float elapsedTime)
+        {
+            base.Update(elapsedTime);
+            if (Mana > 1)
+                Mana = 1;
+            else if (Mana < 0)
+                Mana = 0;
         }
 
         public override void HandleInput(KeyboardState newKeyboardState, MouseState newMouseState, Game1 parent)

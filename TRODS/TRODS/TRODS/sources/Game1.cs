@@ -38,7 +38,7 @@ namespace TRODS
             Content.RootDirectory = "Content";
 
             List<String> ws = EugLib.IO.Tools.toArgv(EugLib.IO.FileStream.readFile("files/WinSize"));
-            int a,b;
+            int a, b;
             if (ws.Count >= 2 && int.TryParse(ws.ElementAt(0), out a) && int.TryParse(ws.ElementAt(1), out b))
             {
                 graphics.PreferredBackBufferWidth = a;

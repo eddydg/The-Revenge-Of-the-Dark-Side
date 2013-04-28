@@ -571,6 +571,24 @@
       <Extra>C:\Users\Kuchera\Documents\GitHub\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\general\introduction_trods.wmv</Extra>
       <Time>2013-04-28T22:18:58.6963507+02:00</Time>
     </Item>
+    <Item>
+      <Source>game\mana.png</Source>
+      <Name>game\mana</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Kuchera\Documents\GitHub\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\game\mana.xnb</Output>
+      <Time>2013-04-28T23:01:15.9277695+02:00</Time>
+    </Item>
+    <Item>
+      <Source>game\xp.png</Source>
+      <Name>game\xp</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Kuchera\Documents\GitHub\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\game\xp.xnb</Output>
+      <Time>2013-04-28T23:01:15.9277695+02:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>

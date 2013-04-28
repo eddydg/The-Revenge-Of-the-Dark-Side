@@ -15,8 +15,19 @@ namespace TRODS
     {
         private Sprite _background;
         private AnimatedSprite _life;
+        private AnimatedSprite _mana;
+        private AnimatedSprite _xp;
+        private TextSprite _levelText;
+        private TextSprite _level;
+        public String LevelText
+        {
+            get { return _level.Text; }
+            set { _level.Text = value; }
+        }
 
         public float LifeLevel { get; set; }
+        public float ManaLevel { get; set; }
+        public float XpLevel { get; set; }
 
         public HUD(Rectangle windowsize, string[] assetName)
         {
@@ -24,7 +35,16 @@ namespace TRODS
             if (assetName.Length > 0)
                 _background = new Sprite(new Rectangle(0, 0, windowsize.Width, windowsize.Height / 5), windowsize, assetName[0]);
             if (assetName.Length > 1)
-                _life = new AnimatedSprite(new Rectangle(278, 40, 300, 10), windowsize, assetName[1]);
+                _life = new AnimatedSprite(new Rectangle(278, 20, 300, 10), windowsize, assetName[1]);
+            if (assetName.Length > 2)
+                _mana = new AnimatedSprite(new Rectangle(278, 50, 300, 10), windowsize, assetName[2]);
+            if (assetName.Length > 3)
+                _xp = new AnimatedSprite(new Rectangle(278, 80, 300, 10), windowsize, assetName[3]);
+            if (assetName.Length > 4)
+            {
+                _levelText = new TextSprite(assetName[4], windowsize, new Rectangle(600, 20, 50, 20), "Level", Color.Gold);
+                _level = new TextSprite(assetName[4], windowsize, new Rectangle(600, 40, 50, 70), "1", Color.Gold);
+            }
         }
 
         public override void HandleInput(KeyboardState newKeyboardState, MouseState newMouseState, Game1 parent)
@@ -36,25 +56,66 @@ namespace TRODS
         {
             _background.LoadContent(content);
             _life.LoadContent(content);
+            _mana.LoadContent(content);
+            _xp.LoadContent(content);
+            _levelText.LoadContent(content);
+            _level.LoadContent(content);
         }
 
         public override void Draw(SpriteBatch spriteBatch)
         {
             _background.Draw(spriteBatch);
             _life.Draw(spriteBatch, 100);
-            _life.Draw(spriteBatch, new Rectangle(_life.Position.X, _life.Position.Y, (int)((float)_life.Position.Width * LifeLevel), _life.Position.Height), new Rectangle(0, 0, (int)((float)_life.Position.Width * LifeLevel), _life.Position.Height), Color.White);
+            _life.Draw(spriteBatch, new Rectangle(
+                                            _life.Position.X,
+                                            _life.Position.Y,
+                                            (int)((float)_life.Position.Width * LifeLevel),
+                                            _life.Position.Height),
+                                    new Rectangle(0, 0,
+                                                (int)((float)_life.Position.Width * LifeLevel),
+                                                _life.Position.Height), Color.White);
+
+            _mana.Draw(spriteBatch, 100);
+            _mana.Draw(spriteBatch, new Rectangle(
+                                            _mana.Position.X,
+                                            _mana.Position.Y,
+                                            (int)((float)_mana.Position.Width * ManaLevel),
+                                            _mana.Position.Height),
+                                    new Rectangle(0, 0,
+                                                (int)((float)_mana.Position.Width * ManaLevel),
+                                                _mana.Position.Height), Color.White);
+
+            _xp.Draw(spriteBatch, 100);
+            _xp.Draw(spriteBatch, new Rectangle(
+                                            _xp.Position.X,
+                                            _xp.Position.Y,
+                                            (int)((float)_xp.Position.Width * XpLevel),
+                                            _xp.Position.Height),
+                                    new Rectangle(0, 0,
+                                                (int)((float)_xp.Position.Width * XpLevel),
+                                                _xp.Position.Height), Color.White);
+            _levelText.Draw(spriteBatch);
+            _level.Draw(spriteBatch);
         }
 
         public override void Update(float elapsedTime)
         {
             _background.Update(elapsedTime);
             _life.Update(elapsedTime);
+            _mana.Update(elapsedTime);
+            _xp.Update(elapsedTime);
+            _levelText.Update(elapsedTime);
+            _level.Update(elapsedTime);
         }
 
         public override void WindowResized(Rectangle rect)
         {
             _background.windowResized(rect);
             _life.windowResized(rect);
+            _mana.windowResized(rect);
+            _xp.windowResized(rect);
+            _levelText.windowResized(rect);
+            _level.windowResized(rect);
         }
     }
 }
