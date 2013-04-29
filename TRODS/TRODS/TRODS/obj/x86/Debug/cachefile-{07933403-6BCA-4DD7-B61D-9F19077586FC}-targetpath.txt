@@ -67,3 +67,5 @@ Content\general\introduction_trods.wmv
 Content\game\mana.xnb
 Content\game\xp.xnb
 Content\game\persoPortrait.xnb
+Content\sprites\expl_spread_6x6.xnb
+Content\sprites\portal_6x6.xnb

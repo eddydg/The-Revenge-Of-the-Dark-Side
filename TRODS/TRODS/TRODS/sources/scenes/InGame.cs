@@ -17,7 +17,8 @@ namespace TRODS
         private MouseState _mouseState;
         private Rectangle _windowSize;
         private Sprite mouse;
-        private AbstractMap map;
+        private List<AbstractMap> _maps;
+        private int _currentMap;
         private ContextMenu _menu;
         private Personnage personnage;
         private Random rand;
@@ -39,8 +40,10 @@ namespace TRODS
             _menu.CuadricPositionning(new Rectangle(0, 0, 150, 20), 65, 15, 10, 10, true);
 
             mouse = new Sprite(new Rectangle(-100, -100, 30, 50), _windowSize);
-            map = new AbstractMap(_windowSize);
-            map.Visitable.Add(new Rectangle(450, 450, 2800, 130));
+
+            _maps = new List<AbstractMap>();
+            AbstractMap map = new AbstractMap(_windowSize);
+            map.AddVisitable(450, 450, 2800, 130);
             map.VuePosition = new Vector2(460, 450 + 130 - 1);
             /*map.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(0, 0, _windowSize.Width, _windowSize.Height), _windowSize, "map1/sky1"), 0.2f, 0, true));
             map.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(0, 0, _windowSize.Width, _windowSize.Height), _windowSize, "map1/back1r"), 0.8f, 0.2f, true));
@@ -50,7 +53,9 @@ namespace TRODS
             map.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(0, 415, 1082, 193), windowSize, "map2/sand"), 1f, 0.5f, true));
             map.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(0, 515, 1066, 92), windowSize, "map2/rock"), 1f, 0.5f, true, true));
             map.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(5, 150, _windowSize.Width / 2, _windowSize.Height - 150), _windowSize, "sprites/fireWall_11x6r23r44", 11, 6, 30, 23, 44, 1, true), 1f, 0.5f));
-            map.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(2800 + _windowSize.Width / 2, 150, _windowSize.Width / 2 - 20, _windowSize.Height - 150), _windowSize, "sprites/fireWall_11x6r23r44", 11, 6, 30, 23, 44, 1, true), 1f, 0.5f));
+            map.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(2550 + _windowSize.Width / 2, 150, 400, 400), _windowSize, "sprites/portal_6x6", 6, 6, 30, 1, 32, 1, true), 1f, 0.5f));
+            _maps.Add(map);
+            _currentMap = 0;
 
             personnage = new Personnage(_windowSize, map.VuePosition);
             _mobs = new List<Mob>();
@@ -76,7 +81,8 @@ namespace TRODS
         {
             personnage.LoadContent(content);
             mouse.LoadContent(content, "general/cursor1");
-            map.LoadContent(content);
+            foreach (AbstractMap map in _maps)
+                map.LoadContent(content);
             _menu.LoadContent(content);
             foreach (Mob m in _mobs)
                 m.LoadContent(content);
@@ -87,7 +93,7 @@ namespace TRODS
         {
             spriteBatch.Begin();
 
-            map.Draw(spriteBatch, false);
+            _maps[_currentMap].Draw(spriteBatch, false);
             bool pdrn = false;
             // gestion profondeur des biatches
             if (_mobs != null && _mobs.Count > 0)
@@ -125,7 +131,7 @@ namespace TRODS
             }
             if (!pdrn)
                 personnage.Draw(spriteBatch);
-            map.Draw(spriteBatch, true);
+            _maps[_currentMap].Draw(spriteBatch, true);
             _hud.Draw(spriteBatch);
             _menu.Draw(spriteBatch);
             mouse.Draw(spriteBatch);
@@ -135,7 +141,7 @@ namespace TRODS
 
         public override void Update(float elapsedTime)
         {
-            map.Update(elapsedTime);
+            _maps[_currentMap].Update(elapsedTime);
             _menu.Update(elapsedTime);
             personnage.Update(elapsedTime);
             foreach (Mob m in _mobs)
@@ -201,25 +207,25 @@ namespace TRODS
             //// MOUVEMENT ////
             if (newKeyboardState.IsKeyDown(Keys.Right) && personnage._canMove)
             {
-                if (map.Moving(new Vector2(5, 0), true))
+                if (_maps[_currentMap].Moving(new Vector2(5, 0), true))
                     foreach (Mob m in _mobs)
                         m.Move(5, 0);
             }
             if (newKeyboardState.IsKeyDown(Keys.Left) && personnage._canMove)
             {
-                if (map.Moving(new Vector2(-5, 0), true))
+                if (_maps[_currentMap].Moving(new Vector2(-5, 0), true))
                     foreach (Mob m in _mobs)
                         m.Move(-5, 0);
             }
             if (newKeyboardState.IsKeyDown(Keys.Up) && personnage._canMove)
             {
-                if (map.Moving(new Vector2(0, -5), true))
+                if (_maps[_currentMap].Moving(new Vector2(0, -5), true))
                     foreach (Mob m in _mobs)
                         m.Move(0, -5);
             }
             if (newKeyboardState.IsKeyDown(Keys.Down) && personnage._canMove)
             {
-                if (map.Moving(new Vector2(0, 5), true))
+                if (_maps[_currentMap].Moving(new Vector2(0, 5), true))
                     foreach (Mob m in _mobs)
                         m.Move(0, 5);
             }
@@ -243,14 +249,20 @@ namespace TRODS
         public override void EndScene(Game1 parent)
         {
             _windowSize = parent.Window.ClientBounds;
-            map.VuePosition = new Vector2(460, 450 + 130 - 1);
+            /*map.VuePosition = new Vector2(460, 450 + 130 - 1);
             map.Elements[0].sprite.setRelatvePos(new Rectangle(0, 0, 1040, 320), _originalWindowSize.Width, _originalWindowSize.Height);
             map.Elements[1].sprite.setRelatvePos(new Rectangle(0, 190, 960, 300), _originalWindowSize.Width, _originalWindowSize.Height);
             map.Elements[2].sprite.setRelatvePos(new Rectangle(0, 415, 1082, 193), _originalWindowSize.Width, _originalWindowSize.Height);
             map.Elements[3].sprite.setRelatvePos(new Rectangle(0, 515, 1066, 92), _originalWindowSize.Width, _originalWindowSize.Height);
             map.Elements[4].sprite.setRelatvePos(new Rectangle(5, 150, _windowSize.Width / 2, _windowSize.Height - 150), _originalWindowSize.Width, _originalWindowSize.Height);
             map.Elements[5].sprite.setRelatvePos(new Rectangle(2800 + _windowSize.Width / 2, 150, _windowSize.Width / 2 - 20, _windowSize.Height - 150), _originalWindowSize.Width, _originalWindowSize.Height);
-            map.WindowResized(_windowSize);
+            map.WindowResized(_windowSize);*/
+            foreach (AbstractMap m in _maps)
+            {
+                m.Activation();
+                m.WindowResized(_windowSize);
+            }
+            _currentMap = 0;
 
             rand = new Random();
             _mobs.Clear();
@@ -286,7 +298,8 @@ namespace TRODS
         private void windowResized(Rectangle rect)
         {
             personnage.WindowResized(rect);
-            map.WindowResized(rect);
+            foreach (AbstractMap map in _maps)
+                map.WindowResized(rect);
             _menu.WindowResized(rect);
             foreach (Mob m in _mobs)
                 m.WindowResized(rect);

@@ -45,7 +45,7 @@ namespace TRODS
             _physics.MaxHeight = 400;
             _physics.TimeOnFlat = 500;
             _inputManager = new InputManager<KeysActions, Keys>();
-            Weapon = new Weapon(winsize,@"game/weapon", _sprite.Lignes, _sprite.Colonnes, _sprite.Position.Width, _sprite.Position.Height);
+            Weapon = new Weapon(winsize, @"game/weapon", _sprite.Lignes, _sprite.Colonnes, _sprite.Position.Width, _sprite.Position.Height);
             InitKeys();
             actualizeSpriteGraphicalBounds();
             actualizeSpritePosition();
@@ -58,7 +58,7 @@ namespace TRODS
         {
             base.Update(elapsedTime);
             if (Action == CharacterActions.Attack1Left || Action == CharacterActions.Attack1Right || Action == CharacterActions.JumpLeft || Action == CharacterActions.JumpRight)
-                Mana -= 0.01f;
+                Mana -= 0.01f / (float)Experience.Level;
             Mana += elapsedTime / 16000;
             if (Mana > 1)
                 Mana = 1;

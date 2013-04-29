@@ -25,8 +25,10 @@ namespace TRODS
                 verticalSpeed = _verticalSpeed;
                 repeating = _repeating;
                 foreground = _foreground;
+                originalPosition = _s.Position;
             }
             public AnimatedSprite sprite;
+            public Rectangle originalPosition;
             public float speed;
             public float verticalSpeed;
             public bool repeating;
@@ -36,6 +38,10 @@ namespace TRODS
                 sprite.windowResized(winSize, oldWinSize);
                 speed *= (float)winSize.Width / (float)oldWinSize.Width;
                 verticalSpeed *= (float)winSize.Height / (float)oldWinSize.Height;
+            }
+            public void Reset(Rectangle winSize)
+            {
+                sprite.setRelatvePos(originalPosition, winSize.Width, winSize.Height);
             }
         }
 
@@ -51,12 +57,19 @@ namespace TRODS
             get { return _windowSize; }
             set { _windowSize = value; }
         }
+        protected Vector2 _originalVuePosition;
         protected Vector2 _vuePosition;
         public Vector2 VuePosition
         {
             get { return _vuePosition; }
-            set { _vuePosition = value; }
+            set
+            {
+                _vuePosition = value;
+                //if (_originalVuePosition == null)
+                _originalVuePosition = _vuePosition;
+            }
         }
+        protected List<Rectangle> _originalVisitable;
         protected List<Rectangle> _visitable;
         public List<Rectangle> Visitable
         {
@@ -80,6 +93,7 @@ namespace TRODS
             _elements = new List<Element>();
             _visitable = new List<Rectangle>();
             _isDrawingForeground = false;
+            _originalVisitable = new List<Rectangle>();
         }
         /// <summary>
         /// Constructeur
@@ -95,6 +109,8 @@ namespace TRODS
             _vuePosition = vuePosition;
             _visitable = visitableArea;
             _isDrawingForeground = false;
+            _originalVisitable = visitableArea;
+            _originalVuePosition = vuePosition;
         }
 
         /// <summary>
@@ -116,6 +132,7 @@ namespace TRODS
         public virtual void AddVisitable(Rectangle v)
         {
             _visitable.Add(v);
+            _originalVisitable.Add(v);
         }
         /// <summary>
         /// Ajoute une zone autorisee
@@ -127,6 +144,7 @@ namespace TRODS
         public virtual void AddVisitable(int x, int y, int width, int height)
         {
             _visitable.Add(new Rectangle(x, y, width, height));
+            _originalVisitable.Add(new Rectangle(x, y, width, height));
         }
         /// <summary>
         /// Effectue un mouvement sur la map.
@@ -244,6 +262,13 @@ namespace TRODS
             _vuePosition.Y = _vuePosition.Y * y;
 
             _windowSize = rect;
+        }
+        public override void Activation(Game1 parent = null)
+        {
+            foreach (Element e in _elements)
+                e.Reset(_windowSize);
+            _visitable = _originalVisitable;
+            _vuePosition = _originalVuePosition;
         }
     }
 }

@@ -598,6 +598,24 @@
       <Output>C:\Users\Kuchera\Documents\GitHub\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\game\persoPortrait.xnb</Output>
       <Time>2013-04-29T00:55:12.7605712+02:00</Time>
     </Item>
+    <Item>
+      <Source>sprites\expl_spread_6x6.png</Source>
+      <Name>sprites\expl_spread_6x6</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Kuchera\Documents\GitHub\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\sprites\expl_spread_6x6.xnb</Output>
+      <Time>2013-04-29T11:53:37.5201461+02:00</Time>
+    </Item>
+    <Item>
+      <Source>sprites\portal_6x6.png</Source>
+      <Name>sprites\portal_6x6</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Kuchera\Documents\GitHub\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\sprites\portal_6x6.xnb</Output>
+      <Time>2013-04-29T11:53:37.4951437+02:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>
