@@ -69,6 +69,12 @@ namespace TRODS
             if (_weapon != null)
                 _weapon.LoadContent(content);
         }
+        public override void LoadContent(Texture2D content)
+        {
+            _sprite.LoadContent(content);
+            if (_weapon != null)
+                _weapon.LoadContent(content);
+        }
         public override void Draw(SpriteBatch spriteBatch)
         {
             if (!_jumping)

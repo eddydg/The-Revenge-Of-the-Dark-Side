@@ -18,7 +18,7 @@ namespace TRODS
         /// </summary>
         public struct Element
         {
-            public Element(AnimatedSprite _s, float _speed = 0, float _verticalSpeed = 0, bool _repeating = false, bool _foreground = false)
+            public Element(AnimatedSprite _s, float _speed = 0, float _verticalSpeed = 0, bool _repeating = false, bool _foreground = false, bool isportal = false, bool isportalnext = true)
             {
                 sprite = _s;
                 speed = _speed;
@@ -26,6 +26,8 @@ namespace TRODS
                 repeating = _repeating;
                 foreground = _foreground;
                 originalPosition = _s.Position;
+                isPortal = isportal;
+                isPortalNext = isportalnext;
             }
             public AnimatedSprite sprite;
             public Rectangle originalPosition;
@@ -33,6 +35,8 @@ namespace TRODS
             public float verticalSpeed;
             public bool repeating;
             public bool foreground;
+            public bool isPortal;
+            public bool isPortalNext;
             public void WindowResized(Rectangle oldWinSize, Rectangle winSize)
             {
                 sprite.windowResized(winSize, oldWinSize);
@@ -238,6 +242,17 @@ namespace TRODS
                 }
             }
         }
+
+        public virtual int GetTravelState(Rectangle pos)
+        {
+            foreach (Element e in _elements)
+            {
+                if (e.sprite.Position.Intersects(pos) && e.isPortal)
+                    return e.isPortalNext ? 1 : -1;
+            }
+            return 0;
+        }
+
         public override void WindowResized(Rectangle rect)
         {
             foreach (Element e in _elements)
