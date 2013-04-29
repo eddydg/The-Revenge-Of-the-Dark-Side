@@ -22,8 +22,7 @@ namespace TRODS
         private ContextMenu _menu;
         private Personnage personnage;
         private Random rand;
-        private List<Texture2D> _mobsTextures;
-        private List<List<Mob>> _mobs;
+        private List<Mob> _mobs;
         private HUD _hud;
         private Rectangle _originalWindowSize;
 
@@ -56,7 +55,7 @@ namespace TRODS
             map.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(0, 415, 1082, 193), windowSize, "map1/fore1"), 1f, 0.5f, true));
             //map.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(0, 515, 1066, 92), windowSize, "map1/fore1"), 1f, 0.5f, true, true));
             map.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(5, 150, _windowSize.Width / 2, _windowSize.Height - 150), _windowSize, "sprites/fireWall_11x6r23r44", 11, 6, 30, 23, 44, 1, true), 1f, 0.5f));
-            map.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(2550 + _windowSize.Width / 2, 280, 320, 320), _windowSize, "sprites/portal_6x6", 6, 6, 30, 1, 32, 1, true), 1f, 0.5f, false, false, true, true));
+            map.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(2550 + _windowSize.Width / 2, 150, 400, 400), _windowSize, "sprites/portal_6x6", 6, 6, 30, 1, 32, 1, true), 1f, 0.5f));
             _maps.Add(map);
 
             map = new AbstractMap(_windowSize);
@@ -69,33 +68,27 @@ namespace TRODS
             map.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(0, 190, 960, 300), windowSize, "map2/mountain"), 0.8f, 0.2f, true));
             map.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(0, 415, 1082, 193), windowSize, "map2/sand"), 1f, 0.5f, true));
             map.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(0, 515, 1066, 92), windowSize, "map2/rock"), 1f, 0.5f, true, true));
-            map.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(250, 280, 320, 320), _windowSize, "sprites/portal_6x6", 6, 6, 30, 1, 32, 1, true), 1f, 0.5f, false, false, true, false));
-            map.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(2800 + _windowSize.Width / 2, 150, _windowSize.Width / 2, _windowSize.Height - 150), _windowSize, "sprites/fireWall_11x6r23r44", 11, 6, 30, 23, 44, 1, true), 1f, 0.5f));
+            map.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(250, 150, 400, 400), _windowSize, "sprites/portal_6x6", 6, 6, 30, 1, 32, 1, true), 1f, 0.5f));
+            map.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(2550 + _windowSize.Width / 2, 150, _windowSize.Width / 2, _windowSize.Height - 150), _windowSize, "sprites/fireWall_11x6r23r44", 11, 6, 30, 23, 44, 1, true), 1f, 0.5f));
             _maps.Add(map);
             _currentMap = 0;
 
             personnage = new Personnage(_windowSize, map.VuePosition);
-            _mobsTextures = new List<Texture2D>();
-            _mobs = new List<List<Mob>>();
+            _mobs = new List<Mob>();
             rand = new Random();
-            _mobs.Add(new List<Mob>());
-            _mobs.Add(new List<Mob>());
-            for (int i = 0; i < 30; i++)
-                _mobs[0].Add(new Mob(_windowSize, rand.Next(), new Vector2(1000, 580), 100, 200, "game/blitz", 5, 4, new Vector2(3f, 3f), new Vector2(1f, 0.5f), 300, 50, new Rectangle(900, 485, 2000, 100)));
             for (int i = 0; i < 50; i++)
-                _mobs[1].Add(new Mob(_windowSize, rand.Next(), new Vector2(1000, 580), 100, 200, "game/blitz", 5, 4, new Vector2(3f, 3f), new Vector2(1f, 0.5f), 300, 50, new Rectangle(900, 485, 2000, 100)));
-            foreach (List<Mob> l in _mobs)
-                foreach (Mob m in l)
-                {
-                    m.AddGraphicalBounds(CharacterActions.WalkRight, new Rectangle(6, 6, 10, 30));
-                    m.AddGraphicalBounds(CharacterActions.WalkLeft, new Rectangle(1, 1, 5, 30));
-                    m.AddGraphicalBounds(CharacterActions.StandLeft, new Rectangle(3, 3, 3, 30));
-                    m.AddGraphicalBounds(CharacterActions.StandRight, new Rectangle(8, 8, 8, 30));
-                    m.AddGraphicalBounds(CharacterActions.Attack1Left, new Rectangle(11, 11, 12, 4));
-                    m.AddGraphicalBounds(CharacterActions.Attack1Right, new Rectangle(16, 16, 17, 4));
-                    m.AddGraphicalBounds(CharacterActions.ReceiveAttackLeft, new Rectangle(13, 13, 13, 4));
-                    m.AddGraphicalBounds(CharacterActions.ReceiveAttackRight, new Rectangle(18, 18, 18, 4));
-                }
+                _mobs.Add(new Mob(_windowSize, rand.Next(), new Vector2(1000, 580), 100, 200, "game/blitz", 5, 4, new Vector2(3f, 3f), new Vector2(1f, 0.5f), 300, 50, new Rectangle(900, 485, 2000, 100)));
+            foreach (Mob m in _mobs)
+            {
+                m.AddGraphicalBounds(CharacterActions.WalkRight, new Rectangle(6, 6, 10, 30));
+                m.AddGraphicalBounds(CharacterActions.WalkLeft, new Rectangle(1, 1, 5, 30));
+                m.AddGraphicalBounds(CharacterActions.StandLeft, new Rectangle(3, 3, 3, 30));
+                m.AddGraphicalBounds(CharacterActions.StandRight, new Rectangle(8, 8, 8, 30));
+                m.AddGraphicalBounds(CharacterActions.Attack1Left, new Rectangle(11, 11, 12, 4));
+                m.AddGraphicalBounds(CharacterActions.Attack1Right, new Rectangle(16, 16, 17, 4));
+                m.AddGraphicalBounds(CharacterActions.ReceiveAttackLeft, new Rectangle(13, 13, 13, 4));
+                m.AddGraphicalBounds(CharacterActions.ReceiveAttackRight, new Rectangle(18, 18, 18, 4));
+            }
 
             _hud = new HUD(_windowSize);
         }
@@ -107,11 +100,8 @@ namespace TRODS
             foreach (AbstractMap map in _maps)
                 map.LoadContent(content);
             _menu.LoadContent(content);
-            /*_mobsTextures.Add(content.Load<Texture2D>("game/blitz"));
-            _mobsTextures.Add(content.Load<Texture2D>("game/life_mob"));*/
-            foreach (List<Mob> l in _mobs)
-                foreach (Mob m in l)
-                    m.LoadContent(content);
+            foreach (Mob m in _mobs)
+                m.LoadContent(content);
             _hud.LoadContent(content);
         }
 
@@ -122,24 +112,24 @@ namespace TRODS
             _maps[_currentMap].Draw(spriteBatch, false);
             bool pdrn = false;
             // gestion profondeur des biatches
-            if (_mobs != null && _mobs[_currentMap].Count > 0)
+            if (_mobs != null && _mobs.Count > 0)
             {
                 int l = 0;
                 float min = float.MaxValue;
                 bool dp = false;
                 List<int> done = new List<int>();
-                while (done.Count < _mobs[_currentMap].Count + 1)
+                while (done.Count < _mobs.Count + 1)
                 {
                     min = float.MaxValue;
-                    for (int i = 0; i < _mobs[_currentMap].Count; i++)
+                    for (int i = 0; i < _mobs.Count; i++)
                     {
-                        if (_mobs[_currentMap][i].Position.Y < min && !done.Contains(i))
+                        if (_mobs[i].Position.Y < min && !done.Contains(i))
                         {
-                            min = _mobs[_currentMap][i].Position.Y;
+                            min = _mobs[i].Position.Y;
                             l = i;
-                            if (!pdrn && personnage.Position.Y < _mobs[_currentMap][i].Position.Y)
+                            if (!pdrn && personnage.Position.Y < _mobs[i].Position.Y)
                                 dp = true;
-                            i = _mobs[_currentMap].Count + 1;
+                            i = _mobs.Count + 1;
                         }
                     }
                     if (dp)
@@ -150,7 +140,7 @@ namespace TRODS
                     }
                     else
                     {
-                        _mobs[_currentMap][l].Draw(spriteBatch);
+                        _mobs[l].Draw(spriteBatch);
                         done.Add(l);
                     }
                 }
@@ -170,7 +160,7 @@ namespace TRODS
             _maps[_currentMap].Update(elapsedTime);
             _menu.Update(elapsedTime);
             personnage.Update(elapsedTime);
-            foreach (Mob m in _mobs[_currentMap])
+            foreach (Mob m in _mobs)
             {
                 m.Actualize(personnage.Position);
                 m.Update(elapsedTime);
@@ -181,32 +171,32 @@ namespace TRODS
             _hud.XpLevel = personnage.Experience.Percentage;
             _hud.LevelText = personnage.Experience.Level.ToString();
             if (_mobs != null)
-                _hud.EnnemiesText = _mobs[_currentMap].Count.ToString();
+                _hud.EnnemiesText = _mobs.Count.ToString();
             else
                 _hud.EnnemiesText = "--";
 
             if (personnage.Action == CharacterActions.Attack1Left || personnage.Action == CharacterActions.Attack1Right)
             {
-                for (int i = 0; i < _mobs[_currentMap].Count; i++)
+                for (int i = 0; i < _mobs.Count; i++)
                 {
-                    if (personnage.Weapon.Position.Intersects(_mobs[_currentMap][i].DrawingRectangle))
+                    if (personnage.Weapon.Position.Intersects(_mobs[i].DrawingRectangle))
                     {
-                        _mobs[_currentMap][i].ReceiveAttack(0.01f);
+                        _mobs[i].ReceiveAttack(0.01f);
                     }
-                    if (_mobs[_currentMap][i].Life <= 0)
+                    if (_mobs[i].Life <= 0)
                     {
-                        _mobs[_currentMap].RemoveAt(i);
+                        _mobs.RemoveAt(i);
                         i--;
                         personnage.Experience.Add(50);
                     }
                 }
             }
 
-            foreach (Mob m in _mobs[_currentMap])
+            foreach (Mob m in _mobs)
             {
                 if (m.Ia._attack && m.DrawingRectangle.Intersects(personnage.DrawingRectangle))
                 {
-                    personnage.ReceiveAttack(0.01f,50);
+                    personnage.ReceiveAttack(0.01f);
                 }
             }
         }
@@ -234,34 +224,26 @@ namespace TRODS
             if (newKeyboardState.IsKeyDown(Keys.Right) && personnage._canMove)
             {
                 if (_maps[_currentMap].Moving(new Vector2(5, 0), true))
-                    foreach (Mob m in _mobs[_currentMap])
+                    foreach (Mob m in _mobs)
                         m.Move(5, 0);
             }
             if (newKeyboardState.IsKeyDown(Keys.Left) && personnage._canMove)
             {
                 if (_maps[_currentMap].Moving(new Vector2(-5, 0), true))
-                    foreach (Mob m in _mobs[_currentMap])
+                    foreach (Mob m in _mobs)
                         m.Move(-5, 0);
             }
             if (newKeyboardState.IsKeyDown(Keys.Up) && personnage._canMove)
             {
                 if (_maps[_currentMap].Moving(new Vector2(0, -5), true))
-                    foreach (Mob m in _mobs[_currentMap])
+                    foreach (Mob m in _mobs)
                         m.Move(0, -5);
             }
             if (newKeyboardState.IsKeyDown(Keys.Down) && personnage._canMove)
             {
                 if (_maps[_currentMap].Moving(new Vector2(0, 5), true))
-                    foreach (Mob m in _mobs[_currentMap])
+                    foreach (Mob m in _mobs)
                         m.Move(0, 5);
-            }
-            if (newKeyboardState.IsKeyDown(Keys.E) && _keyboardState.IsKeyUp(Keys.E))
-            {
-                _currentMap += _maps[_currentMap].GetTravelState(personnage.DrawingRectangle);
-                if (_currentMap < 0)
-                    _currentMap = 0;
-                else if (_currentMap >= _maps.Count)
-                    _currentMap = _maps.Count - 1;
             }
             personnage.HandleInput(newKeyboardState, newMouseState, parent);
             _hud.HandleInput(newKeyboardState, newMouseState, parent);
@@ -299,29 +281,25 @@ namespace TRODS
             _currentMap = 0;
 
             rand = new Random();
-            foreach (List<Mob> l in _mobs)
-                l.Clear();
-            foreach (List<Mob> l in _mobs)
-                for (int i = 0; i < 50; i++)
-                    l.Add(new Mob(_windowSize, rand.Next(), new Vector2(1000, 580), 100, 200, "game/blitz", 5, 4, new Vector2(3f, 3f), new Vector2(1f, 0.5f), 300, 50, new Rectangle(900, 485, 2000, 100)));
-            foreach (List<Mob> l in _mobs)
-                foreach (Mob m in l)
-                {
-                    m.AddGraphicalBounds(CharacterActions.WalkRight, new Rectangle(6, 6, 10, 30));
-                    m.AddGraphicalBounds(CharacterActions.WalkLeft, new Rectangle(1, 1, 5, 30));
-                    m.AddGraphicalBounds(CharacterActions.StandLeft, new Rectangle(3, 3, 3, 30));
-                    m.AddGraphicalBounds(CharacterActions.StandRight, new Rectangle(8, 8, 8, 30));
-                    m.AddGraphicalBounds(CharacterActions.Attack1Left, new Rectangle(11, 11, 12, 4));
-                    m.AddGraphicalBounds(CharacterActions.Attack1Right, new Rectangle(16, 16, 17, 4));
-                    m.AddGraphicalBounds(CharacterActions.ReceiveAttackLeft, new Rectangle(13, 13, 13, 4));
-                    m.AddGraphicalBounds(CharacterActions.ReceiveAttackRight, new Rectangle(18, 18, 18, 4));
-                }
-            foreach (List<Mob> l in _mobs)
-                foreach (Mob m in l)
-                {
-                    m.LoadContent(parent.Content);
-                    m.WindowResized(_windowSize);
-                }
+            _mobs.Clear();
+            for (int i = 0; i < 50; i++)
+                _mobs.Add(new Mob(_windowSize, rand.Next(), new Vector2(1000, 580), 100, 200, "game/blitz", 5, 4, new Vector2(3f, 3f), new Vector2(1f, 0.5f), 300, 50, new Rectangle(900, 485, 2000, 100)));
+            foreach (Mob m in _mobs)
+            {
+                m.AddGraphicalBounds(CharacterActions.WalkRight, new Rectangle(6, 6, 10, 30));
+                m.AddGraphicalBounds(CharacterActions.WalkLeft, new Rectangle(1, 1, 5, 30));
+                m.AddGraphicalBounds(CharacterActions.StandLeft, new Rectangle(3, 3, 3, 30));
+                m.AddGraphicalBounds(CharacterActions.StandRight, new Rectangle(8, 8, 8, 30));
+                m.AddGraphicalBounds(CharacterActions.Attack1Left, new Rectangle(11, 11, 12, 4));
+                m.AddGraphicalBounds(CharacterActions.Attack1Right, new Rectangle(16, 16, 17, 4));
+                m.AddGraphicalBounds(CharacterActions.ReceiveAttackLeft, new Rectangle(13, 13, 13, 4));
+                m.AddGraphicalBounds(CharacterActions.ReceiveAttackRight, new Rectangle(18, 18, 18, 4));
+            }
+            foreach (Mob m in _mobs)
+            {
+                m.LoadContent(parent.Content);
+                m.WindowResized(_windowSize);
+            }
 
             personnage.Life = 1;
             personnage.Mana = 1;
@@ -339,9 +317,8 @@ namespace TRODS
             foreach (AbstractMap map in _maps)
                 map.WindowResized(rect);
             _menu.WindowResized(rect);
-            foreach (List<Mob> l in _mobs)
-                foreach (Mob m in l)
-                    m.WindowResized(rect);
+            foreach (Mob m in _mobs)
+                m.WindowResized(rect);
             _windowSize = rect;
             _hud.WindowResized(rect);
         }

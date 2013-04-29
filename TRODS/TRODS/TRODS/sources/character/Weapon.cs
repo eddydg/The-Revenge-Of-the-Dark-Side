@@ -25,10 +25,6 @@ namespace TRODS
         {
             _sprite.LoadContent(content);
         }
-        public void LoadContent(Texture2D content)
-        {
-            _sprite.LoadContent(content);
-        }
         public void Draw(SpriteBatch s, Rectangle character)
         {
             Vector2 v = new Vector2(character.X + character.Width / 2 - _sprite.Position.Width / 2, character.Y);
