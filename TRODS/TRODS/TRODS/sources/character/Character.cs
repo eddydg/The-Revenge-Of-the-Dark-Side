@@ -14,208 +14,289 @@ namespace TRODS
 {
     class Character : AbstractScene
     {
+        protected Dictionary<CharacterActions, Attack> _attacks;
         protected Rectangle _windowSize;
         protected GraphicalBounds<CharacterActions> _graphicalBounds;
         private CharacterActions _action;
+        protected AnimatedSprite _sprite;
+        protected Vector2 _position;
+        protected Physics _physics;
+        protected bool _direction;
+        protected int _timer;
+        protected List<Weapon> _weapons;
+
+        public Dictionary<CharacterActions, Attack> Attacks
+        {
+            get
+            {
+                return this._attacks;
+            }
+            private set
+            {
+                this._attacks = value;
+            }
+        }
 
         public CharacterActions Action
         {
-            get { return _action; }
-            set { _action = value; }
+            get
+            {
+                return this._action;
+            }
+            set
+            {
+                this._action = value;
+            }
         }
-        protected AnimatedSprite _sprite;
-        protected Vector2 _position;
+
         public Vector2 Position
         {
-            get { return _position; }
-            set { _position = value; }
+            get
+            {
+                return this._position;
+            }
+            set
+            {
+                this._position = value;
+            }
         }
-        public Rectangle DrawingRectangle { get { return _sprite != null ? _sprite.Position : new Rectangle(); } }
-        protected Physics _physics;
-        public bool _canMove { get; protected set; }
-        public bool _isOnGround { get; protected set; }
-        public bool _jumping { get; protected set; }
-        public int _jumpHeight { get; protected set; }
-        protected bool _direction;
-        protected int _timer;
-        private Weapon _weapon;
-        public Weapon Weapon
+
+        public Rectangle DrawingRectangle
         {
-            get { return _weapon; }
-            set { _weapon = value; }
+            get
+            {
+                return this._sprite != null ? this._sprite.Position : new Rectangle();
+            }
         }
+
+        public bool _canMove { get; protected set; }
+
+        public bool _isOnGround { get; protected set; }
+
+        public bool _jumping { get; protected set; }
+
+        public int _jumpHeight { get; protected set; }
+
+        public List<Weapon> Weapons
+        {
+            get
+            {
+                return this._weapons;
+            }
+            private set
+            {
+                this._weapons = value;
+            }
+        }
+
+        public int Weapon { get; set; }
+
         public float Life { get; set; }
 
-        public Character(Rectangle winSize, Vector2 position, int width, int height,
-            string assetName, int textureColumns, int textureLines)
+        public Character(Rectangle winSize, Vector2 position, int width, int height, string assetName, int textureColumns, int textureLines)
         {
-            _windowSize = winSize;
-            _position = position;
-            _graphicalBounds = new GraphicalBounds<CharacterActions>(new Dictionary<CharacterActions, Rectangle>());
-            _sprite = new AnimatedSprite(new Rectangle((int)position.X - width / 2, (int)position.Y - height, width, height), winSize, assetName, textureColumns, textureLines, 30, 1, -1, -1, true);
-            _canMove = true;
-            _jumping = false;
-            _jumpHeight = 0;
-            _direction = true; // = right
-            _timer = 0;
-            _physics = new Physics();
-            Life = 1;
-            _action = CharacterActions.StandRight;
+            this._windowSize = winSize;
+            this._position = position;
+            this._weapons = new List<Weapon>();
+            this._graphicalBounds = new GraphicalBounds<CharacterActions>(new Dictionary<CharacterActions, Rectangle>());
+            this._sprite = new AnimatedSprite(new Rectangle((int)position.X - width / 2, (int)position.Y - height, width, height), winSize, assetName, textureColumns, textureLines, 30, 1, -1, -1, true);
+            this._canMove = true;
+            this._jumping = false;
+            this._jumpHeight = 0;
+            this._direction = true;
+            this._timer = 0;
+            this._physics = new Physics(200, 1000);
+            this.Life = 1f;
+            this._action = CharacterActions.StandRight;
+            this._attacks = new Dictionary<CharacterActions, Attack>();
         }
 
         public override void LoadContent(ContentManager content)
         {
-            _sprite.LoadContent(content);
-            if (_weapon != null)
-                _weapon.LoadContent(content);
+            ((AbstractScene)this._sprite).LoadContent(content);
+            foreach (Weapon weapon in this._weapons)
+            {
+                if (weapon != null)
+                    weapon.LoadContent(content);
+            }
+            foreach (AbstractScene abstractScene in this._attacks.Values)
+                abstractScene.LoadContent(content);
         }
+
         public override void Draw(SpriteBatch spriteBatch)
         {
-            if (!_jumping)
+            if (!this._jumping)
             {
-                _sprite.Draw(spriteBatch);
-                if (_weapon != null)
-                    _weapon.Draw(spriteBatch, _sprite.Position);
+                ((AbstractScene)this._sprite).Draw(spriteBatch);
+                if (this._weapons.Count > 0)
+                    this.Weapons[this.Weapon].Draw(spriteBatch, this._sprite.Position);
             }
             else
             {
-                _sprite.Draw(spriteBatch, new Vector2(_sprite.Position.X, _sprite.Position.Y - _jumpHeight));
-                if (_weapon != null)
-                    _weapon.Draw(spriteBatch, new Rectangle(_sprite.Position.X, _sprite.Position.Y - _jumpHeight, _sprite.Position.Width, _sprite.Position.Height));
+                this._sprite.Draw(spriteBatch, new Vector2((float)this._sprite.Position.X, (float)(this._sprite.Position.Y - this._jumpHeight)));
+                if (this._weapons.Count > 0)
+                    this.Weapons[this.Weapon].Draw(spriteBatch, new Rectangle(this._sprite.Position.X, this._sprite.Position.Y - this._jumpHeight, this._sprite.Position.Width, this._sprite.Position.Height));
             }
+            foreach (AbstractScene abstractScene in this._attacks.Values)
+                abstractScene.Draw(spriteBatch);
         }
+
         public override void Update(float elapsedTime)
         {
-            _timer -= (int)elapsedTime;
-            _sprite.Update(elapsedTime);
-            if (_weapon != null)
-                _weapon.Update(elapsedTime);
-            if (!_sprite._repeating && _sprite.IsEnd())
-                Stand(_direction);
-            if (_jumping)
-                _jumpHeight += _physics.Update(elapsedTime);
-            testOnGround();
-            if (_timer < 0 && _canMove == false)
+            this._timer -= (int)elapsedTime;
+            this._sprite.Update(elapsedTime);
+            if (this._weapons.Count > 0)
+                this.Weapons[this.Weapon].Update(elapsedTime);
+            if (!this._sprite._repeating && this._sprite.IsEnd())
+                this.Stand(this._direction);
+            if (this._jumping)
+                this._jumpHeight += this._physics.Update(elapsedTime);
+            this.testOnGround();
+            foreach (AbstractScene abstractScene in this._attacks.Values)
+                abstractScene.Update(elapsedTime);
+            if (this._timer < 0 && !this._canMove)
             {
-                _timer = 0;
-                _canMove = true;
-                Stand(_direction);
+                this._timer = 0;
+                this._canMove = true;
+                this.Stand(this._direction);
             }
-
-            if (Life < 0)
-                Life = 0;
-            else if (Life > 1)
-                Life = 1;
-        }
-        public override void WindowResized(Rectangle rect)
-        {
-            _sprite.windowResized(rect);
-            if (_weapon != null)
-                _weapon.WindowResized(rect);
-
-            float x = (float)rect.Width / (float)_windowSize.Width, y = (float)rect.Height / (float)_windowSize.Height;
-
-            _physics.WindowResized(y);
-
-            _position.X *= x;
-            _position.Y *= y;
-
-            _jumpHeight = (int)((float)_jumpHeight * y);
-
-            _windowSize = rect;
-        }
-
-        public void ReceiveAttack(float damage = 0, int blockTime = 100)
-        {
-            _action = _direction ? CharacterActions.ReceiveAttackRight : CharacterActions.ReceiveAttackLeft;
-            _canMove = false;
-            _timer = blockTime;
-            actualizeSpriteGraphicalBounds();
-            Life -= damage;
-        }
-        public void Stand(bool right)
-        {
-            if (!(right == _direction && (_action == CharacterActions.StandRight || _action == CharacterActions.StandLeft)))
+            if ((double)this.Life < 0.0)
             {
-                _direction = right;
-                if (right)
-                    _action = CharacterActions.StandRight;
-                else
-                    _action = CharacterActions.StandLeft;
-                actualizeSpriteGraphicalBounds();
-            }
-        }
-        public void Jump()
-        {
-            if (_canMove && !_jumping)
-            {
-                if (_direction)
-                    _action = CharacterActions.JumpRight;
-                else
-                    _action = CharacterActions.JumpLeft;
-                actualizeSpriteGraphicalBounds();
-                _jumpHeight = 0;
-                _jumping = true;
-                _isOnGround = false;
-                _physics.Jump();
-            }
-        }
-        public void Move(bool right)
-        {
-            if (_canMove && !(right == _direction && (_action == CharacterActions.WalkRight || _action == CharacterActions.WalkLeft)))
-            {
-                _direction = right;
-                if (right)
-                    _action = CharacterActions.WalkRight;
-                else
-                    _action = CharacterActions.WalkLeft;
-                actualizeSpriteGraphicalBounds();
-            }
-        }
-        public void Paralize(int time)
-        {
-            _canMove = false;
-            _timer = time;
-            _action = CharacterActions.Paralized;
-        }
-        public void Free()
-        {
-            _canMove = true;
-        }
-        public void DoubleDash()
-        {
-        }
-
-        protected bool testOnGround()
-        {
-            if (_jumpHeight < 0)
-            {
-                _jumping = false;
-                _jumpHeight = 0;
-                _isOnGround = true;
-                Stand(_direction);
-                return true;
+                this.Life = 0.0f;
             }
             else
+            {
+                if ((double)this.Life <= 1.0)
+                    return;
+                this.Life = 1f;
+            }
+        }
+
+        public override void WindowResized(Rectangle rect)
+        {
+            this._sprite.windowResized(rect, new Rectangle());
+            foreach (Weapon weapon in this._weapons)
+                weapon.WindowResized(rect);
+            float num = (float)rect.Width / (float)this._windowSize.Width;
+            float yRapt = (float)rect.Height / (float)this._windowSize.Height;
+            this._physics.WindowResized(yRapt);
+            this._position.X *= num;
+            this._position.Y *= yRapt;
+            this._jumpHeight = (int)((double)this._jumpHeight * (double)yRapt);
+            foreach (AbstractScene abstractScene in this._attacks.Values)
+                abstractScene.WindowResized(rect);
+            this._windowSize = rect;
+        }
+
+        public virtual void AddAttack(CharacterActions action, Attack attac)
+        {
+            this._attacks.Add(action, attac);
+        }
+
+        public virtual void Attack(CharacterActions attack)
+        {
+            if (!this._attacks.ContainsKey(attack))
+                return;
+            switch (attack)
+            {
+                case CharacterActions.Attack1Right:
+                    this._attacks[attack].Launch(new Rectangle((int)this.Position.X, this._sprite.Position.Y, this._sprite.Position.Width / 2, this._sprite.Position.Height));
+                    break;
+                case CharacterActions.Attack1Left:
+                    this._attacks[attack].Launch(new Rectangle((int)this.Position.X - this._sprite.Position.Width / 2, (int)this.Position.Y - this._sprite.Position.Height, this._sprite.Position.Width / 2, this._sprite.Position.Height));
+                    break;
+                case CharacterActions.AttackStunRight:
+                case CharacterActions.AttackStunLeft:
+                    Rectangle position = this._sprite.Position;
+                    this._attacks[attack].Launch(new Rectangle(position.X - 2 * position.Width, position.Y - position.Height, 5 * position.Width, (int)(2.20000004768372 * (double)position.Height)));
+                    break;
+            }
+            this._canMove = false;
+            this._timer = this._attacks[attack].AttackTime;
+            this._action = attack;
+        }
+
+        public virtual void ReceiveAttack(float damage = 0.0f, int blockTime = 100)
+        {
+            this._action = this._direction ? CharacterActions.ReceiveAttackRight : CharacterActions.ReceiveAttackLeft;
+            this._canMove = false;
+            this._timer = blockTime;
+            this.actualizeSpriteGraphicalBounds();
+            this.Life -= damage;
+        }
+
+        public virtual void Stand(bool right)
+        {
+            if (right == this._direction && (this._action == CharacterActions.StandRight || this._action == CharacterActions.StandLeft))
+                return;
+            this._direction = right;
+            this._action = !right ? CharacterActions.StandLeft : CharacterActions.StandRight;
+            this.actualizeSpriteGraphicalBounds();
+        }
+
+        public virtual void Jump()
+        {
+            if (!this._canMove || this._jumping)
+                return;
+            this._action = !this._direction ? CharacterActions.JumpLeft : CharacterActions.JumpRight;
+            this.actualizeSpriteGraphicalBounds();
+            this._jumpHeight = 0;
+            this._jumping = true;
+            this._isOnGround = false;
+            this._physics.Jump();
+        }
+
+        public virtual void Move(bool right)
+        {
+            if (!this._canMove || right == this._direction && (this._action == CharacterActions.WalkRight || this._action == CharacterActions.WalkLeft))
+                return;
+            this._direction = right;
+            this._action = !right ? CharacterActions.WalkLeft : CharacterActions.WalkRight;
+            this.actualizeSpriteGraphicalBounds();
+        }
+
+        public virtual void Paralize(int time)
+        {
+            this._canMove = false;
+            this._timer = time;
+            this._action = CharacterActions.Paralized;
+        }
+
+        public virtual void Free()
+        {
+            this._canMove = true;
+        }
+
+        public virtual void DoubleDash()
+        {
+        }
+
+        protected virtual bool testOnGround()
+        {
+            if (this._jumpHeight >= 0)
                 return false;
+            this._jumping = false;
+            this._jumpHeight = 0;
+            this._isOnGround = true;
+            this.Stand(this._direction);
+            return true;
         }
-        protected void actualizeSpritePosition()
+
+        protected virtual void actualizeSpritePosition()
         {
-            _sprite.setRelatvePos(
-                new Rectangle(
-                    (int)_position.X - _sprite.Position.Width / 2,
-                    (int)_position.Y - _sprite.Position.Height,
-                    _sprite.Position.Width,
-                    _sprite.Position.Height),
-                    _windowSize.Width, _windowSize.Height);
+            this._sprite.setRelatvePos(new Rectangle((int)this._position.X - this._sprite.Position.Width / 2, (int)this._position.Y - this._sprite.Position.Height, this._sprite.Position.Width, this._sprite.Position.Height), this._windowSize.Width, this._windowSize.Height);
         }
-        protected void actualizeSpriteGraphicalBounds()
+
+        protected virtual void actualizeSpriteGraphicalBounds()
         {
-            Rectangle r = _graphicalBounds.get(_action);
-            _sprite.SetPictureBounds(r.Y, r.Width, r.X, true);
-            _sprite.Speed = r.Height;
-            if (_weapon != null)
-                _weapon.actualizeSpriteGraphicalBounds(r);
+            Rectangle rect = this._graphicalBounds.get(this._action);
+            this._sprite.SetPictureBounds(rect.Y, rect.Width, rect.X, true);
+            this._sprite.Speed = rect.Height;
+            foreach (Weapon weapon in this._weapons)
+            {
+                if (weapon != null)
+                    weapon.actualizeSpriteGraphicalBounds(rect);
+            }
         }
     }
 }

@@ -22,305 +22,316 @@ namespace TRODS
         private ContextMenu _menu;
         private Personnage personnage;
         private Random rand;
-        private List<Mob> _mobs;
+        private List<Texture2D> _mobsTextures;
+        private List<List<Mob>> _mobs;
         private HUD _hud;
         private Rectangle _originalWindowSize;
 
         public InGame(Rectangle windowSize, KeyboardState keyboardState, MouseState mouseState)
         {
-            _windowSize = windowSize;
-            _mouseState = mouseState;
-            _keyboardState = keyboardState;
-            _originalWindowSize = windowSize;
-
-            _menu = new ContextMenu(_windowSize, new AnimatedSprite(new Rectangle(0, 30, 200, 50), _windowSize, "menu/ContextualMenuBlackFull"), "menu/contextMenuExit", 235);
-            _menu.Title = new AnimatedSprite(new Rectangle(_menu.Position.Width / 2 - 75, 0, 150, 50), _windowSize, "menu/contextMenuText");
-            _menu.Visible = false;
-            _menu.Add(new AnimatedSprite(new Rectangle(_menu.Position.Width / 2 - 100, 65, 200, 22), _windowSize, "menu/contextMenuTextMainMenu"));
-            _menu.CuadricPositionning(new Rectangle(0, 0, 150, 20), 65, 15, 10, 10, true);
-
-            mouse = new Sprite(new Rectangle(-100, -100, 30, 50), _windowSize);
-
-            _maps = new List<AbstractMap>();
-            AbstractMap map;
-
-            map = new AbstractMap(_windowSize);
-            map.AddVisitable(450, 450, 2800, 130);
-            map.VuePosition = new Vector2(460, 450 + 130 - 1);
-            /*map.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(0, 0, _windowSize.Width, _windowSize.Height), _windowSize, "map1/sky1"), 0.2f, 0, true));
-            map.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(0, 0, _windowSize.Width, _windowSize.Height), _windowSize, "map1/back1r"), 0.8f, 0.2f, true));
-            map.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(0, _windowSize.Height / 2, _windowSize.Width, _windowSize.Height / 2), _windowSize, "map1/fore1"), 1f, 0.5f, true));*/
-            map.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(0, 0, _windowSize.Width, _windowSize.Height), windowSize, "map1/sky1"), 0.2f, 0, true));
-            map.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(0, 190, 960, 300), windowSize, "map1/back1r"), 0.8f, 0.2f, true));
-            map.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(0, 415, 1082, 193), windowSize, "map1/fore1"), 1f, 0.5f, true));
-            //map.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(0, 515, 1066, 92), windowSize, "map1/fore1"), 1f, 0.5f, true, true));
-            map.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(5, 150, _windowSize.Width / 2, _windowSize.Height - 150), _windowSize, "sprites/fireWall_11x6r23r44", 11, 6, 30, 23, 44, 1, true), 1f, 0.5f));
-            map.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(2550 + _windowSize.Width / 2, 150, 400, 400), _windowSize, "sprites/portal_6x6", 6, 6, 30, 1, 32, 1, true), 1f, 0.5f));
-            _maps.Add(map);
-
-            map = new AbstractMap(_windowSize);
-            map.AddVisitable(450, 450, 2800, 130);
-            map.VuePosition = new Vector2(460, 450 + 130 - 1);
-            /*map.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(0, 0, _windowSize.Width, _windowSize.Height), _windowSize, "map1/sky1"), 0.2f, 0, true));
-            map.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(0, 0, _windowSize.Width, _windowSize.Height), _windowSize, "map1/back1r"), 0.8f, 0.2f, true));
-            map.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(0, _windowSize.Height / 2, _windowSize.Width, _windowSize.Height / 2), _windowSize, "map1/fore1"), 1f, 0.5f, true));*/
-            map.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(0, 0, 1040, 320), windowSize, "map2/sky"), 0.2f, 0, true));
-            map.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(0, 190, 960, 300), windowSize, "map2/mountain"), 0.8f, 0.2f, true));
-            map.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(0, 415, 1082, 193), windowSize, "map2/sand"), 1f, 0.5f, true));
-            map.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(0, 515, 1066, 92), windowSize, "map2/rock"), 1f, 0.5f, true, true));
-            map.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(250, 150, 400, 400), _windowSize, "sprites/portal_6x6", 6, 6, 30, 1, 32, 1, true), 1f, 0.5f));
-            map.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(2550 + _windowSize.Width / 2, 150, _windowSize.Width / 2, _windowSize.Height - 150), _windowSize, "sprites/fireWall_11x6r23r44", 11, 6, 30, 23, 44, 1, true), 1f, 0.5f));
-            _maps.Add(map);
-            _currentMap = 0;
-
-            personnage = new Personnage(_windowSize, map.VuePosition);
-            _mobs = new List<Mob>();
-            rand = new Random();
-            for (int i = 0; i < 50; i++)
-                _mobs.Add(new Mob(_windowSize, rand.Next(), new Vector2(1000, 580), 100, 200, "game/blitz", 5, 4, new Vector2(3f, 3f), new Vector2(1f, 0.5f), 300, 50, new Rectangle(900, 485, 2000, 100)));
-            foreach (Mob m in _mobs)
+            this._windowSize = windowSize;
+            this._mouseState = mouseState;
+            this._keyboardState = keyboardState;
+            this._originalWindowSize = windowSize;
+            this._menu = new ContextMenu(this._windowSize, new AnimatedSprite(new Rectangle(0, 30, 200, 50), this._windowSize, "menu/ContextualMenuBlackFull", 1, 1, 30, 1, -1, -1, false), "menu/contextMenuExit", (byte)235);
+            this._menu.Title = new AnimatedSprite(new Rectangle(this._menu.Position.Width / 2 - 75, 0, 150, 50), this._windowSize, "menu/contextMenuText", 1, 1, 30, 1, -1, -1, false);
+            this._menu.Visible = false;
+            this._menu.Add(new AnimatedSprite(new Rectangle(this._menu.Position.Width / 2 - 100, 65, 200, 22), this._windowSize, "menu/contextMenuTextMainMenu", 1, 1, 30, 1, -1, -1, false));
+            this._menu.CuadricPositionning(new Rectangle(0, 0, 150, 20), 65, 15, 10, 10, true);
+            this.mouse = new Sprite(new Rectangle(-100, -100, 30, 50), this._windowSize, "");
+            this._maps = new List<AbstractMap>();
+            AbstractMap abstractMap1 = new AbstractMap(this._windowSize);
+            abstractMap1.AddVisitable(450, 450, 2800, 130);
+            abstractMap1.VuePosition = new Vector2(460f, 579f);
+            abstractMap1.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(0, 0, this._windowSize.Width, this._windowSize.Height), windowSize, "map1/sky1", 1, 1, 30, 1, -1, -1, false), 0.2f, 0.0f, true, false, false, true, false));
+            abstractMap1.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(0, 190, 960, 300), windowSize, "map1/back1r", 1, 1, 30, 1, -1, -1, false), 0.8f, 0.2f, true, false, false, true, false));
+            abstractMap1.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(0, 415, 1082, 193), windowSize, "map1/fore1", 1, 1, 30, 1, -1, -1, false), 1f, 0.5f, true, false, false, true, false));
+            abstractMap1.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(400, 450, 150, 150), this._windowSize, "game/heal_font_6x6", 6, 6, 30, 1, 32, 1, true), 1f, 0.5f, false, false, false, false, true));
+            abstractMap1.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(5, 150, this._windowSize.Width / 2, this._windowSize.Height - 150), this._windowSize, "sprites/fireWall_11x6r23r44", 11, 6, 30, 23, 44, 1, true), 1f, 0.5f, false, false, false, true, false));
+            abstractMap1.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(2550 + this._windowSize.Width / 2, 280, 320, 320), this._windowSize, "sprites/portal_6x6", 6, 6, 30, 1, 32, 1, true), 1f, 0.5f, false, false, true, true, false));
+            this._maps.Add(abstractMap1);
+            AbstractMap abstractMap2 = new AbstractMap(this._windowSize);
+            abstractMap2.AddVisitable(450, 450, 2800, 130);
+            abstractMap2.VuePosition = new Vector2(460f, 579f);
+            abstractMap2.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(0, 0, 1040, 320), windowSize, "map2/sky", 1, 1, 30, 1, -1, -1, false), 0.2f, 0.0f, true, false, false, true, false));
+            abstractMap2.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(0, 190, 960, 300), windowSize, "map2/mountain", 1, 1, 30, 1, -1, -1, false), 0.8f, 0.2f, true, false, false, true, false));
+            abstractMap2.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(0, 415, 1082, 193), windowSize, "map2/sand", 1, 1, 30, 1, -1, -1, false), 1f, 0.5f, true, false, false, true, false));
+            abstractMap2.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(0, 515, 1066, 92), windowSize, "map2/rock", 1, 1, 30, 1, -1, -1, false), 1f, 0.5f, true, true, false, true, false));
+            abstractMap2.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(250, 280, 320, 320), this._windowSize, "sprites/portal_6x6", 6, 6, 30, 1, 32, 1, true), 1f, 0.5f, false, false, true, false, false));
+            abstractMap2.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(2800 + this._windowSize.Width / 2, 150, this._windowSize.Width / 2, this._windowSize.Height - 150), this._windowSize, "sprites/fireWall_11x6r23r44", 11, 6, 30, 23, 44, 1, true), 1f, 0.5f, false, false, false, true, false));
+            this._maps.Add(abstractMap2);
+            this._currentMap = 0;
+            this.personnage = new Personnage(this._windowSize, abstractMap2.VuePosition);
+            this._mobsTextures = new List<Texture2D>();
+            this._mobs = new List<List<Mob>>();
+            this.rand = new Random();
+            this._mobs.Add(new List<Mob>());
+            this._mobs.Add(new List<Mob>());
+            for (int index = 0; index < 25; ++index)
+                this._mobs[0].Add(new Mob(this._windowSize, this.rand.Next(), new Vector2(1000f, 580f), 100, 200, "game/blitz", 5, 4, new Vector2(3f, 3f), new Vector2(1f, 0.5f), 300, 50, new Rectangle(900, 500, 2000, 80)));
+            for (int index = 0; index < 40; ++index)
+                this._mobs[1].Add(new Mob(this._windowSize, this.rand.Next(), new Vector2(1000f, 580f), 100, 200, "game/blitz", 5, 4, new Vector2(3f, 3f), new Vector2(1f, 0.5f), 300, 50, new Rectangle(900, 485, 2000, 100)));
+            foreach (List<Mob> list in this._mobs)
             {
-                m.AddGraphicalBounds(CharacterActions.WalkRight, new Rectangle(6, 6, 10, 30));
-                m.AddGraphicalBounds(CharacterActions.WalkLeft, new Rectangle(1, 1, 5, 30));
-                m.AddGraphicalBounds(CharacterActions.StandLeft, new Rectangle(3, 3, 3, 30));
-                m.AddGraphicalBounds(CharacterActions.StandRight, new Rectangle(8, 8, 8, 30));
-                m.AddGraphicalBounds(CharacterActions.Attack1Left, new Rectangle(11, 11, 12, 4));
-                m.AddGraphicalBounds(CharacterActions.Attack1Right, new Rectangle(16, 16, 17, 4));
-                m.AddGraphicalBounds(CharacterActions.ReceiveAttackLeft, new Rectangle(13, 13, 13, 4));
-                m.AddGraphicalBounds(CharacterActions.ReceiveAttackRight, new Rectangle(18, 18, 18, 4));
+                foreach (Mob mob in list)
+                {
+                    mob.AddGraphicalBounds(CharacterActions.WalkRight, new Rectangle(6, 6, 10, 30));
+                    mob.AddGraphicalBounds(CharacterActions.WalkLeft, new Rectangle(1, 1, 5, 30));
+                    mob.AddGraphicalBounds(CharacterActions.StandLeft, new Rectangle(3, 3, 3, 30));
+                    mob.AddGraphicalBounds(CharacterActions.StandRight, new Rectangle(8, 8, 8, 30));
+                    mob.AddGraphicalBounds(CharacterActions.Attack1Left, new Rectangle(11, 11, 12, 4));
+                    mob.AddGraphicalBounds(CharacterActions.Attack1Right, new Rectangle(16, 16, 17, 4));
+                    mob.AddGraphicalBounds(CharacterActions.ReceiveAttackLeft, new Rectangle(13, 13, 13, 4));
+                    mob.AddGraphicalBounds(CharacterActions.ReceiveAttackRight, new Rectangle(18, 18, 18, 4));
+                }
             }
-
-            _hud = new HUD(_windowSize);
+            this._hud = new HUD(this._windowSize);
+            foreach (Sprite sprite in this.personnage.GetSkillsTips())
+                this._hud.AddSprite(sprite);
+            if (this.personnage.Weapons.Count <= 0)
+                return;
+            this._hud.AddWeapon(this.personnage.Weapons[0].Tip);
         }
 
         public override void LoadContent(ContentManager content)
         {
-            personnage.LoadContent(content);
-            mouse.LoadContent(content, "general/cursor1");
-            foreach (AbstractMap map in _maps)
-                map.LoadContent(content);
-            _menu.LoadContent(content);
-            foreach (Mob m in _mobs)
-                m.LoadContent(content);
-            _hud.LoadContent(content);
+            this.personnage.LoadContent(content);
+            this.mouse.LoadContent(content, "general/cursor1");
+            foreach (AbstractMap abstractScene in this._maps)
+                abstractScene.LoadContent(content);
+            this._menu.LoadContent(content);
+            foreach (List<Mob> list in this._mobs)
+            {
+                foreach (AbstractScene abstractScene in list)
+                    abstractScene.LoadContent(content);
+            }
+            this._hud.LoadContent(content);
         }
 
         public override void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Begin();
-
-            _maps[_currentMap].Draw(spriteBatch, false);
-            bool pdrn = false;
-            // gestion profondeur des biatches
-            if (_mobs != null && _mobs.Count > 0)
+            this._maps[this._currentMap].Draw(spriteBatch, false);
+            bool flag1 = false;
+            if (this._mobs != null && this._mobs[this._currentMap].Count > 0)
             {
-                int l = 0;
-                float min = float.MaxValue;
-                bool dp = false;
-                List<int> done = new List<int>();
-                while (done.Count < _mobs.Count + 1)
+                int index1 = 0;
+                bool flag2 = false;
+                List<int> list = new List<int>();
+                while (list.Count < this._mobs[this._currentMap].Count + 1)
                 {
-                    min = float.MaxValue;
-                    for (int i = 0; i < _mobs.Count; i++)
+                    float num = float.MaxValue;
+                    for (int index2 = 0; index2 < this._mobs[this._currentMap].Count; ++index2)
                     {
-                        if (_mobs[i].Position.Y < min && !done.Contains(i))
+                        if ((double)this._mobs[this._currentMap][index2].Position.Y < (double)num && !list.Contains(index2))
                         {
-                            min = _mobs[i].Position.Y;
-                            l = i;
-                            if (!pdrn && personnage.Position.Y < _mobs[i].Position.Y)
-                                dp = true;
-                            i = _mobs.Count + 1;
+                            num = this._mobs[this._currentMap][index2].Position.Y;
+                            index1 = index2;
+                            if (!flag1 && (double)this.personnage.Position.Y < (double)this._mobs[this._currentMap][index2].Position.Y)
+                                flag2 = true;
+                            index2 = this._mobs[this._currentMap].Count + 1;
                         }
                     }
-                    if (dp)
+                    if (flag2)
                     {
-                        personnage.Draw(spriteBatch);
-                        dp = false;
-                        pdrn = true;
+                        this.personnage.Draw(spriteBatch);
+                        flag2 = false;
+                        flag1 = true;
                     }
                     else
                     {
-                        _mobs[l].Draw(spriteBatch);
-                        done.Add(l);
+                        this._mobs[this._currentMap][index1].Draw(spriteBatch);
+                        list.Add(index1);
                     }
                 }
             }
-            if (!pdrn)
-                personnage.Draw(spriteBatch);
-            _maps[_currentMap].Draw(spriteBatch, true);
-            _hud.Draw(spriteBatch);
-            _menu.Draw(spriteBatch);
-            mouse.Draw(spriteBatch);
-
+            if (!flag1)
+                this.personnage.Draw(spriteBatch);
+            this._maps[this._currentMap].Draw(spriteBatch, true);
+            this._hud.Draw(spriteBatch);
+            this._menu.Draw(spriteBatch);
+            ((AbstractScene)this.mouse).Draw(spriteBatch);
             spriteBatch.End();
         }
 
         public override void Update(float elapsedTime)
         {
-            _maps[_currentMap].Update(elapsedTime);
-            _menu.Update(elapsedTime);
-            personnage.Update(elapsedTime);
-            foreach (Mob m in _mobs)
+            this._maps[this._currentMap].Update(elapsedTime);
+            this._menu.Update(elapsedTime);
+            this.personnage.Update(elapsedTime);
+            foreach (Mob mob in this._mobs[this._currentMap])
             {
-                m.Actualize(personnage.Position);
-                m.Update(elapsedTime);
+                mob.Actualize(this.personnage.Position);
+                mob.Update(elapsedTime);
             }
-            _hud.Update(elapsedTime);
-            _hud.LifeLevel = personnage.Life;
-            _hud.ManaLevel = personnage.Mana;
-            _hud.XpLevel = personnage.Experience.Percentage;
-            _hud.LevelText = personnage.Experience.Level.ToString();
-            if (_mobs != null)
-                _hud.EnnemiesText = _mobs.Count.ToString();
-            else
-                _hud.EnnemiesText = "--";
-
-            if (personnage.Action == CharacterActions.Attack1Left || personnage.Action == CharacterActions.Attack1Right)
+            this._hud.Update(elapsedTime);
+            this._hud.LifeLevel = this.personnage.Life;
+            this._hud.ManaLevel = this.personnage.Mana;
+            this._hud.XpLevel = this.personnage.Experience.Percentage;
+            this._hud.LevelText = this.personnage.Experience.Level.ToString();
+            this._hud.EnnemiesText = this._mobs == null ? "--" : this._mobs[this._currentMap].Count.ToString();
+            for (int index = 0; index < this._mobs[this._currentMap].Count; ++index)
             {
-                for (int i = 0; i < _mobs.Count; i++)
+                if (this.personnage.Attacks.ContainsKey(this.personnage.Action) && this.personnage.Attacks[this.personnage.Action].Position.Intersects(this._mobs[this._currentMap][index].DrawingRectangle) && this.personnage.Attacks[this.personnage.Action].Active)
+                    this._mobs[this._currentMap][index].ReceiveAttack(this.personnage.Attacks[this.personnage.Action].Damage * this.personnage.Weapons[this.personnage.Weapon].Damage, this.personnage.Attacks[this.personnage.Action].BlockTime);
+                if ((double)this._mobs[this._currentMap][index].Life <= 0.0)
                 {
-                    if (personnage.Weapon.Position.Intersects(_mobs[i].DrawingRectangle))
-                    {
-                        _mobs[i].ReceiveAttack(0.01f);
-                    }
-                    if (_mobs[i].Life <= 0)
-                    {
-                        _mobs.RemoveAt(i);
-                        i--;
-                        personnage.Experience.Add(50);
-                    }
+                    int level = this.personnage.Experience.Level;
+                    this._mobs[this._currentMap].RemoveAt(index);
+                    --index;
+                    this.personnage.Experience.Add(50);
+                    if (level < this.personnage.Experience.Level && level == 9 && this.personnage.Weapons.Count >= 2)
+                        this._hud.AddWeapon(this.personnage.Weapons[1].Tip);
                 }
             }
-
-            foreach (Mob m in _mobs)
+            foreach (Character character in this._mobs[this._currentMap])
             {
-                if (m.Ia._attack && m.DrawingRectangle.Intersects(personnage.DrawingRectangle))
+                foreach (Attack attack in character.Attacks.Values)
                 {
-                    personnage.ReceiveAttack(0.01f);
+                    if (attack.Active && attack.Position.Intersects(this.personnage.DrawingRectangle))
+                        this.personnage.ReceiveAttack(attack.Damage, attack.BlockTime);
+                }
+            }
+            if ((double)this.personnage.Life >= 1.0 && (double)this.personnage.Mana >= 1.0)
+                return;
+            foreach (AbstractMap.Element element in this._maps[this._currentMap].Elements)
+            {
+                if (element.isHeal && element.sprite.Position.Intersects(this.personnage.DrawingRectangle))
+                {
+                    this.personnage.Mana += 0.01f;
+                    Personnage personnage = this.personnage;
+                    double num = (double)personnage.Life + 0.00999999977648258;
+                    personnage.Life = (float)num;
                 }
             }
         }
 
         public override void HandleInput(KeyboardState newKeyboardState, MouseState newMouseState, Game1 parent)
         {
-            if (parent.Window.ClientBounds != _windowSize)
+            if (parent.Window.ClientBounds != this._windowSize)
+                this.windowResized(parent.Window.ClientBounds);
+            if (!newKeyboardState.IsKeyDown(Keys.Escape) && this._keyboardState.IsKeyDown(Keys.Escape))
+                this._menu.Visible = !this._menu.Visible;
+            bool flag = false;
+            if (this._mouseState != newMouseState)
             {
-                windowResized(parent.Window.ClientBounds);
+                this.mouse.Position = new Rectangle(newMouseState.X, newMouseState.Y, this.mouse.Position.Width, this.mouse.Position.Height);
+                flag = newMouseState.LeftButton == ButtonState.Pressed && this._mouseState.LeftButton == ButtonState.Released;
             }
-            if (!newKeyboardState.IsKeyDown(Keys.Escape) && _keyboardState.IsKeyDown(Keys.Escape))
-                _menu.Visible = !_menu.Visible;
-            bool isClick = false;
-            if (_mouseState != newMouseState)
-            {
-                mouse.Position = new Rectangle(newMouseState.X, newMouseState.Y, mouse.Position.Width, mouse.Position.Height);
-                isClick = newMouseState.LeftButton == ButtonState.Pressed && _mouseState.LeftButton == ButtonState.Released;
-            }
-
-            _menu.HandleInput(newKeyboardState, newMouseState, parent);
-            if (_menu.Choise == 0)
+            this._menu.HandleInput(newKeyboardState, newMouseState, parent);
+            if (this._menu.Choise == 0)
                 parent.SwitchScene(Scene.MainMenu);
-
-            //// MOUVEMENT ////
-            if (newKeyboardState.IsKeyDown(Keys.Right) && personnage._canMove)
+            int num;
+            if ((num = this._hud.SelectedWeapon(this._mouseState)) >= 0)
+                this.personnage.Weapon = num;
+            if (newKeyboardState.IsKeyDown(Keys.Right) && this.personnage._canMove && this._maps[this._currentMap].Moving(new Vector2(5f, 0.0f), true))
             {
-                if (_maps[_currentMap].Moving(new Vector2(5, 0), true))
-                    foreach (Mob m in _mobs)
-                        m.Move(5, 0);
+                foreach (Mob mob in this._mobs[this._currentMap])
+                    mob.Move(5, 0);
+                foreach (Attack attack in this.personnage.Attacks.Values)
+                    attack.Move(5, 0);
             }
-            if (newKeyboardState.IsKeyDown(Keys.Left) && personnage._canMove)
+            if (newKeyboardState.IsKeyDown(Keys.Left) && this.personnage._canMove && this._maps[this._currentMap].Moving(new Vector2(-5f, 0.0f), true))
             {
-                if (_maps[_currentMap].Moving(new Vector2(-5, 0), true))
-                    foreach (Mob m in _mobs)
-                        m.Move(-5, 0);
+                foreach (Mob mob in this._mobs[this._currentMap])
+                    mob.Move(-5, 0);
+                foreach (Attack attack in this.personnage.Attacks.Values)
+                    attack.Move(-5, 0);
             }
-            if (newKeyboardState.IsKeyDown(Keys.Up) && personnage._canMove)
+            if (newKeyboardState.IsKeyDown(Keys.Up) && this.personnage._canMove && this._maps[this._currentMap].Moving(new Vector2(0.0f, -5f), true))
             {
-                if (_maps[_currentMap].Moving(new Vector2(0, -5), true))
-                    foreach (Mob m in _mobs)
-                        m.Move(0, -5);
+                foreach (Mob mob in this._mobs[this._currentMap])
+                    mob.Move(0, -5);
+                foreach (Attack attack in this.personnage.Attacks.Values)
+                    attack.Move(0, -2);
             }
-            if (newKeyboardState.IsKeyDown(Keys.Down) && personnage._canMove)
+            if (newKeyboardState.IsKeyDown(Keys.Down) && this.personnage._canMove && this._maps[this._currentMap].Moving(new Vector2(0.0f, 5f), true))
             {
-                if (_maps[_currentMap].Moving(new Vector2(0, 5), true))
-                    foreach (Mob m in _mobs)
-                        m.Move(0, 5);
+                foreach (Mob mob in this._mobs[this._currentMap])
+                    mob.Move(0, 5);
+                foreach (Attack attack in this.personnage.Attacks.Values)
+                    attack.Move(0, 2);
             }
-            personnage.HandleInput(newKeyboardState, newMouseState, parent);
-            _hud.HandleInput(newKeyboardState, newMouseState, parent);
-
-            if (personnage.Life <= 0)
+            if (newKeyboardState.IsKeyDown(Keys.E) && this._keyboardState.IsKeyUp(Keys.E))
+            {
+                this._currentMap += this._maps[this._currentMap].GetTravelState(this.personnage.DrawingRectangle);
+                if (this._currentMap < 0)
+                    this._currentMap = 0;
+                else if (this._currentMap >= this._maps.Count)
+                    this._currentMap = this._maps.Count - 1;
+            }
+            this.personnage.HandleInput(newKeyboardState, newMouseState, parent);
+            this._hud.HandleInput(newKeyboardState, newMouseState, parent);
+            if ((double)this.personnage.Life <= 0.0)
                 parent.SwitchScene(Scene.MainMenu);
-
-            _keyboardState = newKeyboardState;
-            _mouseState = newMouseState;
+            this._keyboardState = newKeyboardState;
+            this._mouseState = newMouseState;
         }
 
         public override void Activation(Game1 parent)
         {
-            _mouseState = Mouse.GetState();
-            _keyboardState = Keyboard.GetState();
-            _menu.Activation(parent);
+            this._mouseState = Mouse.GetState();
+            this._keyboardState = Keyboard.GetState();
+            this._menu.Activation(parent);
         }
 
         public override void EndScene(Game1 parent)
         {
-            _windowSize = parent.Window.ClientBounds;
-            /*map.VuePosition = new Vector2(460, 450 + 130 - 1);
-            map.Elements[0].sprite.setRelatvePos(new Rectangle(0, 0, 1040, 320), _originalWindowSize.Width, _originalWindowSize.Height);
-            map.Elements[1].sprite.setRelatvePos(new Rectangle(0, 190, 960, 300), _originalWindowSize.Width, _originalWindowSize.Height);
-            map.Elements[2].sprite.setRelatvePos(new Rectangle(0, 415, 1082, 193), _originalWindowSize.Width, _originalWindowSize.Height);
-            map.Elements[3].sprite.setRelatvePos(new Rectangle(0, 515, 1066, 92), _originalWindowSize.Width, _originalWindowSize.Height);
-            map.Elements[4].sprite.setRelatvePos(new Rectangle(5, 150, _windowSize.Width / 2, _windowSize.Height - 150), _originalWindowSize.Width, _originalWindowSize.Height);
-            map.Elements[5].sprite.setRelatvePos(new Rectangle(2800 + _windowSize.Width / 2, 150, _windowSize.Width / 2 - 20, _windowSize.Height - 150), _originalWindowSize.Width, _originalWindowSize.Height);
-            map.WindowResized(_windowSize);*/
-            foreach (AbstractMap m in _maps)
+            this._windowSize = parent.Window.ClientBounds;
+            foreach (AbstractMap abstractMap in this._maps)
             {
-                m.Activation();
-                m.WindowResized(_windowSize);
+                abstractMap.Activation((Game1)null);
+                abstractMap.WindowResized(this._windowSize);
             }
-            _currentMap = 0;
-
-            rand = new Random();
-            _mobs.Clear();
-            for (int i = 0; i < 50; i++)
-                _mobs.Add(new Mob(_windowSize, rand.Next(), new Vector2(1000, 580), 100, 200, "game/blitz", 5, 4, new Vector2(3f, 3f), new Vector2(1f, 0.5f), 300, 50, new Rectangle(900, 485, 2000, 100)));
-            foreach (Mob m in _mobs)
+            this._currentMap = 0;
+            this.rand = new Random();
+            foreach (List<Mob> list in this._mobs)
+                list.Clear();
+            foreach (List<Mob> list in this._mobs)
             {
-                m.AddGraphicalBounds(CharacterActions.WalkRight, new Rectangle(6, 6, 10, 30));
-                m.AddGraphicalBounds(CharacterActions.WalkLeft, new Rectangle(1, 1, 5, 30));
-                m.AddGraphicalBounds(CharacterActions.StandLeft, new Rectangle(3, 3, 3, 30));
-                m.AddGraphicalBounds(CharacterActions.StandRight, new Rectangle(8, 8, 8, 30));
-                m.AddGraphicalBounds(CharacterActions.Attack1Left, new Rectangle(11, 11, 12, 4));
-                m.AddGraphicalBounds(CharacterActions.Attack1Right, new Rectangle(16, 16, 17, 4));
-                m.AddGraphicalBounds(CharacterActions.ReceiveAttackLeft, new Rectangle(13, 13, 13, 4));
-                m.AddGraphicalBounds(CharacterActions.ReceiveAttackRight, new Rectangle(18, 18, 18, 4));
+                for (int index = 0; index < 40; ++index)
+                    list.Add(new Mob(this._windowSize, this.rand.Next(), new Vector2(1000f, 580f), 100, 200, "game/blitz", 5, 4, new Vector2(3f, 3f), new Vector2(1f, 0.5f), 300, 50, new Rectangle(900, 485, 2000, 100)));
             }
-            foreach (Mob m in _mobs)
+            foreach (List<Mob> list in this._mobs)
             {
-                m.LoadContent(parent.Content);
-                m.WindowResized(_windowSize);
+                foreach (Mob mob in list)
+                {
+                    mob.AddGraphicalBounds(CharacterActions.WalkRight, new Rectangle(6, 6, 10, 30));
+                    mob.AddGraphicalBounds(CharacterActions.WalkLeft, new Rectangle(1, 1, 5, 30));
+                    mob.AddGraphicalBounds(CharacterActions.StandLeft, new Rectangle(3, 3, 3, 30));
+                    mob.AddGraphicalBounds(CharacterActions.StandRight, new Rectangle(8, 8, 8, 30));
+                    mob.AddGraphicalBounds(CharacterActions.Attack1Left, new Rectangle(11, 11, 12, 4));
+                    mob.AddGraphicalBounds(CharacterActions.Attack1Right, new Rectangle(16, 16, 17, 4));
+                    mob.AddGraphicalBounds(CharacterActions.ReceiveAttackLeft, new Rectangle(13, 13, 13, 4));
+                    mob.AddGraphicalBounds(CharacterActions.ReceiveAttackRight, new Rectangle(18, 18, 18, 4));
+                }
             }
-
-            personnage.Life = 1;
-            personnage.Mana = 1;
-            personnage.Experience.Reset();
+            foreach (List<Mob> list in this._mobs)
+            {
+                foreach (Mob mob in list)
+                {
+                    mob.LoadContent(parent.Content);
+                    mob.WindowResized(this._windowSize);
+                }
+            }
+            this.personnage.Life = 1f;
+            this.personnage.Mana = 1f;
+            this.personnage.Experience.Reset();
         }
 
-        /// <summary>
-        /// Fonction adaptant les textures au
-        /// redimensionnement de la fenetre
-        /// </summary>
-        /// <param name="rect">Nouvelle dimension de la fenetre obtenue par *Game1*.Window.ClientBounds()</param>
         private void windowResized(Rectangle rect)
         {
-            personnage.WindowResized(rect);
-            foreach (AbstractMap map in _maps)
-                map.WindowResized(rect);
-            _menu.WindowResized(rect);
-            foreach (Mob m in _mobs)
-                m.WindowResized(rect);
-            _windowSize = rect;
-            _hud.WindowResized(rect);
+            this.personnage.WindowResized(rect);
+            foreach (AbstractScene abstractScene in this._maps)
+                abstractScene.WindowResized(rect);
+            this._menu.WindowResized(rect);
+            foreach (List<Mob> list in this._mobs)
+            {
+                foreach (AbstractScene abstractScene in list)
+                    abstractScene.WindowResized(rect);
+            }
+            this._windowSize = rect;
+            this._hud.WindowResized(rect);
         }
     }
 }

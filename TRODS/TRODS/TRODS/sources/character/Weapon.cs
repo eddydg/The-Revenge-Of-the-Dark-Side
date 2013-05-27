@@ -14,38 +14,57 @@ namespace TRODS
     class Weapon
     {
         private AnimatedSprite _sprite;
-        public Rectangle Position { get { return _sprite.Position; } }
 
-        public Weapon(Rectangle winsize, string assetName, int lignes, int colones, int width, int height)
+        public float Damage { get; set; }
+
+        public Tip Tip { get; set; }
+
+        public Rectangle Position
         {
-            _sprite = new AnimatedSprite(new Rectangle(0, 0, width, height), winsize, assetName, colones, lignes);
+            get
+            {
+                return this._sprite.Position;
+            }
+        }
+
+        public Weapon(Rectangle winsize, string assetName, int lignes, int colones, int width, int height, float damage = 1f)
+        {
+            this._sprite = new AnimatedSprite(new Rectangle(0, 0, width, height), winsize, assetName, colones, lignes, 30, 1, -1, -1, false);
+            this.Damage = damage;
         }
 
         public void LoadContent(ContentManager content)
         {
-            _sprite.LoadContent(content);
+            ((AbstractScene)this._sprite).LoadContent(content);
+            ((AbstractScene)this.Tip).LoadContent(content);
         }
+
+        public void LoadContent(Texture2D content)
+        {
+            ((AbstractScene)this._sprite).LoadContent(content);
+        }
+
         public void Draw(SpriteBatch s, Rectangle character)
         {
-            Vector2 v = new Vector2(character.X + character.Width / 2 - _sprite.Position.Width / 2, character.Y);
-            _sprite.Position = new Rectangle((int)v.X, (int)v.Y, _sprite.Position.Width, _sprite.Position.Height);
-            /*_sprite.Draw(s, new Vector2(
-                character.X + character.Width / 2 - _sprite.Position.Width / 2,
-                character.Y + character.Height / 2 - _sprite.Position.Width / 2));*/
-            _sprite.Draw(s, v);
+            Vector2 position = new Vector2((float)(character.X + character.Width / 2 - this._sprite.Position.Width / 2), (float)character.Y);
+            this._sprite.Position = new Rectangle((int)position.X, (int)position.Y, this._sprite.Position.Width, this._sprite.Position.Height);
+            this._sprite.Draw(s, position);
         }
+
         public void Update(float elapsedTime)
         {
-            _sprite.Update(elapsedTime);
+            this._sprite.Update(elapsedTime);
         }
+
         public void actualizeSpriteGraphicalBounds(Rectangle rect)
         {
-            _sprite.SetPictureBounds(rect.Y, rect.Width, rect.X, true);
-            _sprite.Speed = rect.Height;
+            this._sprite.SetPictureBounds(rect.Y, rect.Width, rect.X, true);
+            this._sprite.Speed = rect.Height;
         }
+
         public void WindowResized(Rectangle rect)
         {
-            _sprite.windowResized(rect);
+            this._sprite.windowResized(rect, new Rectangle());
         }
     }
 }

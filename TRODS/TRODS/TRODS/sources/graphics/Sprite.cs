@@ -109,7 +109,7 @@ namespace TRODS
         /// Assigne la texture
         /// </summary>
         /// <param name="tex">Texture</param>
-        public virtual void LoadContent(Texture2D tex)
+        public override void LoadContent(Texture2D tex)
         {
             Texture = tex;
         }

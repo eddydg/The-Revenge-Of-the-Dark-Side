@@ -14,44 +14,62 @@ namespace TRODS
     class TextSprite : Sprite
     {
         private SpriteFont _spriteFont;
-        public String Text { get; set; }
+
+        public string Text { get; set; }
+
         public Color Color { get; set; }
 
-        public TextSprite(string assetName, Rectangle windowSize, Rectangle position, string text = "", Color color = new Color())
+        public TextSprite(string assetName, Rectangle windowSize, Rectangle position, Color color, string text = "")
             : base(position, windowSize, assetName)
         {
-            Color = color;
-            Text = text;
+            this.Color = color;
+            this.Text = text;
         }
 
         public override void LoadContent(ContentManager content)
         {
-            _spriteFont = content.Load<SpriteFont>(AssetName);
+            this._spriteFont = content.Load<SpriteFont>(this.AssetName);
         }
+
         public void LoadContent(SpriteFont spritefont)
         {
-            _spriteFont = spritefont;
+            this._spriteFont = spritefont;
         }
+
         public override void Draw(SpriteBatch spriteBatch)
         {
-            float scale = min((float)Position.Width / _spriteFont.MeasureString(Text).X, (float)Position.Height / _spriteFont.MeasureString(Text).Y);
-            spriteBatch.DrawString(_spriteFont, Text, new Vector2(Position.Location.X, Position.Location.Y),
-                                    Color, 0, Vector2.Zero, scale, SpriteEffects.None, 0);
+            float num1 = this.min((float)this.Position.Width / this._spriteFont.MeasureString(this.Text).X, (float)this.Position.Height / this._spriteFont.MeasureString(this.Text).Y);
+            SpriteBatch spriteBatch1 = spriteBatch;
+            SpriteFont spriteFont = this._spriteFont;
+            string text = this.Text;
+            Rectangle position1 = this.Position;
+            double num2 = (double)position1.Location.X;
+            position1 = this.Position;
+            double num3 = (double)position1.Location.Y;
+            Vector2 position2 = new Vector2((float)num2, (float)num3);
+            Color color = this.Color;
+            double num4 = 0.0;
+            Vector2 zero = Vector2.Zero;
+            double num5 = (double)num1;
+            int num6 = 0;
+            double num7 = 0.0;
+            spriteBatch1.DrawString(spriteFont, text, position2, color, (float)num4, zero, (float)num5, (SpriteEffects)num6, (float)num7);
         }
+
         public override void Draw(SpriteBatch spriteBatch, Rectangle position)
         {
-            float scale = min((float)position.Width / _spriteFont.MeasureString(Text).X, (float)position.Height / _spriteFont.MeasureString(Text).Y);
-            spriteBatch.DrawString(_spriteFont, Text, new Vector2(position.Location.X, position.Location.Y),
-                                    Color, 0, Vector2.Zero, scale, SpriteEffects.None, 0);
+            float scale = this.min((float)position.Width / this._spriteFont.MeasureString(this.Text).X, (float)position.Height / this._spriteFont.MeasureString(this.Text).Y);
+            spriteBatch.DrawString(this._spriteFont, this.Text, new Vector2((float)position.Location.X, (float)position.Location.Y), this.Color, 0.0f, Vector2.Zero, scale, SpriteEffects.None, 0.0f);
         }
 
         private float min(float a, float b)
         {
-            return a > b ? b : a;
+            return (double)a > (double)b ? b : a;
         }
+
         public Vector2 GetOriginalTextSize()
         {
-            return _spriteFont.MeasureString(Text);
+            return this._spriteFont.MeasureString(this.Text);
         }
     }
 }

@@ -16,93 +16,144 @@ namespace TRODS
         public enum KeysActions
         {
             WalkRight, WalkLeft, WalkUp, WalkDown, Jump,
-            Attack1
+            Attack1, AttackStun
         };
 
-        private InputManager<KeysActions, Keys> _inputManager;
-        public float Mana { get; set; }
+        private InputManager<Personnage.KeysActions, Keys> _inputManager;
         private ExperienceCounter _experience;
+
+        public float Mana { get; set; }
+
         internal ExperienceCounter Experience
         {
-            get { return _experience; }
-            private set { _experience = value; }
+            get
+            {
+                return this._experience;
+            }
+            private set
+            {
+                this._experience = value;
+            }
         }
 
-
         public Personnage(Rectangle winsize, Vector2 position)
-            : base(winsize, position, 140, 190, @"game\perso", 15, 4)
+            : base(winsize, position, 140, 190, "game\\perso", 15, 4)
         {
-            _graphicalBounds = new GraphicalBounds<CharacterActions>(new Dictionary<CharacterActions, Rectangle>());
-            _graphicalBounds.set(CharacterActions.WalkRight, 3, 6, 15);
-            _graphicalBounds.set(CharacterActions.WalkLeft, 18, 21, 30);
-            _graphicalBounds.set(CharacterActions.StandRight, 1, 1, 2, 4);
-            _graphicalBounds.set(CharacterActions.StandLeft, 16, 16, 17, 4);
-            _graphicalBounds.set(CharacterActions.JumpRight, 31, 31, 35);
-            _graphicalBounds.set(CharacterActions.JumpLeft, 36, 36, 40);
-            _graphicalBounds.set(CharacterActions.Attack1Right, 41, 41, 49, 35);
-            _graphicalBounds.set(CharacterActions.Attack1Left, 50, 50, 58, 35);
-            Action = CharacterActions.StandRight;
-            _physics.MaxHeight = 400;
-            _physics.TimeOnFlat = 500;
-            _inputManager = new InputManager<KeysActions, Keys>();
-            Weapon = new Weapon(winsize, @"game/weapon", _sprite.Lignes, _sprite.Colonnes, _sprite.Position.Width, _sprite.Position.Height);
-            InitKeys();
-            actualizeSpriteGraphicalBounds();
-            actualizeSpritePosition();
-            Jump();
-            Mana = 1;
-            _experience = new ExperienceCounter(ExperienceCounter.Growth.Cuadratic);
+            this._graphicalBounds = new GraphicalBounds<CharacterActions>(new Dictionary<CharacterActions, Rectangle>());
+            this._graphicalBounds.set(CharacterActions.WalkRight, 3, 6, 15, 30);
+            this._graphicalBounds.set(CharacterActions.WalkLeft, 18, 21, 30, 30);
+            this._graphicalBounds.set(CharacterActions.StandRight, 1, 1, 2, 4);
+            this._graphicalBounds.set(CharacterActions.StandLeft, 16, 16, 17, 4);
+            this._graphicalBounds.set(CharacterActions.JumpRight, 31, 31, 35, 30);
+            this._graphicalBounds.set(CharacterActions.JumpLeft, 36, 36, 40, 30);
+            this._graphicalBounds.set(CharacterActions.Attack1Right, 41, 41, 49, 50);
+            this._graphicalBounds.set(CharacterActions.Attack1Left, 50, 50, 58, 50);
+            this._graphicalBounds.set(CharacterActions.AttackStunRight, 1, 1, 2, 4);
+            this._graphicalBounds.set(CharacterActions.AttackStunLeft, 16, 16, 17, 4);
+            this._graphicalBounds.set(CharacterActions.ReceiveAttackRight, 60, 60, 60, 30);
+            this._graphicalBounds.set(CharacterActions.ReceiveAttackLeft, 59, 59, 59, 30);
+            this.Action = CharacterActions.StandRight;
+            this._physics.MaxHeight = 400;
+            this._physics.TimeOnFlat = 500;
+            this._inputManager = new InputManager<Personnage.KeysActions, Keys>();
+            this._weapons.Add(new Weapon(winsize, "game/weapon", this._sprite.Lignes, this._sprite.Colonnes, this._sprite.Position.Width, this._sprite.Position.Height, 1f));
+            Enumerable.Last<Weapon>((IEnumerable<Weapon>)this._weapons).Tip = new Tip(this._windowSize, new Rectangle(this._windowSize.Width - 60, this._windowSize.Height - 60, 40, 40), "game/tips/sword2_tip", "SpriteFont1", "x" + this.Weapons[0].Damage.ToString() + "   ", Color.Gold);
+            this._weapons.Add(new Weapon(winsize, "game/weapon2", this._sprite.Lignes, this._sprite.Colonnes, this._sprite.Position.Width, this._sprite.Position.Height, 1.5f));
+            Enumerable.Last<Weapon>((IEnumerable<Weapon>)this._weapons).Tip = new Tip(this._windowSize, new Rectangle(this._windowSize.Width - 110, this._windowSize.Height - 60, 40, 40), "game/tips/sword3_tip", "SpriteFont1", "x" + this.Weapons[1].Damage.ToString() + "   ", Color.Gold);
+            this.Weapon = 0;
+            this.InitKeys();
+            this.actualizeSpriteGraphicalBounds();
+            this.actualizeSpritePosition();
+            this.Jump();
+            this.Mana = 1f;
+            this._experience = new ExperienceCounter(ExperienceCounter.Growth.Cuadratic, 200);
+            this.AddAttack(CharacterActions.AttackStunLeft, new Attack(this._windowSize, new AnimatedSprite(new Rectangle(0, 0, 400, 400), this._windowSize, "sprites/expl_spread_6x6", 6, 6, 30, 1, 32, 1, true), 1500, 1.0f / 1000.0f, 3000, 400, 0.3f));
+            this.AddAttack(CharacterActions.AttackStunRight, new Attack(this._windowSize, new AnimatedSprite(new Rectangle(0, 0, 400, 400), this._windowSize, "sprites/expl_spread_6x6", 6, 6, 30, 1, 32, 1, true), 1500, 1.0f / 1000.0f, 3000, 400, 0.3f));
+            this.AddAttack(CharacterActions.Attack1Right, new Attack(this._windowSize, new AnimatedSprite(new Rectangle(0, 0, 10, 10), this._windowSize, "general/vide", 1, 1, 30, 1, -1, -1, false), 50, 0.1f, 280, 300, 0.05f));
+            this.AddAttack(CharacterActions.Attack1Left, new Attack(this._windowSize, new AnimatedSprite(new Rectangle(0, 0, 10, 10), this._windowSize, "general/vide", 1, 1, 30, 1, -1, -1, false), 50, 0.1f, 280, 300, 0.05f));
         }
 
         public override void Update(float elapsedTime)
         {
             base.Update(elapsedTime);
-            if (Action == CharacterActions.Attack1Left || Action == CharacterActions.Attack1Right || Action == CharacterActions.JumpLeft || Action == CharacterActions.JumpRight)
-                Mana -= 0.01f / (float)Experience.Level;
-            Mana += elapsedTime / 16000;
-            if (Mana > 1)
-                Mana = 1;
-            else if (Mana < 0)
-                Mana = 0;
+            this.Mana += elapsedTime / 40000f;
+            if ((double)this.Mana > 1.0)
+            {
+                this.Mana = 1f;
+            }
+            else
+            {
+                if ((double)this.Mana >= 0.0)
+                    return;
+                this.Mana = 0.0f;
+            }
+        }
+
+        public override void Attack(CharacterActions attack)
+        {
+            if ((double)this.Mana > (double)this._attacks[attack].Consumption / (double)(1 + this.Experience.Level / 7))
+                base.Attack(attack);
+            if (!this._attacks.ContainsKey(attack))
+                return;
+            this.Mana -= this.Attacks[attack].Consumption / (float)(1 + this.Experience.Level / 7);
         }
 
         public override void HandleInput(KeyboardState newKeyboardState, MouseState newMouseState, Game1 parent)
         {
-            if (_canMove)
+            if (!this._canMove)
+                return;
+            if (!this._jumping)
             {
-                if (!_jumping)
-                {
-                    if (newKeyboardState.IsKeyDown(_inputManager.Get(KeysActions.WalkRight)))
-                        Move(true);
-                    else if (newKeyboardState.IsKeyDown(_inputManager.Get(KeysActions.WalkLeft)))
-                        Move(false);
-                    else if (newKeyboardState.IsKeyDown(_inputManager.Get(KeysActions.WalkUp)))
-                        Move(_direction);
-                    else if (newKeyboardState.IsKeyDown(_inputManager.Get(KeysActions.WalkDown)))
-                        Move(_direction);
-                    else
-                        Stand(_direction);
-                    if (newKeyboardState.IsKeyDown(_inputManager.Get(KeysActions.Jump)))
-                        Jump();
-                }
-                if (newKeyboardState.IsKeyDown(_inputManager.Get(KeysActions.Attack1)))//attaque de base du joueur
-                {
-                    _canMove = false;
-                    _timer = 400;
-                    Action = _direction ? CharacterActions.Attack1Right : CharacterActions.Attack1Left;
-                    actualizeSpriteGraphicalBounds();
-                }
+                if (newKeyboardState.IsKeyDown(this._inputManager.Get(Personnage.KeysActions.WalkRight)))
+                    this.Move(true);
+                else if (newKeyboardState.IsKeyDown(this._inputManager.Get(Personnage.KeysActions.WalkLeft)))
+                    this.Move(false);
+                else if (newKeyboardState.IsKeyDown(this._inputManager.Get(Personnage.KeysActions.WalkUp)))
+                    this.Move(this._direction);
+                else if (newKeyboardState.IsKeyDown(this._inputManager.Get(Personnage.KeysActions.WalkDown)))
+                    this.Move(this._direction);
+                else
+                    this.Stand(this._direction);
+                if (newKeyboardState.IsKeyDown(this._inputManager.Get(Personnage.KeysActions.Jump)))
+                    this.Jump();
+            }
+            if (newKeyboardState.IsKeyDown(this._inputManager.Get(Personnage.KeysActions.Attack1)))
+            {
+                this.Action = this._direction ? CharacterActions.Attack1Right : CharacterActions.Attack1Left;
+                this.Attack(this.Action);
+                if (this.Attacks.ContainsKey(this.Action))
+                    this._timer = this.Attacks[this.Action].AttackTime;
+                this.actualizeSpriteGraphicalBounds();
+            }
+            if (newKeyboardState.IsKeyDown(this._inputManager.Get(Personnage.KeysActions.AttackStun)))
+            {
+                this._canMove = false;
+                this.Action = this._direction ? CharacterActions.AttackStunRight : CharacterActions.AttackStunLeft;
+                if (this.Attacks.ContainsKey(this.Action))
+                    this._timer = this.Attacks[this.Action].AttackTime;
+                this.Attack(this.Action);
+                this.actualizeSpriteGraphicalBounds();
             }
         }
 
         public void InitKeys()
         {
-            _inputManager.Add(KeysActions.WalkRight, Keys.Right);
-            _inputManager.Add(KeysActions.WalkLeft, Keys.Left);
-            _inputManager.Add(KeysActions.WalkUp, Keys.Up);
-            _inputManager.Add(KeysActions.WalkDown, Keys.Down);
-            _inputManager.Add(KeysActions.Jump, Keys.Space);
-            _inputManager.Add(KeysActions.Attack1, Keys.X);
+            this._inputManager.Add(Personnage.KeysActions.WalkRight, Keys.Right);
+            this._inputManager.Add(Personnage.KeysActions.WalkLeft, Keys.Left);
+            this._inputManager.Add(Personnage.KeysActions.WalkUp, Keys.Up);
+            this._inputManager.Add(Personnage.KeysActions.WalkDown, Keys.Down);
+            this._inputManager.Add(Personnage.KeysActions.Jump, Keys.Space);
+            this._inputManager.Add(Personnage.KeysActions.Attack1, Keys.X);
+            this._inputManager.Add(Personnage.KeysActions.AttackStun, Keys.A);
+        }
+
+        public List<Tip> GetSkillsTips()
+        {
+            return new List<Tip>()
+      {
+        new Tip(this._windowSize, new Rectangle(20, this._windowSize.Height - 50, 40, 40), "game/tips/sword1_tip", "SpriteFont1", ((object) this._inputManager.Get(Personnage.KeysActions.Attack1)).ToString(), Color.Gold),
+        new Tip(this._windowSize, new Rectangle(70, this._windowSize.Height - 50, 40, 40), "game/tips/stun_tip", "SpriteFont1", ((object) this._inputManager.Get(Personnage.KeysActions.AttackStun)).ToString(), Color.Gold)
+      };
         }
     }
 }

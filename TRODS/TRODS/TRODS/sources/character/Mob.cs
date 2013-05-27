@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.Xna.Framework;
@@ -14,106 +14,126 @@ namespace TRODS
     class Mob : Character
     {
         private Rectangle _playingZone;
-        public Rectangle PlayingZone
-        {
-            get { return _playingZone; }
-            set { _playingZone = value; }
-        }
         private Vector2 _mapSpeed;
         private Vector2 _speed;
         private IA _ia;
+        private Sprite _lifeSprite;
+
+        public Rectangle PlayingZone
+        {
+            get
+            {
+                return this._playingZone;
+            }
+            set
+            {
+                this._playingZone = value;
+            }
+        }
 
         internal IA Ia
         {
-            get { return _ia; }
-            set { _ia = value; }
+            get
+            {
+                return this._ia;
+            }
+            set
+            {
+                this._ia = value;
+            }
         }
-        private Sprite _lifeSprite;
 
         public Mob(Rectangle winSize, int seed, Vector2 position, int width, int height, string assetName, int textureColumns, int textureLines, Vector2 speed, Vector2 mapSpeed, int attackSpeed, int attackDistance, Rectangle playingZone)
             : base(winSize, position, width, height, assetName, textureColumns, textureLines)
         {
-            _ia = new IA(winSize, seed, speed, attackDistance, 300, attackSpeed);
+            this._ia = new IA(winSize, seed, speed, attackDistance, 300, attackSpeed);
             this._playingZone = playingZone;
             this._mapSpeed = mapSpeed;
-            _speed = speed;
-            Life = 1;
-            _lifeSprite = new Sprite(new Rectangle(_sprite.Position.X, _sprite.Position.Y - (int)((1f / 30f) * (float)_sprite.Position.Height), _sprite.Position.Width, (int)((1f / 30f) * (float)_sprite.Position.Height)), _windowSize, "game/life_mob");
+            this._speed = speed;
+            this.Life = 1f;
+            this._lifeSprite = new Sprite(new Rectangle(this._sprite.Position.X, this._sprite.Position.Y - (int)(0.0333333350718021 * (double)this._sprite.Position.Height), this._sprite.Position.Width, (int)(0.0333333350718021 * (double)this._sprite.Position.Height)), this._windowSize, "game/life_mob");
+            this.AddAttack(CharacterActions.Attack1Right, new Attack(this._windowSize, new AnimatedSprite(new Rectangle(0, 0, 10, 10), this._windowSize, "general/vide", 1, 1, 30, 1, -1, -1, false), 50, 0.005f, 50, 500, 0.05f));
+            this.AddAttack(CharacterActions.Attack1Left, new Attack(this._windowSize, new AnimatedSprite(new Rectangle(0, 0, 10, 10), this._windowSize, "general/vide", 1, 1, 30, 1, -1, -1, false), 50, 0.005f, 50, 500, 0.05f));
         }
 
         public override void Draw(SpriteBatch spriteBatch)
         {
             base.Draw(spriteBatch);
-            _lifeSprite.Draw(spriteBatch, 30);
-            _lifeSprite.Draw(spriteBatch, new Rectangle(_lifeSprite.Position.X, _lifeSprite.Position.Y, (int)((float)_lifeSprite.Position.Width * Life), _lifeSprite.Position.Height), new Rectangle(0, 0, (int)((float)_lifeSprite.Position.Width * Life), _lifeSprite.Position.Height), Color.FromNonPremultiplied(255, 255, 255, 200));
+            this._lifeSprite.Draw(spriteBatch, (byte)30);
+            this._lifeSprite.Draw(spriteBatch, new Rectangle(this._lifeSprite.Position.X, this._lifeSprite.Position.Y, (int)((double)this._lifeSprite.Position.Width * (double)this.Life), this._lifeSprite.Position.Height), new Rectangle(0, 0, (int)((double)this._lifeSprite.Position.Width * (double)this.Life), this._lifeSprite.Position.Height), Color.FromNonPremultiplied((int)byte.MaxValue, (int)byte.MaxValue, (int)byte.MaxValue, 200));
         }
+
         public override void Update(float elapsedTime)
         {
             base.Update(elapsedTime);
-            _ia.Update(elapsedTime);
-            if (_timer < 0)
+            this._ia.Update(elapsedTime);
+            if (this._timer < 0)
             {
-
-                if (!_ia.IsNearPerso)
-                    _position += _ia.Deplacement * _speed;
-                else if (!_ia._attack)
-                    Stand(_direction);
-                if (_ia._attack && Action != CharacterActions.Attack1Left && Action != CharacterActions.Attack1Right)
+                if (!this._ia.IsNearPerso)
                 {
-                    Action = _direction ? CharacterActions.Attack1Right : CharacterActions.Attack1Left;
-                    _canMove = false;
-                    _timer = 500;
-                    actualizeSpriteGraphicalBounds();
-                    // ADDATTACK
+                    Mob mob = this;
+                    Vector2 vector2 = mob._position + this._ia.Deplacement * this._speed;
+                    mob._position = vector2;
                 }
-                else if (_canMove && !_ia.IsNearPerso)
-                    Move(_ia.Deplacement.X > 0);
+                else if (!this._ia._attack)
+                    this.Stand(this._direction);
+                if (this._ia._attack && this.Action != CharacterActions.Attack1Left && this.Action != CharacterActions.Attack1Right)
+                {
+                    this.Action = this._direction ? CharacterActions.Attack1Right : CharacterActions.Attack1Left;
+                    this.Attack(this.Action);
+                    this._ia._attack = false;
+                    this.actualizeSpriteGraphicalBounds();
+                }
+                else if (this._canMove && !this._ia.IsNearPerso)
+                    base.Move((double)this._ia.Deplacement.X > 0.0);
             }
-            _lifeSprite.setRelatvePos(new Rectangle(_sprite.Position.X+_sprite.Position.Width/4, _sprite.Position.Y - (int)((1f / 20f) * (float)_sprite.Position.Height), _sprite.Position.Width-_sprite.Position.Width/2, (int)((1f / 20f) * (float)_sprite.Position.Height)), _windowSize.Width, _windowSize.Height);
-            actualizeSpritePosition();
+            this._lifeSprite.setRelatvePos(new Rectangle(this._sprite.Position.X + this._sprite.Position.Width / 4, this._sprite.Position.Y - (int)(0.0500000007450581 * (double)this._sprite.Position.Height), this._sprite.Position.Width - this._sprite.Position.Width / 2, (int)(0.0500000007450581 * (double)this._sprite.Position.Height)), this._windowSize.Width, this._windowSize.Height);
+            this.actualizeSpritePosition();
         }
+
         public override void LoadContent(ContentManager content)
         {
             base.LoadContent(content);
-            _lifeSprite.LoadContent(content);
+            ((AbstractScene)this._lifeSprite).LoadContent(content);
         }
 
         public void Move(int x, int y)
         {
-            _playingZone.X -= (int)((float)x * _mapSpeed.X);
-            _playingZone.Y -= (int)((float)y * _mapSpeed.Y);
-            _position.X -= (float)x * _mapSpeed.X;
-            _position.Y -= (float)y * _mapSpeed.Y;
+            this._playingZone.X -= (int)((double)x * (double)this._mapSpeed.X);
+            this._playingZone.Y -= (int)((double)y * (double)this._mapSpeed.Y);
+            this._position.X -= (float)(int)((double)x * (double)this._mapSpeed.X);
+            this._position.Y -= (float)(int)((double)y * (double)this._mapSpeed.Y);
         }
+
         public void AddGraphicalBounds(CharacterActions action, Rectangle bounds)
         {
-            _graphicalBounds.set(action, bounds);
+            this._graphicalBounds.set(action, bounds);
         }
+
         public void Actualize(Vector2 posPerso)
         {
-            if (_ia.IsNearPerso)
-                _direction = posPerso.X > Position.X;
-            _ia.Actualize(posPerso, _position, _playingZone);
+            if (this._ia.IsNearPerso)
+                this._direction = (double)posPerso.X > (double)this.Position.X;
+            this._ia.Actualize(posPerso, this._position, this._playingZone);
+        }
+
+        public override void Paralize(int time)
+        {
+            base.Paralize(time);
+            this.Ia._attack = false;
         }
 
         public override void WindowResized(Rectangle rect)
         {
-            float x = (float)rect.Width / (float)_windowSize.Width;
-            float y = (float)rect.Height / (float)_windowSize.Height;
-
-            _lifeSprite.windowResized(rect, _windowSize);
+            float num1 = (float)rect.Width / (float)this._windowSize.Width;
+            float num2 = (float)rect.Height / (float)this._windowSize.Height;
+            this._lifeSprite.windowResized(rect, this._windowSize);
             base.WindowResized(rect);
-            _ia.WindowResized(rect);
-
-            PlayingZone = new Rectangle(
-                (int)((float)_playingZone.X * x),
-                (int)((float)_playingZone.Y * y),
-                (int)((float)_playingZone.Width * x),
-                (int)((float)_playingZone.Height * y));
-            _speed.X *= x;
-            _speed.Y *= y;
-
-            _windowSize = rect;
+            this._ia.WindowResized(rect);
+            this.PlayingZone = new Rectangle((int)((double)this._playingZone.X * (double)num1), (int)((double)this._playingZone.Y * (double)num2), (int)((double)this._playingZone.Width * (double)num1), (int)((double)this._playingZone.Height * (double)num2));
+            this._speed.X *= num1;
+            this._speed.Y *= num2;
+            this._windowSize = rect;
         }
     }
 }

@@ -14,94 +14,113 @@ namespace TRODS
     class IA : AbstractScene
     {
         private Random _rand;
-        public Random Rand
-        {
-            get { return _rand; }
-            private set { _rand = value; }
-        }
         private int _attackSpeed;
         private int _attackDistance;
         private float _timer;
         private bool _isNearPerso;
-        public bool IsNearPerso
-        {
-            get { return _isNearPerso; }
-            private set { _isNearPerso = value; }
-        }
-        public bool _attack { get; set; }
         private Rectangle _windowSize;
         private Vector2 _deplacement;
-        public Vector2 Deplacement
-        {
-            get { return _deplacement; }
-            set { _deplacement = value; }
-        }
         private int _visionRange;
 
-        public IA(Rectangle windowsize, int seed, Vector2 speed,int attacDistance, int visionRange, int attackSpeed = 300)
+        public Random Rand
         {
-            _attackDistance=attacDistance;
+            get
+            {
+                return this._rand;
+            }
+            private set
+            {
+                this._rand = value;
+            }
+        }
+
+        public bool IsNearPerso
+        {
+            get
+            {
+                return this._isNearPerso;
+            }
+            private set
+            {
+                this._isNearPerso = value;
+            }
+        }
+
+        public bool _attack { get; set; }
+
+        public Vector2 Deplacement
+        {
+            get
+            {
+                return this._deplacement;
+            }
+            set
+            {
+                this._deplacement = value;
+            }
+        }
+
+        public IA(Rectangle windowsize, int seed, Vector2 speed, int attacDistance, int visionRange, int attackSpeed = 300)
+        {
+            this._attackDistance = attacDistance;
             this._attackSpeed = attackSpeed;
-            this._timer = 0;
-            _isNearPerso = false;
+            this._timer = 0.0f;
+            this._isNearPerso = false;
             this._windowSize = windowsize;
             this._attack = false;
-            _rand = new Random(seed);
-            _deplacement = new Vector2(1, 1);
+            this._rand = new Random(seed);
+            this._deplacement = new Vector2(1f, 1f);
             this._visionRange = visionRange;
-            _deplacement.Normalize();
+            this._deplacement.Normalize();
         }
 
         public override void Update(float elapsedTime)
         {
-            if (_isNearPerso)
+            if (this._isNearPerso)
             {
-                _timer += elapsedTime;
+                this._timer += elapsedTime;
             }
             else
             {
-                _timer = 0;
-                _attack = false;
+                this._timer = 0.0f;
+                this._attack = false;
             }
-            if (_timer >= _attackSpeed)
+            if ((double)this._timer >= (double)this._attackSpeed)
             {
-                _attack = true;
-                _timer = 0;
+                this._attack = true;
+                this._timer = 0.0f;
             }
             else
-            {
-                _attack = false;
-            }
-        }
-        public void Actualize(Vector2 posPerso, Vector2 posMob, Rectangle playingZone)
-        {
-            _isNearPerso = isNear(posPerso, posMob,_attackDistance);
-            if (!_isNearPerso && isNear(posPerso, posMob, _visionRange))
-                _deplacement = new Vector2(posPerso.X - posMob.X, posPerso.Y - posMob.Y);
-            else if (_isNearPerso)
-                _deplacement = Vector2.Zero;
-            else if (!playingZone.Contains(new Rectangle((int)posMob.X, (int)posMob.Y, 1, 1)))
-            {
-                _deplacement = new Vector2((float)_rand.Next(playingZone.Width) + (float)playingZone.X - posMob.X, (float)_rand.Next(playingZone.Height) + (float)playingZone.Y - posMob.Y);
-            }
-            _deplacement.Normalize();
+                this._attack = false;
         }
 
-        private bool isNear(Vector2 posPerso, Vector2 posMob,int distance)
+        public void Actualize(Vector2 posPerso, Vector2 posMob, Rectangle playingZone)
         {
-            return (posPerso.X - posMob.X) * (posPerso.X - posMob.X) + (posPerso.Y - posMob.Y) * (posPerso.Y - posMob.Y) <= distance * distance;
+            this._isNearPerso = this.isNear(posPerso, posMob, this._attackDistance);
+            if (!this._isNearPerso && this.isNear(posPerso, posMob, this._visionRange))
+                this._deplacement = new Vector2(posPerso.X - posMob.X, posPerso.Y - posMob.Y);
+            else if (this._isNearPerso)
+                this._deplacement = Vector2.Zero;
+            else if (!playingZone.Contains(new Rectangle((int)posMob.X, (int)posMob.Y, 1, 1)))
+                this._deplacement = new Vector2((float)this._rand.Next(playingZone.Width) + (float)playingZone.X - posMob.X, (float)this._rand.Next(playingZone.Height) + (float)playingZone.Y - posMob.Y);
+            this._deplacement.Normalize();
+        }
+
+        private bool isNear(Vector2 posPerso, Vector2 posMob, int distance)
+        {
+            return ((double)posPerso.X - (double)posMob.X) * ((double)posPerso.X - (double)posMob.X) + ((double)posPerso.Y - (double)posMob.Y) * ((double)posPerso.Y - (double)posMob.Y) <= (double)(distance * distance);
         }
 
         public override void WindowResized(Rectangle rect)
         {
-            float x = (float)rect.Width / (float)_windowSize.Width;
-            float y = (float)rect.Height / (float)_windowSize.Height;
-            _deplacement.X *= x;
-            _deplacement.Y *= y;
-            _deplacement.Normalize();
-            _windowSize = rect;
-            _attackDistance = (int)((float)_attackDistance * x);
-            _visionRange = (int)((float)_visionRange * x);
+            float num1 = (float)rect.Width / (float)this._windowSize.Width;
+            float num2 = (float)rect.Height / (float)this._windowSize.Height;
+            this._deplacement.X *= num1;
+            this._deplacement.Y *= num2;
+            this._deplacement.Normalize();
+            this._windowSize = rect;
+            this._attackDistance = (int)((double)this._attackDistance * (double)num1);
+            this._visionRange = (int)((double)this._visionRange * (double)num1);
         }
     }
 }

@@ -13,162 +13,125 @@ namespace TRODS
 {
     class AbstractMap : AbstractScene
     {
-        /// <summary>
-        /// Element constitutif de la mep.
-        /// </summary>
-        public struct Element
-        {
-            public Element(AnimatedSprite _s, float _speed = 0, float _verticalSpeed = 0, bool _repeating = false, bool _foreground = false)
-            {
-                sprite = _s;
-                speed = _speed;
-                verticalSpeed = _verticalSpeed;
-                repeating = _repeating;
-                foreground = _foreground;
-                originalPosition = _s.Position;
-            }
-            public AnimatedSprite sprite;
-            public Rectangle originalPosition;
-            public float speed;
-            public float verticalSpeed;
-            public bool repeating;
-            public bool foreground;
-            public void WindowResized(Rectangle oldWinSize, Rectangle winSize)
-            {
-                sprite.windowResized(winSize, oldWinSize);
-                speed *= (float)winSize.Width / (float)oldWinSize.Width;
-                verticalSpeed *= (float)winSize.Height / (float)oldWinSize.Height;
-            }
-            public void Reset(Rectangle winSize)
-            {
-                sprite.setRelatvePos(originalPosition, winSize.Width, winSize.Height);
-            }
-        }
-
-        protected List<Element> _elements;
-        public List<Element> Elements
-        {
-            get { return _elements; }
-            set { _elements = value; }
-        }
+        protected List<AbstractMap.Element> _elements;
         protected Rectangle _windowSize;
-        public Rectangle WindowSize
-        {
-            get { return _windowSize; }
-            set { _windowSize = value; }
-        }
         protected Vector2 _originalVuePosition;
         protected Vector2 _vuePosition;
-        public Vector2 VuePosition
-        {
-            get { return _vuePosition; }
-            set
-            {
-                _vuePosition = value;
-                //if (_originalVuePosition == null)
-                _originalVuePosition = _vuePosition;
-            }
-        }
         protected List<Rectangle> _originalVisitable;
         protected List<Rectangle> _visitable;
+        protected bool _isDrawingForeground;
+
+        public List<AbstractMap.Element> Elements
+        {
+            get
+            {
+                return this._elements;
+            }
+            set
+            {
+                this._elements = value;
+            }
+        }
+
+        public Rectangle WindowSize
+        {
+            get
+            {
+                return this._windowSize;
+            }
+            set
+            {
+                this._windowSize = value;
+            }
+        }
+
+        public Vector2 VuePosition
+        {
+            get
+            {
+                return this._vuePosition;
+            }
+            set
+            {
+                this._vuePosition = value;
+                this._originalVuePosition = this._vuePosition;
+            }
+        }
+
         public List<Rectangle> Visitable
         {
-            get { return _visitable; }
-            set { _visitable = value; }
+            get
+            {
+                return this._visitable;
+            }
+            set
+            {
+                this._visitable = value;
+            }
         }
-        protected bool _isDrawingForeground;
+
         public bool IsDrawingForeground
         {
-            get { return _isDrawingForeground; }
-            set { _isDrawingForeground = value; }
+            get
+            {
+                return this._isDrawingForeground;
+            }
+            set
+            {
+                this._isDrawingForeground = value;
+            }
         }
 
-        /// <summary>
-        /// Constructeur par defaut.
-        /// </summary>
-        /// <param name="windowSize">Taille actuelle de la fenetre</param>
         public AbstractMap(Rectangle windowSize)
         {
-            _windowSize = windowSize;
-            _elements = new List<Element>();
-            _visitable = new List<Rectangle>();
-            _isDrawingForeground = false;
-            _originalVisitable = new List<Rectangle>();
-        }
-        /// <summary>
-        /// Constructeur
-        /// </summary>
-        /// <param name="windowSize">Taille actuelle de la fenetre</param>
-        /// <param name="elements">Liste d'Element de la map</param>
-        /// <param name="vuePosition">Position de la "camera" sur la map</param>
-        /// <param name="visitableArea">Liste de regions autorisees</param>
-        public AbstractMap(Rectangle windowSize, List<Element> elements, Vector2 vuePosition, List<Rectangle> visitableArea)
-        {
-            _windowSize = windowSize;
-            _elements = elements;
-            _vuePosition = vuePosition;
-            _visitable = visitableArea;
-            _isDrawingForeground = false;
-            _originalVisitable = visitableArea;
-            _originalVuePosition = vuePosition;
+            this._windowSize = windowSize;
+            this._elements = new List<AbstractMap.Element>();
+            this._visitable = new List<Rectangle>();
+            this._isDrawingForeground = false;
+            this._originalVisitable = new List<Rectangle>();
         }
 
-        /// <summary>
-        /// Ajoute un element a la map.
-        /// </summary>
-        /// <param name="s">AnimatedSprite representant l'element</param>
-        /// <param name="horizontalSpeed">Vitesse horizontale</param>
-        /// <param name="verticalSpeed">Vitesse verticale</param>
-        /// <param name="repeating">Si la valeur est true, l'element se repete. Attention, ne fonctionne pas avec des elements trop petits.</param>
-        /// <param name="isForeground">Si la valeur est true, l'element sera dessine devant le personnage.</param>
-        public virtual void Add(AnimatedSprite s, float horizontalSpeed = 0, float verticalSpeed = 0, bool repeating = false, bool isForeground = false)
+        public AbstractMap(Rectangle windowSize, List<AbstractMap.Element> elements, Vector2 vuePosition, List<Rectangle> visitableArea)
         {
-            _elements.Add(new Element(s, horizontalSpeed, verticalSpeed, repeating, isForeground));
+            this._windowSize = windowSize;
+            this._elements = elements;
+            this._vuePosition = vuePosition;
+            this._visitable = visitableArea;
+            this._isDrawingForeground = false;
+            this._originalVisitable = visitableArea;
+            this._originalVuePosition = vuePosition;
         }
-        /// <summary>
-        /// Ajoute une zone autorisee
-        /// </summary>
-        /// <param name="v">Zone a ajouter</param>
+
+        public virtual void Add(AnimatedSprite s, float horizontalSpeed = 0.0f, float verticalSpeed = 0.0f, bool repeating = false, bool isForeground = false)
+        {
+            this._elements.Add(new AbstractMap.Element(s, horizontalSpeed, verticalSpeed, repeating, isForeground, false, true, false));
+        }
+
         public virtual void AddVisitable(Rectangle v)
         {
-            _visitable.Add(v);
-            _originalVisitable.Add(v);
+            this._visitable.Add(v);
+            this._originalVisitable.Add(v);
         }
-        /// <summary>
-        /// Ajoute une zone autorisee
-        /// </summary>
-        /// <param name="x">Abcisse</param>
-        /// <param name="y">Ordonee</param>
-        /// <param name="width">Largeur</param>
-        /// <param name="height">Hauteur</param>
+
         public virtual void AddVisitable(int x, int y, int width, int height)
         {
-            _visitable.Add(new Rectangle(x, y, width, height));
-            _originalVisitable.Add(new Rectangle(x, y, width, height));
+            this._visitable.Add(new Rectangle(x, y, width, height));
+            this._originalVisitable.Add(new Rectangle(x, y, width, height));
         }
-        /// <summary>
-        /// Effectue un mouvement sur la map.
-        /// </summary>
-        /// <param name="destination">Vecteur representant le mouvement voulu.</param>
-        /// <param name="performMove">Si la valeur est false, le mouvement n'est pas effectue.</param>
-        /// <returns>Renvoie true si le mouvement est autorise.</returns>
+
         public virtual bool Moving(Vector2 destination, bool performMove = true)
         {
-            Point p = new Point((int)(destination.X + VuePosition.X), (int)(destination.Y + VuePosition.Y));
-            foreach (Rectangle r in Visitable)
-                if (r.Contains(p))
+            Point point = new Point((int)((double)destination.X + (double)this.VuePosition.X), (int)((double)destination.Y + (double)this.VuePosition.Y));
+            foreach (Rectangle rectangle1 in this.Visitable)
+            {
+                if (rectangle1.Contains(point))
                 {
                     if (performMove)
                     {
-                        foreach (Element s in _elements)
-                            s.sprite.Position = new Rectangle(
-                                s.sprite.Position.X - (int)(destination.X * s.speed),
-                                s.sprite.Position.Y - (int)(destination.Y * s.verticalSpeed),
-                                s.sprite.Position.Width,
-                                s.sprite.Position.Height);
-                        _vuePosition.X += destination.X;
-                        _vuePosition.Y += destination.Y;
-
+                        foreach (AbstractMap.Element element in this._elements)
+                            element.sprite.Position = new Rectangle(element.sprite.Position.X - (int)((double)destination.X * (double)element.speed), element.sprite.Position.Y - (int)((double)destination.Y * (double)element.verticalSpeed), element.sprite.Position.Width, element.sprite.Position.Height);
+                        this._vuePosition.X += destination.X;
+                        this._vuePosition.Y += destination.Y;
                         for (int i = _visitable.Count - 1; i >= 0; i--)
                         {
                             if (_elements.ElementAt(i).foreground)
@@ -191,60 +154,70 @@ namespace TRODS
                     }
                     return true;
                 }
+            }
             return false;
         }
 
         public override void LoadContent(ContentManager content)
         {
-            foreach (Element s in _elements)
-                s.sprite.LoadContent(content);
+            foreach (AbstractMap.Element element in this._elements)
+                ((AbstractScene)element.sprite).LoadContent(content);
         }
+
         public override void Update(float elapsedTime)
         {
-            foreach (Element s in _elements)
-                s.sprite.Update(elapsedTime);
+            foreach (AbstractMap.Element element in this._elements)
+                element.sprite.Update(elapsedTime);
         }
+
         public virtual void Draw(SpriteBatch s, bool foreground)
         {
-            _isDrawingForeground = foreground;
+            this._isDrawingForeground = foreground;
             Draw(s);
         }
+
         public override void Draw(SpriteBatch spriteBatch)
         {
-            Rectangle p;
-            foreach (Element e in _elements)
+            foreach (AbstractMap.Element element in this._elements)
             {
-                if (e.foreground == _isDrawingForeground)
+                if (element.foreground == this._isDrawingForeground)
                 {
-                    if (e.repeating)
+                    if (element.repeating)
                     {
-                        p = e.sprite.Position;
-
-                        if (p.X > _windowSize.Width)
-                            p.X = p.X - p.Width;
-                        else if (p.X < -p.Width)
-                            p.X = p.X + p.Width;
-
-                        e.sprite.Position = p;
-
-                        e.sprite.Draw(spriteBatch);
-                        if (p.X > 0)
-                            e.sprite.Draw(spriteBatch, new Vector2(p.X - p.Width, p.Y));
-                        if (p.X - p.Width < _windowSize.Width)
-                            e.sprite.Draw(spriteBatch, new Vector2(p.X + p.Width, p.Y));
+                        Rectangle position = element.sprite.Position;
+                        if (position.X > this._windowSize.Width)
+                            position.X = position.X - position.Width;
+                        else if (position.X < -position.Width)
+                            position.X = position.X + position.Width;
+                        element.sprite.Position = position;
+                        ((AbstractScene)element.sprite).Draw(spriteBatch);
+                        if (position.X > 0)
+                            element.sprite.Draw(spriteBatch, new Vector2((float)(position.X - position.Width), (float)position.Y));
+                        if (position.X - position.Width < this._windowSize.Width)
+                            element.sprite.Draw(spriteBatch, new Vector2((float)(position.X + position.Width), (float)position.Y));
                     }
                     else
-                        e.sprite.Draw(spriteBatch);
+                        ((AbstractScene)element.sprite).Draw(spriteBatch);
                 }
             }
         }
+
+        public virtual int GetTravelState(Rectangle pos)
+        {
+            foreach (AbstractMap.Element element in this._elements)
+            {
+                if (element.sprite.Position.Intersects(pos) && element.isPortal)
+                    return element.isPortalNext ? 1 : -1;
+            }
+            return 0;
+        }
+
         public override void WindowResized(Rectangle rect)
         {
-            foreach (Element e in _elements)
-                e.WindowResized(_windowSize, rect);
-
-            float x = (float)rect.Width / (float)_windowSize.Width;
-            float y = (float)rect.Height / (float)_windowSize.Height;
+            foreach (AbstractMap.Element element in this._elements)
+                element.WindowResized(this._windowSize, rect);
+            float x = (float)rect.Width / (float)this._windowSize.Width;
+            float y = (float)rect.Height / (float)this._windowSize.Height;
             List<Rectangle> n = new List<Rectangle>();
             Rectangle r;
             foreach (Rectangle rectal in _visitable)
@@ -256,19 +229,64 @@ namespace TRODS
                 r.Height = (int)((float)r.Height * y);
                 n.Add(r);
             }
-            _visitable = n;
-
-            _vuePosition.X = _vuePosition.X * x;
-            _vuePosition.Y = _vuePosition.Y * y;
-
-            _windowSize = rect;
+            //foreach (Rectangle rectangle in this._visitable)
+            //{
+            //    rectangle.X = (int)((double)rectangle.X * (double)num1);
+            //    rectangle.Y = (int)((double)rectangle.Y * (double)num2);
+            //    rectangle.Width = (int)((double)rectangle.Width * (double)num1);
+            //    rectangle.Height = (int)((double)rectangle.Height * (double)num2);
+            //    list.Add(rectangle);
+            //}
+            this._visitable = n;
+            this._vuePosition.X = this._vuePosition.X * x;
+            this._vuePosition.Y = this._vuePosition.Y * y;
+            this._windowSize = rect;
         }
+
         public override void Activation(Game1 parent = null)
         {
-            foreach (Element e in _elements)
-                e.Reset(_windowSize);
-            _visitable = _originalVisitable;
-            _vuePosition = _originalVuePosition;
+            foreach (AbstractMap.Element element in this._elements)
+                element.Reset(this._windowSize);
+            this._visitable = this._originalVisitable;
+            this._vuePosition = this._originalVuePosition;
+        }
+
+        public struct Element
+        {
+            public AnimatedSprite sprite;
+            public Rectangle originalPosition;
+            public float speed;
+            public float verticalSpeed;
+            public bool repeating;
+            public bool foreground;
+            public bool isPortal;
+            public bool isPortalNext;
+            public bool isHeal;
+
+            public Element(AnimatedSprite _s, float _speed = 0.0f, float _verticalSpeed = 0.0f, bool _repeating = false, bool _foreground = false, bool isportal = false, bool isportalnext = true, bool healing = false)
+            {
+                this.sprite = _s;
+                this.speed = _speed;
+                this.verticalSpeed = _verticalSpeed;
+                this.repeating = _repeating;
+                this.foreground = _foreground;
+                this.originalPosition = _s.Position;
+                this.isPortal = isportal;
+                this.isPortalNext = isportalnext;
+                this.isHeal = healing;
+            }
+
+            public void WindowResized(Rectangle oldWinSize, Rectangle winSize)
+            {
+                this.sprite.windowResized(winSize, oldWinSize);
+                this.speed *= (float)winSize.Width / (float)oldWinSize.Width;
+                this.verticalSpeed *= (float)winSize.Height / (float)oldWinSize.Height;
+            }
+
+            public void Reset(Rectangle winSize)
+            {
+                this.sprite.setRelatvePos(this.originalPosition, winSize.Width, winSize.Height);
+            }
         }
     }
 }

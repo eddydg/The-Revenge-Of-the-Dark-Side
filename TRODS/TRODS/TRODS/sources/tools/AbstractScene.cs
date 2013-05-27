@@ -23,6 +23,9 @@ namespace TRODS
         public virtual void LoadContent(ContentManager content)
         {
         }
+        public virtual void LoadContent(Texture2D texture)
+        {
+        }
         /// <summary>
         /// Gere les entrees de clavier, souris et evenements
         /// </summary>

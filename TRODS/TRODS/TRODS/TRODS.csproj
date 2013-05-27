@@ -115,9 +115,10 @@
   <ItemGroup>
     <Compile Include="sources\character\AttackEnvironment.cs" />
     <Compile Include="sources\character\ExperienceCounter.cs" />
-    <Compile Include="sources\character\Mob.cs" />
     <Compile Include="sources\character\Attac.cs" />
+    <Compile Include="sources\character\Attack.cs" />
     <Compile Include="sources\character\IA.cs" />
+    <Compile Include="sources\character\Mob.cs" />
     <Compile Include="sources\character\Weapon.cs" />
     <Compile Include="sources\graphics\GraphicalBounds.cs" />
     <Compile Include="sources\graphics\HUD.cs" />
@@ -147,6 +148,7 @@
     <Compile Include="sources\scenes\SceneCredit.cs" />
     <Compile Include="sources\scenes\SceneExtras.cs" />
     <Compile Include="sources\graphics\Sprite.cs" />
+    <Compile Include="sources\tools\Tip.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Game.ico" />

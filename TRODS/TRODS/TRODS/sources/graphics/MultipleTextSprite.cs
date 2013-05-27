@@ -82,7 +82,7 @@ namespace TRODS
         {
             foreach (string line in EugLib.IO.FileStream.readFileLines(filename))
             {
-                _elements.Add(new TextSprite(AssetName, windowSize, new Rectangle(), line, color));
+                _elements.Add(new TextSprite(AssetName, windowSize, new Rectangle(), color, line));
                 _elements.Last().LoadContent(_spriteFont);
             }
             SetLayout(windowSize, Layout.LeftAlign);
