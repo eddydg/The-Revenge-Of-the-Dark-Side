@@ -113,9 +113,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="sources\character\Attac.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="sources\character\AttackEnvironment.cs" />
     <Compile Include="sources\character\ExperienceCounter.cs" />
-    <Compile Include="sources\character\Attac.cs" />
     <Compile Include="sources\character\Attack.cs" />
     <Compile Include="sources\character\IA.cs" />
     <Compile Include="sources\character\Mob.cs" />
@@ -190,11 +192,6 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="ClassDiagram1.cd" />
-    <None Include="ClassDiagram2.cd" />
-    <None Include="ClassDiagram3.cd" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\Microsoft.Xna.GameStudio.targets" />

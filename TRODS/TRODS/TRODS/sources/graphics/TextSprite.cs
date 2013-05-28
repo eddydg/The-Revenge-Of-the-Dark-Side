@@ -62,6 +62,40 @@ namespace TRODS
             spriteBatch.DrawString(this._spriteFont, this.Text, new Vector2((float)position.Location.X, (float)position.Location.Y), this.Color, 0.0f, Vector2.Zero, scale, SpriteEffects.None, 0.0f);
         }
 
+        public override void Draw(SpriteBatch spriteBatch, Color color, int X, int Y)
+        {
+            float num1 = this.min((float)this.Position.Width / this._spriteFont.MeasureString(this.Text).X, (float)this.Position.Height / this._spriteFont.MeasureString(this.Text).Y);
+            SpriteBatch spriteBatch1 = spriteBatch;
+            SpriteFont spriteFont = this._spriteFont;
+            string text = this.Text;
+            Vector2 position2 = new Vector2((float)X, (float)Y);
+            double num4 = 0.0;
+            Vector2 zero = Vector2.Zero;
+            double num5 = (double)num1;
+            int num6 = 0;
+            double num7 = 0.0;
+            spriteBatch1.DrawString(spriteFont, text, position2, color, (float)num4, zero, (float)num5, (SpriteEffects)num6, (float)num7);
+        }
+
+        public override void Draw(SpriteBatch spriteBatch, Color color)
+        {
+            float num1 = this.min((float)this.Position.Width / this._spriteFont.MeasureString(this.Text).X, (float)this.Position.Height / this._spriteFont.MeasureString(this.Text).Y);
+            SpriteBatch spriteBatch1 = spriteBatch;
+            SpriteFont spriteFont = this._spriteFont;
+            string text = this.Text;
+            Rectangle position1 = this.Position;
+            double num2 = (double)position1.Location.X;
+            position1 = this.Position;
+            double num3 = (double)position1.Location.Y;
+            Vector2 position2 = new Vector2((float)num2, (float)num3);
+            double num4 = 0.0;
+            Vector2 zero = Vector2.Zero;
+            double num5 = (double)num1;
+            int num6 = 0;
+            double num7 = 0.0;
+            spriteBatch1.DrawString(spriteFont, text, position2, color, (float)num4, zero, (float)num5, (SpriteEffects)num6, (float)num7);
+        }
+
         private float min(float a, float b)
         {
             return (double)a > (double)b ? b : a;

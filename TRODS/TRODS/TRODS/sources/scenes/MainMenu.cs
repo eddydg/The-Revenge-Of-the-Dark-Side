@@ -47,17 +47,24 @@ namespace TRODS
             nuages.Direction = new Vector2(-1, 0);
             nuages.Vitesse = 0.1f; // 1f = 1000 px/sec
             mouse = new ParticleEngine(windowSize, new DecimalRectangle(-200, -200, 0, 0), new Vector3(1, 10, 10),
-                                new List<string>() { "particle/star"}, 10, 0.1f, 2f, -45f, 15f, 0f, 180f, -1f, 1f, 10f, 150f);
+                                new List<string>() { "particle/star" }, 10, 0.1f, 2f, -45f, 15f, 0f, 180f, -1f, 1f, 10f, 150f);
             mouse.SetColorRange(0, 100, 0, 30, 0, 30);
             relativeAmplitudeVibrationSelection = (float)amplitudeVibrationSelection / (float)(windowHeight + windowWidth);
             sprites = new List<AnimatedSprite>();
 
             menuItems = new Dictionary<Selection, Sprite>();
+            /* IMAGES
             menuItems.Add(Selection.Play, new Sprite(new Rectangle(112, 423, 124, 55), windowSize, "menu/textPlay"));
             menuItems.Add(Selection.Extra, new Sprite(new Rectangle(191, 480, 124, 55), windowSize, "menu/textExtra"));
             menuItems.Add(Selection.Options, new Sprite(new Rectangle(394, 470, 135, 55), windowSize, "menu/textOptions"));
             menuItems.Add(Selection.Credit, new Sprite(new Rectangle(562, 400, 124, 55), windowSize, "menu/textCredit"));
             menuItems.Add(Selection.Exit, new Sprite(new Rectangle(675, 480, 101, 55), windowSize, "menu/textExit"));
+                SPRITEFONTS   */
+            menuItems.Add(Selection.Play, new TextSprite("SpriteFont1", windowSize, new Rectangle(125, 405, 130, 70), Color.Black, "Play"));
+            menuItems.Add(Selection.Extra, new TextSprite("SpriteFont1", windowSize, new Rectangle(191, 480, 124, 70), Color.Black, "Extra"));
+            menuItems.Add(Selection.Options, new TextSprite("SpriteFont1", windowSize, new Rectangle(394, 470, 135, 70), Color.Black, "Options"));
+            menuItems.Add(Selection.Credit, new TextSprite("SpriteFont1", windowSize, new Rectangle(562, 400, 140, 70), Color.Black, "Credit"));
+            menuItems.Add(Selection.Exit, new TextSprite("SpriteFont1", windowSize, new Rectangle(665, 480, 101, 70), Color.Black, "Exit"));
         }
 
         public override void LoadContent(ContentManager content)
@@ -120,7 +127,7 @@ namespace TRODS
                 if (mousestate != newMouseState)
                 {
                     bool isClicked = newMouseState.LeftButton == ButtonState.Pressed && mousestate.LeftButton == ButtonState.Released;
-                    mouse.EmitterLocation = new DecimalRectangle(newMouseState.X, newMouseState.Y,0,0);
+                    mouse.EmitterLocation = new DecimalRectangle(newMouseState.X, newMouseState.Y, 0, 0);
                     int i = 0;
                     foreach (Sprite st in menuItems.Values)
                     {
@@ -178,6 +185,7 @@ namespace TRODS
             foreach (Sprite st in menuItems.Values)
             {
                 Rectangle p = st.Position;
+                //*=============AFFICHER LES RECTANGLES============== >>>*/   wallpaper.Draw(spriteBatch, p);
                 if (st == menuItems[selection])
                 {
                     st.Draw(spriteBatch, Color.Red,

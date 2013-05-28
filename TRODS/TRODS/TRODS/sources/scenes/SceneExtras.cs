@@ -46,7 +46,6 @@ namespace TRODS
             menu.Add(new AnimatedSprite(new Rectangle(), windowSize, "sprites/explosion4_8x8", 8, 8));
             menu.Add(new AnimatedSprite(new Rectangle(), windowSize, "sprites/fireWall_11x6r23r44", 11, 6));
             menu.Add(new AnimatedSprite(new Rectangle(), windowSize, "sprites/popGreen_8x4", 8, 4));
-            menu.Add(new AnimatedSprite(new Rectangle(), windowSize, "sprites/spriteElectric_11x3r12r23", 11, 3));
             menu.CuadricPositionning(new Rectangle(0, 0, 75, 75), 100, 20, 3, 3, true);
             menu.Add(new AnimatedSprite(new Rectangle(menu.Position.Width / 2 - 100, 65, 200, 22), _windowSize, "menu/contextMenuTextMainMenu"));
         }
