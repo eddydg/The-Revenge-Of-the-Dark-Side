@@ -224,33 +224,34 @@ namespace TRODS
             int num;
             if ((num = this._hud.SelectedWeapon(this._mouseState)) >= 0)
                 this.personnage.Weapon = num;
-            if (newKeyboardState.IsKeyDown(Keys.Right) && this.personnage._canMove && this._maps[this._currentMap].Moving(new Vector2(5f, 0.0f), true))
+            float move = (float)_windowSize.Width * 0.005555556f;
+            if (newKeyboardState.IsKeyDown(Keys.Right) && this.personnage._canMove && this._maps[this._currentMap].Moving(new Vector2(move, 0.0f), true))
             {
                 foreach (Mob mob in this._mobs[this._currentMap])
-                    mob.Move(5, 0);
+                    mob.Move((int)move, 0);
                 foreach (Attack attack in this.personnage.Attacks.Values)
-                    attack.Move(5, 0);
+                    attack.Move((int)move, 0);
             }
-            if (newKeyboardState.IsKeyDown(Keys.Left) && this.personnage._canMove && this._maps[this._currentMap].Moving(new Vector2(-5f, 0.0f), true))
+            if (newKeyboardState.IsKeyDown(Keys.Left) && this.personnage._canMove && this._maps[this._currentMap].Moving(new Vector2(-move, 0.0f), true))
             {
                 foreach (Mob mob in this._mobs[this._currentMap])
-                    mob.Move(-5, 0);
+                    mob.Move(-(int)move, 0);
                 foreach (Attack attack in this.personnage.Attacks.Values)
-                    attack.Move(-5, 0);
+                    attack.Move(-(int)move, 0);
             }
-            if (newKeyboardState.IsKeyDown(Keys.Up) && this.personnage._canMove && this._maps[this._currentMap].Moving(new Vector2(0.0f, -5f), true))
+            if (newKeyboardState.IsKeyDown(Keys.Up) && this.personnage._canMove && this._maps[this._currentMap].Moving(new Vector2(0.0f, -move), true))
             {
                 foreach (Mob mob in this._mobs[this._currentMap])
-                    mob.Move(0, -5);
+                    mob.Move(0, -(int)move);
                 foreach (Attack attack in this.personnage.Attacks.Values)
-                    attack.Move(0, -2);
+                    attack.Move(0, -(int)(0.4f * move));
             }
-            if (newKeyboardState.IsKeyDown(Keys.Down) && this.personnage._canMove && this._maps[this._currentMap].Moving(new Vector2(0.0f, 5f), true))
+            if (newKeyboardState.IsKeyDown(Keys.Down) && this.personnage._canMove && this._maps[this._currentMap].Moving(new Vector2(0.0f, move), true))
             {
                 foreach (Mob mob in this._mobs[this._currentMap])
-                    mob.Move(0, 5);
+                    mob.Move(0, (int)move);
                 foreach (Attack attack in this.personnage.Attacks.Values)
-                    attack.Move(0, 2);
+                    attack.Move(0, (int)(0.4f*move));
             }
             if (newKeyboardState.IsKeyDown(Keys.E) && this._keyboardState.IsKeyUp(Keys.E))
             {
@@ -330,8 +331,8 @@ namespace TRODS
                 foreach (AbstractScene abstractScene in list)
                     abstractScene.WindowResized(rect);
             }
-            this._windowSize = rect;
             this._hud.WindowResized(rect);
+            this._windowSize = rect;
         }
     }
 }

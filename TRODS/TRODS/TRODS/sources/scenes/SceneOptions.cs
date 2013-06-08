@@ -8,6 +8,7 @@ using Microsoft.Xna.Framework.GamerServices;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
+using System.Net;
 
 namespace TRODS
 {
@@ -19,12 +20,14 @@ namespace TRODS
         private Sprite _wallpaper;
         private AnimatedSprite _mouse;
         public static string SOUND_FILENAME = "files/sound";
+        private const string VERSION_NUMBER = "2.9";
         private Sprite _textMusic;
         private Sprite _textEffects;
         private Sprite _soundMusic;
         private Sprite _soundEffect;
         private float _volumeMusic;
         private float _volumeEffect;
+        private TextSprite _checkUpdate;
 
         public SceneOptions(Rectangle windowSize, KeyboardState keyboardState, MouseState mouseState)
         {
@@ -38,6 +41,7 @@ namespace TRODS
             _textEffects = new Sprite(new Rectangle(150, 490, 110, 40), _windowSize, "menu/soundEffect");
             _soundMusic = new Sprite(new Rectangle(180, 423, 110, 55), _windowSize, "menu/soundBars");
             _soundEffect = new Sprite(new Rectangle(260, 480, 110, 55), _windowSize, "menu/soundBars");
+            _checkUpdate = new TextSprite("SpriteFont1", _windowSize, new Rectangle(600, 550, 200, 60), Color.Gold, "Check Update");
         }
 
         public override void LoadContent(ContentManager content)
@@ -48,6 +52,7 @@ namespace TRODS
             _soundEffect.LoadContent(content);
             _textMusic.LoadContent(content);
             _textEffects.LoadContent(content);
+            _checkUpdate.LoadContent(content);
 
             List<string> par = EugLib.IO.Tools.toArgv(EugLib.IO.FileStream.readFile(SOUND_FILENAME));
             if (par.Count < 2 ||
@@ -81,6 +86,8 @@ namespace TRODS
                     _volumeEffect = (float)(click.X - _soundEffect.Position.X) / (float)_soundEffect.Position.Width;
                 if (_soundMusic.Position.Intersects(click))
                     _volumeMusic = (float)(click.X - _soundMusic.Position.X) / (float)_soundMusic.Position.Width;
+                if (_checkUpdate.Position.Intersects(click) && _mouseState != new_mouseState)
+                    CheckUpdate();
 
                 parent.son.MusiquesVolume = _volumeMusic;
                 parent.son.SonsVolume = _volumeEffect;
@@ -109,6 +116,7 @@ namespace TRODS
                                 Color.White);
             _textMusic.Draw(spriteBatch);
             _textEffects.Draw(spriteBatch);
+            _checkUpdate.Draw(spriteBatch);
             _mouse.Draw(spriteBatch);
 
             spriteBatch.End();
@@ -117,6 +125,7 @@ namespace TRODS
         public override void Update(float elapsedTime)
         {
             _mouse.Update(elapsedTime);
+            _checkUpdate.Update(elapsedTime);
         }
 
         public override void WindowResized(Rectangle rect)
@@ -126,6 +135,24 @@ namespace TRODS
             _soundMusic.windowResized(rect);
             _textMusic.windowResized(rect);
             _textEffects.windowResized(rect);
+            _checkUpdate.windowResized(rect);
         }
+
+        //Fonctions Annexes/////////////////////////////////////
+        private void CheckUpdate()
+        {
+            //recuperation de la version la plus récente
+            WebClient versionPage = new WebClient();
+            string version = versionPage.DownloadString("http://trods.free.fr/version.html");//de la forme: x.x#url#http://trods.free.fr/docs/.....
+            string lastVersion = version.Substring(0, version.IndexOf('#'));
+            string url = version.Substring(version.LastIndexOf('#') + 1);
+
+            if (VERSION_NUMBER != lastVersion)//Si le jeu n'est pas à jour.
+                if (System.Windows.Forms.DialogResult.Yes == System.Windows.Forms.MessageBox.Show("Une mise à jour du jeu est disponible, voulez vous là télécharger?", "Mise à jour - TRODS " + VERSION_NUMBER, System.Windows.Forms.MessageBoxButtons.YesNo))
+                    System.Diagnostics.Process.Start(url);
+            else
+                System.Windows.Forms.MessageBox.Show("Vous disposez de la dernière version du jeu.\nAucune mise à jour n'est nécessaire.", "Mise à jour - TRODS " + VERSION_NUMBER, System.Windows.Forms.MessageBoxButtons.OK);
+        }
+        ////////////////////////////////////////////////////////
     }
 }

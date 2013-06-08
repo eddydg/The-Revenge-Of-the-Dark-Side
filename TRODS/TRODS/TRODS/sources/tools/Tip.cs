@@ -36,7 +36,7 @@ namespace TRODS
         public override void WindowResized(Rectangle rect)
         {
             this.windowResized(rect, new Rectangle());
-            this._text.Position = this.Position;
+            this._text.windowResized(rect);
         }
     }
 }

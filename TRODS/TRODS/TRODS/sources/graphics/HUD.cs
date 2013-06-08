@@ -164,8 +164,8 @@ namespace TRODS
             this._ennemiesLeft.windowResized(rect, new Rectangle());
             foreach (Sprite sprite in this._sprites)
                 sprite.windowResized(rect, new Rectangle());
-            foreach (Sprite sprite in this._weapons)
-                sprite.windowResized(rect, new Rectangle());
+            foreach (Tip sprite in this._weapons)
+                sprite.WindowResized(rect);
         }
     }
 }
