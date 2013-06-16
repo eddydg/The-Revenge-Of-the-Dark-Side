@@ -41,7 +41,7 @@ namespace TRODS
             _textEffects = new Sprite(new Rectangle(150, 490, 110, 40), _windowSize, "menu/soundEffect");
             _soundMusic = new Sprite(new Rectangle(180, 423, 110, 55), _windowSize, "menu/soundBars");
             _soundEffect = new Sprite(new Rectangle(260, 480, 110, 55), _windowSize, "menu/soundBars");
-            _checkUpdate = new TextSprite("SpriteFont1", _windowSize, new Rectangle(600, 550, 200, 60), Color.Gold, "Check Update");
+            _checkUpdate = new TextSprite("SpriteFont1", _windowSize, new Rectangle(522, 400, 171, 60), Color.Gold, "Check Updates");
         }
 
         public override void LoadContent(ContentManager content)
@@ -64,7 +64,7 @@ namespace TRODS
             }
         }
 
-        public override void HandleInput(KeyboardState newKeyboardState, MouseState new_mouseState, Game1 parent)
+        public override void HandleInput(KeyboardState newKeyboardState, MouseState newMouseState, Game1 parent)
         {
             if (_windowSize != parent.Window.ClientBounds)
             {
@@ -72,21 +72,25 @@ namespace TRODS
                 WindowResized(parent.Window.ClientBounds);
             }
 
-            if (new_mouseState != _mouseState)
-                _mouse.Position = new Rectangle(new_mouseState.X, new_mouseState.Y, _mouse.Position.Width, _mouse.Position.Height);
+            if (newMouseState != _mouseState)
+            {
+                _mouse.Position = new Rectangle(newMouseState.X, newMouseState.Y, _mouse.Position.Width, _mouse.Position.Height);
+                if (_checkUpdate.Position.Contains(newMouseState.X, newMouseState.Y) && !_checkUpdate.Position.Contains(_mouseState.X, _mouseState.Y))
+                    parent.son.Play(Sons.MenuSelection);
+            }
 
             if (newKeyboardState.IsKeyDown(Keys.Escape) && !_keyboardState.IsKeyDown(Keys.Escape))
                 parent.SwitchScene(Scene.MainMenu);
 
-            if (new_mouseState.LeftButton == ButtonState.Pressed)
+            if (newMouseState.LeftButton == ButtonState.Pressed)
             {
-                Rectangle click = new Rectangle(new_mouseState.X, new_mouseState.Y, 1, 1);
+                Rectangle click = new Rectangle(newMouseState.X, newMouseState.Y, 1, 1);
 
                 if (_soundEffect.Position.Intersects(click))
                     _volumeEffect = (float)(click.X - _soundEffect.Position.X) / (float)_soundEffect.Position.Width;
                 if (_soundMusic.Position.Intersects(click))
                     _volumeMusic = (float)(click.X - _soundMusic.Position.X) / (float)_soundMusic.Position.Width;
-                if (_checkUpdate.Position.Intersects(click) && _mouseState != new_mouseState)
+                if (_checkUpdate.Position.Intersects(click) && _mouseState != newMouseState)
                     CheckUpdate();
 
                 parent.son.MusiquesVolume = _volumeMusic;
@@ -96,7 +100,7 @@ namespace TRODS
             }
 
             _keyboardState = newKeyboardState;
-            _mouseState = new_mouseState;
+            _mouseState = newMouseState;
         }
 
         public override void Draw(SpriteBatch spriteBatch)
@@ -116,7 +120,12 @@ namespace TRODS
                                 Color.White);
             _textMusic.Draw(spriteBatch);
             _textEffects.Draw(spriteBatch);
-            _checkUpdate.Draw(spriteBatch);
+
+            if (_checkUpdate.Position.Contains(_mouse.Position.Location))
+                _checkUpdate.Draw(spriteBatch, Color.Red);
+            else
+                _checkUpdate.Draw(spriteBatch);
+
             _mouse.Draw(spriteBatch);
 
             spriteBatch.End();

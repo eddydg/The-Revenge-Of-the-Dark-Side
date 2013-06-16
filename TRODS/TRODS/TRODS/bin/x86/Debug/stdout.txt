@@ -1,0 +1,10 @@
+
+Erreur d'affichage :
+System.ArgumentOutOfRangeException: L'index et la longueur doivent faire référence à un emplacement situé dans la chaîne.
+Nom du paramètre : length
+   à System.String.InternalSubStringWithChecks(Int32 startIndex, Int32 length, Boolean fAlwaysCopy)
+   à System.String.Substring(Int32 startIndex, Int32 length)
+   à TRODS.TextSprite.Draw(SpriteBatch spriteBatch) dans C:\Users\Eddydg\Dropbox\Documents\Programmation\Github\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\graphics\TextSprite.cs:ligne 48
+   à TRODS.HUD.Draw(SpriteBatch spriteBatch) dans C:\Users\Eddydg\Dropbox\Documents\Programmation\Github\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\graphics\HUD.cs:ligne 116
+   à TRODS.InGame.Draw(SpriteBatch spriteBatch) dans C:\Users\Eddydg\Dropbox\Documents\Programmation\Github\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\scenes\InGame.cs:ligne 151
+   à TRODS.Game1.Draw(GameTime gameTime) dans C:\Users\Eddydg\Dropbox\Documents\Programmation\Github\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\Game1.cs:ligne 132
