@@ -141,17 +141,26 @@ namespace TRODS
         //Fonctions Annexes/////////////////////////////////////
         private void CheckUpdate()
         {
-            //recuperation de la version la plus récente
-            WebClient versionPage = new WebClient();
-            string version = versionPage.DownloadString("http://trods.free.fr/version.html");//de la forme: x.x#url#http://trods.free.fr/docs/.....
-            string lastVersion = version.Substring(0, version.IndexOf('#'));
-            string url = version.Substring(version.LastIndexOf('#') + 1);
+            try
+            {
+                //recuperation de la version la plus récente
+                WebClient versionPage = new WebClient();
+                string version = versionPage.DownloadString("http://trods.free.fr/version.html");//de la forme: x.x#url#http://trods.free.fr/docs/.....
+                string lastVersion = version.Substring(0, version.IndexOf('#'));
+                string url = version.Substring(version.LastIndexOf('#') + 1);
 
-            if (VERSION_NUMBER != lastVersion)//Si le jeu n'est pas à jour.
-                if (System.Windows.Forms.DialogResult.Yes == System.Windows.Forms.MessageBox.Show("Une mise à jour du jeu est disponible, voulez vous là télécharger?", "Mise à jour - TRODS " + VERSION_NUMBER, System.Windows.Forms.MessageBoxButtons.YesNo))
-                    System.Diagnostics.Process.Start(url);
-            else
-                System.Windows.Forms.MessageBox.Show("Vous disposez de la dernière version du jeu.\nAucune mise à jour n'est nécessaire.", "Mise à jour - TRODS " + VERSION_NUMBER, System.Windows.Forms.MessageBoxButtons.OK);
+                if (VERSION_NUMBER != lastVersion)//Si le jeu n'est pas à jour.
+                {
+                    if (System.Windows.Forms.DialogResult.Yes == System.Windows.Forms.MessageBox.Show("Une mise à jour du jeu est disponible, voulez vous là télécharger?", "Mise à jour - TRODS " + VERSION_NUMBER, System.Windows.Forms.MessageBoxButtons.YesNo))
+                        System.Diagnostics.Process.Start(url);
+                }
+                else
+                    System.Windows.Forms.MessageBox.Show("Vous disposez de la dernière version du jeu.\nAucune mise à jour n'est nécessaire.", "Mise à jour - TRODS " + VERSION_NUMBER, System.Windows.Forms.MessageBoxButtons.OK);
+            }
+            catch (Exception e)
+            {
+                System.Windows.Forms.MessageBox.Show(e.Message + "\nVeuillez vérifier votre connexion internet puis réessayez.");
+            }
         }
         ////////////////////////////////////////////////////////
     }
