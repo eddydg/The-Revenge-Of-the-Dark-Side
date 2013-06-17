@@ -20,7 +20,7 @@ namespace TRODS
         private Sprite _wallpaper;
         private AnimatedSprite _mouse;
         public static string SOUND_FILENAME = "files/sound";
-        private const string VERSION_NUMBER = "2.9";
+        private const string VERSION_NUMBER = "3,0";
         private Sprite _textMusic;
         private Sprite _textEffects;
         private Sprite _soundMusic;
@@ -41,7 +41,7 @@ namespace TRODS
             _textEffects = new Sprite(new Rectangle(150, 490, 110, 40), _windowSize, "menu/soundEffect");
             _soundMusic = new Sprite(new Rectangle(180, 423, 110, 55), _windowSize, "menu/soundBars");
             _soundEffect = new Sprite(new Rectangle(260, 480, 110, 55), _windowSize, "menu/soundBars");
-            _checkUpdate = new TextSprite("SpriteFont1", _windowSize, new Rectangle(522, 400, 171, 60), Color.Gold, "Check Updates");
+            _checkUpdate = new TextSprite("SpriteFont1", _windowSize, new Rectangle(570, 450, 171, 60), Color.Gold, "Check Updates");
         }
 
         public override void LoadContent(ContentManager content)
@@ -158,7 +158,13 @@ namespace TRODS
                 string lastVersion = version.Substring(0, version.IndexOf('#'));
                 string url = version.Substring(version.LastIndexOf('#') + 1);
 
-                if (float.Parse(VERSION_NUMBER) < float.Parse(lastVersion))//Si le jeu n'est pas à jour.
+                for (int i = 0; i < lastVersion.Length; i++)
+                {
+                    if (lastVersion[i] == '.')
+                        lastVersion = lastVersion.Substring(0, i) + ',' + lastVersion.Substring(i + 1);
+                }
+
+                if (double.Parse(VERSION_NUMBER) < double.Parse(lastVersion))//Si le jeu n'est pas à jour.
                 {
                     if (System.Windows.Forms.DialogResult.Yes == System.Windows.Forms.MessageBox.Show("Une mise à jour du jeu est disponible, voulez vous là télécharger?", "Mise à jour - TRODS " + VERSION_NUMBER, System.Windows.Forms.MessageBoxButtons.YesNo))
                         System.Diagnostics.Process.Start(url);
