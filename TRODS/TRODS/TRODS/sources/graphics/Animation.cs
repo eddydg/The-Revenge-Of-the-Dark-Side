@@ -56,7 +56,15 @@ namespace TRODS
 
             public void Start()
             {
-                //...
+                // ...
+            }
+            public void Update( /* ... */ )
+            {
+                // ...
+            }
+            public void WindowResized( /* ... */ )
+            {
+                // ...
             }
         }
         private List<AnimPictures> animation;
@@ -88,7 +96,7 @@ namespace TRODS
 
         public override void Update(float elapsedTime)
         {
-            for (int i = 0; i < animation.Count; i++)
+            /*for (int i = 0; i < animation.Count; i++)
             {
                 if (animation[i].running && animation[i]._timerStart <= 0)
                 {
@@ -103,7 +111,8 @@ namespace TRODS
                 {
                     animation[i].running = false;
                 }
-            }
+            }*/
+            // ...
         }
 
         public override void Draw(SpriteBatch spriteBatch)
@@ -129,6 +138,7 @@ namespace TRODS
 
         public override void WindowResized(Rectangle rect)
         {
+            // foreach ...
             for (int i = 0; i < animation.Count; i++)
             {
                 //animation[i].Image.windowResized(rect);
