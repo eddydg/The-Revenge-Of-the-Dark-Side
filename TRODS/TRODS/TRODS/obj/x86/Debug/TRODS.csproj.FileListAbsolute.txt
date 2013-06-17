@@ -78,3 +78,7 @@ C:\Users\Eddydg\Dropbox\Documents\Programmation\Github\The-Revenge-Of-the-Dark-S
 C:\Users\Eddydg\Dropbox\Documents\Programmation\Github\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
 C:\Users\Eddydg\Dropbox\Documents\Programmation\Github\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\obj\x86\Debug\TRODS.exe
 C:\Users\Eddydg\Dropbox\Documents\Programmation\Github\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\obj\x86\Debug\TRODS.pdb
+C:\Users\Kuchera\Documents\GitHub\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\obj\x86\Debug\TRODS.csprojResolveAssemblyReference.cache
+C:\Users\Kuchera\Documents\GitHub\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\Kuchera\Documents\GitHub\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\obj\x86\Debug\TRODS.exe
+C:\Users\Kuchera\Documents\GitHub\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\obj\x86\Debug\TRODS.pdb

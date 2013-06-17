@@ -158,7 +158,7 @@ namespace TRODS
                 string lastVersion = version.Substring(0, version.IndexOf('#'));
                 string url = version.Substring(version.LastIndexOf('#') + 1);
 
-                if (VERSION_NUMBER != lastVersion)//Si le jeu n'est pas à jour.
+                if (float.Parse(VERSION_NUMBER) < float.Parse(lastVersion))//Si le jeu n'est pas à jour.
                 {
                     if (System.Windows.Forms.DialogResult.Yes == System.Windows.Forms.MessageBox.Show("Une mise à jour du jeu est disponible, voulez vous là télécharger?", "Mise à jour - TRODS " + VERSION_NUMBER, System.Windows.Forms.MessageBoxButtons.YesNo))
                         System.Diagnostics.Process.Start(url);
