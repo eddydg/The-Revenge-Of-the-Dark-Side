@@ -11,47 +11,6 @@ using Microsoft.Xna.Framework.Media;
 
 namespace TRODS
 {
-    class AnimPictures
-    {
-        AnimatedSprite image;
-        public AnimatedSprite Image
-        {
-            get { return image; }
-            set { image = value; }
-        }
-
-        Rectangle _posInitiale, _posFinale;
-        public Rectangle PosInitiale
-        {
-            get { return _posInitiale; }
-            set { _posInitiale = value; }
-        }
-        public Rectangle PosFinale
-        {
-            get { return _posFinale; }
-            set { _posFinale = value; }
-        }
-        public int _timerStart, _timerLifeTime, _timerFondu1, _timerFondu2, t1, t2;
-        public bool running, startFondu, endFondu;
-
-        public AnimPictures(AnimatedSprite img, Rectangle positionInitiale, Rectangle positionFinale, int startTime, int lifeTime, bool startfondu = false, int fonduTime1 = 400, bool endfondu = false, int fonduTime2 = 400)
-        {
-            image = img;
-            _posInitiale = positionInitiale;
-            _posFinale = positionFinale;
-            image.Vitesse = 1;
-            image.Direction = new Vector2((float)(_posFinale.X - _posInitiale.X) / (float)lifeTime, (float)(_posFinale.Y - _posInitiale.Y) / (float)lifeTime);
-            image.Position = _posInitiale;
-            _timerStart = t1 = startTime;
-            _timerLifeTime = t2 = lifeTime;
-            running = false;
-            this.startFondu = startfondu;
-            this.endFondu = endfondu;
-            _timerFondu1 = fonduTime1;
-            _timerFondu2 = fonduTime2;
-
-        }
-    }
     class Animation : AbstractScene
     {
         private List<AnimPictures> animation;
@@ -68,7 +27,6 @@ namespace TRODS
             for (int i = 0; i < animation.Count; i++)
             {
                 animation[i].running = true;
-                //animation[i].ended = false;
                 animation[i]._timerStart = animation[i].t1;
                 animation[i]._timerLifeTime = animation[i].t2;
                 animation[i].Image.Position = animation[i].PosInitiale;
@@ -117,7 +75,7 @@ namespace TRODS
             }
         }
 
-        public void Add(AnimatedSprite img, Rectangle positionInitiale, Rectangle positionFinale, int startTime, int lifeTime, bool startfondu = false, int fonduTime1 = 400, bool endfondu = false, int fonduTime2 = 400)
+        public void Add(Sprite img, Rectangle positionInitiale, Rectangle positionFinale, int startTime, int lifeTime, bool startfondu = false, int fonduTime1 = 400, bool endfondu = false, int fonduTime2 = 400)
         {
             animation.Add(new AnimPictures(img, positionInitiale, positionFinale, startTime, lifeTime, startfondu, fonduTime1, endfondu, fonduTime2));
         }
@@ -137,6 +95,48 @@ namespace TRODS
                     (int)((float)rect.Height / (float)_windowSize.Height * (float)animation[i].PosFinale.Height));*/
             }
             _windowSize = rect;
+        }
+
+        class AnimPictures
+        {
+            Sprite image;
+            public Sprite Image
+            {
+                get { return image; }
+                set { image = value; }
+            }
+
+            Rectangle _posInitiale, _posFinale;
+            public Rectangle PosInitiale
+            {
+                get { return _posInitiale; }
+                set { _posInitiale = value; }
+            }
+            public Rectangle PosFinale
+            {
+                get { return _posFinale; }
+                set { _posFinale = value; }
+            }
+            public int _timerStart, _timerLifeTime, _timerFondu1, _timerFondu2, t1, t2;
+            public bool running, startFondu, endFondu;
+
+            public AnimPictures(Sprite img, Rectangle positionInitiale, Rectangle positionFinale, int startTime, int lifeTime, bool startfondu = false, int fonduTime1 = 400, bool endfondu = false, int fonduTime2 = 400)
+            {
+                image = img;
+                _posInitiale = positionInitiale;
+                _posFinale = positionFinale;
+                image.Vitesse = 1;
+                image.Direction = new Vector2((float)(_posFinale.X - _posInitiale.X) / (float)lifeTime, (float)(_posFinale.Y - _posInitiale.Y) / (float)lifeTime);
+                image.Position = _posInitiale;
+                _timerStart = t1 = startTime;
+                _timerLifeTime = t2 = lifeTime;
+                running = false;
+                this.startFondu = startfondu;
+                this.endFondu = endfondu;
+                _timerFondu1 = fonduTime1;
+                _timerFondu2 = fonduTime2;
+
+            }
         }
     }
 }
