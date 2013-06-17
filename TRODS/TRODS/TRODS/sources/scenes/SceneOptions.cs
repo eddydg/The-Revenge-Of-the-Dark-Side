@@ -28,6 +28,7 @@ namespace TRODS
         private float _volumeMusic;
         private float _volumeEffect;
         private TextSprite _checkUpdate;
+        private TextSprite _serverConfig;
 
         public SceneOptions(Rectangle windowSize, KeyboardState keyboardState, MouseState mouseState)
         {
@@ -41,7 +42,8 @@ namespace TRODS
             _textEffects = new Sprite(new Rectangle(150, 490, 110, 40), _windowSize, "menu/soundEffect");
             _soundMusic = new Sprite(new Rectangle(180, 423, 110, 55), _windowSize, "menu/soundBars");
             _soundEffect = new Sprite(new Rectangle(260, 480, 110, 55), _windowSize, "menu/soundBars");
-            _checkUpdate = new TextSprite("SpriteFont1", _windowSize, new Rectangle(570, 450, 171, 60), Color.Gold, "Check Updates");
+            _checkUpdate = new TextSprite("SpriteFont1", _windowSize, new Rectangle(530, 440, 171, 60), Color.Gold, "Check Updates");
+            _serverConfig = new TextSprite("SpriteFont1", _windowSize, new Rectangle(600, 500, 171, 60), Color.Gold, "Server Options");
         }
 
         public override void LoadContent(ContentManager content)
@@ -53,6 +55,7 @@ namespace TRODS
             _textMusic.LoadContent(content);
             _textEffects.LoadContent(content);
             _checkUpdate.LoadContent(content);
+            _serverConfig.LoadContent(content);
 
             List<string> par = EugLib.IO.Tools.toArgv(EugLib.IO.FileStream.readFile(SOUND_FILENAME));
             if (par.Count < 2 ||
@@ -77,6 +80,8 @@ namespace TRODS
                 _mouse.Position = new Rectangle(newMouseState.X, newMouseState.Y, _mouse.Position.Width, _mouse.Position.Height);
                 if (_checkUpdate.Position.Contains(newMouseState.X, newMouseState.Y) && !_checkUpdate.Position.Contains(_mouseState.X, _mouseState.Y))
                     parent.son.Play(Sons.MenuSelection);
+                if (_serverConfig.Position.Contains(newMouseState.X, newMouseState.Y) && !_serverConfig.Position.Contains(_mouseState.X, _mouseState.Y))
+                    parent.son.Play(Sons.MenuSelection);
             }
 
             if (newKeyboardState.IsKeyDown(Keys.Escape) && !_keyboardState.IsKeyDown(Keys.Escape))
@@ -90,8 +95,19 @@ namespace TRODS
                     _volumeEffect = (float)(click.X - _soundEffect.Position.X) / (float)_soundEffect.Position.Width;
                 if (_soundMusic.Position.Intersects(click))
                     _volumeMusic = (float)(click.X - _soundMusic.Position.X) / (float)_soundMusic.Position.Width;
-                if (_checkUpdate.Position.Intersects(click) && _mouseState != newMouseState)
+                if (_checkUpdate.Position.Intersects(click) && _mouseState.LeftButton != ButtonState.Pressed)
                     CheckUpdate();
+                if (_serverConfig.Position.Intersects(click) && _mouseState.LeftButton != ButtonState.Pressed)
+                {
+                    try
+                    {
+                        System.Diagnostics.Process.Start("ServerConfig.exe");
+                    }
+                    catch (Exception)
+                    {
+                        System.Windows.Forms.MessageBox.Show("File \"ServerConfig.exe\" not found.");
+                    }
+                }
 
                 parent.son.MusiquesVolume = _volumeMusic;
                 parent.son.SonsVolume = _volumeEffect;
@@ -126,6 +142,11 @@ namespace TRODS
             else
                 _checkUpdate.Draw(spriteBatch);
 
+            if (_serverConfig.Position.Contains(_mouse.Position.Location))
+                _serverConfig.Draw(spriteBatch, Color.Red);
+            else
+                _serverConfig.Draw(spriteBatch);
+
             _mouse.Draw(spriteBatch);
 
             spriteBatch.End();
@@ -134,7 +155,6 @@ namespace TRODS
         public override void Update(float elapsedTime)
         {
             _mouse.Update(elapsedTime);
-            _checkUpdate.Update(elapsedTime);
         }
 
         public override void WindowResized(Rectangle rect)
@@ -145,6 +165,7 @@ namespace TRODS
             _textMusic.windowResized(rect);
             _textEffects.windowResized(rect);
             _checkUpdate.windowResized(rect);
+            _serverConfig.windowResized(rect);
         }
 
         //Fonctions Annexes/////////////////////////////////////

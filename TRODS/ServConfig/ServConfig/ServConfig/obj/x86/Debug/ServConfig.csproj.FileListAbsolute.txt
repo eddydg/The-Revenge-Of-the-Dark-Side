@@ -1,0 +1,9 @@
+C:\Users\Kuchera\Documents\GitHub\The-Revenge-Of-the-Dark-Side\TRODS\ServConfig\ServConfig\ServConfig\bin\Debug\ServConfig.exe
+C:\Users\Kuchera\Documents\GitHub\The-Revenge-Of-the-Dark-Side\TRODS\ServConfig\ServConfig\ServConfig\bin\Debug\ServConfig.pdb
+C:\Users\Kuchera\Documents\GitHub\The-Revenge-Of-the-Dark-Side\TRODS\ServConfig\ServConfig\ServConfig\obj\x86\Debug\ServConfig.Form1.resources
+C:\Users\Kuchera\Documents\GitHub\The-Revenge-Of-the-Dark-Side\TRODS\ServConfig\ServConfig\ServConfig\obj\x86\Debug\ServConfig.Properties.Resources.resources
+C:\Users\Kuchera\Documents\GitHub\The-Revenge-Of-the-Dark-Side\TRODS\ServConfig\ServConfig\ServConfig\obj\x86\Debug\ServConfig.csproj.GenerateResource.Cache
+C:\Users\Kuchera\Documents\GitHub\The-Revenge-Of-the-Dark-Side\TRODS\ServConfig\ServConfig\ServConfig\obj\x86\Debug\ServConfig.exe
+C:\Users\Kuchera\Documents\GitHub\The-Revenge-Of-the-Dark-Side\TRODS\ServConfig\ServConfig\ServConfig\obj\x86\Debug\ServConfig.pdb
+C:\Users\Kuchera\Documents\GitHub\The-Revenge-Of-the-Dark-Side\TRODS\ServConfig\ServConfig\ServConfig\obj\x86\Debug\ServConfig.csprojResolveAssemblyReference.cache
+C:\Users\Kuchera\Documents\GitHub\The-Revenge-Of-the-Dark-Side\TRODS\ServConfig\ServConfig\ServConfig\bin\Debug\EugLib.dll
