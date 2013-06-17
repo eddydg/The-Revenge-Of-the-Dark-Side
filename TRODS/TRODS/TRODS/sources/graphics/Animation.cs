@@ -56,15 +56,50 @@ namespace TRODS
 
             public void Start()
             {
-                // ...
+                running = true;
+                _timerStart = t1;
+                _timerLifeTime = t2;
+                Image.Position = PosInitiale;
             }
-            public void Update( /* ... */ )
+            public void Update(float elapsedTime)
             {
-                // ...
+                if (running && _timerStart <= 0)
+                {
+                    Image.Update(elapsedTime);
+                    _timerLifeTime -= (int)elapsedTime;
+                }
+                else if (running)
+                {
+                    _timerStart -= (int)elapsedTime;
+                }
+                if (_timerLifeTime <= 0)
+                {
+                    running = false;
+                }
             }
-            public void WindowResized( /* ... */ )
+            public void Draw(SpriteBatch spriteBatch)
             {
-                // ...
+                if (running && _timerStart <= 0)
+                {
+                    byte alpha = 255;
+                    if (startFondu && (_timerLifeTime > t2 - _timerFondu1))
+                        alpha = (byte)((float)(t2 - _timerLifeTime) / (float)_timerFondu1 * 255f);
+                    else if (endFondu && _timerLifeTime <= _timerFondu2)
+                        alpha = (byte)((float)_timerLifeTime / (float)_timerFondu2 * 255f);
+                    Image.Draw(spriteBatch, alpha);
+                }
+            }
+            public void WindowResized(Rectangle rect, Rectangle _windowSize)
+            {
+                image.windowResized(rect);
+                image.Position = _posInitiale = new Rectangle((int)((float)rect.X / (float)_windowSize.X * (float)_posInitiale.X),
+                    (int)((float)rect.Y / (float)_windowSize.Y * (float)_posInitiale.Y),
+                    (int)((float)rect.Width / (float)_windowSize.Width * (float)_posInitiale.Width),
+                    (int)((float)rect.Height / (float)_windowSize.Height * (float)_posInitiale.Height));
+                _posFinale = new Rectangle((int)((float)rect.X / (float)_windowSize.X * (float)_posFinale.X),
+                    (int)((float)rect.Y / (float)_windowSize.Y * (float)_posFinale.Y),
+                    (int)((float)rect.Width / (float)_windowSize.Width * (float)_posFinale.Width),
+                    (int)((float)rect.Height / (float)_windowSize.Height * (float)_posFinale.Height));
             }
         }
         private List<AnimPictures> animation;
@@ -78,14 +113,8 @@ namespace TRODS
 
         public void Start()
         {
-            // foreach ...
-            /*for (int i = 0; i < animation.Count; i++)
-            {
-                animation[i].running = true;
-                animation[i]._timerStart = animation[i].t1;
-                animation[i]._timerLifeTime = animation[i].t2;
-                animation[i].Image.Position = animation[i].PosInitiale;
-            }*/
+            foreach (AnimPictures ap in animation)
+                ap.Start();
         }
 
         public override void LoadContent(ContentManager content)
@@ -96,39 +125,14 @@ namespace TRODS
 
         public override void Update(float elapsedTime)
         {
-            /*for (int i = 0; i < animation.Count; i++)
-            {
-                if (animation[i].running && animation[i]._timerStart <= 0)
-                {
-                    animation[i].Image.Update(elapsedTime);
-                    animation[i]._timerLifeTime -= (int)elapsedTime;
-                }
-                else if (animation[i].running)
-                {
-                    animation[i]._timerStart -= (int)elapsedTime;
-                }
-                if (animation[i]._timerLifeTime <= 0)
-                {
-                    animation[i].running = false;
-                }
-            }*/
-            // ...
+            foreach (AnimPictures ap in animation)
+                ap.Update(elapsedTime);
         }
 
         public override void Draw(SpriteBatch spriteBatch)
         {
-            for (int i = 0; i < animation.Count; i++)
-            {
-                if (animation[i].running && animation[i]._timerStart <= 0)
-                {
-                    byte alpha = 255;
-                    if (animation[i].startFondu && (animation[i]._timerLifeTime > animation[i].t2 - animation[i]._timerFondu1))
-                        alpha = (byte)((float)(animation[i].t2 - animation[i]._timerLifeTime) / (float)animation[i]._timerFondu1 * 255f);
-                    else if (animation[i].endFondu && animation[i]._timerLifeTime <= animation[i]._timerFondu2)
-                        alpha = (byte)((float)animation[i]._timerLifeTime / (float)animation[i]._timerFondu2 * 255f);
-                    animation[i].Image.Draw(spriteBatch, alpha);
-                }
-            }
+            foreach (AnimPictures ap in animation)
+                ap.Draw(spriteBatch);
         }
 
         public void Add(Sprite img, Rectangle positionInitiale, Rectangle positionFinale, int startTime, int lifeTime, bool startfondu = false, int fonduTime1 = 400, bool endfondu = false, int fonduTime2 = 400)
@@ -138,19 +142,8 @@ namespace TRODS
 
         public override void WindowResized(Rectangle rect)
         {
-            // foreach ...
-            for (int i = 0; i < animation.Count; i++)
-            {
-                //animation[i].Image.windowResized(rect);
-                /*animation[i].Image.Position = animation[i].PosInitiale = new Rectangle((int)((float)rect.X / (float)_windowSize.X * (float)animation[i].PosInitiale.X),
-                    (int)((float)rect.Y / (float)_windowSize.Y * (float)animation[i].PosInitiale.Y),
-                    (int)((float)rect.Width / (float)_windowSize.Width * (float)animation[i].PosInitiale.Width),
-                    (int)((float)rect.Height / (float)_windowSize.Height * (float)animation[i].PosInitiale.Height));
-                animation[i].PosFinale = new Rectangle((int)((float)rect.X / (float)_windowSize.X * (float)animation[i].PosFinale.X),
-                    (int)((float)rect.Y / (float)_windowSize.Y * (float)animation[i].PosFinale.Y),
-                    (int)((float)rect.Width / (float)_windowSize.Width * (float)animation[i].PosFinale.Width),
-                    (int)((float)rect.Height / (float)_windowSize.Height * (float)animation[i].PosFinale.Height));*/
-            }
+            foreach (AnimPictures ap in animation)
+                ap.WindowResized(rect, _windowSize);
             _windowSize = rect;
         }
     }
