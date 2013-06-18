@@ -13,10 +13,14 @@ namespace TRODS
 {
     class TextSprite : Sprite
     {
-        private SpriteFont _spriteFont;
+        protected SpriteFont _spriteFont;
+        public SpriteFont SpriteFont
+        {
+            get { return _spriteFont; }
+            protected set { _spriteFont = value; }
+        }
 
-
-        private string _text;
+        protected string _text;
         public string Text
         {
             get

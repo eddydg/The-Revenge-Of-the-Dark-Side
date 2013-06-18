@@ -11,20 +11,21 @@ using Microsoft.Xna.Framework.Media;
 
 namespace TRODS
 {
-    class MultipleTextSprite : Sprite
+    class MultipleTextSprite : TextSprite
     {
         public enum Layout
         {
             LeftAlign, MiddleAlign
         }
 
-        private SpriteFont _spriteFont;
         private List<TextSprite> _elements;
+        private Rectangle _windowSize;
 
-        public MultipleTextSprite(string assetName, Rectangle windowSize, Rectangle Position) :
-            base(Position, windowSize, assetName)
+        public MultipleTextSprite(string assetName, Rectangle windowSize, Rectangle Position, Color color) :
+            base(assetName, windowSize, Position, color, "")
         {
             _elements = new List<TextSprite>();
+            _windowSize = windowSize;
         }
 
         public override void LoadContent(ContentManager content)
@@ -32,6 +33,7 @@ namespace TRODS
             _spriteFont = content.Load<SpriteFont>(AssetName);
             foreach (TextSprite ts in _elements)
                 ts.LoadContent(_spriteFont);
+            SetLayout();
         }
         public override void Draw(SpriteBatch spriteBatch)
         {
@@ -43,59 +45,59 @@ namespace TRODS
             foreach (TextSprite ts in _elements)
                 ts.Draw(spriteBatch, position);
         }
+        public override void Update(float elapsedTime)
+        {
+            base.Update(elapsedTime);
+            foreach (TextSprite ts in _elements)
+                ts.Update(elapsedTime);
+        }
 
-        public void SetLayout(Rectangle windowSize, Layout layout)
+        public void Add(string text, int line = -1)
+        {
+            TextSprite n = new TextSprite(AssetName, _windowSize, new Rectangle(), Color, text);
+            n.LoadContent(SpriteFont);
+            n.Direction = Direction;
+            n.Vitesse = Vitesse;
+            if (line < 0)
+                _elements.Add(n);
+            else
+                _elements.Insert(line, n);
+            SetLayout();
+        }
+        public void Add(List<string> lines)
+        {
+            foreach (string s in lines)
+            {
+                _elements.Add(new TextSprite(AssetName, _windowSize, new Rectangle(), Color, s));
+                _elements.Last().LoadContent(SpriteFont);
+                _elements.Last().Direction = Direction;
+                _elements.Last().Vitesse = Vitesse;
+            }
+        }
+        public void SetLayout(Layout layout = Layout.LeftAlign)
         {
             int h = Position.Height / _elements.Count;
-            int c = 0;
-            Rectangle pos = new Rectangle();
-
-            if (layout == Layout.LeftAlign)
+            if (layout == Layout.MiddleAlign)
             {
-                pos = Position;
-                foreach (TextSprite ts in _elements)
-                {
-                    pos.Y += c * h;
-                    ts.setRelatvePos(pos, windowSize.Width, windowSize.Height);
-                    c++;
-                }
             }
-            else if (layout == Layout.MiddleAlign)
+            else
             {
-                pos = Position;
-                foreach (TextSprite ts in _elements)
+                for (int i = 0; i < _elements.Count; i++)
                 {
-                    pos.Y += c * h;
-                    pos.Width = (int)(((float)h / ts.GetOriginalTextSize().Y) * ts.GetOriginalTextSize().X);
-                    pos.X = Position.X + Position.Width / 2 - pos.Width / 2;
-                    if (pos.X < Position.X)
-                    {
-                        pos.X = Position.X;
-                        pos.Width = Position.Width;
-                    }
-                    ts.setRelatvePos(pos, windowSize.Width, windowSize.Height);
-                    c++;
+                    _elements[i].setRelatvePos(new Rectangle(Position.X, Position.Y + i * h, Position.Width, h), _windowSize.Width, _windowSize.Height);
                 }
             }
         }
-        public void LoadFromFile(string filename, Color color, Rectangle windowSize)
-        {
-            foreach (string line in EugLib.IO.FileStream.readFileLines(filename))
-            {
-                _elements.Add(new TextSprite(AssetName, windowSize, new Rectangle(), color, line));
-                _elements.Last().LoadContent(_spriteFont);
-            }
-            SetLayout(windowSize, Layout.LeftAlign);
-        }
-        public override void windowResized(Rectangle rect, Rectangle oldWindowSize = new Rectangle())
+        public void windowResized(Rectangle rect)
         {
             foreach (TextSprite ts in _elements)
-                ts.windowResized(rect, oldWindowSize);
+                ts.Vitesse = Vitesse;
+            SetLayout();
         }
-        public override void setRelatvePos(Rectangle a_position, int windowWidth, int windowHeight)
+        public void setRelatvePos(Rectangle a_position)
         {
-            foreach (TextSprite ts in _elements)
-                ts.setRelatvePos(a_position, windowWidth, windowHeight);
+            Position = a_position;
+            SetLayout();
         }
     }
 }

@@ -15,19 +15,23 @@ namespace TRODS
     {
         private KeyboardState _keyboardState;
         private Rectangle _windowSize;
-        private List<AnimatedSprite> animations;
+        private List<Sprite> animations;
         private ParticleEngine _particles;
+        private MultipleTextSprite _authors;
 
         public SceneCredit(Rectangle windowSize, KeyboardState keyboardState, MouseState mouseState)
         {
             _windowSize = windowSize;
             _keyboardState = keyboardState;
 
-            animations = new List<AnimatedSprite>();
+            animations = new List<Sprite>();
             animations.Add(new AnimatedSprite(new Rectangle(80, 250, 150, 70), _windowSize, "menu/beenTeam"));
-            animations.Add(new AnimatedSprite(new Rectangle(394, _windowSize.Height, 280, 130), _windowSize, "menu/authors"));
-            animations.Last<AnimatedSprite>().Direction = new Vector2(0, -1);
-            animations.Last<AnimatedSprite>().Vitesse = 0.1f;
+            _authors = new MultipleTextSprite("SpriteFont1", _windowSize, new Rectangle(394, _windowSize.Height, 500, 130), Color.Red);
+            _authors.Direction = new Vector2(0, -1);
+            _authors.Vitesse = 0.1f;
+            foreach (string s in EugLib.IO.FileStream.readFileLines("Content/AUTHORS"))
+                _authors.Add(s);
+            animations.Add(_authors);
             animations.Add(new AnimatedSprite(new Rectangle(0, 0, _windowSize.Width, 2 * _windowSize.Height / 8), _windowSize, "menu/credit"));
             animations.Add(new AnimatedSprite(new Rectangle(-300, _windowSize.Height - 100, _windowSize.Width + 300, 100), _windowSize, "menu/lueur1_10x4r21r40", 10, 4, 15, 21, 40, 1));
             _particles = new ParticleEngine(
@@ -41,8 +45,9 @@ namespace TRODS
 
         public override void LoadContent(ContentManager content)
         {
-            foreach (AnimatedSprite s in animations)
+            foreach (Sprite s in animations)
                 s.LoadContent(content);
+            _authors.LoadContent(content);
             _particles.LoadContent(content);
         }
 
@@ -50,21 +55,20 @@ namespace TRODS
         {
             spriteBatch.Begin();
             _particles.Draw(spriteBatch);
-            foreach (AnimatedSprite s in animations)
+            foreach (Sprite s in animations)
                 s.Draw(spriteBatch);
+            //_authors.Draw(spriteBatch);
+            animations[0].Draw(spriteBatch,_authors.Position);
             spriteBatch.End();
         }
 
         public override void Update(float elapsedTime)
         {
-            foreach (AnimatedSprite s in animations)
+            foreach (Sprite s in animations)
                 s.Update(elapsedTime);
-            Rectangle p = animations.ElementAt<AnimatedSprite>(1).Position;
-            if (p.Y < -p.Height)
-            {
-                p.Y = _windowSize.Height;
-                animations.ElementAt<AnimatedSprite>(1).Position = p;
-            }
+            //_authors.Update(elapsedTime);
+            if (_authors.Position.Y < -_authors.Position.Height)
+                ResetAuthors();
             _particles.Update(elapsedTime);
         }
 
@@ -83,9 +87,22 @@ namespace TRODS
 
         public override void Activation(Game1 parent)
         {
-            foreach (AnimatedSprite s in animations)
-                s.ActualPicture = 1;
+            for (int i = 0; i < animations.Count; i++)
+            {
+                try
+                {
+                    ((AnimatedSprite)animations[i]).ActualPicture = 1;
+                }
+                catch (Exception)
+                {
+                }
+            }
             parent.son.Play(Musiques.CreditMusic);
+        }
+
+        public void ResetAuthors()
+        {
+            _authors.setRelatvePos(new Rectangle(_authors.Position.X, _windowSize.Height, _authors.Position.Width, _authors.Position.Height));
         }
 
         public override void EndScene(Game1 parent)
@@ -93,15 +110,11 @@ namespace TRODS
             parent.son.Stop();
         }
 
-        /// <summary>
-        /// Fonction adaptant les textures au
-        /// redimensionnement de la fenetre
-        /// </summary>
-        /// <param name="rect">Nouvelle dimension de la fenetre obtenue par *Game1*.Window.ClientBounds()</param>
         private void windowResized(Rectangle rect)
         {
-            foreach (AnimatedSprite s in animations)
+            foreach (Sprite s in animations)
                 s.windowResized(rect);
+            _authors.windowResized(rect);
             _particles.WindowResized(rect);
         }
     }
