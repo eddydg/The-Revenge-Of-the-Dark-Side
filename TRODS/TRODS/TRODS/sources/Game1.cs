@@ -52,6 +52,7 @@ namespace TRODS
             }
             graphics.ApplyChanges();
             this.Window.AllowUserResizing = true;
+            System.Windows.Forms.Form.FromHandle(Window.Handle).MinimumSize = new System.Drawing.Size(400,400);//taille minimale
             Rectangle winsize = Window.ClientBounds;
             keyboardState = Keyboard.GetState();
             mouseState = Mouse.GetState();
