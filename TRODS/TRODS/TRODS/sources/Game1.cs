@@ -52,7 +52,7 @@ namespace TRODS
             }
             graphics.ApplyChanges();
             this.Window.AllowUserResizing = true;
-            System.Windows.Forms.Form.FromHandle(Window.Handle).MinimumSize = new System.Drawing.Size(400,400);//taille minimale
+            System.Windows.Forms.Form.FromHandle(Window.Handle).MinimumSize = new System.Drawing.Size(400, 400);//taille minimale
             Rectangle winsize = Window.ClientBounds;
             keyboardState = Keyboard.GetState();
             mouseState = Mouse.GetState();
@@ -67,6 +67,13 @@ namespace TRODS
             scenes.Add(Scene.Titre, new SceneTitre(winsize, keyboardState, mouseState));
             scenes.Add(Scene.Options, new SceneOptions(winsize, keyboardState, mouseState));
             scenes.Add(Scene.IntroVid, new VideoReader("general/introduction_trods"));
+            Animation gameover = new Animation(winsize, Scene.Titre);
+            gameover.Add("game/game_over", new Rectangle(0, 0, winsize.Width, winsize.Height), new Rectangle(0, 0, winsize.Width, winsize.Height), 0, 5000, true, 200, true, 700);
+            gameover.Add(new TextSprite("SpriteFont1", winsize, new Rectangle(), Color.DarkRed, "Quest FAILED..."),
+                new Rectangle(300, 500, 300, 100),
+                new Rectangle(330, 600, 240, 60), 
+                500, 4500, true, 700, true, 1000);
+            scenes.Add(Scene.GameOver, gameover);
             currentScene = Scene.IntroVid;
         }
         protected override void Initialize()

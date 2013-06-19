@@ -8,7 +8,6 @@ Content\general\white.xnb
 Content\map1\back1r.xnb
 Content\map1\fore1.xnb
 Content\map1\sky1.xnb
-Content\menu\beenTeam.xnb
 Content\menu\contextMenuExit.xnb
 Content\menu\contextMenuText.xnb
 Content\menu\contextMenuTextMainMenu.xnb
@@ -68,4 +67,5 @@ Content\menu\songCredit.wma
 Content\SpriteFont1.xnb
 Content\general\introduction_trods.xnb
 Content\general\introduction_trods.wmv
+Content\game\game_over.xnb
 Content\AUTHORS

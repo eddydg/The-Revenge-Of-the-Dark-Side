@@ -67,6 +67,14 @@ namespace TRODS
                 {
                     Image.Update(elapsedTime);
                     _timerLifeTime -= (int)elapsedTime;
+
+                    float p = (float)_timerLifeTime / (float)t2;
+                    Rectangle position = PosInitiale;
+                    position.X -= (int)((float)(PosFinale.X - PosInitiale.X) * p);
+                    position.Y -= (int)((float)(PosFinale.Y - PosInitiale.Y) * p);
+                    position.Width -= (int)((float)(PosFinale.Width - PosInitiale.Width) * p);
+                    position.Height -= (int)((float)(PosFinale.Height - PosInitiale.Height) * p);
+                    Image.Position = position;
                 }
                 else if (running)
                 {
@@ -119,12 +127,6 @@ namespace TRODS
             _nextScene = nextScene;
         }
 
-
-        /// <summary>
-        /// //////////////////////////////////////////// ACTIVATION
-        /// /////////////////////////////   IL FAUT QU'ELLE SOIT REUTILISABLE
-        /// //////////////////////////////////  NO NEED Start()
-        /// </summary>
         public void Start()
         {
             foreach (AnimPictures ap in animation)
@@ -151,13 +153,20 @@ namespace TRODS
 
         public override void Draw(SpriteBatch spriteBatch)
         {
+            spriteBatch.Begin();
             foreach (AnimPictures ap in animation)
                 ap.Draw(spriteBatch);
+            spriteBatch.End();
         }
 
         public void Add(Sprite img, Rectangle positionInitiale, Rectangle positionFinale, int startTime, int lifeTime, bool startfondu = false, int fonduTime1 = 400, bool endfondu = false, int fonduTime2 = 400)
         {
             animation.Add(new AnimPictures(img, positionInitiale, positionFinale, startTime, lifeTime, startfondu, fonduTime1, endfondu, fonduTime2));
+        }
+
+        public void Add(string assetName, Rectangle positionInitiale, Rectangle positionFinale, int startTime, int lifeTime, bool startfondu = false, int fonduTime1 = 400, bool endfondu = false, int fonduTime2 = 400)
+        {
+            animation.Add(new AnimPictures(new Sprite(positionInitiale, _windowSize, assetName), positionInitiale, positionFinale, startTime, lifeTime, startfondu, fonduTime1, endfondu, fonduTime2));
         }
 
         public override void WindowResized(Rectangle rect)
@@ -179,7 +188,7 @@ namespace TRODS
 
         public override void Activation(Game1 parent = null)
         {
-
+            Start();
         }
     }
 }

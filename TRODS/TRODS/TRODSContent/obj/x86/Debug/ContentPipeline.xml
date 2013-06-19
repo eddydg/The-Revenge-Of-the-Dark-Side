@@ -92,15 +92,6 @@
       <Time>2013-06-17T16:27:07.8062884+02:00</Time>
     </Item>
     <Item>
-      <Source>menu\beenTeam.png</Source>
-      <Name>menu\beenTeam</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Kuchera\Documents\GitHub\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\menu\beenTeam.xnb</Output>
-      <Time>2013-06-17T16:27:07.9013007+02:00</Time>
-    </Item>
-    <Item>
       <Source>menu\contextMenuExit.png</Source>
       <Name>menu\contextMenuExit</Name>
       <Importer>TextureImporter</Importer>
@@ -606,6 +597,15 @@
       <Output>C:\Users\Kuchera\Documents\GitHub\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\general\introduction_trods.xnb</Output>
       <Extra>C:\Users\Kuchera\Documents\GitHub\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\general\introduction_trods.wmv</Extra>
       <Time>2013-06-17T16:27:07.7342779+02:00</Time>
+    </Item>
+    <Item>
+      <Source>game\game_over.jpg</Source>
+      <Name>game\game_over</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Kuchera\Documents\GitHub\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\game\game_over.xnb</Output>
+      <Time>2013-06-19T13:19:31.3692962+02:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

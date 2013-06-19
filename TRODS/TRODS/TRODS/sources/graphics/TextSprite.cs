@@ -93,6 +93,16 @@ namespace TRODS
             }
         }
 
+        public override void Draw(SpriteBatch spriteBatch, byte alpha)
+        {
+            if (_showedCharacters != 0)
+            {
+                float num1 = this.min((float)this.Position.Width / this._spriteFont.MeasureString(this.Text).X, (float)this.Position.Height / this._spriteFont.MeasureString(this.Text).Y);
+                Color c = Color.FromNonPremultiplied(Color.R, Color.G, Color.B, alpha);
+                spriteBatch.DrawString(_spriteFont, Text.Substring(0, _showedCharacters), new Vector2(Position.Location.X, Position.Location.Y), c, 0f, Vector2.Zero, num1, (SpriteEffects)0, 0f);
+            }
+        }
+
         private float min(float a, float b)
         {
             return (double)a > (double)b ? b : a;

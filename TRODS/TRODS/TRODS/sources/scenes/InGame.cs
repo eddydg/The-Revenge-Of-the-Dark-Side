@@ -264,7 +264,10 @@ namespace TRODS
             this.personnage.HandleInput(newKeyboardState, newMouseState, parent);
             this._hud.HandleInput(newKeyboardState, newMouseState, parent);
             if ((double)this.personnage.Life <= 0.0)
-                parent.SwitchScene(Scene.MainMenu);
+            {
+                //parent.SwitchScene(Scene.MainMenu);
+                parent.SwitchScene(Scene.GameOver);
+            }
             this._keyboardState = newKeyboardState;
             this._mouseState = newMouseState;
         }
