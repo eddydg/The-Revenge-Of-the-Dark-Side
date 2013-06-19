@@ -236,3 +236,8 @@ D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side
 C:\Users\Kuchera\Documents\GitHub\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\AUTHORS
 D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\AUTHORS
 C:\Users\Kuchera\Documents\GitHub\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\game\game_over.xnb
+C:\Users\Kuchera\Documents\GitHub\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\animation\intro\1.xnb
+C:\Users\Kuchera\Documents\GitHub\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\animation\intro\3.xnb
+C:\Users\Kuchera\Documents\GitHub\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\animation\intro\1.txt
+C:\Users\Kuchera\Documents\GitHub\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\animation\intro\2 - Ecran noir.txt
+C:\Users\Kuchera\Documents\GitHub\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\animation\intro\3.txt

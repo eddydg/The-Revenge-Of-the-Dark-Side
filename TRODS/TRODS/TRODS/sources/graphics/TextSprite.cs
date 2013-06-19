@@ -68,7 +68,7 @@ namespace TRODS
 
         public override void Draw(SpriteBatch spriteBatch)
         {
-            if (_showedCharacters != 0)
+            if (_showedCharacters <= Text.Length)
             {
                 float num1 = this.min((float)this.Position.Width / this._spriteFont.MeasureString(this.Text).X, (float)this.Position.Height / this._spriteFont.MeasureString(this.Text).Y);
                 Vector2 position2 = new Vector2((float)Position.Location.X, (float)Position.Location.Y);
@@ -78,7 +78,7 @@ namespace TRODS
 
         public override void Draw(SpriteBatch spriteBatch, Rectangle position)
         {
-            if (_showedCharacters != 0)
+            if (_showedCharacters <= Text.Length)
             {
                 float scale = this.min((float)position.Width / this._spriteFont.MeasureString(this.Text).X, (float)position.Height / this._spriteFont.MeasureString(this.Text).Y);
                 spriteBatch.DrawString(this._spriteFont, this.Text.Substring(0, _showedCharacters), new Vector2((float)position.Location.X, (float)position.Location.Y), this.Color, 0.0f, Vector2.Zero, scale, SpriteEffects.None, 0.0f);
@@ -87,7 +87,7 @@ namespace TRODS
 
         public override void Draw(SpriteBatch spriteBatch, Color color, int X, int Y)
         {
-            if (_showedCharacters != 0)
+            if (_showedCharacters <= Text.Length)
             {
                 float num1 = this.min((float)this.Position.Width / this._spriteFont.MeasureString(this.Text).X, (float)this.Position.Height / this._spriteFont.MeasureString(this.Text).Y);
                 spriteBatch.DrawString(_spriteFont, Text.Substring(0, _showedCharacters), new Vector2((float)X, (float)Y), color, 0f, Vector2.Zero, num1, (SpriteEffects)0, 0f);
@@ -96,7 +96,7 @@ namespace TRODS
 
         public override void Draw(SpriteBatch spriteBatch, Color color)
         {
-            if (_showedCharacters != 0)
+            if (_showedCharacters <= Text.Length)
             {
                 float num1 = this.min((float)this.Position.Width / this._spriteFont.MeasureString(this.Text).X, (float)this.Position.Height / this._spriteFont.MeasureString(this.Text).Y);
                 spriteBatch.DrawString(_spriteFont, Text.Substring(0, _showedCharacters), new Vector2(Position.Location.X, Position.Location.Y), color, 0f, Vector2.Zero, num1, (SpriteEffects)0, 0f);
@@ -105,7 +105,7 @@ namespace TRODS
 
         public override void Draw(SpriteBatch spriteBatch, byte alpha)
         {
-            if (_showedCharacters != 0)
+            if (_showedCharacters <= Text.Length)
             {
                 float num1 = this.min((float)this.Position.Width / this._spriteFont.MeasureString(this.Text).X, (float)this.Position.Height / this._spriteFont.MeasureString(this.Text).Y);
                 Color c = Color.FromNonPremultiplied(Color.R, Color.G, Color.B, alpha);

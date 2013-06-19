@@ -169,6 +169,11 @@ namespace TRODS
             animation.Add(new AnimPictures(new Sprite(positionInitiale, _windowSize, assetName), positionInitiale, positionFinale, startTime, lifeTime, startfondu, fonduTime1, endfondu, fonduTime2));
         }
 
+        public void Add(string assetName, Rectangle position, int startTime, int lifeTime, int fonduTime1 = 400, int fonduTime2 = 400)
+        {
+            animation.Add(new AnimPictures(new Sprite(position, _windowSize, assetName), position, position, startTime, lifeTime, true, fonduTime1, true, fonduTime2));
+        }
+
         public override void WindowResized(Rectangle rect)
         {
             foreach (AnimPictures ap in animation)

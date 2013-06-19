@@ -68,4 +68,9 @@ Content\SpriteFont1.xnb
 Content\general\introduction_trods.xnb
 Content\general\introduction_trods.wmv
 Content\game\game_over.xnb
+Content\animation\intro\1.xnb
+Content\animation\intro\3.xnb
 Content\AUTHORS
+Content\animation\intro\1.txt
+Content\animation\intro\2 - Ecran noir.txt
+Content\animation\intro\3.txt

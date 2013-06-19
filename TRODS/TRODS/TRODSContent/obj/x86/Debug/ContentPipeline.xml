@@ -607,6 +607,24 @@
       <Output>C:\Users\Kuchera\Documents\GitHub\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\game\game_over.xnb</Output>
       <Time>2013-06-19T13:19:31.3692962+02:00</Time>
     </Item>
+    <Item>
+      <Source>animation\intro\1.jpg</Source>
+      <Name>animation\intro\1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Kuchera\Documents\GitHub\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\animation\intro\1.xnb</Output>
+      <Time>2013-06-19T18:45:48.4496999+02:00</Time>
+    </Item>
+    <Item>
+      <Source>animation\intro\3.jpg</Source>
+      <Name>animation\intro\3</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Kuchera\Documents\GitHub\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\animation\intro\3.xnb</Output>
+      <Time>2013-06-19T18:45:48.4496999+02:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>

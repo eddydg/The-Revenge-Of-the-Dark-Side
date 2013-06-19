@@ -27,9 +27,16 @@ namespace TRODS
         private HUD _hud;
         private Rectangle _originalWindowSize;
 
+        private bool _dashing, _waitingDash;
+        private float _dashTimer;
+        private const float DashDuration = 500;
+        private const float DashKeyDelay = 200;
+
         public InGame(Rectangle windowSize, KeyboardState keyboardState, MouseState mouseState)
         {
             this._windowSize = windowSize;
+            _dashing = false;
+            _dashTimer = 0;
             this._mouseState = mouseState;
             this._keyboardState = keyboardState;
             this._originalWindowSize = windowSize;
@@ -156,6 +163,11 @@ namespace TRODS
 
         public override void Update(float elapsedTime)
         {
+            _dashTimer += elapsedTime;
+            if (_dashing && _dashTimer > DashDuration)
+            {
+                _dashing = false;
+            }
             this._maps[this._currentMap].Update(elapsedTime);
             this._menu.Update(elapsedTime);
             this.personnage.Update(elapsedTime);
@@ -239,6 +251,21 @@ namespace TRODS
                 foreach (Attack attack in this.personnage.Attacks.Values)
                     attack.Move(-(int)move, 0);
             }
+            // DASH 
+           /* if (newKeyboardState.IsKeyDown(Keys.Right) && _keyboardState.IsKeyUp(Keys.Right) || newKeyboardState.IsKeyDown(Keys.Left) && _keyboardState.IsKeyUp(Keys.Left))
+            {
+                if (_waitingDash && _dashTimer < DashKeyDelay)
+                {
+                    _dashing = true;
+                }
+                else if (!_waitingDash)
+                {
+                    _waitingDash = true;
+                }
+                else
+                    _waitingDash = false;
+                _dashTimer = 0;
+            }*/
             if (newKeyboardState.IsKeyDown(Keys.Up) && this.personnage._canMove && this._maps[this._currentMap].Moving(new Vector2(0.0f, -move), true))
             {
                 foreach (Mob mob in this._mobs[this._currentMap])

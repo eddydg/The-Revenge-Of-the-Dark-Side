@@ -42,8 +42,8 @@ namespace TRODS
             _textEffects = new Sprite(new Rectangle(150, 490, 110, 40), _windowSize, "menu/soundEffect");
             _soundMusic = new Sprite(new Rectangle(180, 423, 110, 55), _windowSize, "menu/soundBars");
             _soundEffect = new Sprite(new Rectangle(260, 480, 110, 55), _windowSize, "menu/soundBars");
-            _checkUpdate = new TextSprite("SpriteFont1", _windowSize, new Rectangle(530, 440, 171, 60), Color.Gold, "Check Updates");
-            _serverConfig = new TextSprite("SpriteFont1", _windowSize, new Rectangle(600, 500, 171, 60), Color.Gold, "Server Options");
+            _checkUpdate = new TextSprite("SpriteFont1", _windowSize, new Rectangle(530, 440, 171, 60), Color.Goldenrod, "Check Updates");
+            _serverConfig = new TextSprite("SpriteFont1", _windowSize, new Rectangle(600, 500, 171, 60), Color.Goldenrod, "Server Options");
         }
 
         public override void LoadContent(ContentManager content)

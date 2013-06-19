@@ -54,3 +54,25 @@ Nom du paramètre : texture
    à TRODS.Animation.AnimPictures.Draw(SpriteBatch spriteBatch) dans C:\Users\Kuchera\Documents\GitHub\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\graphics\Animation.cs:ligne 89
    à TRODS.Animation.Draw(SpriteBatch spriteBatch) dans C:\Users\Kuchera\Documents\GitHub\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\graphics\Animation.cs:ligne 150
    à TRODS.Game1.Draw(GameTime gameTime) dans C:\Users\Kuchera\Documents\GitHub\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\Game1.cs:ligne 137
+Erreur de changement de scene :
+System.Collections.Generic.KeyNotFoundException: La clé donnée était absente du dictionnaire.
+   à System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   à TRODS.Game1.SwitchScene(Scene newScene) dans C:\Users\Kuchera\Documents\GitHub\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\Game1.cs:ligne 166
+Erreur d'affichage :
+System.ArgumentOutOfRangeException: L'index et la longueur doivent faire référence à un emplacement situé dans la chaîne.
+Nom du paramètre : length
+   à System.String.InternalSubStringWithChecks(Int32 startIndex, Int32 length, Boolean fAlwaysCopy)
+   à System.String.Substring(Int32 startIndex, Int32 length)
+   à TRODS.TextSprite.Draw(SpriteBatch spriteBatch, Byte alpha) dans C:\Users\Kuchera\Documents\GitHub\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\graphics\TextSprite.cs:ligne 112
+   à TRODS.Animation.AnimPictures.Draw(SpriteBatch spriteBatch) dans C:\Users\Kuchera\Documents\GitHub\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\graphics\Animation.cs:ligne 97
+   à TRODS.Animation.Draw(SpriteBatch spriteBatch) dans C:\Users\Kuchera\Documents\GitHub\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\graphics\Animation.cs:ligne 158
+   à TRODS.Game1.Draw(GameTime gameTime) dans C:\Users\Kuchera\Documents\GitHub\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\Game1.cs:ligne 147
+Erreur d'affichage :
+System.ArgumentOutOfRangeException: La longueur ne peut pas être inférieure à zéro.
+Nom du paramètre : length
+   à System.String.InternalSubStringWithChecks(Int32 startIndex, Int32 length, Boolean fAlwaysCopy)
+   à System.String.Substring(Int32 startIndex, Int32 length)
+   à TRODS.TextSprite.Draw(SpriteBatch spriteBatch, Byte alpha) dans C:\Users\Kuchera\Documents\GitHub\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\graphics\TextSprite.cs:ligne 112
+   à TRODS.Animation.AnimPictures.Draw(SpriteBatch spriteBatch) dans C:\Users\Kuchera\Documents\GitHub\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\graphics\Animation.cs:ligne 97
+   à TRODS.Animation.Draw(SpriteBatch spriteBatch) dans C:\Users\Kuchera\Documents\GitHub\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\graphics\Animation.cs:ligne 158
+   à TRODS.Game1.Draw(GameTime gameTime) dans C:\Users\Kuchera\Documents\GitHub\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\Game1.cs:ligne 147
