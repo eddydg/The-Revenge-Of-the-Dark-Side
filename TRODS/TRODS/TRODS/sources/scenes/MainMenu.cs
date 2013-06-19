@@ -79,6 +79,7 @@ namespace TRODS
         }
         public override void HandleInput(KeyboardState newKeyboardState, MouseState newMouseState, Game1 parent)
         {
+            Selection oldSelection = selection;
             Rectangle newWindowSize = parent.Window.ClientBounds;
             if (newWindowSize.Width != windowWidth || newWindowSize.Height != windowHeight)
                 windowResized(newWindowSize);
@@ -150,6 +151,17 @@ namespace TRODS
 
                 keyboardState = newKeyboardState;
                 mousestate = newMouseState;
+                if (oldSelection != selection)
+                {
+                    try
+                    {
+                        ((TextSprite)menuItems[selection]).StartShowing();
+                    }
+                    catch (Exception e)
+                    {
+                        EugLib.IO.FileStream.toStdOut(e.ToString());
+                    }
+                }
             }
         }
         public override void Update(float elapsedTime)
@@ -169,6 +181,8 @@ namespace TRODS
                     i--;
                 }
             }
+            foreach (Sprite s in menuItems.Values)
+                s.Update(elapsedTime);
         }
         public override void Draw(SpriteBatch spriteBatch)
         {

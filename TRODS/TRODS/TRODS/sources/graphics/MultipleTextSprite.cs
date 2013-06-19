@@ -47,9 +47,21 @@ namespace TRODS
         }
         public override void Update(float elapsedTime)
         {
-            base.Update(elapsedTime);
+            _position = new Rectangle((int)(_vitesse * Direction.X * elapsedTime) + _position.X,
+                                      (int)(_vitesse * Direction.Y * elapsedTime) + _position.Y,
+                                      _position.Width, _position.Height);
             foreach (TextSprite ts in _elements)
                 ts.Update(elapsedTime);
+            if (_showing)
+            {
+                _timer += (int)elapsedTime;
+                if (_timer >= _showindSpeed)
+                {
+                    if (!SetShowedCharacters(_showedCharacters + 1))
+                        _showing = false;
+                    _timer = 0;
+                }
+            }
         }
 
         public void Add(string text, int line = -1)
@@ -98,6 +110,36 @@ namespace TRODS
         {
             Position = a_position;
             SetLayout();
+        }
+
+        public override bool SetShowedCharacters(int count)
+        {
+            _showedCharacters = count;
+            if (_elements != null)
+            {
+                foreach (TextSprite t in _elements)
+                    t.SetShowedCharacters(0);
+                foreach (TextSprite t in _elements)
+                {
+                    if (t.SetShowedCharacters(count))
+                        return true;
+                    count -= t.Text.Length;
+                }
+            }
+            return false;
+        }
+        public override bool FullyShowed()
+        {
+            if (_elements != null)
+            {
+                foreach (TextSprite t in _elements)
+                {
+                    if (!t.FullyShowed())
+                        return false;
+                }
+                return true;
+            }
+            return false;
         }
     }
 }

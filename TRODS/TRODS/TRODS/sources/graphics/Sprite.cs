@@ -15,14 +15,14 @@ namespace TRODS
     {
         public string AssetName { get; set; }
         public Texture2D Texture { get; set; }
-        private Rectangle _position;
+        protected Rectangle _position;
         public Rectangle Position
         {
             get { return _position; }
             set { _position = value; }
         }
         public Vector2 Direction { get; set; }
-        private float _vitesse;
+        protected float _vitesse;
         public float Vitesse
         {
             get
@@ -36,12 +36,12 @@ namespace TRODS
             }
         }
 
-        private bool _isRelativePos;
-        private float _relativePosX;
-        private float _relativePosY;
-        private float _relativeWidth;
-        private float _relativeHeight;
-        private float _relativeSpeed;
+        protected bool _isRelativePos;
+        protected float _relativePosX;
+        protected float _relativePosY;
+        protected float _relativeWidth;
+        protected float _relativeHeight;
+        protected float _relativeSpeed;
 
         /// <summary>
         /// Si les 2 derniers parametres sont donnes,

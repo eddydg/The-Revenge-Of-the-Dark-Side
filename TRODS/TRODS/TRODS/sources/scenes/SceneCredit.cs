@@ -114,7 +114,7 @@ namespace TRODS
         {
             foreach (Sprite s in animations)
                 s.windowResized(rect);
-            _authors.windowResized(rect);
+            //_authors.windowResized(rect);
             _particles.WindowResized(rect);
         }
     }

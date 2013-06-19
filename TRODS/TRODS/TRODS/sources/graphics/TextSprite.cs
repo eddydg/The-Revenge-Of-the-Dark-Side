@@ -34,9 +34,17 @@ namespace TRODS
             }
         }
 
-        public Color Color { get; set; }
+        protected int _showindSpeed;
+        protected bool _showing;
+        public bool Showing
+        {
+            get { return _showing; }
+            private set { _showing = value; }
+        }
+        protected int _timer;
+        protected int _showedCharacters;
 
-        private int _showedCharacters;
+        public Color Color { get; set; }
 
         public TextSprite(string assetName, Rectangle windowSize, Rectangle position, Color color, string text = "")
             : base(position, windowSize, assetName)
@@ -44,6 +52,8 @@ namespace TRODS
             this.Color = color;
             this.Text = text;
             _showedCharacters = Text.Length;
+            SetShowedCharacters(-1);
+            _showing = false;
         }
 
         public override void LoadContent(ContentManager content)
@@ -103,6 +113,21 @@ namespace TRODS
             }
         }
 
+        public override void Update(float elapsedTime)
+        {
+            base.Update(elapsedTime);
+            if (_showing)
+            {
+                _timer += (int)elapsedTime;
+                if (_timer >= _showindSpeed)
+                {
+                    if (!SetShowedCharacters(_showedCharacters + 1))
+                        _showing = false;
+                    _timer = 0;
+                }
+            }
+        }
+
         private float min(float a, float b)
         {
             return (double)a > (double)b ? b : a;
@@ -113,12 +138,34 @@ namespace TRODS
             return this._spriteFont.MeasureString(this.Text);
         }
 
-        public void SetShowedCharacters(int count)
+        public virtual bool SetShowedCharacters(int count)
         {
             if (count < 0 || count > Text.Length)
+            {
                 _showedCharacters = Text.Length;
+                return false;
+            }
             else
                 _showedCharacters = count;
+            return true;
+        }
+
+        public virtual void StartShowing(int showedCharacters = 0, int showingSpeed=40)
+        {
+            SetShowedCharacters(showedCharacters);
+            _showing = true;
+            _showindSpeed = showingSpeed > 0 ? showingSpeed : 0;
+            _timer = 0;
+        }
+
+        public virtual bool FullyShowed()
+        {
+            return _showedCharacters >= _text.Length;
+        }
+
+        public virtual void StopShowing()
+        {
+            _showing = false;
         }
     }
 }
