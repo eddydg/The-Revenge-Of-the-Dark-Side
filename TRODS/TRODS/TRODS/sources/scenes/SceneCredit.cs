@@ -58,7 +58,7 @@ namespace TRODS
             foreach (Sprite s in animations)
                 s.Draw(spriteBatch);
             //_authors.Draw(spriteBatch);
-            animations[0].Draw(spriteBatch,_authors.Position);
+            //animations[0].Draw(spriteBatch,_authors.Position);
             spriteBatch.End();
         }
 

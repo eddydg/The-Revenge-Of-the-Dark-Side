@@ -8,12 +8,10 @@ Content\general\white.xnb
 Content\map1\back1r.xnb
 Content\map1\fore1.xnb
 Content\map1\sky1.xnb
-Content\menu\authors.xnb
 Content\menu\beenTeam.xnb
 Content\menu\contextMenuExit.xnb
 Content\menu\contextMenuText.xnb
 Content\menu\contextMenuTextMainMenu.xnb
-Content\menu\contextualMenuBlackFull.xnb
 Content\menu\credit.xnb
 Content\menu\etoiles1_10x10r51r100.xnb
 Content\menu\lueur1_10x4r21r40.xnb

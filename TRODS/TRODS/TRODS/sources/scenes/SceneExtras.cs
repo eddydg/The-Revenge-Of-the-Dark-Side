@@ -35,7 +35,7 @@ namespace TRODS
             mouse = new AnimatedSprite(new Rectangle(-100, -100, 60, 80), _windowSize, 8, 4, 30);
 
             animations = new List<AnimatedSprite>();
-            menu = new ContextMenu(_windowSize, new AnimatedSprite(new Rectangle(200, 50, 300, 50), _windowSize, "menu/ContextualMenuBlackFull"), "menu/contextMenuExit", 100);
+            menu = new ContextMenu(_windowSize, new AnimatedSprite(new Rectangle(200, 50, 300, 50), _windowSize, "game/menu/container"), "menu/contextMenuExit", 100);
             menu.Title = new AnimatedSprite(new Rectangle(menu.Position.Width / 2 - 75, 0, 150, 50), _windowSize, "menu/contextMenuText");
             menu.Visible = false;
             menu.Add(new AnimatedSprite(new Rectangle(), windowSize, "sprites/canalisation1_16x13", 16, 13));

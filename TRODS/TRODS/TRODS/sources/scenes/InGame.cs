@@ -33,7 +33,7 @@ namespace TRODS
             this._mouseState = mouseState;
             this._keyboardState = keyboardState;
             this._originalWindowSize = windowSize;
-            this._menu = new ContextMenu(this._windowSize, new AnimatedSprite(new Rectangle(0, 30, 200, 50), this._windowSize, "menu/ContextualMenuBlackFull", 1, 1, 30, 1, -1, -1, false), "menu/contextMenuExit", (byte)235);
+            this._menu = new ContextMenu(this._windowSize, new AnimatedSprite(new Rectangle(0, 30, 200, 50), this._windowSize, "game/menu/container", 1, 1, 30, 1, -1, -1, false), "menu/contextMenuExit", (byte)235);
             this._menu.Title = new AnimatedSprite(new Rectangle(this._menu.Position.Width / 2 - 75, 0, 150, 50), this._windowSize, "menu/contextMenuText", 1, 1, 30, 1, -1, -1, false);
             this._menu.Visible = false;
             this._menu.Add(new AnimatedSprite(new Rectangle(this._menu.Position.Width / 2 - 100, 65, 200, 22), this._windowSize, "menu/contextMenuTextMainMenu", 1, 1, 30, 1, -1, -1, false));

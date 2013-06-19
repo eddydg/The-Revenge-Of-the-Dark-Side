@@ -92,11 +92,6 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="menu\authors.png">
-      <Name>authors</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
     <Compile Include="menu\beenTeam.png">
       <Name>beenTeam</Name>
       <Importer>TextureImporter</Importer>
@@ -114,11 +109,6 @@
     </Compile>
     <Compile Include="menu\contextMenuTextMainMenu.png">
       <Name>contextMenuTextMainMenu</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="menu\contextualMenuBlackFull.png">
-      <Name>contextualMenuBlackFull</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
