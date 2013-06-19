@@ -102,15 +102,29 @@ namespace TRODS
                     (int)((float)rect.Height / (float)_windowSize.Height * (float)_posFinale.Height));
             }
         }
+
         private List<AnimPictures> animation;
         private Rectangle _windowSize;
+        private Scene _nextScene;
+        public Scene NextScene
+        {
+            get { return _nextScene; }
+            set { _nextScene = value; }
+        }
 
-        public Animation(Rectangle windowSize)
+        public Animation(Rectangle windowSize, Scene nextScene = Scene.MainMenu)
         {
             animation = new List<AnimPictures>();
             _windowSize = windowSize;
+            _nextScene = nextScene;
         }
 
+
+        /// <summary>
+        /// //////////////////////////////////////////// ACTIVATION
+        /// /////////////////////////////   IL FAUT QU'ELLE SOIT REUTILISABLE
+        /// //////////////////////////////////  NO NEED Start()
+        /// </summary>
         public void Start()
         {
             foreach (AnimPictures ap in animation)
@@ -129,6 +143,12 @@ namespace TRODS
                 ap.Update(elapsedTime);
         }
 
+        public override void HandleInput(KeyboardState newKeyboardState, MouseState newMouseState, Game1 parent)
+        {
+            if (newKeyboardState.IsKeyDown(Keys.Space) || Over())
+                parent.SwitchScene(_nextScene);
+        }
+
         public override void Draw(SpriteBatch spriteBatch)
         {
             foreach (AnimPictures ap in animation)
@@ -145,6 +165,21 @@ namespace TRODS
             foreach (AnimPictures ap in animation)
                 ap.WindowResized(rect, _windowSize);
             _windowSize = rect;
+        }
+
+        public bool Over()
+        {
+            foreach (AnimPictures a in animation)
+            {
+                if (a._timerLifeTime > 0)
+                    return false;
+            }
+            return true;
+        }
+
+        public override void Activation(Game1 parent = null)
+        {
+
         }
     }
 }
