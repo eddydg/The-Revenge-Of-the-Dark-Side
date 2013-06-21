@@ -75,16 +75,12 @@ namespace TRODS
             else
                 _elements.Insert(line, n);
             SetLayout();
+            SetShowedCharacters(-1);
         }
         public void Add(List<string> lines)
         {
             foreach (string s in lines)
-            {
-                _elements.Add(new TextSprite(AssetName, _windowSize, new Rectangle(), Color, s));
-                _elements.Last().LoadContent(SpriteFont);
-                _elements.Last().Direction = Direction;
-                _elements.Last().Vitesse = Vitesse;
-            }
+                Add(s);
         }
         public void SetLayout(Layout layout = Layout.LeftAlign)
         {

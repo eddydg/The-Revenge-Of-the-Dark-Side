@@ -13,6 +13,44 @@ namespace TRODS
 {
     class AbstractMap : AbstractScene
     {
+        public struct Element
+        {
+            public AnimatedSprite sprite;
+            public Rectangle originalPosition;
+            public float speed;
+            public float verticalSpeed;
+            public bool repeating;
+            public bool foreground;
+            public bool isPortal;
+            public bool isPortalNext;
+            public bool isHeal;
+
+            public Element(AnimatedSprite _s, float _speed = 0.0f, float _verticalSpeed = 0.0f, bool _repeating = false, bool _foreground = false, bool isportal = false, bool isportalnext = true, bool healing = false)
+            {
+                this.sprite = _s;
+                this.speed = _speed;
+                this.verticalSpeed = _verticalSpeed;
+                this.repeating = _repeating;
+                this.foreground = _foreground;
+                this.originalPosition = _s.Position;
+                this.isPortal = isportal;
+                this.isPortalNext = isportalnext;
+                this.isHeal = healing;
+            }
+
+            public void WindowResized(Rectangle oldWinSize, Rectangle winSize)
+            {
+                this.sprite.windowResized(winSize, oldWinSize);
+                this.speed *= (float)winSize.Width / (float)oldWinSize.Width;
+                this.verticalSpeed *= (float)winSize.Height / (float)oldWinSize.Height;
+            }
+
+            public void Reset(Rectangle winSize)
+            {
+                this.sprite.setRelatvePos(this.originalPosition, winSize.Width, winSize.Height);
+            }
+        }
+
         protected List<AbstractMap.Element> _elements;
         protected Rectangle _windowSize;
         protected Vector2 _originalVuePosition;
@@ -32,7 +70,6 @@ namespace TRODS
                 this._elements = value;
             }
         }
-
         public Rectangle WindowSize
         {
             get
@@ -44,7 +81,6 @@ namespace TRODS
                 this._windowSize = value;
             }
         }
-
         public Vector2 VuePosition
         {
             get
@@ -57,7 +93,6 @@ namespace TRODS
                 this._originalVuePosition = this._vuePosition;
             }
         }
-
         public List<Rectangle> Visitable
         {
             get
@@ -69,7 +104,6 @@ namespace TRODS
                 this._visitable = value;
             }
         }
-
         public bool IsDrawingForeground
         {
             get
@@ -90,7 +124,6 @@ namespace TRODS
             this._isDrawingForeground = false;
             this._originalVisitable = new List<Rectangle>();
         }
-
         public AbstractMap(Rectangle windowSize, List<AbstractMap.Element> elements, Vector2 vuePosition, List<Rectangle> visitableArea)
         {
             this._windowSize = windowSize;
@@ -106,19 +139,16 @@ namespace TRODS
         {
             this._elements.Add(new AbstractMap.Element(s, horizontalSpeed, verticalSpeed, repeating, isForeground, false, true, false));
         }
-
         public virtual void AddVisitable(Rectangle v)
         {
             this._visitable.Add(v);
             this._originalVisitable.Add(v);
         }
-
         public virtual void AddVisitable(int x, int y, int width, int height)
         {
             this._visitable.Add(new Rectangle(x, y, width, height));
             this._originalVisitable.Add(new Rectangle(x, y, width, height));
         }
-
         public virtual bool Moving(Vector2 destination, bool performMove = true)
         {
             Point point = new Point((int)((double)destination.X + (double)this.VuePosition.X), (int)((double)destination.Y + (double)this.VuePosition.Y));
@@ -163,19 +193,16 @@ namespace TRODS
             foreach (AbstractMap.Element element in this._elements)
                 ((AbstractScene)element.sprite).LoadContent(content);
         }
-
         public override void Update(float elapsedTime)
         {
             foreach (AbstractMap.Element element in this._elements)
                 element.sprite.Update(elapsedTime);
         }
-
         public virtual void Draw(SpriteBatch s, bool foreground)
         {
             this._isDrawingForeground = foreground;
             Draw(s);
         }
-
         public override void Draw(SpriteBatch spriteBatch)
         {
             foreach (AbstractMap.Element element in this._elements)
@@ -211,7 +238,6 @@ namespace TRODS
             }
             return 0;
         }
-
         public override void WindowResized(Rectangle rect)
         {
             foreach (AbstractMap.Element element in this._elements)
@@ -242,51 +268,12 @@ namespace TRODS
             this._vuePosition.Y = this._vuePosition.Y * y;
             this._windowSize = rect;
         }
-
         public override void Activation(Game1 parent = null)
         {
             foreach (AbstractMap.Element element in this._elements)
                 element.Reset(this._windowSize);
             this._visitable = this._originalVisitable;
             this._vuePosition = this._originalVuePosition;
-        }
-
-        public struct Element
-        {
-            public AnimatedSprite sprite;
-            public Rectangle originalPosition;
-            public float speed;
-            public float verticalSpeed;
-            public bool repeating;
-            public bool foreground;
-            public bool isPortal;
-            public bool isPortalNext;
-            public bool isHeal;
-
-            public Element(AnimatedSprite _s, float _speed = 0.0f, float _verticalSpeed = 0.0f, bool _repeating = false, bool _foreground = false, bool isportal = false, bool isportalnext = true, bool healing = false)
-            {
-                this.sprite = _s;
-                this.speed = _speed;
-                this.verticalSpeed = _verticalSpeed;
-                this.repeating = _repeating;
-                this.foreground = _foreground;
-                this.originalPosition = _s.Position;
-                this.isPortal = isportal;
-                this.isPortalNext = isportalnext;
-                this.isHeal = healing;
-            }
-
-            public void WindowResized(Rectangle oldWinSize, Rectangle winSize)
-            {
-                this.sprite.windowResized(winSize, oldWinSize);
-                this.speed *= (float)winSize.Width / (float)oldWinSize.Width;
-                this.verticalSpeed *= (float)winSize.Height / (float)oldWinSize.Height;
-            }
-
-            public void Reset(Rectangle winSize)
-            {
-                this.sprite.setRelatvePos(this.originalPosition, winSize.Width, winSize.Height);
-            }
         }
     }
 }

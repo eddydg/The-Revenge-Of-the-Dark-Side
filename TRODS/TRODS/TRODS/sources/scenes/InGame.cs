@@ -27,15 +27,20 @@ namespace TRODS
         private HUD _hud;
         private Rectangle _originalWindowSize;
 
+        private List<Personnage> _players;
+        private EugLib.Net.Server _server;
+        private EugLib.Net.Client _client;
+
         private bool _dashing, _waitingDash;
         private float _dashTimer;
-        private const float DashDuration = 500;
+        private const float DashDuration = 1000;
         private const float DashKeyDelay = 200;
+        private const float DashSpeed = 4;
 
         public InGame(Rectangle windowSize, KeyboardState keyboardState, MouseState mouseState)
         {
             this._windowSize = windowSize;
-            _dashing = false;
+            _dashing = _waitingDash = false;
             _dashTimer = 0;
             this._mouseState = mouseState;
             this._keyboardState = keyboardState;
@@ -98,6 +103,9 @@ namespace TRODS
             if (this.personnage.Weapons.Count <= 0)
                 return;
             this._hud.AddWeapon(this.personnage.Weapons[0].Tip);
+            _players = new List<Personnage>();
+            _server = null;
+            _client = null;
         }
 
         public override void LoadContent(ContentManager content)
@@ -164,9 +172,10 @@ namespace TRODS
         public override void Update(float elapsedTime)
         {
             _dashTimer += elapsedTime;
-            if (_dashing && _dashTimer > DashDuration)
+            if (_dashing && _dashTimer > DashDuration || _waitingDash && _dashTimer > DashKeyDelay)
             {
                 _dashing = false;
+                _waitingDash = false;
             }
             this._maps[this._currentMap].Update(elapsedTime);
             this._menu.Update(elapsedTime);
@@ -204,16 +213,23 @@ namespace TRODS
                         this.personnage.ReceiveAttack(attack.Damage, attack.BlockTime);
                 }
             }
-            if ((double)this.personnage.Life >= 1.0 && (double)this.personnage.Mana >= 1.0)
-                return;
-            foreach (AbstractMap.Element element in this._maps[this._currentMap].Elements)
+
+            if (_dashing)
             {
-                if (element.isHeal && element.sprite.Position.Intersects(this.personnage.DrawingRectangle))
+                personnage.Mana -= elapsedTime / 5000f;
+                if (personnage.Mana <= 0)
+                    _waitingDash = _dashing = false;
+            }
+            if (!((double)this.personnage.Life >= 1.0 && (double)this.personnage.Mana >= 1.0))
+            {
+                foreach (AbstractMap.Element element in this._maps[this._currentMap].Elements)
                 {
-                    this.personnage.Mana += 0.01f;
-                    Personnage personnage = this.personnage;
-                    double num = (double)personnage.Life + 0.00999999977648258;
-                    personnage.Life = (float)num;
+                    if (element.isHeal && element.sprite.Position.Intersects(this.personnage.DrawingRectangle))
+                    {
+                        this.personnage.Mana += 0.01f;
+                        double num = (double)personnage.Life + 0.00999999977648258;
+                        personnage.Life = (float)num;
+                    }
                 }
             }
         }
@@ -236,7 +252,7 @@ namespace TRODS
             int num;
             if ((num = this._hud.SelectedWeapon(this._mouseState)) >= 0)
                 this.personnage.Weapon = num;
-            float move = (float)_windowSize.Width * 0.005555556f;
+            float move = (float)_windowSize.Width * 0.005555556f*(_dashing ? DashSpeed : 1f);
             if (newKeyboardState.IsKeyDown(Keys.Right) && this.personnage._canMove && this._maps[this._currentMap].Moving(new Vector2(move, 0.0f), true))
             {
                 foreach (Mob mob in this._mobs[this._currentMap])
@@ -252,7 +268,7 @@ namespace TRODS
                     attack.Move(-(int)move, 0);
             }
             // DASH 
-           /* if (newKeyboardState.IsKeyDown(Keys.Right) && _keyboardState.IsKeyUp(Keys.Right) || newKeyboardState.IsKeyDown(Keys.Left) && _keyboardState.IsKeyUp(Keys.Left))
+            if (newKeyboardState.IsKeyDown(Keys.Right) && _keyboardState.IsKeyUp(Keys.Right) || newKeyboardState.IsKeyDown(Keys.Left) && _keyboardState.IsKeyUp(Keys.Left))
             {
                 if (_waitingDash && _dashTimer < DashKeyDelay)
                 {
@@ -265,7 +281,7 @@ namespace TRODS
                 else
                     _waitingDash = false;
                 _dashTimer = 0;
-            }*/
+            }
             if (newKeyboardState.IsKeyDown(Keys.Up) && this.personnage._canMove && this._maps[this._currentMap].Moving(new Vector2(0.0f, -move), true))
             {
                 foreach (Mob mob in this._mobs[this._currentMap])
@@ -278,7 +294,7 @@ namespace TRODS
                 foreach (Mob mob in this._mobs[this._currentMap])
                     mob.Move(0, (int)move);
                 foreach (Attack attack in this.personnage.Attacks.Values)
-                    attack.Move(0, (int)(0.4f*move));
+                    attack.Move(0, (int)(0.4f * move));
             }
             if (newKeyboardState.IsKeyDown(Keys.E) && this._keyboardState.IsKeyUp(Keys.E))
             {
@@ -291,10 +307,7 @@ namespace TRODS
             this.personnage.HandleInput(newKeyboardState, newMouseState, parent);
             this._hud.HandleInput(newKeyboardState, newMouseState, parent);
             if ((double)this.personnage.Life <= 0.0)
-            {
-                //parent.SwitchScene(Scene.MainMenu);
                 parent.SwitchScene(Scene.GameOver);
-            }
             this._keyboardState = newKeyboardState;
             this._mouseState = newMouseState;
         }
@@ -314,7 +327,6 @@ namespace TRODS
                 abstractMap.Activation((Game1)null);
                 abstractMap.WindowResized(this._windowSize);
             }
-            this._currentMap = 0;
             this.rand = new Random();
             foreach (List<Mob> list in this._mobs)
                 list.Clear();
@@ -345,6 +357,11 @@ namespace TRODS
                     mob.WindowResized(this._windowSize);
                 }
             }
+        }
+
+        public void Reset()
+        {
+            this._currentMap = 0;
             this.personnage.Life = 1f;
             this.personnage.Mana = 1f;
             this.personnage.Experience.Reset();

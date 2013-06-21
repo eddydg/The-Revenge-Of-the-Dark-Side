@@ -99,8 +99,7 @@ namespace TRODS
             }
             public void WindowResized(Rectangle rect, Rectangle _windowSize)
             {
-                image.windowResized(rect);
-                image.Position = _posInitiale = new Rectangle((int)((float)rect.X / (float)_windowSize.X * (float)_posInitiale.X),
+                _posInitiale = new Rectangle((int)((float)rect.X / (float)_windowSize.X * (float)_posInitiale.X),
                     (int)((float)rect.Y / (float)_windowSize.Y * (float)_posInitiale.Y),
                     (int)((float)rect.Width / (float)_windowSize.Width * (float)_posInitiale.Width),
                     (int)((float)rect.Height / (float)_windowSize.Height * (float)_posInitiale.Height));
@@ -108,6 +107,8 @@ namespace TRODS
                     (int)((float)rect.Y / (float)_windowSize.Y * (float)_posFinale.Y),
                     (int)((float)rect.Width / (float)_windowSize.Width * (float)_posFinale.Width),
                     (int)((float)rect.Height / (float)_windowSize.Height * (float)_posFinale.Height));
+                image.setRelatvePos(image.Position, _windowSize.Width, _windowSize.Height);
+                image.windowResized(rect);
             }
         }
 
@@ -119,6 +120,7 @@ namespace TRODS
             get { return _nextScene; }
             set { _nextScene = value; }
         }
+        private KeyboardState _keyboardState;
 
         public Animation(Rectangle windowSize, Scene nextScene = Scene.MainMenu)
         {
@@ -147,8 +149,11 @@ namespace TRODS
 
         public override void HandleInput(KeyboardState newKeyboardState, MouseState newMouseState, Game1 parent)
         {
-            if (newKeyboardState.IsKeyDown(Keys.Space) || Over())
+            if (newKeyboardState.IsKeyDown(Keys.Space) && _keyboardState.IsKeyUp(Keys.Space) || Over())
                 parent.SwitchScene(_nextScene);
+            _keyboardState = newKeyboardState;
+            if (parent.Window.ClientBounds != _windowSize)
+                WindowResized(parent.Window.ClientBounds);
         }
 
         public override void Draw(SpriteBatch spriteBatch)
@@ -194,6 +199,7 @@ namespace TRODS
         public override void Activation(Game1 parent = null)
         {
             Start();
+            _keyboardState = Keyboard.GetState();
         }
     }
 }

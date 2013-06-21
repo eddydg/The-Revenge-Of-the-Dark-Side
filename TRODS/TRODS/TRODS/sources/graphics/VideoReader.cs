@@ -50,7 +50,7 @@ namespace TRODS
 
         public override void HandleInput(KeyboardState newKeyboardState, MouseState newMouseState, Game1 parent)
         {
-            if (this._timer < 0 && (newKeyboardState.GetPressedKeys().Length > 0 || this._player.State != MediaState.Playing))
+            if (this._timer < 0 && (newKeyboardState.IsKeyDown(Keys.Space) || this._player.State != MediaState.Playing))
             {
                 this._player.Stop();
                 parent.SwitchScene(this._next);

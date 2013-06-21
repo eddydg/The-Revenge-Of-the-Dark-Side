@@ -252,7 +252,7 @@ namespace TRODS
                     parent.SwitchScene(Scene.InGame);
                     break;
                 case Selection.Extra:
-                    parent.SwitchScene(Scene.Extra);
+                    parent.SwitchScene(Scene.MenuExtra);
                     break;
                 case Selection.Credit:
                     parent.SwitchScene(Scene.Credit);

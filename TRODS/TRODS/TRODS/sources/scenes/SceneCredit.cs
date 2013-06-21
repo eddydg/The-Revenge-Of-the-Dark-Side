@@ -47,7 +47,6 @@ namespace TRODS
         {
             foreach (Sprite s in animations)
                 s.LoadContent(content);
-            _authors.LoadContent(content);
             _particles.LoadContent(content);
         }
 
