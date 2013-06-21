@@ -68,12 +68,12 @@ namespace TRODS
                     Image.Update(elapsedTime);
                     _timerLifeTime -= (int)elapsedTime;
 
-                    float p = (float)_timerLifeTime / (float)t2;
+                    float p = ((float)t2 - (float)_timerLifeTime) / (float)t2;
                     Rectangle position = PosInitiale;
-                    position.X -= (int)((float)(PosFinale.X - PosInitiale.X) * p);
-                    position.Y -= (int)((float)(PosFinale.Y - PosInitiale.Y) * p);
-                    position.Width -= (int)((float)(PosFinale.Width - PosInitiale.Width) * p);
-                    position.Height -= (int)((float)(PosFinale.Height - PosInitiale.Height) * p);
+                    position.X += (int)((float)(PosFinale.X - PosInitiale.X) * p);
+                    position.Y += (int)((float)(PosFinale.Y - PosInitiale.Y) * p);
+                    position.Width += (int)((float)(PosFinale.Width - PosInitiale.Width) * p);
+                    position.Height += (int)((float)(PosFinale.Height - PosInitiale.Height) * p);
                     Image.Position = position;
                 }
                 else if (running)
@@ -154,6 +154,8 @@ namespace TRODS
             _keyboardState = newKeyboardState;
             if (parent.Window.ClientBounds != _windowSize)
                 WindowResized(parent.Window.ClientBounds);
+            foreach (AnimPictures ap in animation)
+                ap.Image.HandleInput(newKeyboardState, newMouseState, parent);
         }
 
         public override void Draw(SpriteBatch spriteBatch)

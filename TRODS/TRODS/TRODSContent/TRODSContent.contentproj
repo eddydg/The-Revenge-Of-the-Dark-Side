@@ -430,6 +430,8 @@
       <Name>1</Name>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+  </ItemGroup>
+  <ItemGroup>
     <None Include="animation\intro\2 - Ecran noir.txt">
       <Name>2 - Ecran noir</Name>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

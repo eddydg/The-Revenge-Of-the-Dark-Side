@@ -51,6 +51,10 @@ namespace TRODS
                 parent.SwitchScene(Scene.MainMenu);
             if (!_keyboardstate.IsKeyDown(Keys.Escape) && newKeyboardState.IsKeyDown(Keys.Escape))
                 parent.Exit();
+            if (!_keyboardstate.IsKeyDown(Keys.H) && newKeyboardState.IsKeyDown(Keys.H))
+                parent.SwitchScene(Scene.IntroHistoire);
+            if (!_keyboardstate.IsKeyDown(Keys.V) && newKeyboardState.IsKeyDown(Keys.V))
+                parent.SwitchScene(Scene.IntroVid);
 
             _keyboardstate = newKeyboardState;
             _mouseState = newMouseState;

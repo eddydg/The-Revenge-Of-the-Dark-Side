@@ -45,6 +45,11 @@ namespace TRODS
             foreach (TextSprite ts in _elements)
                 ts.Draw(spriteBatch, position);
         }
+        public override void Draw(SpriteBatch spriteBatch, byte alpha)
+        {
+            foreach (TextSprite ts in _elements)
+                ts.Draw(spriteBatch, alpha);
+        }
         public override void Update(float elapsedTime)
         {
             _position = new Rectangle((int)(_vitesse * Direction.X * elapsedTime) + _position.X,

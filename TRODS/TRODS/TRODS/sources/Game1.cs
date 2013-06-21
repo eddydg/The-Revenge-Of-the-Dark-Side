@@ -67,22 +67,24 @@ namespace TRODS
             scenes.Add(Scene.Titre, new SceneTitre(winsize, keyboardState, mouseState));
             scenes.Add(Scene.Options, new SceneOptions(winsize, keyboardState, mouseState));
             scenes.Add(Scene.MenuExtra, new MenuExtra(winsize, keyboardState, mouseState));
-            scenes.Add(Scene.IntroVid, new VideoReader("general/introduction_trods",Scene.IntroHistoire));
+            scenes.Add(Scene.IntroVid, new VideoReader("general/introduction_trods", Scene.IntroHistoire));
 
             Animation anim = new Animation(winsize, Scene.Titre);
             anim.Add("game/game_over", new Rectangle(0, 0, winsize.Width, winsize.Height), new Rectangle(0, 0, winsize.Width, winsize.Height), 0, 5000, true, 200, true, 700);
             anim.Add(new TextSprite("SpriteFont1", winsize, new Rectangle(), Color.DarkRed, "Quest FAILED..."),
                 new Rectangle(300, 500, 300, 100),
-                new Rectangle(330, 600, 240, 60), 
+                new Rectangle(330, 600, 240, 60),
                 500, 4500, true, 700, true, 1000);
             scenes.Add(Scene.GameOver, anim);
 
             anim = new Animation(winsize, Scene.Titre);
-            anim.Add("animation/intro/1", new Rectangle(0, 0, winsize.Width, winsize.Height), 500, 7000, 700, 1000);
-            MultipleTextSprite ts = new MultipleTextSprite("SpriteFont1", winsize, new Rectangle(50, 50, 300, 400), Color.Honeydew);
+            anim.Add("animation/intro/1", new Rectangle(0, 0, winsize.Width, winsize.Height), 500, 24000, 700, 1000);
+            MultipleTextSprite ts = new MultipleTextSprite("SpriteFont1", winsize, new Rectangle(50, 100, 300, 400), Color.Honeydew);
             ts.Add(EugLib.IO.FileStream.readFileLines("Content/animation/intro/1.txt"));
-            ts.StartShowing(0, 100);
-            anim.Add(ts, new Rectangle(50, 50, 300, 400), new Rectangle(50, 50, 300, 400), 1000, 6000, true, 500, true, 1000);
+            ts.StartShowing(0, 30);
+            anim.Add(ts, new Rectangle(50, 100, 300, 400), new Rectangle(50, 100, 300, 400), 2000, 22000, true, 0, true, 500);
+            TextSprite tss = new TextSprite("SpriteFont1", winsize, new Rectangle(200, 250, 500, 100), Color.Honeydew, EugLib.IO.FileStream.readFile("Content/animation/intro/2 - Ecran noir.txt"));
+            anim.Add(tss, new Rectangle(200, 250, 500, 100), new Rectangle(100, 250, 700, 400), 25000, 4000, true, 400, true, 500);
             scenes.Add(Scene.IntroHistoire, anim);
 
             currentScene = Scene.IntroVid;
