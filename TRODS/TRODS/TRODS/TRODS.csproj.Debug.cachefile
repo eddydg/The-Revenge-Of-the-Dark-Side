@@ -64,14 +64,14 @@ Content\animation\intro\1.xnb
 Content\animation\intro\3.xnb
 Content\menu\menuAmbience.xnb
 Content\menu\selectionSound.xnb
+Content\animation\intro\intro.xnb
 Content\menu\songCredit.xnb
 Content\SpriteFont1.xnb
 Content\general\introduction_trods.xnb
-Content\animation\intro\intro.xnb
 Content\menu\menuAmbience.wma
+Content\animation\intro\intro.wma
 Content\menu\songCredit.wma
 Content\general\introduction_trods.wmv
-Content\animation\intro\intro.wma
 Content\AUTHORS
 Content\animation\intro\1.txt
 Content\animation\intro\2 - Ecran noir.txt

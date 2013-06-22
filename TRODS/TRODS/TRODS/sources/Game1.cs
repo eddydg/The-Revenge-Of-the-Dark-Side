@@ -85,11 +85,11 @@ namespace TRODS
             anim.Add(ts, new Rectangle(50, 100, 350, 400), new Rectangle(50, 100, 350, 400), 4000, 19000, true, 0, true, 1000);
             TextSprite tss = new TextSprite("SpriteFont1", winsize, new Rectangle(200, 250, 500, 100), Color.Honeydew, EugLib.IO.FileStream.readFile("Content/animation/intro/2 - Ecran noir.txt"));
             anim.Add(tss, new Rectangle(200, 250, 500, 100), new Rectangle(100, 250, 700, 400), 24000, 4000, true, 400, true, 500);
-            anim.Add("animation/intro/3", new Rectangle(0, 0, winsize.Width, winsize.Height), 28500, 21500, 100, 1000);
-            ts = new MultipleTextSprite("SpriteFont1", winsize, new Rectangle(), Color.Honeydew);
+            anim.Add("animation/intro/3", new Rectangle(0, 0, winsize.Width, winsize.Height), 28500, 28000, 100, 1000);
+            ts = new MultipleTextSprite("SpriteFont1", winsize, new Rectangle(100, 300, 700, 800), Color.Black);
             ts.Add(EugLib.IO.FileStream.readFileLines("Content/animation/intro/3.txt"));
             ts.StartShowing(0, 30);
-            anim.Add(ts, new Rectangle(100, 300, 700, 800), new Rectangle(100, -300, 700, 800), 29000, 18000, false, 0, true, 1000);
+            anim.Add(ts, new Rectangle(100, 300, 700, 800), new Rectangle(100, -300, 700, 800), 29000, 27500, false, 0, true, 1000);
             scenes.Add(Scene.IntroHistoire, anim);
 
             currentScene = Scene.IntroVid;
