@@ -20,6 +20,7 @@ namespace TRODS
 
         private List<TextSprite> _elements;
         private Rectangle _windowSize;
+        private Rectangle _oldPos;
 
         public MultipleTextSprite(string assetName, Rectangle windowSize, Rectangle Position, Color color) :
             base(assetName, windowSize, Position, color, "")
@@ -67,6 +68,9 @@ namespace TRODS
                     _timer = 0;
                 }
             }
+            if (_oldPos != Position)
+                SetLayout();
+            _oldPos = Position;
         }
 
         public void Add(string text, int line = -1)

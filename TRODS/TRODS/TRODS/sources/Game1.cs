@@ -77,14 +77,19 @@ namespace TRODS
                 500, 4500, true, 700, true, 1000);
             scenes.Add(Scene.GameOver, anim);
 
-            anim = new Animation(winsize, Scene.Titre);
-            anim.Add("animation/intro/1", new Rectangle(0, 0, winsize.Width, winsize.Height), 500, 24000, 700, 1000);
+            anim = new Animation(winsize, Scene.Titre, Musiques.Intro);
+            anim.Add("animation/intro/1", new Rectangle(0, 0, winsize.Width, winsize.Height), 500, 24000, 2000, 1500);
             MultipleTextSprite ts = new MultipleTextSprite("SpriteFont1", winsize, new Rectangle(50, 100, 300, 400), Color.Honeydew);
             ts.Add(EugLib.IO.FileStream.readFileLines("Content/animation/intro/1.txt"));
             ts.StartShowing(0, 30);
-            anim.Add(ts, new Rectangle(50, 100, 300, 400), new Rectangle(50, 100, 300, 400), 2000, 22000, true, 0, true, 500);
+            anim.Add(ts, new Rectangle(50, 100, 350, 400), new Rectangle(50, 100, 350, 400), 4000, 19000, true, 0, true, 1000);
             TextSprite tss = new TextSprite("SpriteFont1", winsize, new Rectangle(200, 250, 500, 100), Color.Honeydew, EugLib.IO.FileStream.readFile("Content/animation/intro/2 - Ecran noir.txt"));
-            anim.Add(tss, new Rectangle(200, 250, 500, 100), new Rectangle(100, 250, 700, 400), 25000, 4000, true, 400, true, 500);
+            anim.Add(tss, new Rectangle(200, 250, 500, 100), new Rectangle(100, 250, 700, 400), 24000, 4000, true, 400, true, 500);
+            anim.Add("animation/intro/3", new Rectangle(0, 0, winsize.Width, winsize.Height), 28500, 21500, 100, 1000);
+            ts = new MultipleTextSprite("SpriteFont1", winsize, new Rectangle(), Color.Honeydew);
+            ts.Add(EugLib.IO.FileStream.readFileLines("Content/animation/intro/3.txt"));
+            ts.StartShowing(0, 30);
+            anim.Add(ts, new Rectangle(100, 300, 700, 800), new Rectangle(100, -300, 700, 800), 29000, 18000, false, 0, true, 1000);
             scenes.Add(Scene.IntroHistoire, anim);
 
             currentScene = Scene.IntroVid;
@@ -103,6 +108,7 @@ namespace TRODS
                 son.LoadContent(Content, Sons.MenuSelection, "menu/selectionSound");
                 son.LoadContent(Content, Musiques.MenuMusic, "menu/menuAmbience");
                 son.LoadContent(Content, Musiques.CreditMusic, "menu/songCredit");
+                son.LoadContent(Content, Musiques.Intro, "animation/intro/intro");
                 float _volumeEffect = 1f;
                 float _volumeMusic = 1f;
                 List<string> par = EugLib.IO.Tools.toArgv(EugLib.IO.FileStream.readFile(SceneOptions.SOUND_FILENAME));

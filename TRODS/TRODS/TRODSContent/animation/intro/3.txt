@@ -1,3 +1,17 @@
-Pour la première fois depuis des siècles, le trône se trouve vacant. C'est au digne successeur Spark, fils aîné du roi, chevalier émérite et désormais héritier du trône de devenir Roi d'OpenEdge.
-Tout le royaume est en deuil. À l'exception de Chaos, frère de Spark, au tempérament belliqueux et ardent, et à l'orgueil démesuré, qui passe son temps à boire et à exprimer son ire envers son frère aîné. Chaos ne pouvait s'imaginer être autre chose que roi afin d'accéder aux pouvoirs absolus. Il entreprit ainsi, par soif de puissance et rivalité, d'assassiner son frère.
-Mais, aveuglé par sa colère, il se précipita dans son entreprise et échoua lamentablement.
+Pour la premiere fois depuis des siecles,
+le trone se trouve vacant. C'est au digne
+successeur Spark, fils aine du roi,
+chevalier emerite et desormais heritier
+du trone de devenir Roi d'OpenEdge. Tout
+le royaume est en deuil. A l'exception
+de Chaos, frere de Spark, au temperament
+belliqueux et ardent, et a l'orgueil
+demesure, qui passe son temps a boire et
+a exprimer son ire envers son frere aine.
+Chaos ne pouvait s'imaginer etre autre
+chose que roi afin d'acceder aux pouvoirs
+absolus. Il entreprit ainsi, par soif de
+puissance et rivalite, d'assassiner son
+frere. Mais, aveugle par sa colere, il
+se precipita dans son entreprise et
+echoua lamentablement.

@@ -29,6 +29,7 @@ namespace TRODS
         private float _volumeEffect;
         private TextSprite _checkUpdate;
         private TextSprite _serverConfig;
+        private TextSprite _fullScreen;
 
         public SceneOptions(Rectangle windowSize, KeyboardState keyboardState, MouseState mouseState)
         {
@@ -44,6 +45,7 @@ namespace TRODS
             _soundEffect = new Sprite(new Rectangle(260, 480, 110, 55), _windowSize, "menu/soundBars");
             _checkUpdate = new TextSprite("SpriteFont1", _windowSize, new Rectangle(530, 440, 171, 60), Color.Goldenrod, "Check Updates");
             _serverConfig = new TextSprite("SpriteFont1", _windowSize, new Rectangle(600, 500, 171, 60), Color.Goldenrod, "Server Options");
+            _fullScreen = new TextSprite("SpriteFont1", _windowSize, new Rectangle(400, 470, 150, 60), Color.Goldenrod, "Fullscreen");
         }
 
         public override void LoadContent(ContentManager content)
@@ -56,6 +58,7 @@ namespace TRODS
             _textEffects.LoadContent(content);
             _checkUpdate.LoadContent(content);
             _serverConfig.LoadContent(content);
+            _fullScreen.LoadContent(content);
 
             List<string> par = EugLib.IO.Tools.toArgv(EugLib.IO.FileStream.readFile(SOUND_FILENAME));
             if (par.Count < 2 ||
@@ -108,6 +111,11 @@ namespace TRODS
                         System.Windows.Forms.MessageBox.Show("File \"ServerConfig.exe\" not found.");
                     }
                 }
+                if (_fullScreen.Position.Intersects(click) && _mouseState.LeftButton != ButtonState.Pressed)
+                {
+                    parent.Graphics.IsFullScreen = !parent.Graphics.IsFullScreen;
+                    parent.Graphics.ApplyChanges();
+                }
 
                 parent.son.MusiquesVolume = _volumeMusic;
                 parent.son.SonsVolume = _volumeEffect;
@@ -147,6 +155,11 @@ namespace TRODS
             else
                 _serverConfig.Draw(spriteBatch);
 
+            if (_fullScreen.Position.Contains(_mouse.Position.Location))
+                _fullScreen.Draw(spriteBatch, Color.Red);
+            else
+                _fullScreen.Draw(spriteBatch);
+
             _mouse.Draw(spriteBatch);
 
             spriteBatch.End();
@@ -166,6 +179,7 @@ namespace TRODS
             _textEffects.windowResized(rect);
             _checkUpdate.windowResized(rect);
             _serverConfig.windowResized(rect);
+            _fullScreen.windowResized(rect);
         }
 
         //Fonctions Annexes/////////////////////////////////////

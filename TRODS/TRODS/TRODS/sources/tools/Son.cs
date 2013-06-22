@@ -42,6 +42,7 @@ namespace TRODS
                 }
             }
         }
+        public List<Musiques> Queue;
 
         /// <summary>
         /// Constructeur
@@ -52,6 +53,7 @@ namespace TRODS
             _musiques = new Dictionary<Musiques, Song>();
             _sonsVol = 1f;
             _musiquesVol = 1f;
+            Queue = new List<Musiques>();
         }
 
         /// <summary>
@@ -98,8 +100,11 @@ namespace TRODS
         {
             try
             {
-                MediaPlayer.Play(_musiques[m]);
-                MediaPlayer.IsRepeating = true;
+                if (m != Musiques.None)
+                {
+                    MediaPlayer.Play(_musiques[m]);
+                    MediaPlayer.IsRepeating = true;
+                }
             }
             catch (Exception e)
             {
@@ -114,6 +119,17 @@ namespace TRODS
             foreach (SoundEffectInstance s in _sons.Values)
                 s.Stop();
             MediaPlayer.Stop();
+        }
+        public void MoveTo(double millis)
+        {
+            try
+            {
+
+            }
+            catch (Exception e)
+            {
+                EugLib.IO.FileStream.toStdOut(e.ToString());
+            }
         }
     }
 }

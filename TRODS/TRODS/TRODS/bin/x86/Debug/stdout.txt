@@ -1,0 +1,34 @@
+
+Erreur d'affichage :
+System.ArgumentException: The character '�' (0xfffd) is not available in this SpriteFont. If applicable, adjust the font's start and end CharacterRegions to include this character.
+Nom du paramètre : character
+   à Microsoft.Xna.Framework.Graphics.SpriteFont.GetIndexForCharacter(Char character)
+   à Microsoft.Xna.Framework.Graphics.SpriteFont.InternalMeasure(StringProxy& text)
+   à Microsoft.Xna.Framework.Graphics.SpriteFont.MeasureString(String text)
+   à TRODS.TextSprite.Draw(SpriteBatch spriteBatch, Byte alpha) dans C:\Users\Kuchera\Documents\GitHub\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\graphics\TextSprite.cs:ligne 111
+   à TRODS.MultipleTextSprite.Draw(SpriteBatch spriteBatch, Byte alpha) dans C:\Users\Kuchera\Documents\GitHub\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\graphics\MultipleTextSprite.cs:ligne 51
+   à TRODS.Animation.AnimPictures.Draw(SpriteBatch spriteBatch) dans C:\Users\Kuchera\Documents\GitHub\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\graphics\Animation.cs:ligne 97
+   à TRODS.Animation.Draw(SpriteBatch spriteBatch) dans C:\Users\Kuchera\Documents\GitHub\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\graphics\Animation.cs:ligne 169
+   à TRODS.Game1.Draw(GameTime gameTime) dans C:\Users\Kuchera\Documents\GitHub\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\Game1.cs:ligne 158
+Erreur d'affichage :
+System.ArgumentException: The character '�' (0xfffd) is not available in this SpriteFont. If applicable, adjust the font's start and end CharacterRegions to include this character.
+Nom du paramètre : character
+   à Microsoft.Xna.Framework.Graphics.SpriteFont.GetIndexForCharacter(Char character)
+   à Microsoft.Xna.Framework.Graphics.SpriteFont.InternalMeasure(StringProxy& text)
+   à Microsoft.Xna.Framework.Graphics.SpriteFont.MeasureString(String text)
+   à TRODS.TextSprite.Draw(SpriteBatch spriteBatch, Byte alpha) dans C:\Users\Kuchera\Documents\GitHub\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\graphics\TextSprite.cs:ligne 111
+   à TRODS.MultipleTextSprite.Draw(SpriteBatch spriteBatch, Byte alpha) dans C:\Users\Kuchera\Documents\GitHub\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\graphics\MultipleTextSprite.cs:ligne 51
+   à TRODS.Animation.AnimPictures.Draw(SpriteBatch spriteBatch) dans C:\Users\Kuchera\Documents\GitHub\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\graphics\Animation.cs:ligne 97
+   à TRODS.Animation.Draw(SpriteBatch spriteBatch) dans C:\Users\Kuchera\Documents\GitHub\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\graphics\Animation.cs:ligne 169
+   à TRODS.Game1.Draw(GameTime gameTime) dans C:\Users\Kuchera\Documents\GitHub\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\Game1.cs:ligne 158
+Erreur d'affichage :
+System.ArgumentException: The character '�' (0xfffd) is not available in this SpriteFont. If applicable, adjust the font's start and end CharacterRegions to include this character.
+Nom du paramètre : character
+   à Microsoft.Xna.Framework.Graphics.SpriteFont.GetIndexForCharacter(Char character)
+   à Microsoft.Xna.Framework.Graphics.SpriteFont.InternalMeasure(StringProxy& text)
+   à Microsoft.Xna.Framework.Graphics.SpriteFont.MeasureString(String text)
+   à TRODS.TextSprite.Draw(SpriteBatch spriteBatch, Byte alpha) dans C:\Users\Kuchera\Documents\GitHub\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\graphics\TextSprite.cs:ligne 111
+   à TRODS.MultipleTextSprite.Draw(SpriteBatch spriteBatch, Byte alpha) dans C:\Users\Kuchera\Documents\GitHub\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\graphics\MultipleTextSprite.cs:ligne 51
+   à TRODS.Animation.AnimPictures.Draw(SpriteBatch spriteBatch) dans C:\Users\Kuchera\Documents\GitHub\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\graphics\Animation.cs:ligne 97
+   à TRODS.Animation.Draw(SpriteBatch spriteBatch) dans C:\Users\Kuchera\Documents\GitHub\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\graphics\Animation.cs:ligne 169
+   à TRODS.Game1.Draw(GameTime gameTime) dans C:\Users\Kuchera\Documents\GitHub\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\Game1.cs:ligne 158

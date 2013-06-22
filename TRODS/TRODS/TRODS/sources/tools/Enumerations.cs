@@ -7,7 +7,7 @@ namespace TRODS
 {
     public enum CharacterActions
     {
-        StandRight, StandLeft, WalkLeft, WalkRight, WalkUp, WalkDown, JumpRight, JumpLeft, Fall, Paralized, ReceiveAttack,ReceiveAttackLeft,ReceiveAttackRight,
+        StandRight, StandLeft, WalkLeft, WalkRight, WalkUp, WalkDown, JumpRight, JumpLeft, Fall, Paralized, ReceiveAttack, ReceiveAttackLeft, ReceiveAttackRight,
         Attack1Right, Attack1Left,
         AttackStunRight, AttackStunLeft
 
@@ -17,7 +17,7 @@ namespace TRODS
     /// </summary>
     public enum Scene
     {
-        MainMenu = 0, InGame = 1, Extra = 2, Credit = 3, Titre = 4, Options = 5,IntroVid,GameOver,IntroHistoire,MenuExtra
+        MainMenu = 0, InGame = 1, Extra = 2, Credit = 3, Titre = 4, Options = 5, IntroVid, GameOver, IntroHistoire, MenuExtra
     };
     /// <summary>
     /// Les 4 directions
@@ -38,6 +38,6 @@ namespace TRODS
     /// </summary>
     public enum Musiques
     {
-        MenuMusic, CreditMusic,
+        None, MenuMusic, CreditMusic, Intro,
     };
 }

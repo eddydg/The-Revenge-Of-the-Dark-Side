@@ -121,12 +121,16 @@ namespace TRODS
             set { _nextScene = value; }
         }
         private KeyboardState _keyboardState;
+        private Musiques _music;
+        private List<int> _textToShow;
 
-        public Animation(Rectangle windowSize, Scene nextScene = Scene.MainMenu)
+        public Animation(Rectangle windowSize, Scene nextScene = Scene.MainMenu, Musiques musique = Musiques.None)
         {
             animation = new List<AnimPictures>();
             _windowSize = windowSize;
             _nextScene = nextScene;
+            _music = musique;
+            _textToShow = new List<int>();
         }
 
         public void Start()
@@ -169,6 +173,12 @@ namespace TRODS
         public void Add(Sprite img, Rectangle positionInitiale, Rectangle positionFinale, int startTime, int lifeTime, bool startfondu = false, int fonduTime1 = 400, bool endfondu = false, int fonduTime2 = 400)
         {
             animation.Add(new AnimPictures(img, positionInitiale, positionFinale, startTime, lifeTime, startfondu, fonduTime1, endfondu, fonduTime2));
+            try
+            {
+                if (((TextSprite)img).Showing)
+                    _textToShow.Add(animation.Count - 1);
+            }
+            catch (Exception) { }
         }
 
         public void Add(string assetName, Rectangle positionInitiale, Rectangle positionFinale, int startTime, int lifeTime, bool startfondu = false, int fonduTime1 = 400, bool endfondu = false, int fonduTime2 = 400)
@@ -202,6 +212,20 @@ namespace TRODS
         {
             Start();
             _keyboardState = Keyboard.GetState();
+            parent.son.Play(_music);
+            foreach (int i in _textToShow)
+            {
+                try
+                {
+                    ((TextSprite)animation[i].Image).StartShowing();
+                }
+                catch (Exception) { }
+            }
+        }
+
+        public override void EndScene(Game1 parent = null)
+        {
+            parent.son.Stop();
         }
     }
 }

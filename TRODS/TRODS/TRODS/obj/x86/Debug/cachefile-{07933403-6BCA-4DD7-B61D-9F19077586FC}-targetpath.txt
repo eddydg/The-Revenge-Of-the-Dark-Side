@@ -70,6 +70,8 @@ Content\menu\songCredit.wma
 Content\SpriteFont1.xnb
 Content\general\introduction_trods.xnb
 Content\general\introduction_trods.wmv
+Content\animation\intro\intro.xnb
+Content\animation\intro\intro.wma
 Content\AUTHORS
 Content\animation\intro\1.txt
 Content\animation\intro\2 - Ecran noir.txt

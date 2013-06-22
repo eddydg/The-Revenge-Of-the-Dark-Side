@@ -155,7 +155,7 @@ namespace TRODS
                 {
                     try
                     {
-                        ((TextSprite)menuItems[selection]).StartShowing();
+                        ((TextSprite)menuItems[selection]).StartShowing(0, 40);
                     }
                     catch (Exception e)
                     {

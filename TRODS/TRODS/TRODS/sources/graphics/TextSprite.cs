@@ -53,6 +53,7 @@ namespace TRODS
             this.Text = text;
             _showedCharacters = Text.Length;
             SetShowedCharacters(-1);
+            _showindSpeed = 0;
             _showing = false;
         }
 
@@ -150,11 +151,12 @@ namespace TRODS
             return true;
         }
 
-        public virtual void StartShowing(int showedCharacters = 0, int showingSpeed=40)
+        public virtual void StartShowing(int showedCharacters = 0, int showingSpeed=-1)
         {
             SetShowedCharacters(showedCharacters);
             _showing = true;
-            _showindSpeed = showingSpeed > 0 ? showingSpeed : 0;
+            if (showingSpeed > 0)
+                _showindSpeed = showingSpeed;
             _timer = 0;
         }
 
