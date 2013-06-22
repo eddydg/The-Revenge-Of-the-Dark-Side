@@ -98,23 +98,26 @@ namespace TRODS
                     _volumeEffect = (float)(click.X - _soundEffect.Position.X) / (float)_soundEffect.Position.Width;
                 if (_soundMusic.Position.Intersects(click))
                     _volumeMusic = (float)(click.X - _soundMusic.Position.X) / (float)_soundMusic.Position.Width;
-                if (_checkUpdate.Position.Intersects(click) && _mouseState.LeftButton != ButtonState.Pressed)
-                    CheckUpdate();
-                if (_serverConfig.Position.Intersects(click) && _mouseState.LeftButton != ButtonState.Pressed)
+                if (_mouseState.LeftButton == ButtonState.Released)
                 {
-                    try
+                    if (_checkUpdate.Position.Intersects(click) && _mouseState.LeftButton != ButtonState.Pressed)
+                        CheckUpdate();
+                    if (_serverConfig.Position.Intersects(click) && _mouseState.LeftButton != ButtonState.Pressed)
                     {
-                        System.Diagnostics.Process.Start("ServerConfig.exe");
+                        try
+                        {
+                            System.Diagnostics.Process.Start("ServerConfig.exe");
+                        }
+                        catch (Exception)
+                        {
+                            System.Windows.Forms.MessageBox.Show("File \"ServerConfig.exe\" not found.");
+                        }
                     }
-                    catch (Exception)
+                    if (_fullScreen.Position.Intersects(click) && _mouseState.LeftButton != ButtonState.Pressed)
                     {
-                        System.Windows.Forms.MessageBox.Show("File \"ServerConfig.exe\" not found.");
+                        parent.Graphics.IsFullScreen = !parent.Graphics.IsFullScreen;
+                        parent.Graphics.ApplyChanges();
                     }
-                }
-                if (_fullScreen.Position.Intersects(click) && _mouseState.LeftButton != ButtonState.Pressed)
-                {
-                    parent.Graphics.IsFullScreen = !parent.Graphics.IsFullScreen;
-                    parent.Graphics.ApplyChanges();
                 }
 
                 parent.son.MusiquesVolume = _volumeMusic;
