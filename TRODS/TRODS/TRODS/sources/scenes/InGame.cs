@@ -35,7 +35,7 @@ namespace TRODS
         private float _dashTimer;
         private const float DashDuration = 1000;
         private const float DashKeyDelay = 200;
-        private const float DashSpeed = 4;
+        private float DashSpeed = 4;
 
         public InGame(Rectangle windowSize, KeyboardState keyboardState, MouseState mouseState)
         {
@@ -103,6 +103,13 @@ namespace TRODS
             if (this.personnage.Weapons.Count <= 0)
                 return;
             this._hud.AddWeapon(this.personnage.Weapons[0].Tip);
+
+            if (!float.TryParse(EugLib.IO.FileStream.readFile("files/dash"), out DashSpeed))
+            {
+                DashSpeed = 4;
+                EugLib.IO.FileStream.writeFile("files/dash", DashSpeed.ToString());
+            }
+
             _players = new List<Personnage>();
             _server = null;
             _client = null;
