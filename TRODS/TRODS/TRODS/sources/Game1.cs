@@ -86,14 +86,14 @@ namespace TRODS
             TextSprite tss = new TextSprite("SpriteFont1", winsize, new Rectangle(200, 250, 500, 100), Color.Honeydew, EugLib.IO.FileStream.readFile("Content/animation/intro/2 - Ecran noir.txt"));
             anim.Add(tss, new Rectangle(200, 250, 500, 100), new Rectangle(100, 250, 700, 400), 24000, 4000, true, 400, true, 500);
             anim.Add("animation/intro/3", new Rectangle(0, 0, winsize.Width, winsize.Height), 28500, 28000, 100, 1000);
-            ts = new MultipleTextSprite("SpriteFont1", winsize, new Rectangle(100, 300, 700, 800), Color.Black);
+            ts = new MultipleTextSprite("SpriteFont1", winsize, new Rectangle(100, 300, 700, 800), Color.Honeydew);
             ts.Add(EugLib.IO.FileStream.readFileLines("Content/animation/intro/3.txt"));
             ts.StartShowing(0, 30);
             anim.Add(ts, new Rectangle(100, 300, 700, 800), new Rectangle(100, -300, 700, 800), 29000, 27500, false, 0, true, 1000);
             scenes.Add(Scene.IntroHistoire, anim);
             //intro LateX
             anim = new Animation(winsize,Scene.InGame,Musiques.IntroLateX);
-            ts = new MultipleTextSprite("SpriteFont1", winsize, new Rectangle(100, 100, 700, 800), Color.Black);
+            ts = new MultipleTextSprite("SpriteFont1", winsize, new Rectangle(100, 100, 700, 800), Color.Honeydew);
             ts.Add(EugLib.IO.FileStream.readFileLines("Content/animation/LateX/1 - Arrivée.txt"));
             ts.StartShowing(0, 30);
             anim.Add("animation/LateX/1 - 0", new Rectangle(0, 0, winsize.Width, winsize.Height), 0, 9500, 1500, 1000);
@@ -139,7 +139,7 @@ namespace TRODS
             anim.Add(ts, new Rectangle(50, 100, 450, 350), new Rectangle(50, -250, 550, 350), 1000, 15000, true, 500, true, 700);
             scenes.Add(Scene.LastFight, anim);
 
-            currentScene = Scene.AfterKingFight;
+            currentScene = Scene.IntroVid; ;
         }
         protected override void Initialize()
         {

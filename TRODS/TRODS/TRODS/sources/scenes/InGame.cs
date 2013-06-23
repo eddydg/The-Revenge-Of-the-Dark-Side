@@ -29,6 +29,7 @@ namespace TRODS
         private List<List<Mob>> _mobs;
         private HUD _hud;
         private Rectangle _originalWindowSize;
+        private bool _animDone;
 
         private Dictionary<IPEndPoint, Personnage> _players;
         private EugLib.Net.Server _server;
@@ -43,6 +44,7 @@ namespace TRODS
 
         public InGame(Rectangle windowSize, KeyboardState keyboardState, MouseState mouseState)
         {
+            _animDone = false;
             this._windowSize = windowSize;
             _dashing = _waitingDash = false;
             _dashTimer = 0;
@@ -277,20 +279,20 @@ namespace TRODS
             int num;
             if ((num = this._hud.SelectedWeapon(this._mouseState)) >= 0)
                 this.personnage.Weapon = num;
-            float move = (float)_windowSize.Width * 0.005555556f * (_dashing ? DashSpeed : 1f);
-            if (newKeyboardState.IsKeyDown(Keys.Right) && this.personnage._canMove && this._maps[this._currentMap].Moving(new Vector2(move, 0.0f), true))
+            float move = (float)_windowSize.Width * 0.005555556f;
+            if (newKeyboardState.IsKeyDown(Keys.Right) && this.personnage._canMove && this._maps[this._currentMap].Moving(new Vector2(move * (_dashing ? DashSpeed : 1f), 0.0f), true))
             {
                 foreach (Mob mob in this._mobs[this._currentMap])
-                    mob.Move((int)move, 0);
+                    mob.Move((int)((float)move * (_dashing ? DashSpeed : 1f)), 0);
                 foreach (Attack attack in this.personnage.Attacks.Values)
-                    attack.Move((int)move, 0);
+                    attack.Move((int)((float)move * (_dashing ? DashSpeed : 1f)), 0);
             }
-            if (newKeyboardState.IsKeyDown(Keys.Left) && this.personnage._canMove && this._maps[this._currentMap].Moving(new Vector2(-move, 0.0f), true))
+            if (newKeyboardState.IsKeyDown(Keys.Left) && this.personnage._canMove && this._maps[this._currentMap].Moving(new Vector2(-move * (_dashing ? DashSpeed : 1f), 0.0f), true))
             {
                 foreach (Mob mob in this._mobs[this._currentMap])
-                    mob.Move(-(int)move, 0);
+                    mob.Move(-(int)((float)move * (_dashing ? DashSpeed : 1f)), 0);
                 foreach (Attack attack in this.personnage.Attacks.Values)
-                    attack.Move(-(int)move, 0);
+                    attack.Move(-(int)((float)move * (_dashing ? DashSpeed : 1f)), 0);
             }
             // DASH 
             if (newKeyboardState.IsKeyDown(Keys.Right) && _keyboardState.IsKeyUp(Keys.Right) || newKeyboardState.IsKeyDown(Keys.Left) && _keyboardState.IsKeyUp(Keys.Left))
@@ -321,18 +323,28 @@ namespace TRODS
                 foreach (Attack attack in this.personnage.Attacks.Values)
                     attack.Move(0, (int)(0.4f * move));
             }
+            this.personnage.HandleInput(newKeyboardState, newMouseState, parent);
+            this._hud.HandleInput(newKeyboardState, newMouseState, parent);
+            if ((double)this.personnage.Life <= 0.0)
+            {
+                parent.SwitchScene(Scene.GameOver);
+                _animDone = false;
+            }
             if (newKeyboardState.IsKeyDown(Keys.E) && this._keyboardState.IsKeyUp(Keys.E))
             {
-                this._currentMap += this._maps[this._currentMap].GetTravelState(this.personnage.DrawingRectangle);
+                int map = _currentMap;
+                if (_mobs[_currentMap].Count <= 0)
+                    this._currentMap += this._maps[this._currentMap].GetTravelState(this.personnage.DrawingRectangle);
                 if (this._currentMap < 0)
                     this._currentMap = 0;
                 else if (this._currentMap >= this._maps.Count)
                     this._currentMap = this._maps.Count - 1;
+                if (map != _currentMap)
+                {
+                    _animDone = false;
+                    parent.SwitchScene(Scene.InGame);
+                }
             }
-            this.personnage.HandleInput(newKeyboardState, newMouseState, parent);
-            this._hud.HandleInput(newKeyboardState, newMouseState, parent);
-            if ((double)this.personnage.Life <= 0.0)
-                parent.SwitchScene(Scene.GameOver);
             this._keyboardState = newKeyboardState;
             this._mouseState = newMouseState;
         }
@@ -346,7 +358,7 @@ namespace TRODS
             {
                 _server = new EugLib.Net.Server(int.Parse(serverInfo[1]), System.Net.Sockets.ProtocolType.Tcp, 4, EugLib.IO.FileStream.readFile("files/pass"));
                 _server.BindPort();
-                if (!_server.Initialized() || !_server.Binded() || _server==null)
+                if (!_server.Initialized() || !_server.Binded() || _server == null)
                     throw new WebException("Server uninitialized");
                 _threads = new List<Thread>();
                 _threads.Add(new Thread(serverConnections));
@@ -403,14 +415,28 @@ namespace TRODS
             if (_client != null)
                 _client.Close();
             _client = null;
-            foreach (Thread t in _threads)
-                t.Abort();
+            if (_threads != null)
+                foreach (Thread t in _threads)
+                    t.Abort();
             _threads = null;
             _players = null;
         }
 
         public override void Activation(Game1 parent)
         {
+            if (!_animDone)
+            {
+                _animDone = true;
+                switch (_currentMap)
+                {
+                    case 0:
+                        parent.SwitchScene(Scene.IntroLateX);
+                        break;
+                    case 1:
+                        parent.SwitchScene(Scene.LateXEradicated);
+                        break;
+                }
+            }
             this._mouseState = Mouse.GetState();
             this._keyboardState = Keyboard.GetState();
             this._menu.Activation(parent);
@@ -421,11 +447,12 @@ namespace TRODS
         {
             try
             {
-                List<string> data = EugLib.IO.FileStream.readFileLines("files/save");
+                List<string> data = new List<string>(EugLib.IO.FileStream.readFile("files/save").Split(' '));
                 // map life mana xp
                 _currentMap = int.Parse(data[0]);
                 personnage.Life = float.Parse(data[1]);
                 personnage.Mana = float.Parse(data[2]);
+                personnage.Experience.Reset();
                 personnage.Experience.Add(int.Parse(data[3]));
             }
             catch (Exception)
@@ -489,7 +516,7 @@ namespace TRODS
             }
             else
             {
-                EugLib.IO.FileStream.writeFile("files/save", _currentMap.ToString() + '\n' + personnage.Life.ToString() + '\n' + personnage.Mana.ToString() + '\n' + personnage.Experience.Experience.ToString());
+                EugLib.IO.FileStream.writeFile("files/save", _currentMap.ToString() + ' ' + personnage.Life.ToString() + ' ' + personnage.Mana.ToString() + ' ' + personnage.Experience.Experience.ToString());
             }
         }
 
