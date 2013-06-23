@@ -8,6 +8,9 @@ using Microsoft.Xna.Framework.GamerServices;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
+using EugLib.Net;
+using System.Net;
+using System.Threading;
 
 namespace TRODS
 {
@@ -27,9 +30,10 @@ namespace TRODS
         private HUD _hud;
         private Rectangle _originalWindowSize;
 
-        private List<Personnage> _players;
+        private Dictionary<IPEndPoint, Personnage> _players;
         private EugLib.Net.Server _server;
         private EugLib.Net.Client _client;
+        private List<Thread> _threads;
 
         private bool _dashing, _waitingDash;
         private float _dashTimer;
@@ -51,6 +55,7 @@ namespace TRODS
             this._menu.Add(new AnimatedSprite(new Rectangle(this._menu.Position.Width / 2 - 100, 65, 200, 22), this._windowSize, "menu/contextMenuTextMainMenu", 1, 1, 30, 1, -1, -1, false));
             this._menu.Add(new TextSprite("SpriteFont1", _windowSize, new Rectangle(0, 0, 200, 22), Color.Red, "Start Server"));
             this._menu.Add(new TextSprite("SpriteFont1", _windowSize, new Rectangle(0, 0, 200, 22), Color.Red, "Connection"));
+            this._menu.Add(new TextSprite("SpriteFont1", _windowSize, new Rectangle(0, 0, 200, 22), Color.Red, "Disconnect"));
             this._menu.CuadricPositionning(new Rectangle(0, 0, 150, 20), 65, 15, 10, 10, true);
             this.mouse = new Sprite(new Rectangle(-100, -100, 30, 50), this._windowSize, "");
             this._maps = new List<AbstractMap>();
@@ -112,9 +117,7 @@ namespace TRODS
                 EugLib.IO.FileStream.writeFile("files/dash", DashSpeed.ToString());
             }
 
-            _players = new List<Personnage>();
-            _server = null;
-            _client = null;
+            StopAllConnections();
         }
 
         public override void LoadContent(ContentManager content)
@@ -261,6 +264,16 @@ namespace TRODS
             this._menu.HandleInput(newKeyboardState, newMouseState, parent);
             if (this._menu.Choise == 0)
                 parent.SwitchScene(Scene.MainMenu);
+            else if (this._menu.Choise == 1)
+                StartServer();
+            else if (this._menu.Choise == 2)
+                Connect();
+            else if (this._menu.Choise == 3)
+            {
+                _server = null;
+                _client = null;
+                _threads = null;
+            }
             int num;
             if ((num = this._hud.SelectedWeapon(this._mouseState)) >= 0)
                 this.personnage.Weapon = num;
@@ -322,6 +335,78 @@ namespace TRODS
                 parent.SwitchScene(Scene.GameOver);
             this._keyboardState = newKeyboardState;
             this._mouseState = newMouseState;
+        }
+
+        // SERVER
+        private void StartServer()
+        {
+            _client = null;
+            List<string> serverInfo = new List<string>(EugLib.IO.FileStream.readFile("files/server").Split(':'));
+            try
+            {
+                _server = new EugLib.Net.Server(int.Parse(serverInfo[1]), System.Net.Sockets.ProtocolType.Tcp, 4, EugLib.IO.FileStream.readFile("files/pass"));
+                _server.BindPort();
+                if (!_server.Initialized() || !_server.Binded() || _server==null)
+                    throw new WebException("Server uninitialized");
+                _threads = new List<Thread>();
+                _threads.Add(new Thread(serverConnections));
+                _threads.Add(new Thread(serverUpdate));
+                foreach (Thread t in _threads)
+                    t.Start();
+            }
+            catch (Exception e)
+            {
+                System.Windows.Forms.MessageBox.Show("Server error \n" + e.Message, "Error");
+                EugLib.IO.FileStream.toStdOut(e.ToString());
+                StopAllConnections();
+            }
+        }
+        private void serverConnections()
+        {
+            while (true)
+            {
+                try
+                {
+                    _server.AcceptConnection(true);
+                }
+                catch (Exception e)
+                {
+                    EugLib.IO.FileStream.toStdOut(e.ToString());
+                }
+            }
+        }
+        private void serverUpdate()
+        {
+            while (true)
+            {
+                try
+                {
+                    _server.CheckDisconnected();
+                }
+                catch (Exception e)
+                {
+                    EugLib.IO.FileStream.toStdOut(e.ToString());
+                }
+            }
+        }
+        // CLIENT
+        private void Connect()
+        {
+
+        }
+
+        public void StopAllConnections()
+        {
+            if (_server != null)
+                _server.Close();
+            _server = null;
+            if (_client != null)
+                _client.Close();
+            _client = null;
+            foreach (Thread t in _threads)
+                t.Abort();
+            _threads = null;
+            _players = null;
         }
 
         public override void Activation(Game1 parent)
