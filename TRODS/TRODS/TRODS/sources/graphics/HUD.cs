@@ -77,11 +77,11 @@ namespace TRODS
             this._ennemiesLeft = new TextSprite("SpriteFont1", windowsize, new Rectangle(700, 40, 60, 70), Color.DarkRed, "--");
             this._portrait = new AnimatedSprite(new Rectangle(10, 10, 175, 90), windowsize, "game/persoPortrait", 1, 1, 30, 1, -1, -1, false);
             this._sprites = new List<Sprite>();
-            this._sprites.Add((Sprite)new TextSprite("SpriteFont1", windowsize, new Rectangle(600, 20, 50, 20), Color.Gold, "Level"));
-            this._sprites.Add((Sprite)new TextSprite("SpriteFont1", windowsize, new Rectangle(700, 20, 60, 20), Color.DarkRed, "Enemies"));
-            this._sprites.Add((Sprite)new TextSprite("SpriteFont1", windowsize, new Rectangle(215, 15, 45, 20), Color.Red, "Life"));
-            this._sprites.Add((Sprite)new TextSprite("SpriteFont1", windowsize, new Rectangle(215, 45, 45, 20), Color.CornflowerBlue, "Mana"));
-            this._sprites.Add((Sprite)new TextSprite("SpriteFont1", windowsize, new Rectangle(215, 75, 45, 20), Color.Gold, "Exp"));
+            this._sprites.Add((Sprite)new TextSprite("SpriteFont1", windowsize, new Rectangle(600, 20, 50, 20), Color.Gold, INFO.ENG?"Level":"Niveau"));
+            this._sprites.Add((Sprite)new TextSprite("SpriteFont1", windowsize, new Rectangle(700, 20, 60, 20), Color.DarkRed, INFO.ENG ? "Enemies" : "Ennemis"));
+            this._sprites.Add((Sprite)new TextSprite("SpriteFont1", windowsize, new Rectangle(215, 15, 45, 20), Color.Red, INFO.ENG ? "Life" : "Vie"));
+            this._sprites.Add((Sprite)new TextSprite("SpriteFont1", windowsize, new Rectangle(215, 45, 45, 20), Color.CornflowerBlue, INFO.ENG ? "Mana" : "Mana"));
+            this._sprites.Add((Sprite)new TextSprite("SpriteFont1", windowsize, new Rectangle(215, 75, 45, 20), Color.Gold, INFO.ENG ? "Exp": "Exp"));
         }
 
         public void AddSprite(Sprite sprite)

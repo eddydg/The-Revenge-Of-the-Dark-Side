@@ -60,11 +60,11 @@ namespace TRODS
             menuItems.Add(Selection.Credit, new Sprite(new Rectangle(562, 400, 124, 55), windowSize, "menu/textCredit"));
             menuItems.Add(Selection.Exit, new Sprite(new Rectangle(675, 480, 101, 55), windowSize, "menu/textExit"));
                 SPRITEFONTS   */
-            menuItems.Add(Selection.Play, new TextSprite("SpriteFont1", windowSize, new Rectangle(125, 405, 130, 70), Color.Black, "Play"));
-            menuItems.Add(Selection.Extra, new TextSprite("SpriteFont1", windowSize, new Rectangle(191, 480, 124, 70), Color.Black, "Extra"));
-            menuItems.Add(Selection.Options, new TextSprite("SpriteFont1", windowSize, new Rectangle(394, 470, 135, 70), Color.Black, "Options"));
-            menuItems.Add(Selection.Credit, new TextSprite("SpriteFont1", windowSize, new Rectangle(562, 400, 140, 70), Color.Black, "Credit"));
-            menuItems.Add(Selection.Exit, new TextSprite("SpriteFont1", windowSize, new Rectangle(665, 480, 101, 70), Color.Black, "Exit"));
+            menuItems.Add(Selection.Play, new TextSprite("SpriteFont1", windowSize, new Rectangle(125, 405, 130, 70), Color.Black, INFO.ENG? "Play": "Jouer"));
+            menuItems.Add(Selection.Extra, new TextSprite("SpriteFont1", windowSize, new Rectangle(191, 480, 124, 70), Color.Black, INFO.ENG? "Extra": "Gallerie"));
+            menuItems.Add(Selection.Options, new TextSprite("SpriteFont1", windowSize, new Rectangle(394, 470, 135, 70), Color.Black, INFO.ENG? "Settings":"Options"));
+            menuItems.Add(Selection.Credit, new TextSprite("SpriteFont1", windowSize, new Rectangle(562, 400, 140, 70), Color.Black, INFO.ENG? "Credit": "Generique"));
+            menuItems.Add(Selection.Exit, new TextSprite("SpriteFont1", windowSize, new Rectangle(665, 480, 101, 70), Color.Black, INFO.ENG? "Exit":"Quitter"));
         }
 
         public override void LoadContent(ContentManager content)
@@ -252,7 +252,7 @@ namespace TRODS
                     parent.SwitchScene(Scene.InGame);
                     break;
                 case Selection.Extra:
-                    parent.SwitchScene(Scene.MenuExtra);
+                    parent.SwitchScene(Scene.Extra);
                     break;
                 case Selection.Credit:
                     parent.SwitchScene(Scene.Credit);

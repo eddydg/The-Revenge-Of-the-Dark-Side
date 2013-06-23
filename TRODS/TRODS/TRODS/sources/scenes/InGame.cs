@@ -55,9 +55,9 @@ namespace TRODS
             this._menu.Title = new AnimatedSprite(new Rectangle(this._menu.Position.Width / 2 - 75, 0, 150, 50), this._windowSize, "menu/contextMenuText", 1, 1, 30, 1, -1, -1, false);
             this._menu.Visible = false;
             this._menu.Add(new AnimatedSprite(new Rectangle(this._menu.Position.Width / 2 - 100, 65, 200, 22), this._windowSize, "menu/contextMenuTextMainMenu", 1, 1, 30, 1, -1, -1, false));
-            this._menu.Add(new TextSprite("SpriteFont1", _windowSize, new Rectangle(0, 0, 200, 22), Color.Red, "Start Server"));
-            this._menu.Add(new TextSprite("SpriteFont1", _windowSize, new Rectangle(0, 0, 200, 22), Color.Red, "Connection"));
-            this._menu.Add(new TextSprite("SpriteFont1", _windowSize, new Rectangle(0, 0, 200, 22), Color.Red, "Disconnect"));
+            this._menu.Add(new TextSprite("SpriteFont1", _windowSize, new Rectangle(0, 0, 200, 22), Color.Red, INFO.ENG? "Start Network" : "Demarrer le reseau"));
+            this._menu.Add(new TextSprite("SpriteFont1", _windowSize, new Rectangle(0, 0, 200, 22), Color.Red, INFO.ENG? "Connection": "Connexion"));
+            this._menu.Add(new TextSprite("SpriteFont1", _windowSize, new Rectangle(0, 0, 200, 22), Color.Red, INFO.ENG? "Disconnect" : "Déconnexion"));
             this._menu.CuadricPositionning(new Rectangle(0, 0, 150, 20), 65, 15, 10, 10, true);
             this.mouse = new Sprite(new Rectangle(-100, -100, 30, 50), this._windowSize, "");
             this._maps = new List<AbstractMap>();
@@ -384,7 +384,7 @@ namespace TRODS
                 _server = new EugLib.Net.Server(int.Parse(serverInfo[1]), System.Net.Sockets.ProtocolType.Udp, 4, EugLib.IO.FileStream.readFile("files/pass"));
                 _server.BindPort();
                 if (!_server.Initialized() || !_server.Binded() || _server == null)
-                    throw new WebException("Server uninitialized");
+                    throw new WebException(INFO.ENG? "Server uninitialized":"Serveur initialise");
                 _players = new Dictionary<IPEndPoint, Personnage>();
                 _threads = new List<Thread>();
                 _threads.Add(new Thread(serverConnections));
@@ -394,7 +394,7 @@ namespace TRODS
             }
             catch (Exception e)
             {
-                System.Windows.Forms.MessageBox.Show("Erreur de serveur.", "Error");
+                System.Windows.Forms.MessageBox.Show(INFO.ENG? "Server Error":"Erreur de serveur.", INFO.ENG? "Error": "Erreur");
                 EugLib.IO.FileStream.toStdOut(e.ToString());
                 StopAllConnections();
             }

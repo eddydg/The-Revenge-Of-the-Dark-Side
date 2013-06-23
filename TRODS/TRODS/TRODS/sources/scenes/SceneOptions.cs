@@ -30,6 +30,7 @@ namespace TRODS
         private TextSprite _checkUpdate;
         private TextSprite _serverConfig;
         private TextSprite _fullScreen;
+        private TextSprite _language;
 
         public SceneOptions(Rectangle windowSize, KeyboardState keyboardState, MouseState mouseState)
         {
@@ -43,9 +44,10 @@ namespace TRODS
             _textEffects = new Sprite(new Rectangle(150, 490, 110, 40), _windowSize, "menu/soundEffect");
             _soundMusic = new Sprite(new Rectangle(180, 423, 110, 55), _windowSize, "menu/soundBars");
             _soundEffect = new Sprite(new Rectangle(260, 480, 110, 55), _windowSize, "menu/soundBars");
-            _checkUpdate = new TextSprite("SpriteFont1", _windowSize, new Rectangle(530, 440, 171, 60), Color.Goldenrod, "Check Updates");
-            _serverConfig = new TextSprite("SpriteFont1", _windowSize, new Rectangle(600, 500, 171, 60), Color.Goldenrod, "Server Options");
-            _fullScreen = new TextSprite("SpriteFont1", _windowSize, new Rectangle(400, 470, 150, 60), Color.Goldenrod, "Fullscreen");
+            _checkUpdate = new TextSprite("SpriteFont1", _windowSize, new Rectangle(530, 450, 170, 50), Color.Goldenrod, INFO.ENG?"Check Updates":"Mise a jour");
+            _serverConfig = new TextSprite("SpriteFont1", _windowSize, new Rectangle(560, 500, 200, 50), Color.Goldenrod, INFO.ENG?"Server Settings":"Options du serveur");
+            _fullScreen = new TextSprite("SpriteFont1", _windowSize, new Rectangle(500, 400, 150, 50), Color.Goldenrod, INFO.ENG ? "Fullscreen" : "Plein ecran");
+            _language = new TextSprite("SpriteFont1", _windowSize, new Rectangle(590,550,210,80),Color.Goldenrod, INFO.ENG?"Language : English":"Langage : Francais");
         }
 
         public override void LoadContent(ContentManager content)
@@ -59,6 +61,7 @@ namespace TRODS
             _checkUpdate.LoadContent(content);
             _serverConfig.LoadContent(content);
             _fullScreen.LoadContent(content);
+            _language.LoadContent(content);
 
             List<string> par = EugLib.IO.Tools.toArgv(EugLib.IO.FileStream.readFile(SOUND_FILENAME));
             if (par.Count < 2 ||
@@ -85,6 +88,10 @@ namespace TRODS
                     parent.son.Play(Sons.MenuSelection);
                 if (_serverConfig.Position.Contains(newMouseState.X, newMouseState.Y) && !_serverConfig.Position.Contains(_mouseState.X, _mouseState.Y))
                     parent.son.Play(Sons.MenuSelection);
+                if (_fullScreen.Position.Contains(newMouseState.X, newMouseState.Y) && !_fullScreen.Position.Contains(_mouseState.X, _mouseState.Y))
+                    parent.son.Play(Sons.MenuSelection);
+                if (_language.Position.Contains(newMouseState.X, newMouseState.Y) && !_language.Position.Contains(_mouseState.X, _mouseState.Y))
+                    parent.son.Play(Sons.MenuSelection);
             }
 
             if (newKeyboardState.IsKeyDown(Keys.Escape) && !_keyboardState.IsKeyDown(Keys.Escape))
@@ -110,13 +117,18 @@ namespace TRODS
                         }
                         catch (Exception)
                         {
-                            System.Windows.Forms.MessageBox.Show("File \"ServerConfig.exe\" not found.");
+                            System.Windows.Forms.MessageBox.Show(INFO.ENG?"File \"ServerConfig.exe\" not found.":"Fichier \"ServerConfig.exe\" introuvable");
                         }
                     }
                     if (_fullScreen.Position.Intersects(click) && _mouseState.LeftButton != ButtonState.Pressed)
                     {
                         parent.Graphics.IsFullScreen = !parent.Graphics.IsFullScreen;
                         parent.Graphics.ApplyChanges();
+                    }
+                    if (_language.Position.Intersects(click) && _mouseState.LeftButton != ButtonState.Pressed)
+                    {
+                        EugLib.IO.FileStream.writeFile("files/language", INFO.ENG?"f": "e");
+                        System.Windows.Forms.MessageBox.Show(INFO.ENG?"Vous devez relancer le jeu pour que les modifications prennent effet.":"You must restart the game to apply changes.");
                     }
                 }
 
@@ -163,6 +175,11 @@ namespace TRODS
             else
                 _fullScreen.Draw(spriteBatch);
 
+            if (_language.Position.Contains(_mouse.Position.Location))
+                _language.Draw(spriteBatch, Color.Red);
+            else
+                _language.Draw(spriteBatch);
+
             _mouse.Draw(spriteBatch);
 
             spriteBatch.End();
@@ -183,6 +200,7 @@ namespace TRODS
             _checkUpdate.windowResized(rect);
             _serverConfig.windowResized(rect);
             _fullScreen.windowResized(rect);
+            _language.windowResized(rect);
         }
 
         //Fonctions Annexes/////////////////////////////////////
@@ -204,15 +222,15 @@ namespace TRODS
 
                 if (double.Parse(VERSION_NUMBER) < double.Parse(lastVersion))//Si le jeu n'est pas à jour.
                 {
-                    if (System.Windows.Forms.DialogResult.Yes == System.Windows.Forms.MessageBox.Show("Une mise à jour du jeu est disponible, voulez vous là télécharger?", "Mise à jour - TRODS " + VERSION_NUMBER, System.Windows.Forms.MessageBoxButtons.YesNo))
+                    if (System.Windows.Forms.DialogResult.Yes == System.Windows.Forms.MessageBox.Show(INFO.ENG?"An update is available, do you want to download it?":"Une mise à jour du jeu est disponible, voulez vous là télécharger?", INFO.ENG?"Update - TRODS":"Mise à jour - TRODS " + VERSION_NUMBER, System.Windows.Forms.MessageBoxButtons.YesNo))
                         System.Diagnostics.Process.Start(url);
                 }
                 else
-                    System.Windows.Forms.MessageBox.Show("Vous disposez de la dernière version du jeu.\nAucune mise à jour n'est nécessaire.", "Mise à jour - TRODS " + VERSION_NUMBER, System.Windows.Forms.MessageBoxButtons.OK);
+                    System.Windows.Forms.MessageBox.Show(INFO.ENG?"The game is already up to date":"Vous disposez de la dernière version du jeu.\nAucune mise à jour n'est nécessaire.", INFO.ENG?"Update - TRODS":"Mise à jour - TRODS " + VERSION_NUMBER, System.Windows.Forms.MessageBoxButtons.OK);
             }
             catch (Exception e)
             {
-                System.Windows.Forms.MessageBox.Show(e.Message + "\nVeuillez vérifier votre connexion internet puis réessayez.");
+                System.Windows.Forms.MessageBox.Show(e.Message + (INFO.ENG?"Connexion Error":"\nVeuillez vérifier votre connexion internet puis réessayez."));
             }
         }
         ////////////////////////////////////////////////////////

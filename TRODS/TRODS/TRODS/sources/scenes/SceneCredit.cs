@@ -29,7 +29,7 @@ namespace TRODS
             _authors = new MultipleTextSprite("SpriteFont1", _windowSize, new Rectangle(394, _windowSize.Height, 500, 130), Color.Red);
             _authors.Direction = new Vector2(0, -1);
             _authors.Vitesse = 0.1f;
-            foreach (string s in EugLib.IO.FileStream.readFileLines("Content/AUTHORS"))
+            foreach (string s in EugLib.IO.FileStream.readFileLines(INFO.ENG?"Content/AUTHORSa":"Content/AUTHORS"))
                 _authors.Add(s);
             animations.Add(_authors);
             animations.Add(new AnimatedSprite(new Rectangle(0, 0, _windowSize.Width, 2 * _windowSize.Height / 8), _windowSize, "menu/credit"));

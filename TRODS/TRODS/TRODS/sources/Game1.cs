@@ -37,6 +37,10 @@ namespace TRODS
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
 
+            if (EugLib.IO.FileStream.readFile("files/language") == "")
+                EugLib.IO.FileStream.writeFile("files/language", "e");
+            INFO.ENG = EugLib.IO.FileStream.readFile("files/language")[0] == 'e';
+
             List<String> ws = EugLib.IO.Tools.toArgv(EugLib.IO.FileStream.readFile("files/WinSize"));
             int a, b;
             if (ws.Count >= 2 && int.TryParse(ws.ElementAt(0), out a) && int.TryParse(ws.ElementAt(1), out b))
@@ -66,12 +70,11 @@ namespace TRODS
             scenes.Add(Scene.Credit, new SceneCredit(winsize, keyboardState, mouseState));
             scenes.Add(Scene.Titre, new SceneTitre(winsize, keyboardState, mouseState));
             scenes.Add(Scene.Options, new SceneOptions(winsize, keyboardState, mouseState));
-            scenes.Add(Scene.MenuExtra, new MenuExtra(winsize, keyboardState, mouseState));
             scenes.Add(Scene.IntroVid, new VideoReader("general/introduction_trods", Scene.IntroHistoire));
 
             Animation anim = new Animation(winsize, Scene.Titre);
             anim.Add("game/game_over", new Rectangle(0, 0, winsize.Width, winsize.Height), new Rectangle(0, 0, winsize.Width, winsize.Height), 0, 5000, true, 200, true, 700);
-            anim.Add(new TextSprite("SpriteFont1", winsize, new Rectangle(), Color.DarkRed, "Quest FAILED..."),
+            anim.Add(new TextSprite("SpriteFont1", winsize, new Rectangle(), Color.DarkRed, INFO.ENG?"Quest FAILED...":"Echec de la mission"),
                 new Rectangle(300, 500, 300, 100),
                 new Rectangle(330, 600, 240, 60),
                 500, 4500, true, 700, true, 1000);
@@ -80,19 +83,19 @@ namespace TRODS
             anim = new Animation(winsize, Scene.Titre, Musiques.Intro);
             anim.Add("animation/intro/1", new Rectangle(0, 0, winsize.Width, winsize.Height), 500, 24000, 2000, 1500);
             MultipleTextSprite ts = new MultipleTextSprite("SpriteFont1", winsize, new Rectangle(50, 100, 300, 400), Color.Honeydew);
-            ts.Add(EugLib.IO.FileStream.readFileLines("Content/animation/intro/1.txt"));
+            ts.Add(EugLib.IO.FileStream.readFileLines("Content/animation/intro/"+(INFO.ENG?"1a.txt":"1.txt")));
             ts.StartShowing(0, 30);
             anim.Add(ts, new Rectangle(50, 100, 350, 400), new Rectangle(50, 100, 350, 400), 4000, 19000, true, 0, true, 1000);
-            TextSprite tss = new TextSprite("SpriteFont1", winsize, new Rectangle(200, 250, 500, 100), Color.Honeydew, EugLib.IO.FileStream.readFile("Content/animation/intro/2 - Ecran noir.txt"));
+            TextSprite tss = new TextSprite("SpriteFont1", winsize, new Rectangle(200, 250, 500, 100), Color.Honeydew, EugLib.IO.FileStream.readFile("Content/animation/intro/"+(INFO.ENG?"2a.txt":"2 - Ecran noir.txt")));
             anim.Add(tss, new Rectangle(200, 250, 500, 100), new Rectangle(100, 250, 700, 400), 24000, 4000, true, 400, true, 500);
             anim.Add("animation/intro/3", new Rectangle(0, 0, winsize.Width, winsize.Height), 28500, 28000, 100, 1000);
             ts = new MultipleTextSprite("SpriteFont1", winsize, new Rectangle(100, 300, 700, 800), Color.DarkRed);
-            ts.Add(EugLib.IO.FileStream.readFileLines("Content/animation/intro/3.txt"));
+            ts.Add(EugLib.IO.FileStream.readFileLines("Content/animation/intro/"+(INFO.ENG?"3a.txt":"3.txt")));
             ts.StartShowing(0, 30);
             anim.Add(ts, new Rectangle(100, 300, 700, 800), new Rectangle(100, -500, 700, 800), 29000, 27500, false, 0, true, 1000);
             anim.Add("animation/intro/4", new Rectangle(0, 0, winsize.Width, winsize.Height), 57500, 16000, 400, 1000);
             ts = new MultipleTextSprite("SpriteFont1", winsize, new Rectangle(100, 300, 700, 800), Color.Honeydew);
-            ts.Add(EugLib.IO.FileStream.readFileLines("Content/animation/intro/4.txt"));
+            ts.Add(EugLib.IO.FileStream.readFileLines("Content/animation/intro/"+(INFO.ENG?"4a.txt":"4.txt")));
             ts.StartShowing(0, 30);
             anim.Add(ts, new Rectangle(250, 100, 450, 400), new Rectangle(250, 100, 450, 400), 58000, 15000, true, 400, true, 400);
             scenes.Add(Scene.IntroHistoire, anim);

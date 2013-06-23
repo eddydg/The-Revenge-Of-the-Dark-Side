@@ -1,9 +1,7 @@
-The Royal Guard arrested him
-and he got summoned by the king himself.
-The latter being by nature
-more mature and tolerant,
-made the decision to spare
-the life of Chaos,
-but banned him from OpenEdge
-to send him to a hostile world:
-LaTeX.
+The Royal Guard arrested him and he got
+summoned by the king himself.         
+The latter being by nature more mature
+and tolerant, made the decision to spare
+the life of Chaos, but banned him from
+OpenEdge to send him to a hostile world:
+LaTeX.                                 

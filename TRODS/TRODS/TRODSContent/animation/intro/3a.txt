@@ -1,17 +1,13 @@
-For the first time in centuries,
-the throne is vacant.
-Spark, the eldest son of the king
-and best knight of the kingdom
-is to become the king of OpenEdge.
-All the kingdom is in mourning.
-With the exception of Chaos, brother of Spark,
-the belligerent temperament and ardent,
-who spends his time drinking
-and expressing his anger towards
-his elder brother.
-Chaos could not imagine being anything
-but King.
-Thus, he set his mind, thirsty for
-power and rivalry, to murder his brother.
-But his blind anger confused his senses
-and he failed miserably.
+For the first time in centuries, the throne
+is vacant. Spark, the eldest son of the king
+and best knight of the kingdom is to become
+the king of OpenEdge. All the kingdom is in
+mourning. With the exception of Chaos,
+brother of Spark, the belligerent temperament
+and ardent, who spends his time drinking and
+expressing his anger towards his elder brother.
+Chaos could not imagine being anything but
+King. Thus, he set his mind, thirsty for power
+and rivalry, to murder his brother. But his
+blind anger confused his senses and he failed
+miserably.                                  
