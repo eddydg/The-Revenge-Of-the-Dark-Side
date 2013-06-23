@@ -356,10 +356,11 @@ namespace TRODS
             List<string> serverInfo = new List<string>(EugLib.IO.FileStream.readFile("files/server").Split(':'));
             try
             {
-                _server = new EugLib.Net.Server(int.Parse(serverInfo[1]), System.Net.Sockets.ProtocolType.Tcp, 4, EugLib.IO.FileStream.readFile("files/pass"));
+                _server = new EugLib.Net.Server(int.Parse(serverInfo[1]), System.Net.Sockets.ProtocolType.Udp, 4, EugLib.IO.FileStream.readFile("files/pass"));
                 _server.BindPort();
                 if (!_server.Initialized() || !_server.Binded() || _server == null)
                     throw new WebException("Server uninitialized");
+                _players = new Dictionary<IPEndPoint, Personnage>();
                 _threads = new List<Thread>();
                 _threads.Add(new Thread(serverConnections));
                 _threads.Add(new Thread(serverUpdate));
@@ -368,7 +369,7 @@ namespace TRODS
             }
             catch (Exception e)
             {
-                System.Windows.Forms.MessageBox.Show("Server error \n" + e.Message, "Error");
+                System.Windows.Forms.MessageBox.Show("Erreur de serveur.", "Error");
                 EugLib.IO.FileStream.toStdOut(e.ToString());
                 StopAllConnections();
             }
@@ -393,7 +394,7 @@ namespace TRODS
             {
                 try
                 {
-                    _server.CheckDisconnected();
+
                 }
                 catch (Exception e)
                 {

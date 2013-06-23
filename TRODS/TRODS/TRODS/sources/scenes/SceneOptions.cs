@@ -216,5 +216,10 @@ namespace TRODS
             }
         }
         ////////////////////////////////////////////////////////
+
+        public override void Activation(Game1 parent = null)
+        {
+            _mouseState = Mouse.GetState();
+        }
     }
 }
