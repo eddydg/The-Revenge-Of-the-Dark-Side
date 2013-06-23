@@ -727,6 +727,15 @@
       <Extra>C:\Users\Kuchera\Documents\GitHub\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\general\introduction_trods.wmv</Extra>
       <Time>2013-06-17T16:27:07.7342779+02:00</Time>
     </Item>
+    <Item>
+      <Source>animation\intro\4.jpg</Source>
+      <Name>animation\intro\4</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Kuchera\Documents\GitHub\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\animation\intro\4.xnb</Output>
+      <Time>2013-06-23T16:54:31.3489031+02:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>

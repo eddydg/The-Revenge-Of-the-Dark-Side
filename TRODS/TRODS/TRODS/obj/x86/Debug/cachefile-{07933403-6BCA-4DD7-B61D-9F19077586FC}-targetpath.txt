@@ -84,6 +84,7 @@ Content\animation\LateX\1 (08).wma
 Content\SpriteFont1.xnb
 Content\general\introduction_trods.xnb
 Content\general\introduction_trods.wmv
+Content\animation\intro\4.xnb
 Content\AUTHORS
 Content\animation\intro\1.txt
 Content\animation\intro\2 - Ecran noir.txt
@@ -94,3 +95,4 @@ Content\animation\LateX\2.txt
 Content\animation\LateX\3.txt
 Content\animation\LateX\4.txt
 Content\animation\OpenEdge\2.txt
+Content\animation\intro\4.txt

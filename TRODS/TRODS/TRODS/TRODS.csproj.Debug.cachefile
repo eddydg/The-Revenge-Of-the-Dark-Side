@@ -78,6 +78,7 @@ Content\menu\songCredit.xnb
 Content\animation\LateX\1 (08).xnb
 Content\SpriteFont1.xnb
 Content\general\introduction_trods.xnb
+Content\animation\intro\4.xnb
 Content\menu\menuAmbience.wma
 Content\animation\intro\intro.wma
 Content\animation\LateX\Transition.wma
@@ -94,3 +95,4 @@ Content\animation\LateX\2.txt
 Content\animation\LateX\3.txt
 Content\animation\LateX\4.txt
 Content\animation\OpenEdge\2.txt
+Content\animation\intro\4.txt
