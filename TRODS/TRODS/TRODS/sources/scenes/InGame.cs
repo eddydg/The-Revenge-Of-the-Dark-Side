@@ -8,8 +8,8 @@ using Microsoft.Xna.Framework.GamerServices;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
-using EugLib.Net;
 using System.Net;
+using System.Net.Sockets;
 using System.Threading;
 
 namespace TRODS
@@ -31,10 +31,10 @@ namespace TRODS
         private Rectangle _originalWindowSize;
         private bool _animDone;
 
-        private Dictionary<IPEndPoint, Personnage> _players;
-        private EugLib.Net.Server _server;
-        private EugLib.Net.Client _client;
-        private List<Thread> _threads;
+        private Personnage _players;
+        private UdpClient _server;
+        private IPEndPoint _ipep;
+        private Thread _thread;
 
         private bool _dashing, _waitingDash;
         private float _dashTimer;
@@ -44,6 +44,9 @@ namespace TRODS
 
         public InGame(Rectangle windowSize, KeyboardState keyboardState, MouseState mouseState)
         {
+            _players = null;
+            _server = null;
+            _thread = null;
             _animDone = false;
             this._windowSize = windowSize;
             _dashing = _waitingDash = false;
@@ -296,11 +299,8 @@ namespace TRODS
             else if (this._menu.Choise == 2)
                 Connect();
             else if (this._menu.Choise == 3)
-            {
-                _server = null;
-                _client = null;
-                _threads = null;
-            }
+                StopAllConnections();
+            _menu.Choise = ContextMenu.NONE;
             int num;
             if ((num = this._hud.SelectedWeapon(this._mouseState)) >= 0)
                 this.personnage.Weapon = num;
@@ -374,13 +374,12 @@ namespace TRODS
             this._mouseState = newMouseState;
         }
 
-        // SERVER
         private void StartServer()
         {
-            _client = null;
             List<string> serverInfo = new List<string>(EugLib.IO.FileStream.readFile("files/server").Split(':'));
             try
             {
+<<<<<<< HEAD
                 _server = new EugLib.Net.Server(int.Parse(serverInfo[1]), System.Net.Sockets.ProtocolType.Udp, 4, EugLib.IO.FileStream.readFile("files/pass"));
                 _server.BindPort();
                 if (!_server.Initialized() || !_server.Binded() || _server == null)
@@ -395,57 +394,72 @@ namespace TRODS
             catch (Exception e)
             {
                 System.Windows.Forms.MessageBox.Show(INFO.ENG? "Server Error":"Erreur de serveur.", INFO.ENG? "Error": "Erreur");
+=======
+                int port;
+                IPAddress ip;
+                if (_server == null && serverInfo.Count >= 2 && int.TryParse(serverInfo[1], out port) && IPAddress.TryParse(serverInfo[0], out ip))
+                {
+                    _server = new UdpClient(new IPEndPoint(IPAddress.Any, port));
+                    _ipep = new IPEndPoint(ip, port);
+                    ((TextSprite)_menu.Elements[1]).Color = Color.Green;
+                }
+            }
+            catch (Exception e)
+            {
+                System.Windows.Forms.MessageBox.Show("Erreur de serveur \n" + e.Message, "Error");
+>>>>>>> db94ceed14572db28953a6f6bce75e8a8e74b5b0
                 EugLib.IO.FileStream.toStdOut(e.ToString());
                 StopAllConnections();
             }
         }
-        private void serverConnections()
-        {
-            while (true)
-            {
-                try
-                {
-                    _server.AcceptConnection(true);
-                }
-                catch (Exception e)
-                {
-                    EugLib.IO.FileStream.toStdOut(e.ToString());
-                }
-            }
-        }
-        private void serverUpdate()
-        {
-            while (true)
-            {
-                try
-                {
-
-                }
-                catch (Exception e)
-                {
-                    EugLib.IO.FileStream.toStdOut(e.ToString());
-                }
-            }
-        }
-        // CLIENT
         private void Connect()
         {
-
+            try
+            {
+                if (_server != null)
+                {
+                    _server.Connect(_ipep);
+                    ((TextSprite)_menu.Elements[2]).Color = Color.Green;
+                }
+                else
+                    System.Windows.Forms.MessageBox.Show("Start server first.");
+            }
+            catch (Exception e)
+            {
+                System.Windows.Forms.MessageBox.Show("Erreur de serveur \n" + e.Message, "Error");
+                EugLib.IO.FileStream.toStdOut(e.ToString());
+                StopAllConnections();
+            }
         }
+        private void update_serv()
+        {
+            while (true)
+            {
+                try
+                {
 
+                }
+                catch (Exception) { }
+            }
+        }
         public void StopAllConnections()
         {
-            if (_server != null)
-                _server.Close();
-            _server = null;
-            if (_client != null)
-                _client.Close();
-            _client = null;
-            if (_threads != null)
-                foreach (Thread t in _threads)
-                    t.Abort();
-            _threads = null;
-            _players = null;
+            try
+            {
+                if (_server != null)
+                    _server.Close();
+                _server = null;
+                if (_thread != null)
+                    _thread.Abort();
+                _thread = null;
+                _players = null;
+                ((TextSprite)_menu.Elements[1]).Color = Color.Red;
+                ((TextSprite)_menu.Elements[2]).Color = Color.Red;
+            }
+            catch (Exception e)
+            {
+                EugLib.IO.FileStream.toStdOut(e.ToString());
+            }
         }
 
         public override void Activation(Game1 parent)
