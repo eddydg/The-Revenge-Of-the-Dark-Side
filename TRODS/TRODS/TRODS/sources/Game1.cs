@@ -98,12 +98,12 @@ namespace TRODS
             scenes.Add(Scene.IntroHistoire, anim);
             //intro LateX
             anim = new Animation(winsize,Scene.InGame,Musiques.IntroLateX);
-            ts = new MultipleTextSprite("SpriteFont1", winsize, new Rectangle(100, 100, 700, 800), Color.Honeydew);
+            ts = new MultipleTextSprite("SpriteFont1", winsize, new Rectangle(100, 100, 700, 800), Color.DarkRed);
             ts.Add(EugLib.IO.FileStream.readFileLines("Content/animation/LateX/1 - Arrivée.txt"));
             ts.StartShowing(0, 30);
             anim.Add("animation/LateX/1 - 0", new Rectangle(0, 0, winsize.Width, winsize.Height), 0, 9500, 1500, 1000);
             anim.Add("animation/LateX/1 - 1", new Rectangle(0, 0, winsize.Width, winsize.Height), 8500, 9500, 1000, 1500);
-            anim.Add(ts, new Rectangle(100, 100, 700, 800),new Rectangle(100, -400, 700, 800), 1000, 18000, true,500,true,700);
+            anim.Add(ts, new Rectangle(250, 20, 400, 500),new Rectangle(250, 20, 400, 500), 1000, 16500, true,500,true,700);
             scenes.Add(Scene.IntroLateX, anim);
             //LateX Eradicated
             anim = new Animation(winsize, Scene.InGame, Musiques.TransitionLateX);
@@ -119,21 +119,21 @@ namespace TRODS
             ts.Add(EugLib.IO.FileStream.readFileLines("Content/animation/LateX/3.txt"));
             ts.StartShowing(0, 30);
             anim.Add("animation/LateX/3", new Rectangle(0, 0, winsize.Width, winsize.Height), 0, 16000, 1500, 1000);
-            anim.Add(ts, new Rectangle(350, 100, 250, 350), new Rectangle(350, -200, 250, 350), 1000, 15000, true, 500, true, 700);
+            anim.Add(ts, new Rectangle(350, 100, 350, 350), new Rectangle(350, 100, 350, 350), 1000, 15000, true, 500, true, 700);
             scenes.Add(Scene.BeforeKingFight, anim);
             //After LateX's King Fight + come back to OpenEdge
             anim = new Animation(winsize, Scene.InGame, Musiques.TransitionLateX);
-            ts = new MultipleTextSprite("SpriteFont1", winsize, new Rectangle(100, 250, 400, 500), Color.Honeydew);
+            ts = new MultipleTextSprite("SpriteFont1", winsize, new Rectangle(100, 250, 400, 500), Color.DarkRed);
             ts.Add(EugLib.IO.FileStream.readFileLines("Content/animation/LateX/4.txt"));
             ts.StartShowing(0, 30);
             anim.Add("animation/LateX/4", new Rectangle(0, 0, winsize.Width, winsize.Height), 0, 18000, 1500, 1000);
-            anim.Add(ts, new Rectangle(20, 250, 230, 350), new Rectangle(20, -50, 230, 350), 500, 17000, true, 500, true, 700);
-            ts = new MultipleTextSprite("SpriteFont1", winsize, new Rectangle(100, 250, 400, 500), Color.Honeydew);
+            anim.Add(ts, new Rectangle(100, 20, 700, 200), new Rectangle(100, 20, 700, 200), 500, 17000, true, 500, true, 700);
+            ts = new MultipleTextSprite("SpriteFont1", winsize, new Rectangle(100, 250, 400, 500), Color.DarkRed);
             ts.Add(EugLib.IO.FileStream.readFileLines("Content/animation/OpenEdge/1.txt"));
             ts.StartShowing(0, 30);
             anim.Add("animation/OpenEdge/1-0", new Rectangle(0, 0, winsize.Width, winsize.Height), 19000, 9500, 1500, 1000); 
             anim.Add("animation/OpenEdge/1", new Rectangle(0, 0, winsize.Width, winsize.Height), 27500, 9500, 1000, 1000);
-            anim.Add(ts, new Rectangle(20, 250, 300, 350), new Rectangle(20, -50, 300, 350), 20000, 17000, true, 500, true, 700);
+            anim.Add(ts, new Rectangle(100, 300, 700, 200), new Rectangle(100, 300, 700, 200), 20000, 17000, true, 500, true, 700);
             scenes.Add(Scene.AfterKingFight, anim);
             //Last EPIC fight
             anim = new Animation(winsize, Scene.InGame, Musiques.TransitionLateX);
@@ -141,10 +141,10 @@ namespace TRODS
             ts.Add(EugLib.IO.FileStream.readFileLines("Content/animation/OpenEdge/2.txt"));
             ts.StartShowing(0, 30);
             anim.Add("animation/OpenEdge/2", new Rectangle(0, 0, winsize.Width, winsize.Height), 0, 16000, 1500, 1000);
-            anim.Add(ts, new Rectangle(50, 100, 450, 350), new Rectangle(50, -250, 550, 350), 1000, 15000, true, 500, true, 700);
+            anim.Add(ts, new Rectangle(50, 150, 400, 300), new Rectangle(50, 150, 400, 300), 1000, 14500, true, 500, true, 700);
             scenes.Add(Scene.LastFight, anim);
 
-            currentScene = Scene.IntroVid; ;
+            currentScene = Scene.IntroVid;
         }
         protected override void Initialize()
         {

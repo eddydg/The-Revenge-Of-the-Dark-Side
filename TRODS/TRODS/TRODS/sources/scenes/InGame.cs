@@ -8,8 +8,8 @@ using Microsoft.Xna.Framework.GamerServices;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
-using EugLib.Net;
 using System.Net;
+using System.Net.Sockets;
 using System.Threading;
 
 namespace TRODS
@@ -31,10 +31,9 @@ namespace TRODS
         private Rectangle _originalWindowSize;
         private bool _animDone;
 
-        private Dictionary<IPEndPoint, Personnage> _players;
-        private EugLib.Net.Server _server;
-        private EugLib.Net.Client _client;
-        private List<Thread> _threads;
+        private Personnage _players;
+        private UdpClient _server;
+        private Thread _thread;
 
         private bool _dashing, _waitingDash;
         private float _dashTimer;
@@ -44,6 +43,9 @@ namespace TRODS
 
         public InGame(Rectangle windowSize, KeyboardState keyboardState, MouseState mouseState)
         {
+            _players = null;
+            _server = null;
+            _thread = null;
             _animDone = false;
             this._windowSize = windowSize;
             _dashing = _waitingDash = false;
@@ -70,7 +72,30 @@ namespace TRODS
             abstractMap1.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(400, 450, 150, 150), this._windowSize, "game/heal_font_6x6", 6, 6, 30, 1, 32, 1, true), 1f, 0.5f, false, false, false, false, true));
             abstractMap1.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(5, 150, this._windowSize.Width / 2, this._windowSize.Height - 150), this._windowSize, "sprites/fireWall_11x6r23r44", 11, 6, 30, 23, 44, 1, true), 1f, 0.5f, false, false, false, true, false));
             abstractMap1.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(2550 + this._windowSize.Width / 2, 280, 320, 320), this._windowSize, "sprites/portal_6x6", 6, 6, 30, 1, 32, 1, true), 1f, 0.5f, false, false, true, true, false));
-            this._maps.Add(abstractMap1);
+
+            AbstractMap abstractMap3 = new AbstractMap(this._windowSize);
+            abstractMap3.AddVisitable(450, 450, 2800, 130);
+            abstractMap3.VuePosition = new Vector2(460f, 579f);
+            abstractMap3.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(0, 0, 1800, 600), windowSize, "map3/back", 1, 1, 30, 1, -1, -1, false), 0.8f, 0.2f, true, false, false, true, false));
+            abstractMap3.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(200, 50, 300, 233), windowSize, "map3/chandelier_sprite", 8, 4, 30, 1, 32, 1, true), 0.8f, 0.2f, false, true, false, true, false));
+            abstractMap3.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(800, 50, 300, 233), windowSize, "map3/chandelier_sprite", 8, 4, 30, 1, 32, 1, true), 0.8f, 0.2f, false, true, false, true, false));
+            abstractMap3.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(1400, 50, 300, 233), windowSize, "map3/chandelier_sprite", 8, 4, 30, 1, 32, 1, true), 0.8f, 0.2f, false, true, false, true, false));
+            abstractMap3.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(2000, 50, 300, 233), windowSize, "map3/chandelier_sprite", 8, 4, 30, 1, 32, 1, true), 0.8f, 0.2f, false, true, false, true, false));
+            abstractMap3.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(0, 500, 1042, 159), windowSize, "map3/ground", 1, 1, 30, 1, -1, -1, false), 0.8f, 0.2f, true, false, false, true, false));
+            abstractMap3.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(250, 280, 320, 320), this._windowSize, "sprites/portal_6x6", 6, 6, 30, 1, 32, 1, true), 0.8f, 0.2f, false, false, true, false, false));
+            abstractMap3.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(2550, 280, 320, 320), this._windowSize, "sprites/portal_6x6", 6, 6, 30, 1, 32, 1, true), 0.8f, 0.2f, false, false, true, true, false));
+
+            AbstractMap abstractMap4 = new AbstractMap(this._windowSize);
+            abstractMap4.AddVisitable(450, 450, 2000, 130);
+            abstractMap4.VuePosition = new Vector2(460f, 579f);
+            abstractMap4.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(0, 0, 1800, 600), windowSize, "map3/back", 1, 1, 30, 1, -1, -1, false), 0.8f, 0.2f, true, false, false, true, false));
+            abstractMap4.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(200, 50, 300, 233), windowSize, "map3/chandelier_sprite", 8, 4, 30, 1, 32, 1, true), 0.8f, 0.2f, false, true, false, true, false));
+            abstractMap4.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(800, 50, 300, 233), windowSize, "map3/chandelier_sprite", 8, 4, 30, 1, 32, 1, true), 0.8f, 0.2f, false, true, false, true, false));
+            abstractMap4.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(1400, 50, 300, 233), windowSize, "map3/chandelier_sprite", 8, 4, 30, 1, 32, 1, true), 0.8f, 0.2f, false, true, false, true, false));
+            abstractMap4.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(0, 500, 1042, 159), windowSize, "map3/ground", 1, 1, 30, 1, -1, -1, false), 0.8f, 0.2f, true, false, false, true, false));
+            abstractMap4.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(250, 280, 320, 320), this._windowSize, "sprites/portal_6x6", 6, 6, 30, 1, 32, 1, true), 0.8f, 0.2f, false, false, true, false, false));
+            abstractMap4.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(1750, 280, 320, 320), this._windowSize, "sprites/portal_6x6", 6, 6, 30, 1, 32, 1, true), 0.8f, 0.2f, false, false, true, true, false));
+
             AbstractMap abstractMap2 = new AbstractMap(this._windowSize);
             abstractMap2.AddVisitable(450, 450, 2800, 130);
             abstractMap2.VuePosition = new Vector2(460f, 579f);
@@ -80,18 +105,20 @@ namespace TRODS
             abstractMap2.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(0, 515, 1066, 92), windowSize, "map2/rock", 1, 1, 30, 1, -1, -1, false), 1f, 0.5f, true, true, false, true, false));
             abstractMap2.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(250, 280, 320, 320), this._windowSize, "sprites/portal_6x6", 6, 6, 30, 1, 32, 1, true), 1f, 0.5f, false, false, true, false, false));
             abstractMap2.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(2800 + this._windowSize.Width / 2, 150, this._windowSize.Width / 2, this._windowSize.Height - 150), this._windowSize, "sprites/fireWall_11x6r23r44", 11, 6, 30, 23, 44, 1, true), 1f, 0.5f, false, false, false, true, false));
+
+            this._maps.Add(abstractMap1);
+            this._maps.Add(abstractMap3);
+            this._maps.Add(abstractMap4);
             this._maps.Add(abstractMap2);
             this._currentMap = 0;
             this.personnage = new Personnage(this._windowSize, abstractMap2.VuePosition);
             this._mobsTextures = new List<Texture2D>();
             this._mobs = new List<List<Mob>>();
             this.rand = new Random();
-            this._mobs.Add(new List<Mob>());
-            this._mobs.Add(new List<Mob>());
-            for (int index = 0; index < 25; ++index)
-                this._mobs[0].Add(new Mob(this._windowSize, this.rand.Next(), new Vector2(1000f, 580f), 100, 200, "game/blitz", 5, 4, new Vector2(3f, 3f), new Vector2(1f, 0.5f), 300, 50, new Rectangle(900, 500, 2000, 80)));
-            for (int index = 0; index < 40; ++index)
-                this._mobs[1].Add(new Mob(this._windowSize, this.rand.Next(), new Vector2(1000f, 580f), 100, 200, "game/blitz", 5, 4, new Vector2(3f, 3f), new Vector2(1f, 0.5f), 300, 50, new Rectangle(900, 485, 2000, 100)));
+            for (int i = 0; i < _maps.Count; i++)
+            {
+                this._mobs.Add(new List<Mob>());
+            }
             foreach (List<Mob> list in this._mobs)
             {
                 foreach (Mob mob in list)
@@ -271,11 +298,7 @@ namespace TRODS
             else if (this._menu.Choise == 2)
                 Connect();
             else if (this._menu.Choise == 3)
-            {
-                _server = null;
-                _client = null;
-                _threads = null;
-            }
+                StopAllConnections();
             int num;
             if ((num = this._hud.SelectedWeapon(this._mouseState)) >= 0)
                 this.personnage.Weapon = num;
@@ -349,78 +372,50 @@ namespace TRODS
             this._mouseState = newMouseState;
         }
 
-        // SERVER
         private void StartServer()
         {
-            _client = null;
             List<string> serverInfo = new List<string>(EugLib.IO.FileStream.readFile("files/server").Split(':'));
             try
             {
-                _server = new EugLib.Net.Server(int.Parse(serverInfo[1]), System.Net.Sockets.ProtocolType.Udp, 4, EugLib.IO.FileStream.readFile("files/pass"));
-                _server.BindPort();
-                if (!_server.Initialized() || !_server.Binded() || _server == null)
-                    throw new WebException("Server uninitialized");
-                _players = new Dictionary<IPEndPoint, Personnage>();
-                _threads = new List<Thread>();
-                _threads.Add(new Thread(serverConnections));
-                _threads.Add(new Thread(serverUpdate));
-                foreach (Thread t in _threads)
-                    t.Start();
+                if (_server != null)
+                    throw new Exception("Server bind.");
             }
             catch (Exception e)
             {
-                System.Windows.Forms.MessageBox.Show("Erreur de serveur.", "Error");
+                System.Windows.Forms.MessageBox.Show("Erreur de serveur \n"+e.Message, "Error");
                 EugLib.IO.FileStream.toStdOut(e.ToString());
                 StopAllConnections();
             }
         }
-        private void serverConnections()
-        {
-            while (true)
-            {
-                try
-                {
-                    _server.AcceptConnection(true);
-                }
-                catch (Exception e)
-                {
-                    EugLib.IO.FileStream.toStdOut(e.ToString());
-                }
-            }
-        }
-        private void serverUpdate()
-        {
-            while (true)
-            {
-                try
-                {
-
-                }
-                catch (Exception e)
-                {
-                    EugLib.IO.FileStream.toStdOut(e.ToString());
-                }
-            }
-        }
-        // CLIENT
         private void Connect()
         {
-
+            List<string> serverInfo = new List<string>(EugLib.IO.FileStream.readFile("files/server").Split(':'));
+            try
+            {
+            }
+            catch (Exception e)
+            {
+                System.Windows.Forms.MessageBox.Show("Erreur de serveur \n" + e.Message, "Error");
+                EugLib.IO.FileStream.toStdOut(e.ToString());
+                StopAllConnections();
+            }
         }
-
         public void StopAllConnections()
         {
-            if (_server != null)
-                _server.Close();
-            _server = null;
-            if (_client != null)
-                _client.Close();
-            _client = null;
-            if (_threads != null)
-                foreach (Thread t in _threads)
-                    t.Abort();
-            _threads = null;
-            _players = null;
+            try
+            {
+                if (_server != null)
+                    _server.Close();
+                _server = null;
+                if (_thread != null)
+                    _thread.Abort();
+                _thread = null;
+                _players = null;
+            }
+            catch (Exception e)
+            {
+                EugLib.IO.FileStream.toStdOut(e.ToString());
+            }
         }
 
         public override void Activation(Game1 parent)
@@ -431,10 +426,19 @@ namespace TRODS
                 switch (_currentMap)
                 {
                     case 0:
-                        parent.SwitchScene(Scene.IntroLateX);
+                        parent.SwitchScene(Scene.IntroLateX);//Combat contre toutes les créatures de LateX(map verte)
                         break;
                     case 1:
-                        parent.SwitchScene(Scene.LateXEradicated);
+                        parent.SwitchScene(Scene.LateXEradicated);//combat contre l'armée du roi de LateX(map chateau)
+                        break;
+                    case 2:
+                        parent.SwitchScene(Scene.BeforeKingFight);//combat contre roi de LateX (armée éradiquée)(re map chateau)
+                        break;
+                    case 3:
+                        parent.SwitchScene(Scene.AfterKingFight);//retour sur OpenEdge + combat armée(map dark)
+                        break;
+                    case 4:
+                        parent.SwitchScene(Scene.LastFight);//combat contre Spark(re map dark sauf si on a le temps d'en faire une autre)
                         break;
                 }
             }
