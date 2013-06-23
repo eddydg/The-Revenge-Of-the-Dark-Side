@@ -207,3 +207,11 @@ C:\Users\Kuchera\Documents\GitHub\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS
 C:\Users\Kuchera\Documents\GitHub\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\obj\x86\Debug\TRODS.pdb
 C:\Users\Kuchera\Documents\GitHub\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\animation\intro\4.xnb
 C:\Users\Kuchera\Documents\GitHub\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\animation\intro\4.txt
+C:\Users\Kuchera\Documents\GitHub\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\map3\back.xnb
+C:\Users\Kuchera\Documents\GitHub\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\map3\chandelier_sprite.xnb
+C:\Users\Kuchera\Documents\GitHub\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\map3\ground.xnb
+C:\Users\Kuchera\Documents\GitHub\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\AUTHORSa
+C:\Users\Kuchera\Documents\GitHub\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\animation\intro\1a.txt
+C:\Users\Kuchera\Documents\GitHub\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\animation\intro\2a.txt
+C:\Users\Kuchera\Documents\GitHub\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\animation\intro\3a.txt
+C:\Users\Kuchera\Documents\GitHub\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\animation\intro\4a.txt

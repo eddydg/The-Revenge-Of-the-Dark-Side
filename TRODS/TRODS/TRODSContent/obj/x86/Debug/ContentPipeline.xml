@@ -736,6 +736,33 @@
       <Output>C:\Users\Kuchera\Documents\GitHub\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\animation\intro\4.xnb</Output>
       <Time>2013-06-23T16:54:31.3489031+02:00</Time>
     </Item>
+    <Item>
+      <Source>map3\back.png</Source>
+      <Name>map3\back</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Kuchera\Documents\GitHub\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\map3\back.xnb</Output>
+      <Time>2013-06-23T20:31:35.4193346+02:00</Time>
+    </Item>
+    <Item>
+      <Source>map3\chandelier_sprite.png</Source>
+      <Name>map3\chandelier_sprite</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Kuchera\Documents\GitHub\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\map3\chandelier_sprite.xnb</Output>
+      <Time>2013-06-23T20:31:35.4403366+02:00</Time>
+    </Item>
+    <Item>
+      <Source>map3\ground.png</Source>
+      <Name>map3\ground</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Kuchera\Documents\GitHub\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\map3\ground.xnb</Output>
+      <Time>2013-06-23T20:31:35.4473371+02:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>
