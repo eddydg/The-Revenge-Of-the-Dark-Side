@@ -17,7 +17,8 @@ namespace TRODS
     /// </summary>
     public enum Scene
     {
-        MainMenu = 0, InGame = 1, Extra = 2, Credit = 3, Titre = 4, Options = 5, IntroVid, GameOver, IntroHistoire, MenuExtra
+        MainMenu = 0, InGame = 1, Extra = 2, Credit = 3, Titre = 4, Options = 5, MenuExtra,
+        IntroVid, GameOver, IntroHistoire,IntroLateX,LateXEradicated,BeforeKingFight,AfterKingFight,LastFight
     };
     /// <summary>
     /// Les 4 directions
@@ -38,6 +39,6 @@ namespace TRODS
     /// </summary>
     public enum Musiques
     {
-        None, MenuMusic, CreditMusic, Intro,
+        None, MenuMusic, CreditMusic, Intro, IntroLateX, TransitionLateX
     };
 }

@@ -5,30 +5,54 @@ Nom du paramètre : character
    à Microsoft.Xna.Framework.Graphics.SpriteFont.GetIndexForCharacter(Char character)
    à Microsoft.Xna.Framework.Graphics.SpriteFont.InternalMeasure(StringProxy& text)
    à Microsoft.Xna.Framework.Graphics.SpriteFont.MeasureString(String text)
-   à TRODS.TextSprite.Draw(SpriteBatch spriteBatch, Byte alpha) dans C:\Users\Kuchera\Documents\GitHub\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\graphics\TextSprite.cs:ligne 111
-   à TRODS.MultipleTextSprite.Draw(SpriteBatch spriteBatch, Byte alpha) dans C:\Users\Kuchera\Documents\GitHub\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\graphics\MultipleTextSprite.cs:ligne 51
-   à TRODS.Animation.AnimPictures.Draw(SpriteBatch spriteBatch) dans C:\Users\Kuchera\Documents\GitHub\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\graphics\Animation.cs:ligne 97
-   à TRODS.Animation.Draw(SpriteBatch spriteBatch) dans C:\Users\Kuchera\Documents\GitHub\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\graphics\Animation.cs:ligne 169
-   à TRODS.Game1.Draw(GameTime gameTime) dans C:\Users\Kuchera\Documents\GitHub\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\Game1.cs:ligne 158
+   à TRODS.TextSprite.Draw(SpriteBatch spriteBatch, Byte alpha) dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\graphics\TextSprite.cs:ligne 111
+   à TRODS.MultipleTextSprite.Draw(SpriteBatch spriteBatch, Byte alpha) dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\graphics\MultipleTextSprite.cs:ligne 52
+   à TRODS.Animation.AnimPictures.Draw(SpriteBatch spriteBatch) dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\graphics\Animation.cs:ligne 97
+   à TRODS.Animation.Draw(SpriteBatch spriteBatch) dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\graphics\Animation.cs:ligne 169
+   à TRODS.Game1.Draw(GameTime gameTime) dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\Game1.cs:ligne 168
 Erreur d'affichage :
 System.ArgumentException: The character '�' (0xfffd) is not available in this SpriteFont. If applicable, adjust the font's start and end CharacterRegions to include this character.
 Nom du paramètre : character
    à Microsoft.Xna.Framework.Graphics.SpriteFont.GetIndexForCharacter(Char character)
    à Microsoft.Xna.Framework.Graphics.SpriteFont.InternalMeasure(StringProxy& text)
    à Microsoft.Xna.Framework.Graphics.SpriteFont.MeasureString(String text)
-   à TRODS.TextSprite.Draw(SpriteBatch spriteBatch, Byte alpha) dans C:\Users\Kuchera\Documents\GitHub\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\graphics\TextSprite.cs:ligne 111
-   à TRODS.MultipleTextSprite.Draw(SpriteBatch spriteBatch, Byte alpha) dans C:\Users\Kuchera\Documents\GitHub\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\graphics\MultipleTextSprite.cs:ligne 51
-   à TRODS.Animation.AnimPictures.Draw(SpriteBatch spriteBatch) dans C:\Users\Kuchera\Documents\GitHub\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\graphics\Animation.cs:ligne 97
-   à TRODS.Animation.Draw(SpriteBatch spriteBatch) dans C:\Users\Kuchera\Documents\GitHub\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\graphics\Animation.cs:ligne 169
-   à TRODS.Game1.Draw(GameTime gameTime) dans C:\Users\Kuchera\Documents\GitHub\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\Game1.cs:ligne 158
+   à TRODS.TextSprite.Draw(SpriteBatch spriteBatch, Byte alpha) dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\graphics\TextSprite.cs:ligne 111
+   à TRODS.MultipleTextSprite.Draw(SpriteBatch spriteBatch, Byte alpha) dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\graphics\MultipleTextSprite.cs:ligne 52
+   à TRODS.Animation.AnimPictures.Draw(SpriteBatch spriteBatch) dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\graphics\Animation.cs:ligne 97
+   à TRODS.Animation.Draw(SpriteBatch spriteBatch) dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\graphics\Animation.cs:ligne 169
+   à TRODS.Game1.Draw(GameTime gameTime) dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\Game1.cs:ligne 168
 Erreur d'affichage :
 System.ArgumentException: The character '�' (0xfffd) is not available in this SpriteFont. If applicable, adjust the font's start and end CharacterRegions to include this character.
 Nom du paramètre : character
    à Microsoft.Xna.Framework.Graphics.SpriteFont.GetIndexForCharacter(Char character)
    à Microsoft.Xna.Framework.Graphics.SpriteFont.InternalMeasure(StringProxy& text)
    à Microsoft.Xna.Framework.Graphics.SpriteFont.MeasureString(String text)
-   à TRODS.TextSprite.Draw(SpriteBatch spriteBatch, Byte alpha) dans C:\Users\Kuchera\Documents\GitHub\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\graphics\TextSprite.cs:ligne 111
-   à TRODS.MultipleTextSprite.Draw(SpriteBatch spriteBatch, Byte alpha) dans C:\Users\Kuchera\Documents\GitHub\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\graphics\MultipleTextSprite.cs:ligne 51
-   à TRODS.Animation.AnimPictures.Draw(SpriteBatch spriteBatch) dans C:\Users\Kuchera\Documents\GitHub\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\graphics\Animation.cs:ligne 97
-   à TRODS.Animation.Draw(SpriteBatch spriteBatch) dans C:\Users\Kuchera\Documents\GitHub\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\graphics\Animation.cs:ligne 169
-   à TRODS.Game1.Draw(GameTime gameTime) dans C:\Users\Kuchera\Documents\GitHub\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\Game1.cs:ligne 158
+   à TRODS.TextSprite.Draw(SpriteBatch spriteBatch, Byte alpha) dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\graphics\TextSprite.cs:ligne 111
+   à TRODS.MultipleTextSprite.Draw(SpriteBatch spriteBatch, Byte alpha) dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\graphics\MultipleTextSprite.cs:ligne 52
+   à TRODS.Animation.AnimPictures.Draw(SpriteBatch spriteBatch) dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\graphics\Animation.cs:ligne 97
+   à TRODS.Animation.Draw(SpriteBatch spriteBatch) dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\graphics\Animation.cs:ligne 169
+   à TRODS.Game1.Draw(GameTime gameTime) dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\Game1.cs:ligne 168
+Loading ressources error.
+System.DivideByZeroException: Tentative de division par zéro.
+   à TRODS.MultipleTextSprite.SetLayout(Layout layout) dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\graphics\MultipleTextSprite.cs:ligne 96
+   à TRODS.MultipleTextSprite.LoadContent(ContentManager content) dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\graphics\MultipleTextSprite.cs:ligne 37
+   à TRODS.Animation.LoadContent(ContentManager content) dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\graphics\Animation.cs:ligne 145
+   à TRODS.Game1.LoadContent() dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\Game1.cs:ligne 124
+System.Collections.Generic.KeyNotFoundException: La clé donnée était absente du dictionnaire.
+   à System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   à TRODS.Son.Play(Musiques m) dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\tools\Son.cs:ligne 105
+Loading ressources error.
+System.DivideByZeroException: Tentative de division par zéro.
+   à TRODS.MultipleTextSprite.SetLayout(Layout layout) dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\graphics\MultipleTextSprite.cs:ligne 96
+   à TRODS.MultipleTextSprite.LoadContent(ContentManager content) dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\graphics\MultipleTextSprite.cs:ligne 37
+   à TRODS.Animation.LoadContent(ContentManager content) dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\graphics\Animation.cs:ligne 145
+   à TRODS.Game1.LoadContent() dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\Game1.cs:ligne 124
+System.Collections.Generic.KeyNotFoundException: La clé donnée était absente du dictionnaire.
+   à System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   à TRODS.Son.Play(Musiques m) dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\tools\Son.cs:ligne 105
+Loading ressources error.
+System.DivideByZeroException: Tentative de division par zéro.
+   à TRODS.MultipleTextSprite.SetLayout(Layout layout) dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\graphics\MultipleTextSprite.cs:ligne 96
+   à TRODS.MultipleTextSprite.LoadContent(ContentManager content) dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\graphics\MultipleTextSprite.cs:ligne 37
+   à TRODS.Animation.LoadContent(ContentManager content) dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\graphics\Animation.cs:ligne 145
+   à TRODS.Game1.LoadContent() dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\Game1.cs:ligne 124

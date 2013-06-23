@@ -76,7 +76,7 @@ namespace TRODS
                 new Rectangle(330, 600, 240, 60),
                 500, 4500, true, 700, true, 1000);
             scenes.Add(Scene.GameOver, anim);
-
+            //intro
             anim = new Animation(winsize, Scene.Titre, Musiques.Intro);
             anim.Add("animation/intro/1", new Rectangle(0, 0, winsize.Width, winsize.Height), 500, 24000, 2000, 1500);
             MultipleTextSprite ts = new MultipleTextSprite("SpriteFont1", winsize, new Rectangle(50, 100, 300, 400), Color.Honeydew);
@@ -91,8 +91,55 @@ namespace TRODS
             ts.StartShowing(0, 30);
             anim.Add(ts, new Rectangle(100, 300, 700, 800), new Rectangle(100, -300, 700, 800), 29000, 27500, false, 0, true, 1000);
             scenes.Add(Scene.IntroHistoire, anim);
+            //intro LateX
+            anim = new Animation(winsize,Scene.InGame,Musiques.IntroLateX);
+            ts = new MultipleTextSprite("SpriteFont1", winsize, new Rectangle(100, 100, 700, 800), Color.Black);
+            ts.Add(EugLib.IO.FileStream.readFileLines("Content/animation/LateX/1 - Arrivée.txt"));
+            ts.StartShowing(0, 30);
+            anim.Add("animation/LateX/1 - 0", new Rectangle(0, 0, winsize.Width, winsize.Height), 0, 9500, 1500, 1000);
+            anim.Add("animation/LateX/1 - 1", new Rectangle(0, 0, winsize.Width, winsize.Height), 8500, 9500, 1000, 1500);
+            anim.Add(ts, new Rectangle(100, 100, 700, 800),new Rectangle(100, -400, 700, 800), 1000, 18000, true,500,true,700);
+            scenes.Add(Scene.IntroLateX, anim);
+            //LateX Eradicated
+            anim = new Animation(winsize, Scene.InGame, Musiques.TransitionLateX);
+            ts = new MultipleTextSprite("SpriteFont1", winsize, new Rectangle(100, 250, 400, 500), Color.Honeydew);
+            ts.Add(EugLib.IO.FileStream.readFileLines("Content/animation/LateX/2.txt"));
+            ts.StartShowing(0, 30);
+            anim.Add("animation/LateX/2", new Rectangle(0, 0, winsize.Width, winsize.Height), 0, 16000, 1500, 1000);
+            anim.Add(ts, new Rectangle(250, 250, 400, 500), new Rectangle(250, -250, 400, 500), 1000, 15000, true, 500, true, 700);
+            scenes.Add(Scene.LateXEradicated, anim);
+            //Before LateX's King Fight
+            anim = new Animation(winsize, Scene.InGame, Musiques.TransitionLateX);
+            ts = new MultipleTextSprite("SpriteFont1", winsize, new Rectangle(100, 250, 400, 500), Color.Honeydew);
+            ts.Add(EugLib.IO.FileStream.readFileLines("Content/animation/LateX/3.txt"));
+            ts.StartShowing(0, 30);
+            anim.Add("animation/LateX/3", new Rectangle(0, 0, winsize.Width, winsize.Height), 0, 16000, 1500, 1000);
+            anim.Add(ts, new Rectangle(350, 100, 250, 350), new Rectangle(350, -200, 250, 350), 1000, 15000, true, 500, true, 700);
+            scenes.Add(Scene.BeforeKingFight, anim);
+            //After LateX's King Fight + come back to OpenEdge
+            anim = new Animation(winsize, Scene.InGame, Musiques.TransitionLateX);
+            ts = new MultipleTextSprite("SpriteFont1", winsize, new Rectangle(100, 250, 400, 500), Color.Honeydew);
+            ts.Add(EugLib.IO.FileStream.readFileLines("Content/animation/LateX/4.txt"));
+            ts.StartShowing(0, 30);
+            anim.Add("animation/LateX/4", new Rectangle(0, 0, winsize.Width, winsize.Height), 0, 18000, 1500, 1000);
+            anim.Add(ts, new Rectangle(20, 250, 230, 350), new Rectangle(20, -50, 230, 350), 500, 17000, true, 500, true, 700);
+            ts = new MultipleTextSprite("SpriteFont1", winsize, new Rectangle(100, 250, 400, 500), Color.Honeydew);
+            ts.Add(EugLib.IO.FileStream.readFileLines("Content/animation/OpenEdge/1.txt"));
+            ts.StartShowing(0, 30);
+            anim.Add("animation/OpenEdge/1-0", new Rectangle(0, 0, winsize.Width, winsize.Height), 19000, 9500, 1500, 1000); 
+            anim.Add("animation/OpenEdge/1", new Rectangle(0, 0, winsize.Width, winsize.Height), 27500, 9500, 1000, 1000);
+            anim.Add(ts, new Rectangle(20, 250, 300, 350), new Rectangle(20, -50, 300, 350), 20000, 17000, true, 500, true, 700);
+            scenes.Add(Scene.AfterKingFight, anim);
+            //Last EPIC fight
+            anim = new Animation(winsize, Scene.InGame, Musiques.TransitionLateX);
+            ts = new MultipleTextSprite("SpriteFont1", winsize, new Rectangle(100, 250, 400, 500), Color.Honeydew);
+            ts.Add(EugLib.IO.FileStream.readFileLines("Content/animation/OpenEdge/2.txt"));
+            ts.StartShowing(0, 30);
+            anim.Add("animation/OpenEdge/2", new Rectangle(0, 0, winsize.Width, winsize.Height), 0, 16000, 1500, 1000);
+            anim.Add(ts, new Rectangle(50, 100, 450, 350), new Rectangle(50, -250, 550, 350), 1000, 15000, true, 500, true, 700);
+            scenes.Add(Scene.LastFight, anim);
 
-            currentScene = Scene.IntroVid;
+            currentScene = Scene.AfterKingFight;
         }
         protected override void Initialize()
         {
@@ -109,6 +156,8 @@ namespace TRODS
                 son.LoadContent(Content, Musiques.MenuMusic, "menu/menuAmbience");
                 son.LoadContent(Content, Musiques.CreditMusic, "menu/songCredit");
                 son.LoadContent(Content, Musiques.Intro, "animation/intro/intro");
+                son.LoadContent(Content, Musiques.IntroLateX, "animation/LateX/1 (08)");
+                son.LoadContent(Content, Musiques.TransitionLateX, "animation/LateX/Transition");
                 float _volumeEffect = 1f;
                 float _volumeMusic = 1f;
                 List<string> par = EugLib.IO.Tools.toArgv(EugLib.IO.FileStream.readFile(SceneOptions.SOUND_FILENAME));
