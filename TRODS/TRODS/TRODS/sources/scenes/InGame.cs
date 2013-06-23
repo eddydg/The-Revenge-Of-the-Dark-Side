@@ -59,9 +59,9 @@ namespace TRODS
             this._menu.Title = new AnimatedSprite(new Rectangle(this._menu.Position.Width / 2 - 75, 0, 150, 50), this._windowSize, "menu/contextMenuText", 1, 1, 30, 1, -1, -1, false);
             this._menu.Visible = false;
             this._menu.Add(new AnimatedSprite(new Rectangle(this._menu.Position.Width / 2 - 100, 65, 200, 22), this._windowSize, "menu/contextMenuTextMainMenu", 1, 1, 30, 1, -1, -1, false));
-            this._menu.Add(new TextSprite("SpriteFont1", _windowSize, new Rectangle(0, 0, 200, 22), Color.Red, INFO.ENG? "Start Network" : "Demarrer le reseau"));
-            this._menu.Add(new TextSprite("SpriteFont1", _windowSize, new Rectangle(0, 0, 200, 22), Color.Red, INFO.ENG? "Connection": "Connexion"));
-            this._menu.Add(new TextSprite("SpriteFont1", _windowSize, new Rectangle(0, 0, 200, 22), Color.Red, INFO.ENG? "Disconnect" : "Déconnexion"));
+            this._menu.Add(new TextSprite("SpriteFont1", _windowSize, new Rectangle(0, 0, 200, 22), Color.Red, INFO.ENG ? "Start Network" : "Demarrer le reseau"));
+            this._menu.Add(new TextSprite("SpriteFont1", _windowSize, new Rectangle(0, 0, 200, 22), Color.Red, INFO.ENG ? "Connection" : "Connexion"));
+            this._menu.Add(new TextSprite("SpriteFont1", _windowSize, new Rectangle(0, 0, 200, 22), Color.Red, INFO.ENG ? "Disconnect" : "Déconnexion"));
             this._menu.CuadricPositionning(new Rectangle(0, 0, 150, 20), 65, 15, 10, 10, true);
             this.mouse = new Sprite(new Rectangle(-100, -100, 30, 50), this._windowSize, "");
             this._maps = new List<AbstractMap>();
@@ -150,6 +150,10 @@ namespace TRODS
 
             StopAllConnections();
         }
+        ~InGame()
+        {
+            StopAllConnections();
+        }
 
         public override void LoadContent(ContentManager content)
         {
@@ -165,7 +169,6 @@ namespace TRODS
             }
             this._hud.LoadContent(content);
         }
-
         public override void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Begin();
@@ -211,7 +214,6 @@ namespace TRODS
             ((AbstractScene)this.mouse).Draw(spriteBatch);
             spriteBatch.End();
         }
-
         public override void Update(float elapsedTime)
         {
             _dashTimer += elapsedTime;
@@ -279,7 +281,6 @@ namespace TRODS
                 }
             }
         }
-
         public override void HandleInput(KeyboardState newKeyboardState, MouseState newMouseState, Game1 parent)
         {
             if (parent.Window.ClientBounds != this._windowSize)
@@ -424,9 +425,9 @@ namespace TRODS
                 try
                 {
                     Send("ok");
-                    if (Recieve() != "ok")
-                        StopAllConnections();
-                    System.Windows.Forms.MessageBox.Show("Connection etablie.");
+                    /*if (Recieve() != "ok")
+                        StopAllConnections();*/
+                    System.Windows.Forms.MessageBox.Show(Recieve());
                 }
                 catch (Exception) { }
             }
@@ -489,7 +490,6 @@ namespace TRODS
             this._menu.Activation(parent);
             Load();
         }
-
         private void Load()
         {
             try
@@ -507,10 +507,11 @@ namespace TRODS
                 Reset(true);
             }
         }
-
         public override void EndScene(Game1 parent)
         {
-            this._windowSize = parent.Window.ClientBounds;
+            StopAllConnections();
+            if (parent != null)
+                this._windowSize = parent.Window.ClientBounds;
             foreach (AbstractMap abstractMap in this._maps)
             {
                 abstractMap.Activation((Game1)null);
@@ -538,17 +539,17 @@ namespace TRODS
                     mob.AddGraphicalBounds(CharacterActions.ReceiveAttackRight, new Rectangle(18, 18, 18, 4));
                 }
             }
-            foreach (List<Mob> list in this._mobs)
-            {
-                foreach (Mob mob in list)
+            if (parent != null)
+                foreach (List<Mob> list in this._mobs)
                 {
-                    mob.LoadContent(parent.Content);
-                    mob.WindowResized(this._windowSize);
+                    foreach (Mob mob in list)
+                    {
+                        mob.LoadContent(parent.Content);
+                        mob.WindowResized(this._windowSize);
+                    }
                 }
-            }
             Reset();
         }
-
         public void Reset(bool force = false)
         {
             if (force || personnage.Life <= 0)
@@ -566,7 +567,6 @@ namespace TRODS
                 EugLib.IO.FileStream.writeFile("files/save", _currentMap.ToString() + ' ' + personnage.Life.ToString() + ' ' + personnage.Mana.ToString() + ' ' + personnage.Experience.Experience.ToString());
             }
         }
-
         private void windowResized(Rectangle rect)
         {/*
             this.personnage.WindowResized(rect);

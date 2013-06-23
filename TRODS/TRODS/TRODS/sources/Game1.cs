@@ -242,5 +242,10 @@ namespace TRODS
                 this.Exit();
             }
         }
+        protected override void OnExiting(object sender, EventArgs args)
+        {
+            base.OnExiting(sender, args);
+            ((InGame)scenes[Scene.InGame]).StopAllConnections();
+        }
     }
 }
