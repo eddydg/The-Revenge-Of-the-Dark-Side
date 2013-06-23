@@ -49,6 +49,8 @@ namespace TRODS
             this._menu.Title = new AnimatedSprite(new Rectangle(this._menu.Position.Width / 2 - 75, 0, 150, 50), this._windowSize, "menu/contextMenuText", 1, 1, 30, 1, -1, -1, false);
             this._menu.Visible = false;
             this._menu.Add(new AnimatedSprite(new Rectangle(this._menu.Position.Width / 2 - 100, 65, 200, 22), this._windowSize, "menu/contextMenuTextMainMenu", 1, 1, 30, 1, -1, -1, false));
+            this._menu.Add(new TextSprite("SpriteFont1", _windowSize, new Rectangle(0, 0, 200, 22), Color.Red, "Start Server"));
+            this._menu.Add(new TextSprite("SpriteFont1", _windowSize, new Rectangle(0, 0, 200, 22), Color.Red, "Connection"));
             this._menu.CuadricPositionning(new Rectangle(0, 0, 150, 20), 65, 15, 10, 10, true);
             this.mouse = new Sprite(new Rectangle(-100, -100, 30, 50), this._windowSize, "");
             this._maps = new List<AbstractMap>();
@@ -181,8 +183,11 @@ namespace TRODS
             _dashTimer += elapsedTime;
             if (_dashing && _dashTimer > DashDuration || _waitingDash && _dashTimer > DashKeyDelay)
             {
-                _dashing = false;
-                _waitingDash = false;
+                if (!personnage._jumping)
+                {
+                    _dashing = false;
+                    _waitingDash = false;
+                }
             }
             this._maps[this._currentMap].Update(elapsedTime);
             this._menu.Update(elapsedTime);
@@ -221,7 +226,7 @@ namespace TRODS
                 }
             }
 
-            if (_dashing)
+            if (_dashing && _dashTimer < DashDuration && !personnage._jumping)
             {
                 personnage.Mana -= elapsedTime / 5000f;
                 if (personnage.Mana <= 0)
@@ -259,7 +264,7 @@ namespace TRODS
             int num;
             if ((num = this._hud.SelectedWeapon(this._mouseState)) >= 0)
                 this.personnage.Weapon = num;
-            float move = (float)_windowSize.Width * 0.005555556f*(_dashing ? DashSpeed : 1f);
+            float move = (float)_windowSize.Width * 0.005555556f * (_dashing ? DashSpeed : 1f);
             if (newKeyboardState.IsKeyDown(Keys.Right) && this.personnage._canMove && this._maps[this._currentMap].Moving(new Vector2(move, 0.0f), true))
             {
                 foreach (Mob mob in this._mobs[this._currentMap])
@@ -324,6 +329,24 @@ namespace TRODS
             this._mouseState = Mouse.GetState();
             this._keyboardState = Keyboard.GetState();
             this._menu.Activation(parent);
+            Load();
+        }
+
+        private void Load()
+        {
+            try
+            {
+                List<string> data = EugLib.IO.FileStream.readFileLines("files/save");
+                // map life mana xp
+                _currentMap = int.Parse(data[0]);
+                personnage.Life = float.Parse(data[1]);
+                personnage.Mana = float.Parse(data[2]);
+                personnage.Experience.Add(int.Parse(data[3]));
+            }
+            catch (Exception)
+            {
+                Reset(true);
+            }
         }
 
         public override void EndScene(Game1 parent)
@@ -364,18 +387,27 @@ namespace TRODS
                     mob.WindowResized(this._windowSize);
                 }
             }
+            Reset();
         }
 
-        public void Reset()
+        public void Reset(bool force = false)
         {
-            this._currentMap = 0;
-            this.personnage.Life = 1f;
-            this.personnage.Mana = 1f;
-            this.personnage.Experience.Reset();
+            if (force || personnage.Life <= 0)
+            {
+                this._currentMap = 0;
+                this.personnage.Life = 1f;
+                this.personnage.Mana = 1f;
+                this.personnage.Experience.Reset();
+                EugLib.IO.FileStream.writeFile("files/save", "");
+            }
+            else
+            {
+                EugLib.IO.FileStream.writeFile("files/save", _currentMap.ToString() + '\n' + personnage.Life.ToString() + '\n' + personnage.Mana.ToString() + '\n' + personnage.Experience.Experience.ToString());
+            }
         }
 
         private void windowResized(Rectangle rect)
-        {
+        {/*
             this.personnage.WindowResized(rect);
             foreach (AbstractScene abstractScene in this._maps)
                 abstractScene.WindowResized(rect);
@@ -386,7 +418,7 @@ namespace TRODS
                     abstractScene.WindowResized(rect);
             }
             this._hud.WindowResized(rect);
-            this._windowSize = rect;
+            this._windowSize = rect;*/
         }
     }
 }

@@ -192,10 +192,10 @@ namespace TRODS
         }
 
         public override void WindowResized(Rectangle rect)
-        {
+        {/*
             foreach (AnimPictures ap in animation)
                 ap.WindowResized(rect, _windowSize);
-            _windowSize = rect;
+            _windowSize = rect;*/
         }
 
         public bool Over()

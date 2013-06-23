@@ -11,7 +11,7 @@ using Microsoft.Xna.Framework.Media;
 
 namespace TRODS
 {
-    class TextSprite : Sprite
+    class TextSprite : AnimatedSprite
     {
         protected SpriteFont _spriteFont;
         public SpriteFont SpriteFont
