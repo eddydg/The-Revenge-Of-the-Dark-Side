@@ -398,6 +398,8 @@ namespace TRODS
                 this.personnage.Life = 1f;
                 this.personnage.Mana = 1f;
                 this.personnage.Experience.Reset();
+                _hud.RemoveWeapon(1);
+                personnage.Weapon = 0;
                 EugLib.IO.FileStream.writeFile("files/save", "");
             }
             else

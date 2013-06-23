@@ -153,6 +153,15 @@ namespace TRODS
             this._weapons.Add(t);
         }
 
+        public void RemoveWeapon(int i)
+        {
+            try
+            {
+                _weapons.RemoveAt(i);
+            }
+            catch (Exception) { }
+        }
+
         public override void WindowResized(Rectangle rect)
         {
             this._background.windowResized(rect, new Rectangle());
