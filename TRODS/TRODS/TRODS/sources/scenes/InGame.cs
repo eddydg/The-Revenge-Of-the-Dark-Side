@@ -33,6 +33,7 @@ namespace TRODS
 
         private Personnage _players;
         private UdpClient _server;
+        private IPEndPoint _ipep;
         private Thread _thread;
 
         private bool _dashing, _waitingDash;
@@ -299,6 +300,7 @@ namespace TRODS
                 Connect();
             else if (this._menu.Choise == 3)
                 StopAllConnections();
+            _menu.Choise = ContextMenu.NONE;
             int num;
             if ((num = this._hud.SelectedWeapon(this._mouseState)) >= 0)
                 this.personnage.Weapon = num;
@@ -377,27 +379,50 @@ namespace TRODS
             List<string> serverInfo = new List<string>(EugLib.IO.FileStream.readFile("files/server").Split(':'));
             try
             {
-                if (_server != null)
-                    throw new Exception("Server bind.");
-            }
-            catch (Exception e)
-            {
-                System.Windows.Forms.MessageBox.Show("Erreur de serveur \n"+e.Message, "Error");
-                EugLib.IO.FileStream.toStdOut(e.ToString());
-                StopAllConnections();
-            }
-        }
-        private void Connect()
-        {
-            List<string> serverInfo = new List<string>(EugLib.IO.FileStream.readFile("files/server").Split(':'));
-            try
-            {
+                int port;
+                IPAddress ip;
+                if (_server == null && serverInfo.Count >= 2 && int.TryParse(serverInfo[1], out port) && IPAddress.TryParse(serverInfo[0], out ip))
+                {
+                    _server = new UdpClient(new IPEndPoint(IPAddress.Any, port));
+                    _ipep = new IPEndPoint(ip, port);
+                    ((TextSprite)_menu.Elements[1]).Color = Color.Green;
+                }
             }
             catch (Exception e)
             {
                 System.Windows.Forms.MessageBox.Show("Erreur de serveur \n" + e.Message, "Error");
                 EugLib.IO.FileStream.toStdOut(e.ToString());
                 StopAllConnections();
+            }
+        }
+        private void Connect()
+        {
+            try
+            {
+                if (_server != null)
+                {
+                    _server.Connect(_ipep);
+                    ((TextSprite)_menu.Elements[2]).Color = Color.Green;
+                }
+                else
+                    System.Windows.Forms.MessageBox.Show("Start server first.");
+            }
+            catch (Exception e)
+            {
+                System.Windows.Forms.MessageBox.Show("Erreur de serveur \n" + e.Message, "Error");
+                EugLib.IO.FileStream.toStdOut(e.ToString());
+                StopAllConnections();
+            }
+        }
+        private void update_serv()
+        {
+            while (true)
+            {
+                try
+                {
+
+                }
+                catch (Exception) { }
             }
         }
         public void StopAllConnections()
@@ -411,6 +436,8 @@ namespace TRODS
                     _thread.Abort();
                 _thread = null;
                 _players = null;
+                ((TextSprite)_menu.Elements[1]).Color = Color.Red;
+                ((TextSprite)_menu.Elements[2]).Color = Color.Red;
             }
             catch (Exception e)
             {
