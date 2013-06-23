@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.Xna.Framework;
@@ -403,6 +404,8 @@ namespace TRODS
                 {
                     _server.Connect(_ipep);
                     ((TextSprite)_menu.Elements[2]).Color = Color.Green;
+                    _thread = new Thread(update_serv);
+                    _thread.Start();
                 }
                 else
                     System.Windows.Forms.MessageBox.Show("Start server first.");
@@ -420,10 +423,22 @@ namespace TRODS
             {
                 try
                 {
-
+                    Send("ok");
+                    if (Recieve() != "ok")
+                        StopAllConnections();
+                    System.Windows.Forms.MessageBox.Show("Connection etablie.");
                 }
                 catch (Exception) { }
             }
+        }
+        private void Send(String s)
+        {
+            byte[] data = Encoding.ASCII.GetBytes(s);
+            _server.Send(data, data.Length);
+        }
+        private String Recieve()
+        {
+            return Encoding.ASCII.GetString(_server.Receive(ref _ipep));
         }
         public void StopAllConnections()
         {
