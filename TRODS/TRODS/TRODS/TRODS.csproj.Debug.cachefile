@@ -70,6 +70,7 @@ Content\animation\LateX\3.xnb
 Content\animation\LateX\4.xnb
 Content\animation\OpenEdge\2.xnb
 Content\animation\OpenEdge\1-0.xnb
+Content\animation\intro\4.xnb
 Content\menu\menuAmbience.xnb
 Content\menu\selectionSound.xnb
 Content\animation\intro\intro.xnb
@@ -78,7 +79,9 @@ Content\menu\songCredit.xnb
 Content\animation\LateX\1 (08).xnb
 Content\SpriteFont1.xnb
 Content\general\introduction_trods.xnb
-Content\animation\intro\4.xnb
+Content\map3\back.xnb
+Content\map3\chandelier_sprite.xnb
+Content\map3\ground.xnb
 Content\menu\menuAmbience.wma
 Content\animation\intro\intro.wma
 Content\animation\LateX\Transition.wma

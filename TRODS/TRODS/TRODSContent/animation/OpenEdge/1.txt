@@ -1,9 +1,5 @@
-Vous voila de retour sur OpenEdge.
-Spark est toujours le grand roi et
-n'apprecie pas du tout votre retour.
-Cette fois-ci, votre frere considere
-que vous avez gache votre seconde
-chance et compte bien en finir.    
-Preparez-vous a affronter son armee
-en tant qu'aperitif car Spark risque
-de ne faire qu'une bouchee de vous.
+Vous voila de retour sur OpenEdge. Spark est toujours le grand roi et
+n'apprecie pas du tout votre retour. Cette fois-ci, votre frere considere
+que vous avez gache votre seconde chance et compte bien en finir.    
+Preparez-vous a affronter son armee en tant qu'aperitif car Spark risque
+de ne faire qu'une bouchee de vous.                               

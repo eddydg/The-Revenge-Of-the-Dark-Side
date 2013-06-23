@@ -70,7 +70,30 @@ namespace TRODS
             abstractMap1.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(400, 450, 150, 150), this._windowSize, "game/heal_font_6x6", 6, 6, 30, 1, 32, 1, true), 1f, 0.5f, false, false, false, false, true));
             abstractMap1.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(5, 150, this._windowSize.Width / 2, this._windowSize.Height - 150), this._windowSize, "sprites/fireWall_11x6r23r44", 11, 6, 30, 23, 44, 1, true), 1f, 0.5f, false, false, false, true, false));
             abstractMap1.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(2550 + this._windowSize.Width / 2, 280, 320, 320), this._windowSize, "sprites/portal_6x6", 6, 6, 30, 1, 32, 1, true), 1f, 0.5f, false, false, true, true, false));
-            this._maps.Add(abstractMap1);
+
+            AbstractMap abstractMap3 = new AbstractMap(this._windowSize);
+            abstractMap3.AddVisitable(450, 450, 2800, 130);
+            abstractMap3.VuePosition = new Vector2(460f, 579f);
+            abstractMap3.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(0, 0, 1800, 600), windowSize, "map3/back", 1, 1, 30, 1, -1, -1, false), 0.8f, 0.2f, true, false, false, true, false));
+            abstractMap3.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(200, 50, 300, 233), windowSize, "map3/chandelier_sprite", 8, 4, 30, 1, 32, 1, true), 0.8f, 0.2f, false, true, false, true, false));
+            abstractMap3.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(800, 50, 300, 233), windowSize, "map3/chandelier_sprite", 8, 4, 30, 1, 32, 1, true), 0.8f, 0.2f, false, true, false, true, false));
+            abstractMap3.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(1400, 50, 300, 233), windowSize, "map3/chandelier_sprite", 8, 4, 30, 1, 32, 1, true), 0.8f, 0.2f, false, true, false, true, false));
+            abstractMap3.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(2000, 50, 300, 233), windowSize, "map3/chandelier_sprite", 8, 4, 30, 1, 32, 1, true), 0.8f, 0.2f, false, true, false, true, false));
+            abstractMap3.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(0, 500, 1042, 159), windowSize, "map3/ground", 1, 1, 30, 1, -1, -1, false), 0.8f, 0.2f, true, false, false, true, false));
+            abstractMap3.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(250, 280, 320, 320), this._windowSize, "sprites/portal_6x6", 6, 6, 30, 1, 32, 1, true), 0.8f, 0.2f, false, false, true, false, false));
+            abstractMap3.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(2550, 280, 320, 320), this._windowSize, "sprites/portal_6x6", 6, 6, 30, 1, 32, 1, true), 0.8f, 0.2f, false, false, true, true, false));
+
+            AbstractMap abstractMap4 = new AbstractMap(this._windowSize);
+            abstractMap4.AddVisitable(450, 450, 2000, 130);
+            abstractMap4.VuePosition = new Vector2(460f, 579f);
+            abstractMap4.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(0, 0, 1800, 600), windowSize, "map3/back", 1, 1, 30, 1, -1, -1, false), 0.8f, 0.2f, true, false, false, true, false));
+            abstractMap4.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(200, 50, 300, 233), windowSize, "map3/chandelier_sprite", 8, 4, 30, 1, 32, 1, true), 0.8f, 0.2f, false, true, false, true, false));
+            abstractMap4.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(800, 50, 300, 233), windowSize, "map3/chandelier_sprite", 8, 4, 30, 1, 32, 1, true), 0.8f, 0.2f, false, true, false, true, false));
+            abstractMap4.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(1400, 50, 300, 233), windowSize, "map3/chandelier_sprite", 8, 4, 30, 1, 32, 1, true), 0.8f, 0.2f, false, true, false, true, false));
+            abstractMap4.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(0, 500, 1042, 159), windowSize, "map3/ground", 1, 1, 30, 1, -1, -1, false), 0.8f, 0.2f, true, false, false, true, false));
+            abstractMap4.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(250, 280, 320, 320), this._windowSize, "sprites/portal_6x6", 6, 6, 30, 1, 32, 1, true), 0.8f, 0.2f, false, false, true, false, false));
+            abstractMap4.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(1750, 280, 320, 320), this._windowSize, "sprites/portal_6x6", 6, 6, 30, 1, 32, 1, true), 0.8f, 0.2f, false, false, true, true, false));
+
             AbstractMap abstractMap2 = new AbstractMap(this._windowSize);
             abstractMap2.AddVisitable(450, 450, 2800, 130);
             abstractMap2.VuePosition = new Vector2(460f, 579f);
@@ -80,18 +103,20 @@ namespace TRODS
             abstractMap2.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(0, 515, 1066, 92), windowSize, "map2/rock", 1, 1, 30, 1, -1, -1, false), 1f, 0.5f, true, true, false, true, false));
             abstractMap2.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(250, 280, 320, 320), this._windowSize, "sprites/portal_6x6", 6, 6, 30, 1, 32, 1, true), 1f, 0.5f, false, false, true, false, false));
             abstractMap2.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(2800 + this._windowSize.Width / 2, 150, this._windowSize.Width / 2, this._windowSize.Height - 150), this._windowSize, "sprites/fireWall_11x6r23r44", 11, 6, 30, 23, 44, 1, true), 1f, 0.5f, false, false, false, true, false));
+
+            this._maps.Add(abstractMap1);
+            this._maps.Add(abstractMap3);
+            this._maps.Add(abstractMap4);
             this._maps.Add(abstractMap2);
             this._currentMap = 0;
             this.personnage = new Personnage(this._windowSize, abstractMap2.VuePosition);
             this._mobsTextures = new List<Texture2D>();
             this._mobs = new List<List<Mob>>();
             this.rand = new Random();
-            this._mobs.Add(new List<Mob>());
-            this._mobs.Add(new List<Mob>());
-            for (int index = 0; index < 25; ++index)
-                this._mobs[0].Add(new Mob(this._windowSize, this.rand.Next(), new Vector2(1000f, 580f), 100, 200, "game/blitz", 5, 4, new Vector2(3f, 3f), new Vector2(1f, 0.5f), 300, 50, new Rectangle(900, 500, 2000, 80)));
-            for (int index = 0; index < 40; ++index)
-                this._mobs[1].Add(new Mob(this._windowSize, this.rand.Next(), new Vector2(1000f, 580f), 100, 200, "game/blitz", 5, 4, new Vector2(3f, 3f), new Vector2(1f, 0.5f), 300, 50, new Rectangle(900, 485, 2000, 100)));
+            for (int i = 0; i < _maps.Count; i++)
+            {
+                this._mobs.Add(new List<Mob>());
+            }
             foreach (List<Mob> list in this._mobs)
             {
                 foreach (Mob mob in list)
@@ -431,10 +456,19 @@ namespace TRODS
                 switch (_currentMap)
                 {
                     case 0:
-                        parent.SwitchScene(Scene.IntroLateX);
+                        parent.SwitchScene(Scene.IntroLateX);//Combat contre toutes les créatures de LateX(map verte)
                         break;
                     case 1:
-                        parent.SwitchScene(Scene.LateXEradicated);
+                        parent.SwitchScene(Scene.LateXEradicated);//combat contre l'armée du roi de LateX(map chateau)
+                        break;
+                    case 2:
+                        parent.SwitchScene(Scene.BeforeKingFight);//combat contre roi de LateX (armée éradiquée)(re map chateau)
+                        break;
+                    case 3:
+                        parent.SwitchScene(Scene.AfterKingFight);//retour sur OpenEdge + combat armée(map dark)
+                        break;
+                    case 4:
+                        parent.SwitchScene(Scene.LastFight);//combat contre Spark(re map dark sauf si on a le temps d'en faire une autre)
                         break;
                 }
             }
