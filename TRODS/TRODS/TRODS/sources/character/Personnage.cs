@@ -75,10 +75,10 @@ namespace TRODS
             this.AddAttack(CharacterActions.Attack1Left, new Attack(this._windowSize, new AnimatedSprite(new Rectangle(0, 0, 10, 10), this._windowSize, "general/vide", 1, 1, 30, 1, -1, -1, false), 50, 0.1f, 280, 300, 0.05f));
             AnimatedSprite a = new AnimatedSprite(new Rectangle(0, 0, 100, 100), this._windowSize, "sprites/distant_attack_5x7", 5, 7, 30, 1, 35, 1, false);
             a.Direction = new Vector2(-2, 1); a.Vitesse = 0.15f;
-            this.AddAttack(CharacterActions.Attack2Left, new Attack(this._windowSize, a, 1500, 0.05f, 200, 1200, 0.5f));
+            this.AddAttack(CharacterActions.Attack2Left, new Attack(this._windowSize, a, 2000, 0.05f, 1000, 1000, 0.5f));
             a = new AnimatedSprite(new Rectangle(0, 0, 100, 100), this._windowSize, "sprites/distant_attack_5x7", 5, 7, 30, 1, 35, 1, false);
             a.Direction = new Vector2(2, 1); a.Vitesse = 0.15f;
-            this.AddAttack(CharacterActions.Attack2Right, new Attack(this._windowSize, a, 1500, 0.05f, 200, 1200, 0.5f));
+            this.AddAttack(CharacterActions.Attack2Right, new Attack(this._windowSize, a, 2000, 0.05f, 1000, 1000, 0.5f));
         }
 
         public override void Update(float elapsedTime)
@@ -173,6 +173,11 @@ namespace TRODS
         new Tip(this._windowSize, new Rectangle(70, this._windowSize.Height - 50, 40, 40), "game/tips/stun_tip", "SpriteFont1", ((object) this._inputManager.Get(Personnage.KeysActions.AttackStun)).ToString(), Color.Gold),
         new Tip(this._windowSize, new Rectangle(120, this._windowSize.Height - 50, 40, 40), "game/tips/distant_attack_tip", "SpriteFont1", ((object) this._inputManager.Get(Personnage.KeysActions.Attack2)).ToString(), Color.Gold)
       };
+        }
+
+        public float Damage()
+        {
+            return _weapons[Weapon].Damage * (Experience.Level > 10 ? (float)Experience.Level / 10f : 1);
         }
     }
 }

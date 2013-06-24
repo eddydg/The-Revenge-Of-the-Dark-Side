@@ -1,98 +1,108 @@
 
-Erreur d'affichage :
-System.ArgumentException: The character '�' (0xfffd) is not available in this SpriteFont. If applicable, adjust the font's start and end CharacterRegions to include this character.
-Nom du paramètre : character
-   à Microsoft.Xna.Framework.Graphics.SpriteFont.GetIndexForCharacter(Char character)
-   à Microsoft.Xna.Framework.Graphics.SpriteFont.InternalMeasure(StringProxy& text)
-   à Microsoft.Xna.Framework.Graphics.SpriteFont.MeasureString(String text)
-   à TRODS.TextSprite.Draw(SpriteBatch spriteBatch, Byte alpha) dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\graphics\TextSprite.cs:ligne 111
-   à TRODS.MultipleTextSprite.Draw(SpriteBatch spriteBatch, Byte alpha) dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\graphics\MultipleTextSprite.cs:ligne 52
-   à TRODS.Animation.AnimPictures.Draw(SpriteBatch spriteBatch) dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\graphics\Animation.cs:ligne 97
-   à TRODS.Animation.Draw(SpriteBatch spriteBatch) dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\graphics\Animation.cs:ligne 169
-   à TRODS.Game1.Draw(GameTime gameTime) dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\Game1.cs:ligne 168
-Erreur d'affichage :
-System.ArgumentException: The character '�' (0xfffd) is not available in this SpriteFont. If applicable, adjust the font's start and end CharacterRegions to include this character.
-Nom du paramètre : character
-   à Microsoft.Xna.Framework.Graphics.SpriteFont.GetIndexForCharacter(Char character)
-   à Microsoft.Xna.Framework.Graphics.SpriteFont.InternalMeasure(StringProxy& text)
-   à Microsoft.Xna.Framework.Graphics.SpriteFont.MeasureString(String text)
-   à TRODS.TextSprite.Draw(SpriteBatch spriteBatch, Byte alpha) dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\graphics\TextSprite.cs:ligne 111
-   à TRODS.MultipleTextSprite.Draw(SpriteBatch spriteBatch, Byte alpha) dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\graphics\MultipleTextSprite.cs:ligne 52
-   à TRODS.Animation.AnimPictures.Draw(SpriteBatch spriteBatch) dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\graphics\Animation.cs:ligne 97
-   à TRODS.Animation.Draw(SpriteBatch spriteBatch) dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\graphics\Animation.cs:ligne 169
-   à TRODS.Game1.Draw(GameTime gameTime) dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\Game1.cs:ligne 168
-Erreur d'affichage :
-System.ArgumentException: The character '�' (0xfffd) is not available in this SpriteFont. If applicable, adjust the font's start and end CharacterRegions to include this character.
-Nom du paramètre : character
-   à Microsoft.Xna.Framework.Graphics.SpriteFont.GetIndexForCharacter(Char character)
-   à Microsoft.Xna.Framework.Graphics.SpriteFont.InternalMeasure(StringProxy& text)
-   à Microsoft.Xna.Framework.Graphics.SpriteFont.MeasureString(String text)
-   à TRODS.TextSprite.Draw(SpriteBatch spriteBatch, Byte alpha) dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\graphics\TextSprite.cs:ligne 111
-   à TRODS.MultipleTextSprite.Draw(SpriteBatch spriteBatch, Byte alpha) dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\graphics\MultipleTextSprite.cs:ligne 52
-   à TRODS.Animation.AnimPictures.Draw(SpriteBatch spriteBatch) dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\graphics\Animation.cs:ligne 97
-   à TRODS.Animation.Draw(SpriteBatch spriteBatch) dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\graphics\Animation.cs:ligne 169
-   à TRODS.Game1.Draw(GameTime gameTime) dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\Game1.cs:ligne 168
-Loading ressources error.
-System.DivideByZeroException: Tentative de division par zéro.
-   à TRODS.MultipleTextSprite.SetLayout(Layout layout) dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\graphics\MultipleTextSprite.cs:ligne 96
-   à TRODS.MultipleTextSprite.LoadContent(ContentManager content) dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\graphics\MultipleTextSprite.cs:ligne 37
-   à TRODS.Animation.LoadContent(ContentManager content) dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\graphics\Animation.cs:ligne 145
-   à TRODS.Game1.LoadContent() dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\Game1.cs:ligne 124
-System.Collections.Generic.KeyNotFoundException: La clé donnée était absente du dictionnaire.
-   à System.Collections.Generic.Dictionary`2.get_Item(TKey key)
-   à TRODS.Son.Play(Musiques m) dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\tools\Son.cs:ligne 105
-Loading ressources error.
-System.DivideByZeroException: Tentative de division par zéro.
-   à TRODS.MultipleTextSprite.SetLayout(Layout layout) dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\graphics\MultipleTextSprite.cs:ligne 96
-   à TRODS.MultipleTextSprite.LoadContent(ContentManager content) dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\graphics\MultipleTextSprite.cs:ligne 37
-   à TRODS.Animation.LoadContent(ContentManager content) dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\graphics\Animation.cs:ligne 145
-   à TRODS.Game1.LoadContent() dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\Game1.cs:ligne 124
-System.Collections.Generic.KeyNotFoundException: La clé donnée était absente du dictionnaire.
-   à System.Collections.Generic.Dictionary`2.get_Item(TKey key)
-   à TRODS.Son.Play(Musiques m) dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\tools\Son.cs:ligne 105
-Loading ressources error.
-System.DivideByZeroException: Tentative de division par zéro.
-   à TRODS.MultipleTextSprite.SetLayout(Layout layout) dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\graphics\MultipleTextSprite.cs:ligne 96
-   à TRODS.MultipleTextSprite.LoadContent(ContentManager content) dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\graphics\MultipleTextSprite.cs:ligne 37
-   à TRODS.Animation.LoadContent(ContentManager content) dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\graphics\Animation.cs:ligne 145
-   à TRODS.Game1.LoadContent() dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\Game1.cs:ligne 124
-Erreur d'affichage :
-System.ArgumentException: The character '	' (0x0009) is not available in this SpriteFont. If applicable, adjust the font's start and end CharacterRegions to include this character.
-Nom du paramètre : character
-   à Microsoft.Xna.Framework.Graphics.SpriteFont.GetIndexForCharacter(Char character)
-   à Microsoft.Xna.Framework.Graphics.SpriteFont.InternalMeasure(StringProxy& text)
-   à Microsoft.Xna.Framework.Graphics.SpriteFont.MeasureString(String text)
-   à TRODS.TextSprite.Draw(SpriteBatch spriteBatch) dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\graphics\TextSprite.cs:ligne 74
-   à TRODS.MultipleTextSprite.Draw(SpriteBatch spriteBatch) dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\graphics\MultipleTextSprite.cs:ligne 42
-   à TRODS.SceneCredit.Draw(SpriteBatch spriteBatch) dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\scenes\SceneCredit.cs:ligne 58
-   à TRODS.Game1.Draw(GameTime gameTime) dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\Game1.cs:ligne 216
-Erreur d'affichage :
-System.ArgumentException: The character '	' (0x0009) is not available in this SpriteFont. If applicable, adjust the font's start and end CharacterRegions to include this character.
-Nom du paramètre : character
-   à Microsoft.Xna.Framework.Graphics.SpriteFont.GetIndexForCharacter(Char character)
-   à Microsoft.Xna.Framework.Graphics.SpriteFont.InternalMeasure(StringProxy& text)
-   à Microsoft.Xna.Framework.Graphics.SpriteFont.MeasureString(String text)
-   à TRODS.TextSprite.Draw(SpriteBatch spriteBatch) dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\graphics\TextSprite.cs:ligne 74
-   à TRODS.MultipleTextSprite.Draw(SpriteBatch spriteBatch) dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\graphics\MultipleTextSprite.cs:ligne 42
-   à TRODS.SceneCredit.Draw(SpriteBatch spriteBatch) dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\scenes\SceneCredit.cs:ligne 58
-   à TRODS.Game1.Draw(GameTime gameTime) dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\Game1.cs:ligne 216
-Erreur d'affichage :
-System.ArgumentException: The character '	' (0x0009) is not available in this SpriteFont. If applicable, adjust the font's start and end CharacterRegions to include this character.
-Nom du paramètre : character
-   à Microsoft.Xna.Framework.Graphics.SpriteFont.GetIndexForCharacter(Char character)
-   à Microsoft.Xna.Framework.Graphics.SpriteFont.InternalMeasure(StringProxy& text)
-   à Microsoft.Xna.Framework.Graphics.SpriteFont.MeasureString(String text)
-   à TRODS.TextSprite.Draw(SpriteBatch spriteBatch) dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\graphics\TextSprite.cs:ligne 74
-   à TRODS.MultipleTextSprite.Draw(SpriteBatch spriteBatch) dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\graphics\MultipleTextSprite.cs:ligne 42
-   à TRODS.SceneCredit.Draw(SpriteBatch spriteBatch) dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\scenes\SceneCredit.cs:ligne 58
-   à TRODS.Game1.Draw(GameTime gameTime) dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\Game1.cs:ligne 216
-Erreur d'affichage :
-System.ArgumentException: The character '	' (0x0009) is not available in this SpriteFont. If applicable, adjust the font's start and end CharacterRegions to include this character.
-Nom du paramètre : character
-   à Microsoft.Xna.Framework.Graphics.SpriteFont.GetIndexForCharacter(Char character)
-   à Microsoft.Xna.Framework.Graphics.SpriteFont.InternalMeasure(StringProxy& text)
-   à Microsoft.Xna.Framework.Graphics.SpriteFont.MeasureString(String text)
-   à TRODS.TextSprite.Draw(SpriteBatch spriteBatch) dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\graphics\TextSprite.cs:ligne 74
-   à TRODS.MultipleTextSprite.Draw(SpriteBatch spriteBatch) dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\graphics\MultipleTextSprite.cs:ligne 42
-   à TRODS.SceneCredit.Draw(SpriteBatch spriteBatch) dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\scenes\SceneCredit.cs:ligne 58
-   à TRODS.Game1.Draw(GameTime gameTime) dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\Game1.cs:ligne 216
+System.NullReferenceException: La référence d'objet n'est pas définie à une instance d'un objet.
+   à TRODS.InGame.StopAllConnections() dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\scenes\InGame.cs:ligne 486
+System.NullReferenceException: La référence d'objet n'est pas définie à une instance d'un objet.
+   à TRODS.InGame.StopAllConnections() dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\scenes\InGame.cs:ligne 499
+System.Threading.ThreadAbortException: Le thread a été abandonné.
+   à System.Net.UnsafeNclNativeMethods.OSSOCK.recvfrom(IntPtr socketHandle, Byte* pinnedBuffer, Int32 len, SocketFlags socketFlags, Byte[] socketAddress, Int32& socketAddressSize)
+   à System.Net.Sockets.Socket.ReceiveFrom(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags, EndPoint& remoteEP)
+   à System.Net.Sockets.UdpClient.Receive(IPEndPoint& remoteEP)
+   à TRODS.InGame.Recieve() dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\scenes\InGame.cs:ligne 480
+   à TRODS.InGame.Connect() dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\scenes\InGame.cs:ligne 421
+System.Threading.ThreadAbortException: Le thread a été abandonné.
+   à System.Net.UnsafeNclNativeMethods.OSSOCK.recvfrom(IntPtr socketHandle, Byte* pinnedBuffer, Int32 len, SocketFlags socketFlags, Byte[] socketAddress, Int32& socketAddressSize)
+   à System.Net.Sockets.Socket.ReceiveFrom(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags, EndPoint& remoteEP)
+   à System.Net.Sockets.UdpClient.Receive(IPEndPoint& remoteEP)
+   à TRODS.InGame.Recieve() dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\scenes\InGame.cs:ligne 480
+   à TRODS.InGame.Connect() dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\scenes\InGame.cs:ligne 421
+System.Threading.ThreadAbortException: Le thread a été abandonné.
+   à System.Net.UnsafeNclNativeMethods.OSSOCK.recvfrom(IntPtr socketHandle, Byte* pinnedBuffer, Int32 len, SocketFlags socketFlags, Byte[] socketAddress, Int32& socketAddressSize)
+   à System.Net.Sockets.Socket.ReceiveFrom(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags, EndPoint& remoteEP)
+   à System.Net.Sockets.UdpClient.Receive(IPEndPoint& remoteEP)
+   à TRODS.InGame.Recieve() dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\scenes\InGame.cs:ligne 480
+   à TRODS.InGame.Connect() dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\scenes\InGame.cs:ligne 421
+System.Threading.ThreadAbortException: Le thread a été abandonné.
+   à System.Net.UnsafeNclNativeMethods.OSSOCK.recvfrom(IntPtr socketHandle, Byte* pinnedBuffer, Int32 len, SocketFlags socketFlags, Byte[] socketAddress, Int32& socketAddressSize)
+   à System.Net.Sockets.Socket.ReceiveFrom(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags, EndPoint& remoteEP)
+   à System.Net.Sockets.UdpClient.Receive(IPEndPoint& remoteEP)
+   à TRODS.InGame.Recieve() dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\scenes\InGame.cs:ligne 480
+   à TRODS.InGame.Connect() dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\scenes\InGame.cs:ligne 421
+System.Threading.ThreadAbortException: Le thread a été abandonné.
+   à System.Net.UnsafeNclNativeMethods.OSSOCK.recvfrom(IntPtr socketHandle, Byte* pinnedBuffer, Int32 len, SocketFlags socketFlags, Byte[] socketAddress, Int32& socketAddressSize)
+   à System.Net.Sockets.Socket.ReceiveFrom(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags, EndPoint& remoteEP)
+   à System.Net.Sockets.UdpClient.Receive(IPEndPoint& remoteEP)
+   à TRODS.InGame.Recieve() dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\scenes\InGame.cs:ligne 480
+   à TRODS.InGame.Connect() dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\scenes\InGame.cs:ligne 421
+System.NullReferenceException: La référence d'objet n'est pas définie à une instance d'un objet.
+   à TRODS.InGame.StopAllConnections() dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\scenes\InGame.cs:ligne 499
+System.Net.Sockets.SocketException (0x80004005): La connexion a été interrompue en raison d’un maintien d’activité ayant détecté un échec lorsque l’opération était en cours
+   à System.Net.Sockets.Socket.ReceiveFrom(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags, EndPoint& remoteEP)
+   à System.Net.Sockets.UdpClient.Receive(IPEndPoint& remoteEP)
+   à TRODS.InGame.Recieve() dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\scenes\InGame.cs:ligne 480
+   à TRODS.InGame.Connect() dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\scenes\InGame.cs:ligne 428
+System.Threading.ThreadAbortException: Le thread a été abandonné.
+   à System.Threading.Thread.AbortInternal()
+   à System.Threading.Thread.Abort()
+   à TRODS.InGame.StopAllConnections() dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\scenes\InGame.cs:ligne 496
+System.Threading.ThreadAbortException: Le thread a été abandonné.
+   à System.Net.UnsafeNclNativeMethods.OSSOCK.recvfrom(IntPtr socketHandle, Byte* pinnedBuffer, Int32 len, SocketFlags socketFlags, Byte[] socketAddress, Int32& socketAddressSize)
+   à System.Net.Sockets.Socket.ReceiveFrom(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags, EndPoint& remoteEP)
+   à System.Net.Sockets.UdpClient.Receive(IPEndPoint& remoteEP)
+   à TRODS.InGame.Recieve() dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\scenes\InGame.cs:ligne 480
+   à TRODS.InGame.Connect() dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\scenes\InGame.cs:ligne 421
+System.Threading.ThreadAbortException: Le thread a été abandonné.
+   à System.Net.UnsafeNclNativeMethods.OSSOCK.recvfrom(IntPtr socketHandle, Byte* pinnedBuffer, Int32 len, SocketFlags socketFlags, Byte[] socketAddress, Int32& socketAddressSize)
+   à System.Net.Sockets.Socket.ReceiveFrom(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags, EndPoint& remoteEP)
+   à System.Net.Sockets.UdpClient.Receive(IPEndPoint& remoteEP)
+   à TRODS.InGame.Recieve() dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\scenes\InGame.cs:ligne 480
+   à TRODS.InGame.Connect() dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\scenes\InGame.cs:ligne 421
+System.Threading.ThreadAbortException: Le thread a été abandonné.
+   à System.Net.UnsafeNclNativeMethods.OSSOCK.recvfrom(IntPtr socketHandle, Byte* pinnedBuffer, Int32 len, SocketFlags socketFlags, Byte[] socketAddress, Int32& socketAddressSize)
+   à System.Net.Sockets.Socket.ReceiveFrom(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags, EndPoint& remoteEP)
+   à System.Net.Sockets.UdpClient.Receive(IPEndPoint& remoteEP)
+   à TRODS.InGame.Recieve() dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\scenes\InGame.cs:ligne 480
+   à TRODS.InGame.Connect() dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\scenes\InGame.cs:ligne 421
+System.NullReferenceException: La référence d'objet n'est pas définie à une instance d'un objet.
+   à TRODS.InGame.StopAllConnections() dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\scenes\InGame.cs:ligne 505
+System.Threading.ThreadAbortException: Le thread a été abandonné.
+   à Microsoft.Win32.SafeNativeMethods.FormatMessage(Int32 dwFlags, HandleRef lpSource, Int32 dwMessageId, Int32 dwLanguageId, StringBuilder lpBuffer, Int32 nSize, IntPtr arguments)
+   à System.ComponentModel.Win32Exception.GetErrorMessage(Int32 error)
+   à System.Net.Sockets.Socket.ReceiveFrom(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags, EndPoint& remoteEP)
+   à System.Net.Sockets.UdpClient.Receive(IPEndPoint& remoteEP)
+   à TRODS.InGame.Recieve() dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\scenes\InGame.cs:ligne 486
+   à TRODS.InGame.WaitConnection() dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\scenes\InGame.cs:ligne 447
+   à TRODS.InGame.Connect() dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\scenes\InGame.cs:ligne 419
+System.Threading.ThreadAbortException: Le thread a été abandonné.
+   à System.Net.UnsafeNclNativeMethods.OSSOCK.recvfrom(IntPtr socketHandle, Byte* pinnedBuffer, Int32 len, SocketFlags socketFlags, Byte[] socketAddress, Int32& socketAddressSize)
+   à System.Net.Sockets.Socket.ReceiveFrom(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags, EndPoint& remoteEP)
+   à System.Net.Sockets.UdpClient.Receive(IPEndPoint& remoteEP)
+   à TRODS.InGame.Recieve() dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\scenes\InGame.cs:ligne 486
+   à TRODS.InGame.WaitConnection() dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\scenes\InGame.cs:ligne 447
+   à TRODS.InGame.Connect() dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\scenes\InGame.cs:ligne 419
+System.NullReferenceException: La référence d'objet n'est pas définie à une instance d'un objet.
+   à TRODS.InGame.StopAllConnections() dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\scenes\InGame.cs:ligne 505
+System.NullReferenceException: La référence d'objet n'est pas définie à une instance d'un objet.
+   à TRODS.InGame.StopAllConnections() dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\scenes\InGame.cs:ligne 504
+System.Threading.ThreadAbortException: Le thread a été abandonné.
+   à System.Net.UnsafeNclNativeMethods.OSSOCK.recvfrom(IntPtr socketHandle, Byte* pinnedBuffer, Int32 len, SocketFlags socketFlags, Byte[] socketAddress, Int32& socketAddressSize)
+   à System.Net.Sockets.Socket.ReceiveFrom(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags, EndPoint& remoteEP)
+   à System.Net.Sockets.UdpClient.Receive(IPEndPoint& remoteEP)
+   à TRODS.InGame.Recieve() dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\scenes\InGame.cs:ligne 485
+   à TRODS.InGame.WaitConnection() dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\scenes\InGame.cs:ligne 446
+   à TRODS.InGame.Connect() dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\scenes\InGame.cs:ligne 419
+System.Threading.ThreadAbortException: Le thread a été abandonné.
+   à System.Net.UnsafeNclNativeMethods.OSSOCK.recvfrom(IntPtr socketHandle, Byte* pinnedBuffer, Int32 len, SocketFlags socketFlags, Byte[] socketAddress, Int32& socketAddressSize)
+   à System.Net.Sockets.Socket.ReceiveFrom(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags, EndPoint& remoteEP)
+   à System.Net.Sockets.UdpClient.Receive(IPEndPoint& remoteEP)
+   à TRODS.InGame.Recieve() dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\scenes\InGame.cs:ligne 485
+   à TRODS.InGame.WaitConnection() dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\scenes\InGame.cs:ligne 446
+   à TRODS.InGame.Connect() dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\scenes\InGame.cs:ligne 419
+System.Threading.ThreadAbortException: Le thread a été abandonné.
+   à System.ComponentModel.Win32Exception.GetErrorMessage(Int32 error)
+   à System.Net.Sockets.Socket.ReceiveFrom(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags, EndPoint& remoteEP)
+   à System.Net.Sockets.UdpClient.Receive(IPEndPoint& remoteEP)
+   à TRODS.InGame.Recieve() dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\scenes\InGame.cs:ligne 485
+   à TRODS.InGame.WaitConnection() dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\scenes\InGame.cs:ligne 453
+   à TRODS.InGame.Connect() dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\scenes\InGame.cs:ligne 419
+System.NullReferenceException: La référence d'objet n'est pas définie à une instance d'un objet.
+   à TRODS.InGame.StopAllConnections() dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\scenes\InGame.cs:ligne 484

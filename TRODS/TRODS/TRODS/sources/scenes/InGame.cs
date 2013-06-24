@@ -35,7 +35,10 @@ namespace TRODS
         private Personnage _players;
         private UdpClient _server;
         private IPEndPoint _ipep;
-        private Thread _thread;
+        private Thread _thread_serv;
+        private Thread _thread_client;
+        private Thread _temp_thread;
+        private bool _isServer;
 
         private bool _dashing, _waitingDash;
         private float _dashTimer;
@@ -45,9 +48,7 @@ namespace TRODS
 
         public InGame(Rectangle windowSize, KeyboardState keyboardState, MouseState mouseState)
         {
-            _players = null;
-            _server = null;
-            _thread = null;
+            StopAllConnections();
             _animDone = false;
             this._windowSize = windowSize;
             _dashing = _waitingDash = false;
@@ -219,7 +220,7 @@ namespace TRODS
             _dashTimer += elapsedTime;
             if (_dashing && _dashTimer > DashDuration || _waitingDash && _dashTimer > DashKeyDelay)
             {
-                if (!personnage._jumping)
+                if (personnage._jumpHeight <= 0)
                 {
                     _dashing = false;
                     _waitingDash = false;
@@ -242,14 +243,14 @@ namespace TRODS
             for (int index = 0; index < this._mobs[this._currentMap].Count; ++index)
             {
                 if (this.personnage.Attacks.ContainsKey(this.personnage.Action) && this.personnage.Attacks[this.personnage.Action].Position.Intersects(this._mobs[this._currentMap][index].DrawingRectangle) && this.personnage.Attacks[this.personnage.Action].Active)
-                    this._mobs[this._currentMap][index].ReceiveAttack(this.personnage.Attacks[this.personnage.Action].Damage * this.personnage.Weapons[this.personnage.Weapon].Damage, this.personnage.Attacks[this.personnage.Action].BlockTime);
+                    this._mobs[this._currentMap][index].ReceiveAttack(this.personnage.Attacks[this.personnage.Action].Damage * this.personnage.Damage(), this.personnage.Attacks[this.personnage.Action].BlockTime);
                 if ((double)this._mobs[this._currentMap][index].Life <= 0.0)
                 {
                     int level = this.personnage.Experience.Level;
                     this._mobs[this._currentMap].RemoveAt(index);
                     --index;
                     this.personnage.Experience.Add(50);
-                    if (level < this.personnage.Experience.Level && level == 9 && this.personnage.Weapons.Count >= 2)
+                    if (level < this.personnage.Experience.Level && level == 13 && this.personnage.Weapons.Count >= 2)
                         this._hud.AddWeapon(this.personnage.Weapons[1].Tip);
                 }
             }
@@ -299,7 +300,7 @@ namespace TRODS
             else if (this._menu.Choise == 1)
                 StartServer();
             else if (this._menu.Choise == 2)
-                Connect();
+                Connection();
             else if (this._menu.Choise == 3)
                 StopAllConnections();
             _menu.Choise = ContextMenu.NONE;
@@ -388,6 +389,9 @@ namespace TRODS
                     _server = new UdpClient(new IPEndPoint(IPAddress.Any, port));
                     _ipep = new IPEndPoint(ip, port);
                     ((TextSprite)_menu.Elements[1]).Color = Color.Green;
+                    _isServer = System.Windows.Forms.MessageBox.Show((INFO.ENG ? "Do you want to start a server ?" : "Voulez-vous creer un serveur ?"), "Server / Client", System.Windows.Forms.MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes;
+                    if (_isServer)
+                        Connection();
                 }
             }
             catch (Exception e)
@@ -396,6 +400,13 @@ namespace TRODS
                 EugLib.IO.FileStream.toStdOut(e.ToString());
                 StopAllConnections();
             }
+        }
+        private void Connection()
+        {
+            if (_temp_thread != null)
+                _temp_thread.Abort();
+            _temp_thread = new Thread(Connect);
+            _temp_thread.Start();
         }
         private void Connect()
         {
@@ -404,33 +415,45 @@ namespace TRODS
                 if (_server != null)
                 {
                     _server.Connect(_ipep);
-                    ((TextSprite)_menu.Elements[2]).Color = Color.Green;
-                    _thread = new Thread(update_serv);
-                    _thread.Start();
+                    bool connected = false;
+                    connected = WaitConnection();
+                    if (connected)
+                    {
+                        ((TextSprite)_menu.Elements[2]).Color = Color.Green;
+                        _thread_serv = new Thread(update_serv);
+                        _thread_serv.Start();
+                        _thread_client = new Thread(update_client);
+                        _thread_client.Start();
+                        System.Windows.Forms.MessageBox.Show(INFO.ENG ? "Connection established." : "Connexion etablie.");
+                    }
+                    else
+                        System.Windows.Forms.MessageBox.Show(INFO.ENG ? "Fail establishing connection." : "Echec de la connexion.");
                 }
                 else
-                    System.Windows.Forms.MessageBox.Show("Start server first.");
+                    System.Windows.Forms.MessageBox.Show(INFO.ENG?"Start network first.":"Demarrez le reseau d'abord.");
             }
             catch (Exception e)
             {
-                System.Windows.Forms.MessageBox.Show("Erreur de serveur \n" + e.Message, "Error");
                 EugLib.IO.FileStream.toStdOut(e.ToString());
                 StopAllConnections();
             }
         }
-        private void update_serv()
+        private bool WaitConnection()
         {
-            while (true)
+            bool connected = false;
+            if (_isServer)
             {
-                try
-                {
-                    Send("ok");
-                    /*if (Recieve() != "ok")
-                        StopAllConnections();*/
-                    System.Windows.Forms.MessageBox.Show(Recieve());
-                }
-                catch (Exception) { }
+                if (Recieve() == "cln")
+                    connected = true;
+                Send("srv");
             }
+            else
+            {
+                Send("cln");
+                if (Recieve() == "srv")
+                    connected = true;
+            }
+            return connected;
         }
         private void Send(String s)
         {
@@ -448,9 +471,15 @@ namespace TRODS
                 if (_server != null)
                     _server.Close();
                 _server = null;
-                if (_thread != null)
-                    _thread.Abort();
-                _thread = null;
+                if (_thread_serv != null)
+                    _thread_serv.Abort();
+                _thread_serv = null;
+                if (_thread_client != null)
+                    _thread_client.Abort();
+                _thread_client = null;
+                if (_temp_thread != null)
+                    _temp_thread.Abort();
+                _temp_thread = null;
                 _players = null;
                 ((TextSprite)_menu.Elements[1]).Color = Color.Red;
                 ((TextSprite)_menu.Elements[2]).Color = Color.Red;
@@ -458,6 +487,26 @@ namespace TRODS
             catch (Exception e)
             {
                 EugLib.IO.FileStream.toStdOut(e.ToString());
+            }
+        }
+        private void update_serv()
+        {
+            while (true)
+            {
+                try
+                {
+                }
+                catch (Exception) { }
+            }
+        }
+        private void update_client()
+        {
+            while (true)
+            {
+                try
+                {
+                }
+                catch (Exception) { }
             }
         }
 

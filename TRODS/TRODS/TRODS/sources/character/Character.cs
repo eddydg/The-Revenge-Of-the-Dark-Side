@@ -93,6 +93,8 @@ namespace TRODS
 
         public float Life { get; set; }
 
+        public float Armor { get; set; }
+
         public Character(Rectangle winSize, Vector2 position, int width, int height, string assetName, int textureColumns, int textureLines)
         {
             this._windowSize = winSize;
@@ -109,6 +111,7 @@ namespace TRODS
             this.Life = 1f;
             this._action = CharacterActions.StandRight;
             this._attacks = new Dictionary<CharacterActions, Attack>();
+            Armor = 1;
         }
 
         public override void LoadContent(ContentManager content)
@@ -231,7 +234,7 @@ namespace TRODS
             this._canMove = false;
             this._timer = blockTime;
             this.actualizeSpriteGraphicalBounds();
-            this.Life -= damage;
+            this.Life -= damage / Armor; ;
         }
 
         public virtual void Stand(bool right)
