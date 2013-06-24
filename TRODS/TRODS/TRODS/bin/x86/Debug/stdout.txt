@@ -56,3 +56,43 @@ System.DivideByZeroException: Tentative de division par zéro.
    à TRODS.MultipleTextSprite.LoadContent(ContentManager content) dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\graphics\MultipleTextSprite.cs:ligne 37
    à TRODS.Animation.LoadContent(ContentManager content) dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\graphics\Animation.cs:ligne 145
    à TRODS.Game1.LoadContent() dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\Game1.cs:ligne 124
+Erreur d'affichage :
+System.ArgumentException: The character '	' (0x0009) is not available in this SpriteFont. If applicable, adjust the font's start and end CharacterRegions to include this character.
+Nom du paramètre : character
+   à Microsoft.Xna.Framework.Graphics.SpriteFont.GetIndexForCharacter(Char character)
+   à Microsoft.Xna.Framework.Graphics.SpriteFont.InternalMeasure(StringProxy& text)
+   à Microsoft.Xna.Framework.Graphics.SpriteFont.MeasureString(String text)
+   à TRODS.TextSprite.Draw(SpriteBatch spriteBatch) dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\graphics\TextSprite.cs:ligne 74
+   à TRODS.MultipleTextSprite.Draw(SpriteBatch spriteBatch) dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\graphics\MultipleTextSprite.cs:ligne 42
+   à TRODS.SceneCredit.Draw(SpriteBatch spriteBatch) dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\scenes\SceneCredit.cs:ligne 58
+   à TRODS.Game1.Draw(GameTime gameTime) dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\Game1.cs:ligne 216
+Erreur d'affichage :
+System.ArgumentException: The character '	' (0x0009) is not available in this SpriteFont. If applicable, adjust the font's start and end CharacterRegions to include this character.
+Nom du paramètre : character
+   à Microsoft.Xna.Framework.Graphics.SpriteFont.GetIndexForCharacter(Char character)
+   à Microsoft.Xna.Framework.Graphics.SpriteFont.InternalMeasure(StringProxy& text)
+   à Microsoft.Xna.Framework.Graphics.SpriteFont.MeasureString(String text)
+   à TRODS.TextSprite.Draw(SpriteBatch spriteBatch) dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\graphics\TextSprite.cs:ligne 74
+   à TRODS.MultipleTextSprite.Draw(SpriteBatch spriteBatch) dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\graphics\MultipleTextSprite.cs:ligne 42
+   à TRODS.SceneCredit.Draw(SpriteBatch spriteBatch) dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\scenes\SceneCredit.cs:ligne 58
+   à TRODS.Game1.Draw(GameTime gameTime) dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\Game1.cs:ligne 216
+Erreur d'affichage :
+System.ArgumentException: The character '	' (0x0009) is not available in this SpriteFont. If applicable, adjust the font's start and end CharacterRegions to include this character.
+Nom du paramètre : character
+   à Microsoft.Xna.Framework.Graphics.SpriteFont.GetIndexForCharacter(Char character)
+   à Microsoft.Xna.Framework.Graphics.SpriteFont.InternalMeasure(StringProxy& text)
+   à Microsoft.Xna.Framework.Graphics.SpriteFont.MeasureString(String text)
+   à TRODS.TextSprite.Draw(SpriteBatch spriteBatch) dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\graphics\TextSprite.cs:ligne 74
+   à TRODS.MultipleTextSprite.Draw(SpriteBatch spriteBatch) dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\graphics\MultipleTextSprite.cs:ligne 42
+   à TRODS.SceneCredit.Draw(SpriteBatch spriteBatch) dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\scenes\SceneCredit.cs:ligne 58
+   à TRODS.Game1.Draw(GameTime gameTime) dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\Game1.cs:ligne 216
+Erreur d'affichage :
+System.ArgumentException: The character '	' (0x0009) is not available in this SpriteFont. If applicable, adjust the font's start and end CharacterRegions to include this character.
+Nom du paramètre : character
+   à Microsoft.Xna.Framework.Graphics.SpriteFont.GetIndexForCharacter(Char character)
+   à Microsoft.Xna.Framework.Graphics.SpriteFont.InternalMeasure(StringProxy& text)
+   à Microsoft.Xna.Framework.Graphics.SpriteFont.MeasureString(String text)
+   à TRODS.TextSprite.Draw(SpriteBatch spriteBatch) dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\graphics\TextSprite.cs:ligne 74
+   à TRODS.MultipleTextSprite.Draw(SpriteBatch spriteBatch) dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\graphics\MultipleTextSprite.cs:ligne 42
+   à TRODS.SceneCredit.Draw(SpriteBatch spriteBatch) dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\scenes\SceneCredit.cs:ligne 58
+   à TRODS.Game1.Draw(GameTime gameTime) dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\Game1.cs:ligne 216

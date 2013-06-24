@@ -15,8 +15,8 @@ namespace TRODS
     {
         StandRight, StandLeft, WalkLeft, WalkRight, WalkUp, WalkDown, JumpRight, JumpLeft, Fall, Paralized, ReceiveAttack, ReceiveAttackLeft, ReceiveAttackRight,
         Attack1Right, Attack1Left,
-        AttackStunRight, AttackStunLeft
-
+        AttackStunRight, AttackStunLeft,
+        Attack2Left, Attack2Right
     }
     /// <summary>
     /// Scenes du jeu

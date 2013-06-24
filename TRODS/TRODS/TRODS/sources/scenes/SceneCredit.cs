@@ -26,7 +26,7 @@ namespace TRODS
 
             animations = new List<Sprite>();
             animations.Add(new TextSprite("SpriteFont1", _windowSize, new Rectangle(80, 250, 300, 75), Color.Red, "Team BEEN"));
-            _authors = new MultipleTextSprite("SpriteFont1", _windowSize, new Rectangle(394, _windowSize.Height, 500, 130), Color.Red);
+            _authors = new MultipleTextSprite("SpriteFont1", _windowSize, new Rectangle(394, _windowSize.Height, 500, 2100), Color.Red);
             _authors.Direction = new Vector2(0, -1);
             _authors.Vitesse = 0.1f;
             foreach (string s in EugLib.IO.FileStream.readFileLines(INFO.ENG?"Content/AUTHORSa":"Content/AUTHORS"))

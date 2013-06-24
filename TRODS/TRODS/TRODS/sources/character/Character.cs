@@ -197,6 +197,7 @@ namespace TRODS
         {
             if (!this._attacks.ContainsKey(attack))
                 return;
+            Rectangle position;
             switch (attack)
             {
                 case CharacterActions.Attack1Right:
@@ -207,8 +208,16 @@ namespace TRODS
                     break;
                 case CharacterActions.AttackStunRight:
                 case CharacterActions.AttackStunLeft:
-                    Rectangle position = this._sprite.Position;
+                    position = this._sprite.Position;
                     this._attacks[attack].Launch(new Rectangle(position.X - 2 * position.Width, position.Y - position.Height, 5 * position.Width, (int)(2.20000004768372 * (double)position.Height)));
+                    break;
+                case CharacterActions.Attack2Right:
+                    position = this._sprite.Position;
+                    this._attacks[attack].Launch(new Rectangle(position.X - position.Width/2, position.Y - position.Height,position.Width*2,position.Height));
+                    break;
+                case CharacterActions.Attack2Left:
+                    position = this._sprite.Position;
+                    this._attacks[attack].Launch(new Rectangle(position.X - position.Width / 2, position.Y - position.Height, position.Width * 2, position.Height));
                     break;
             }
             this._canMove = false;

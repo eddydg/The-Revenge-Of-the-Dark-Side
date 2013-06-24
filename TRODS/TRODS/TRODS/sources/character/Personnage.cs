@@ -16,7 +16,7 @@ namespace TRODS
         public enum KeysActions
         {
             WalkRight, WalkLeft, WalkUp, WalkDown, Jump,
-            Attack1, AttackStun
+            Attack1, AttackStun, Attack2
         };
 
         private InputManager<Personnage.KeysActions, Keys> _inputManager;
@@ -52,6 +52,8 @@ namespace TRODS
             this._graphicalBounds.set(CharacterActions.AttackStunLeft, 16, 16, 17, 4);
             this._graphicalBounds.set(CharacterActions.ReceiveAttackRight, 60, 60, 60, 30);
             this._graphicalBounds.set(CharacterActions.ReceiveAttackLeft, 59, 59, 59, 30);
+            this._graphicalBounds.set(CharacterActions.Attack2Right, 1, 1, 2, 5);
+            this._graphicalBounds.set(CharacterActions.Attack2Left, 16, 16, 17, 5);
             this.Action = CharacterActions.StandRight;
             this._physics.MaxHeight = 400;
             this._physics.TimeOnFlat = 500;
@@ -71,6 +73,12 @@ namespace TRODS
             this.AddAttack(CharacterActions.AttackStunRight, new Attack(this._windowSize, new AnimatedSprite(new Rectangle(0, 0, 400, 400), this._windowSize, "sprites/expl_spread_6x6", 6, 6, 30, 1, 32, 1, true), 1500, 1.0f / 1000.0f, 3000, 400, 0.3f));
             this.AddAttack(CharacterActions.Attack1Right, new Attack(this._windowSize, new AnimatedSprite(new Rectangle(0, 0, 10, 10), this._windowSize, "general/vide", 1, 1, 30, 1, -1, -1, false), 50, 0.1f, 280, 300, 0.05f));
             this.AddAttack(CharacterActions.Attack1Left, new Attack(this._windowSize, new AnimatedSprite(new Rectangle(0, 0, 10, 10), this._windowSize, "general/vide", 1, 1, 30, 1, -1, -1, false), 50, 0.1f, 280, 300, 0.05f));
+            AnimatedSprite a = new AnimatedSprite(new Rectangle(0, 0, 100, 100), this._windowSize, "sprites/distant_attack_5x7", 5, 7, 30, 1, 35, 1, false);
+            a.Direction = new Vector2(-2, 1); a.Vitesse = 0.15f;
+            this.AddAttack(CharacterActions.Attack2Left, new Attack(this._windowSize, a, 1500, 0.05f, 200, 1200, 0.5f));
+            a = new AnimatedSprite(new Rectangle(0, 0, 100, 100), this._windowSize, "sprites/distant_attack_5x7", 5, 7, 30, 1, 35, 1, false);
+            a.Direction = new Vector2(2, 1); a.Vitesse = 0.15f;
+            this.AddAttack(CharacterActions.Attack2Right, new Attack(this._windowSize, a, 1500, 0.05f, 200, 1200, 0.5f));
         }
 
         public override void Update(float elapsedTime)
@@ -134,6 +142,15 @@ namespace TRODS
                 this.Attack(this.Action);
                 this.actualizeSpriteGraphicalBounds();
             }
+            if (newKeyboardState.IsKeyDown(this._inputManager.Get(Personnage.KeysActions.Attack2)))
+            {
+                this._canMove = false;
+                this.Action = this._direction ? CharacterActions.Attack2Right : CharacterActions.Attack2Left;
+                if (this.Attacks.ContainsKey(this.Action))
+                    this._timer = this.Attacks[this.Action].AttackTime;
+                this.Attack(this.Action);
+                this.actualizeSpriteGraphicalBounds();
+            }
         }
 
         public void InitKeys()
@@ -145,6 +162,7 @@ namespace TRODS
             this._inputManager.Add(Personnage.KeysActions.Jump, Keys.Space);
             this._inputManager.Add(Personnage.KeysActions.Attack1, Keys.X);
             this._inputManager.Add(Personnage.KeysActions.AttackStun, Keys.A);
+            this._inputManager.Add(Personnage.KeysActions.Attack2, Keys.S);
         }
 
         public List<Tip> GetSkillsTips()
@@ -152,7 +170,8 @@ namespace TRODS
             return new List<Tip>()
       {
         new Tip(this._windowSize, new Rectangle(20, this._windowSize.Height - 50, 40, 40), "game/tips/sword1_tip", "SpriteFont1", ((object) this._inputManager.Get(Personnage.KeysActions.Attack1)).ToString(), Color.Gold),
-        new Tip(this._windowSize, new Rectangle(70, this._windowSize.Height - 50, 40, 40), "game/tips/stun_tip", "SpriteFont1", ((object) this._inputManager.Get(Personnage.KeysActions.AttackStun)).ToString(), Color.Gold)
+        new Tip(this._windowSize, new Rectangle(70, this._windowSize.Height - 50, 40, 40), "game/tips/stun_tip", "SpriteFont1", ((object) this._inputManager.Get(Personnage.KeysActions.AttackStun)).ToString(), Color.Gold),
+        new Tip(this._windowSize, new Rectangle(120, this._windowSize.Height - 50, 40, 40), "game/tips/distant_attack_tip", "SpriteFont1", ((object) this._inputManager.Get(Personnage.KeysActions.Attack2)).ToString(), Color.Gold)
       };
         }
     }
