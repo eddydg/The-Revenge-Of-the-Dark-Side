@@ -15,6 +15,12 @@ namespace TRODS
     {
         private AnimatedSprite _sprite;
 
+        internal AnimatedSprite Sprite
+        {
+            get { return _sprite; }
+            set { _sprite = value; }
+        }
+
         public float Damage { get; set; }
 
         public Tip Tip { get; set; }
