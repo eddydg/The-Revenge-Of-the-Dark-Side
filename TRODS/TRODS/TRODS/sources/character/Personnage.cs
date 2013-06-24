@@ -58,9 +58,9 @@ namespace TRODS
             this._physics.MaxHeight = 400;
             this._physics.TimeOnFlat = 500;
             this._inputManager = new InputManager<Personnage.KeysActions, Keys>();
-            this._weapons.Add(new Weapon(winsize, "game/weapon", this._sprite.Lignes, this._sprite.Colonnes, this._sprite.Position.Width, this._sprite.Position.Height, 1f));
+            this._weapons.Add(new Weapon(winsize, "game/weapon", this.Sprite.Lignes, this.Sprite.Colonnes, this.Sprite.Position.Width, this.Sprite.Position.Height, 1f));
             Enumerable.Last<Weapon>((IEnumerable<Weapon>)this._weapons).Tip = new Tip(this._windowSize, new Rectangle(this._windowSize.Width - 60, this._windowSize.Height - 60, 40, 40), "game/tips/sword2_tip", "SpriteFont1", "x" + this.Weapons[0].Damage.ToString() + "   ", Color.Gold);
-            this._weapons.Add(new Weapon(winsize, "game/weapon2", this._sprite.Lignes, this._sprite.Colonnes, this._sprite.Position.Width, this._sprite.Position.Height, 1.5f));
+            this._weapons.Add(new Weapon(winsize, "game/weapon2", this.Sprite.Lignes, this.Sprite.Colonnes, this.Sprite.Position.Width, this.Sprite.Position.Height, 1.5f));
             Enumerable.Last<Weapon>((IEnumerable<Weapon>)this._weapons).Tip = new Tip(this._windowSize, new Rectangle(this._windowSize.Width - 110, this._windowSize.Height - 60, 40, 40), "game/tips/sword3_tip", "SpriteFont1", "x" + this.Weapons[1].Damage.ToString() + "   ", Color.Gold);
             this.Weapon = 0;
             this.InitKeys();

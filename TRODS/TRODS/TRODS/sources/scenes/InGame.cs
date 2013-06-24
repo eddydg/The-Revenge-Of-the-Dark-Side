@@ -39,6 +39,7 @@ namespace TRODS
         private Thread _thread_client;
         private Thread _temp_thread;
         private bool _isServer;
+        private bool _connected;
 
         private bool _dashing, _waitingDash;
         private float _dashTimer;
@@ -115,6 +116,7 @@ namespace TRODS
             this._maps.Add(abstractMap2);
             this._currentMap = 0;
             this.personnage = new Personnage(this._windowSize, abstractMap2.VuePosition);
+            this._players = new Personnage(this._windowSize, abstractMap2.VuePosition);
             this._mobsTextures = new List<Texture2D>();
             this._mobs = new List<List<Mob>>();
             this.rand = new Random();
@@ -159,6 +161,7 @@ namespace TRODS
         public override void LoadContent(ContentManager content)
         {
             this.personnage.LoadContent(content);
+            _players.LoadContent(content);
             this.mouse.LoadContent(content, "general/cursor1");
             foreach (AbstractMap abstractScene in this._maps)
                 abstractScene.LoadContent(content);
@@ -175,6 +178,8 @@ namespace TRODS
             spriteBatch.Begin();
             this._maps[this._currentMap].Draw(spriteBatch, false);
             bool flag1 = false;
+            if (_connected)
+                _players.Draw(spriteBatch);
             if (this._mobs != null && this._mobs[this._currentMap].Count > 0)
             {
                 int index1 = 0;
@@ -425,12 +430,13 @@ namespace TRODS
                         _thread_client = new Thread(update_client);
                         _thread_client.Start();
                         System.Windows.Forms.MessageBox.Show(INFO.ENG ? "Connection established." : "Connexion etablie.");
+                        _connected = true;
                     }
                     else
                         System.Windows.Forms.MessageBox.Show(INFO.ENG ? "Fail establishing connection." : "Echec de la connexion.");
                 }
                 else
-                    System.Windows.Forms.MessageBox.Show(INFO.ENG?"Start network first.":"Demarrez le reseau d'abord.");
+                    System.Windows.Forms.MessageBox.Show(INFO.ENG ? "Start network first." : "Demarrez le reseau d'abord.");
             }
             catch (Exception e)
             {
@@ -468,6 +474,7 @@ namespace TRODS
         {
             try
             {
+                _connected = false;
                 if (_server != null)
                     _server.Close();
                 _server = null;
@@ -480,7 +487,6 @@ namespace TRODS
                 if (_temp_thread != null)
                     _temp_thread.Abort();
                 _temp_thread = null;
-                _players = null;
                 ((TextSprite)_menu.Elements[1]).Color = Color.Red;
                 ((TextSprite)_menu.Elements[2]).Color = Color.Red;
             }
@@ -495,6 +501,17 @@ namespace TRODS
             {
                 try
                 {
+                    if (_isServer)
+                    {
+                        List<string> data = new List<string>(Recieve().Split(' '));
+                        if (data[0] == "/p")
+                        {
+                            _players.SetCharacteristics(int.Parse(data[1]), float.Parse(data[2]), float.Parse(data[3]), _maps[_currentMap].VuePosition, personnage.Sprite.Position);
+                        }
+                    }
+                    else
+                    {
+                    }
                 }
                 catch (Exception) { }
             }
@@ -505,6 +522,18 @@ namespace TRODS
             {
                 try
                 {
+                    if (_isServer)
+                    {
+
+                    }
+                    else
+                    {
+                        string s = "";
+                        s += "/p " + personnage.Sprite.ActualPicture.ToString() + " "
+                            + _maps[_currentMap].VuePosition.X.ToString() + " "
+                            + _maps[_currentMap].VuePosition.Y.ToString();
+                        Send(s);
+                    }
                 }
                 catch (Exception) { }
             }
