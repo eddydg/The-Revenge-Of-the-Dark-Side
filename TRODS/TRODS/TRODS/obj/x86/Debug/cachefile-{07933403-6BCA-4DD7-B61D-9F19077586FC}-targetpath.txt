@@ -74,8 +74,17 @@ Content\animation\intro\4.xnb
 Content\map3\back.xnb
 Content\map3\chandelier_sprite.xnb
 Content\map3\ground.xnb
+Content\sprites\distant_attack_5x7.xnb
+Content\game\tips\distant_attack_tip.xnb
+Content\game\Blob.xnb
+Content\game\Eagle.xnb
+Content\game\Jumping.xnb
+Content\game\Wind.xnb
+Content\game\throne.xnb
 Content\menu\menuAmbience.xnb
 Content\menu\menuAmbience.wma
+Content\game\son\hill.xnb
+Content\game\son\hill.wma
 Content\menu\selectionSound.xnb
 Content\animation\intro\intro.xnb
 Content\animation\intro\intro.wma
@@ -85,20 +94,11 @@ Content\menu\songCredit.xnb
 Content\menu\songCredit.wma
 Content\animation\LateX\1 (08).xnb
 Content\animation\LateX\1 (08).wma
+Content\game\son\jump_guy.xnb
+Content\game\son\jump_hetero.xnb
 Content\SpriteFont1.xnb
 Content\general\introduction_trods.xnb
 Content\general\introduction_trods.wmv
-Content\sprites\distant_attack_5x7.xnb
-Content\game\tips\distant_attack_tip.xnb
-Content\game\Blob.xnb
-Content\game\Eagle.xnb
-Content\game\Jumping.xnb
-Content\game\Wind.xnb
-Content\game\son\jump_guy.xnb
-Content\game\son\jump_hetero.xnb
-Content\game\son\hill.xnb
-Content\game\son\hill.wma
-Content\game\throne.xnb
 Content\AUTHORS
 Content\AUTHORSa
 Content\animation\intro\1.txt

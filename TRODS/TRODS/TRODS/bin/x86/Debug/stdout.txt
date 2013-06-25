@@ -172,3 +172,5 @@ System.NullReferenceException: La référence d'objet n'est pas définie à une 
    à TRODS.InGame.StopAllConnections() dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\scenes\InGame.cs:ligne 478
 System.NullReferenceException: La référence d'objet n'est pas définie à une instance d'un objet.
    à TRODS.InGame.StopAllConnections() dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\scenes\InGame.cs:ligne 478
+System.NullReferenceException: La référence d'objet n'est pas définie à une instance d'un objet.
+   à TRODS.InGame.StopAllConnections() dans C:\Users\Kuchera\Documents\GitHub\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\scenes\InGame.cs:ligne 478

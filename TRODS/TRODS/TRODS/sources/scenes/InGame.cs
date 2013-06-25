@@ -529,6 +529,7 @@ namespace TRODS
 
         public override void Activation(Game1 parent)
         {
+            Game1.son.Play(Musiques.Jeu);
             if (!_animDone)
             {
                 _animDone = true;
@@ -559,7 +560,6 @@ namespace TRODS
             this._keyboardState = Keyboard.GetState();
             this._menu.Activation(parent);
             Load();
-            Game1.son.Play(Musiques.Jeu);
         }
         private void Load()
         {
