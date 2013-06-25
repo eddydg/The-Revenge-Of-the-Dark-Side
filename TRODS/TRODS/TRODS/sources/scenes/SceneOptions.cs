@@ -20,7 +20,7 @@ namespace TRODS
         private Sprite _wallpaper;
         private AnimatedSprite _mouse;
         public static string SOUND_FILENAME = "files/sound";
-        private const string VERSION_NUMBER = "3,0";
+        private const string VERSION_NUMBER = "4,0";
         private Sprite _textMusic;
         private Sprite _textEffects;
         private Sprite _soundMusic;
@@ -88,13 +88,13 @@ namespace TRODS
             {
                 _mouse.Position = new Rectangle(newMouseState.X, newMouseState.Y, _mouse.Position.Width, _mouse.Position.Height);
                 if (_checkUpdate.Position.Contains(newMouseState.X, newMouseState.Y) && !_checkUpdate.Position.Contains(_mouseState.X, _mouseState.Y))
-                    parent.son.Play(Sons.MenuSelection);
+                    Game1.son.Play(Sons.MenuSelection);
                 if (_serverConfig.Position.Contains(newMouseState.X, newMouseState.Y) && !_serverConfig.Position.Contains(_mouseState.X, _mouseState.Y))
-                    parent.son.Play(Sons.MenuSelection);
+                    Game1.son.Play(Sons.MenuSelection);
                 if (_fullScreen.Position.Contains(newMouseState.X, newMouseState.Y) && !_fullScreen.Position.Contains(_mouseState.X, _mouseState.Y))
-                    parent.son.Play(Sons.MenuSelection);
+                    Game1.son.Play(Sons.MenuSelection);
                 if (_language.Position.Contains(newMouseState.X, newMouseState.Y) && !_language.Position.Contains(_mouseState.X, _mouseState.Y))
-                    parent.son.Play(Sons.MenuSelection);
+                    Game1.son.Play(Sons.MenuSelection);
             }
 
             if (newKeyboardState.IsKeyDown(Keys.Escape) && !_keyboardState.IsKeyDown(Keys.Escape))
@@ -135,8 +135,8 @@ namespace TRODS
                     }
                 }
 
-                parent.son.MusiquesVolume = _volumeMusic;
-                parent.son.SonsVolume = _volumeEffect;
+                Game1.son.MusiquesVolume = _volumeMusic;
+                Game1.son.SonsVolume = _volumeEffect;
 
                 EugLib.IO.FileStream.writeFile(SOUND_FILENAME, _volumeMusic + " " + _volumeEffect);
             }

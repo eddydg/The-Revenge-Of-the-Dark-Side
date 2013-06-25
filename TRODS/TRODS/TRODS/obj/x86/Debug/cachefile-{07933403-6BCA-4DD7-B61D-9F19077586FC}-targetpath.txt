@@ -90,6 +90,15 @@ Content\general\introduction_trods.xnb
 Content\general\introduction_trods.wmv
 Content\sprites\distant_attack_5x7.xnb
 Content\game\tips\distant_attack_tip.xnb
+Content\game\Blob.xnb
+Content\game\Eagle.xnb
+Content\game\Jumping.xnb
+Content\game\Wind.xnb
+Content\game\son\jump_guy.xnb
+Content\game\son\jump_hetero.xnb
+Content\game\son\hill.xnb
+Content\game\son\hill.wma
+Content\game\throne.xnb
 Content\AUTHORS
 Content\AUTHORSa
 Content\animation\intro\1.txt

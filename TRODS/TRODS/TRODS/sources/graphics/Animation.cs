@@ -212,7 +212,7 @@ namespace TRODS
         {
             Start();
             _keyboardState = Keyboard.GetState();
-            parent.son.Play(_music);
+            Game1.son.Play(_music);
             foreach (int i in _textToShow)
             {
                 try
@@ -225,7 +225,7 @@ namespace TRODS
 
         public override void EndScene(Game1 parent = null)
         {
-            parent.son.Stop();
+            Game1.son.Stop();
         }
     }
 }

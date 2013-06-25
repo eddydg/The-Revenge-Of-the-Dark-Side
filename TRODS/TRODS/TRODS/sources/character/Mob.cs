@@ -18,6 +18,7 @@ namespace TRODS
         private Vector2 _speed;
         private IA _ia;
         private Sprite _lifeSprite;
+        public int GivenExp { get; set; }
 
         public Rectangle PlayingZone
         {
@@ -50,6 +51,7 @@ namespace TRODS
             this._playingZone = playingZone;
             this._mapSpeed = mapSpeed;
             this._speed = speed;
+            GivenExp = 50;
             this.Life = 1f;
             this._lifeSprite = new Sprite(new Rectangle(this.Sprite.Position.X, this.Sprite.Position.Y - (int)(0.0333333350718021 * (double)this.Sprite.Position.Height), this.Sprite.Position.Width, (int)(0.0333333350718021 * (double)this.Sprite.Position.Height)), this._windowSize, "game/life_mob");
             this.AddAttack(CharacterActions.Attack1Right, new Attack(this._windowSize, new AnimatedSprite(new Rectangle(0, 0, 10, 10), this._windowSize, "general/vide", 1, 1, 30, 1, -1, -1, false), 50, 0.005f, 50, 500, 0.05f));

@@ -92,28 +92,28 @@ namespace TRODS
                     else
                     {
                         selection = Selection.Exit;
-                        parent.son.Play(Sons.MenuSelection);
+                        Game1.son.Play(Sons.MenuSelection);
                     }
                 }
                 if (newKeyboardState.IsKeyDown(Keys.Right) && !keyboardState.IsKeyDown(Keys.Right))
                 {
                     selection++;
-                    parent.son.Play(Sons.MenuSelection);
+                    Game1.son.Play(Sons.MenuSelection);
                 }
                 if (newKeyboardState.IsKeyDown(Keys.Left) && !keyboardState.IsKeyDown(Keys.Left))
                 {
                     selection--;
-                    parent.son.Play(Sons.MenuSelection);
+                    Game1.son.Play(Sons.MenuSelection);
                 }
                 if (newKeyboardState.IsKeyDown(Keys.Up) && !keyboardState.IsKeyDown(Keys.Up))
                 {
                     selection--;
-                    parent.son.Play(Sons.MenuSelection);
+                    Game1.son.Play(Sons.MenuSelection);
                 }
                 if (newKeyboardState.IsKeyDown(Keys.Down) && !keyboardState.IsKeyDown(Keys.Down))
                 {
                     selection++;
-                    parent.son.Play(Sons.MenuSelection);
+                    Game1.son.Play(Sons.MenuSelection);
                 }
                 if ((int)selection >= menuItems.Count)
                     selection = (Selection)0;
@@ -135,7 +135,7 @@ namespace TRODS
                         if (st.Position.Intersects(new Rectangle((int)mouse.EmitterLocation.X, (int)mouse.EmitterLocation.Y, 1, 1)))
                         {
                             if ((int)selection != i)
-                                parent.son.Play(Sons.MenuSelection);
+                                Game1.son.Play(Sons.MenuSelection);
                             selection = (Selection)i;
                             if (isClicked)
                                 selectionEvent(parent);
@@ -228,12 +228,12 @@ namespace TRODS
             mousestate = Mouse.GetState();
             sprites.Clear();
             mouse.EmitterLocation = new DecimalRectangle(-100, -100, 0, 0);
-            parent.son.Play(Musiques.MenuMusic);
+            Game1.son.Play(Musiques.MenuMusic);
         }
 
         public override void EndScene(Game1 parent)
         {
-            parent.son.Stop();
+            Game1.son.Stop();
         }
 
         /// <summary>
@@ -242,7 +242,7 @@ namespace TRODS
         /// <param name="parent">Reference de la classe Game1 parent</param>
         private void selectionEvent(Game1 parent)
         {
-            parent.son.Play(Sons.MenuSelection);
+            Game1.son.Play(Sons.MenuSelection);
             switch (selection)
             {
                 case Selection.Exit:

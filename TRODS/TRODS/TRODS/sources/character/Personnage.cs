@@ -123,7 +123,10 @@ namespace TRODS
                 else
                     this.Stand(this._direction);
                 if (newKeyboardState.IsKeyDown(this._inputManager.Get(Personnage.KeysActions.Jump)))
+                {
                     this.Jump();
+                    Game1.son.Play(Sons.Jump);
+                }
             }
             if (newKeyboardState.IsKeyDown(this._inputManager.Get(Personnage.KeysActions.Attack1)))
             {
@@ -175,9 +178,9 @@ namespace TRODS
       };
         }
 
-        public float Damage()
+        public override float GetDamage()
         {
-            return _weapons[Weapon].Damage * (Experience.Level > 10 ? (float)Experience.Level / 10f : 1);
+            return _weapons[Weapon].Damage * (Experience.Level > 10 ? (float)Experience.Level / 10f : 1)* Damage*Attacks[Action].Damage;
         }
     }
 }

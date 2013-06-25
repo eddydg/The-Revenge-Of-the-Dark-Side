@@ -8,7 +8,7 @@ namespace TRODS
     public class INFO
     {
         public static bool ENG = true;
-        public static string version = "3.0";
+        public static string version = "4.0";
     }
 
     public enum CharacterActions
@@ -38,13 +38,13 @@ namespace TRODS
     /// </summary>
     public enum Sons
     {
-        MenuSelection,
+        MenuSelection,Jump,Hit
     };
     /// <summary>
     /// Enumeration de toutes les musiques du jeu
     /// </summary>
     public enum Musiques
     {
-        None, MenuMusic, CreditMusic, Intro, IntroLateX, TransitionLateX
+        None, MenuMusic, CreditMusic, Intro, IntroLateX, TransitionLateX, Jeu
     };
 }

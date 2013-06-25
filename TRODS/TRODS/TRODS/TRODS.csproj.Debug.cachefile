@@ -84,12 +84,21 @@ Content\SpriteFont1.xnb
 Content\general\introduction_trods.xnb
 Content\sprites\distant_attack_5x7.xnb
 Content\game\tips\distant_attack_tip.xnb
+Content\game\Blob.xnb
+Content\game\Eagle.xnb
+Content\game\Jumping.xnb
+Content\game\Wind.xnb
+Content\game\son\jump_guy.xnb
+Content\game\son\jump_hetero.xnb
+Content\game\son\hill.xnb
+Content\game\throne.xnb
 Content\menu\menuAmbience.wma
 Content\animation\intro\intro.wma
 Content\animation\LateX\Transition.wma
 Content\menu\songCredit.wma
 Content\animation\LateX\1 (08).wma
 Content\general\introduction_trods.wmv
+Content\game\son\hill.wma
 Content\AUTHORS
 Content\AUTHORSa
 Content\animation\intro\1.txt

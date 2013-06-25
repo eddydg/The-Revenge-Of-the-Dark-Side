@@ -88,11 +88,14 @@ namespace TRODS
         public int Weapon { get; set; }
         public float Life { get; set; }
         public float Armor { get; set; }
+        public float Damage { get; set; }
+        public bool CanBeStunned { get; set; }
 
         public Character(Rectangle winSize, Vector2 position, int width, int height, string assetName, int textureColumns, int textureLines)
         {
             this._windowSize = winSize;
             this._position = position;
+            Damage = 1;
             this._weapons = new List<Weapon>();
             this._graphicalBounds = new GraphicalBounds<CharacterActions>(new Dictionary<CharacterActions, Rectangle>());
             this._sprite = new AnimatedSprite(new Rectangle((int)position.X - width / 2, (int)position.Y - height, width, height), winSize, assetName, textureColumns, textureLines, 30, 1, -1, -1, true);
@@ -106,6 +109,7 @@ namespace TRODS
             this._action = CharacterActions.StandRight;
             this._attacks = new Dictionary<CharacterActions, Attack>();
             Armor = 1;
+            CanBeStunned = true;
         }
 
         public override void LoadContent(ContentManager content)
@@ -165,27 +169,10 @@ namespace TRODS
                     return;
                 this.Life = 1f;
             }
+            if (!CanBeStunned)
+                _canMove = true;
         }
 
-        /*public virtual void SetCharacteristics(int action, float posx, float posy, bool direction, int timer, Vector2 mypersopositiononmap, Rectangle mypersopositionofsprite, Physics physics = null, AnimatedSprite sprite = null, Dictionary<CharacterActions, Attack> attacks = null, GraphicalBounds<CharacterActions> graphicalBounds = null, List<Weapon> weapons=null)
-        {
-            if (physics != null)
-                _physics = physics;
-            if ( sprite!=null)
-            _sprite = sprite;
-            if (attacks != null)
-                _attacks = attacks;
-            if (graphicalBounds != null)
-                _graphicalBounds = graphicalBounds;
-            if (weapons != null)
-                _weapons = weapons;
-            _action = (CharacterActions)action;
-            _position = new Vector2(posx, posy);
-            _sprite.Position = new Rectangle((int)(mypersopositionofsprite.X + _position.X - mypersopositiononmap.X), (int)(mypersopositionofsprite.Y + _position.Y - mypersopositiononmap.Y), mypersopositionofsprite.Width, mypersopositionofsprite.Height);
-            _direction = direction;
-            _timer = timer;
-            actualizeSpriteGraphicalBounds();
-        }*/
         public virtual void SetCharacteristics(int img, float posx, float posy, Vector2 mypersopositiononmap, Rectangle mypersopositionofsprite)
         {
             _sprite.ActualPicture = img;
@@ -240,17 +227,21 @@ namespace TRODS
                     this._attacks[attack].Launch(new Rectangle(position.X - position.Width / 2, position.Y - position.Height, position.Width * 2, position.Height));
                     break;
             }
+            Game1.son.Play(Sons.Hit);
             this._canMove = false;
             this._timer = this._attacks[attack].AttackTime;
             this._action = attack;
         }
         public virtual void ReceiveAttack(float damage = 0.0f, int blockTime = 100)
         {
-            this._action = this._direction ? CharacterActions.ReceiveAttackRight : CharacterActions.ReceiveAttackLeft;
-            this._canMove = false;
-            this._timer = blockTime;
+            if (CanBeStunned)
+            {
+                this._action = this._direction ? CharacterActions.ReceiveAttackRight : CharacterActions.ReceiveAttackLeft;
+                this._canMove = false;
+                this._timer = blockTime;
+            }
             this.actualizeSpriteGraphicalBounds();
-            this.Life -= damage / Armor; ;
+            this.Life -= damage / Armor;
         }
         public virtual void Stand(bool right)
         {
@@ -281,9 +272,12 @@ namespace TRODS
         }
         public virtual void Paralize(int time)
         {
-            this._canMove = false;
-            this._timer = time;
-            this._action = CharacterActions.Paralized;
+            if (CanBeStunned)
+            {
+                this._canMove = false;
+                this._timer = time;
+                this._action = CharacterActions.Paralized;
+            }
         }
         public virtual void Free()
         {
@@ -316,6 +310,10 @@ namespace TRODS
                 if (weapon != null)
                     weapon.actualizeSpriteGraphicalBounds(rect);
             }
+        }
+        public virtual float GetDamage()
+        {
+            return Damage;
         }
     }
 }

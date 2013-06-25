@@ -656,7 +656,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\animation\intro\4.xnb</Output>
-      <Time>2013-06-23T17:20:52.5704285+02:00</Time>
+      <Time>2013-06-25T05:01:50.6397453+02:00</Time>
     </Item>
     <Item>
       <Source>map3\back.png</Source>
@@ -780,6 +780,79 @@
       <Options>None</Options>
       <Output>D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\game\tips\distant_attack_tip.xnb</Output>
       <Time>2013-06-24T12:39:20.8416441+02:00</Time>
+    </Item>
+    <Item>
+      <Source>game\Blob.png</Source>
+      <Name>game\Blob</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\game\Blob.xnb</Output>
+      <Time>2013-06-25T01:59:12.1841804+02:00</Time>
+    </Item>
+    <Item>
+      <Source>game\Eagle.png</Source>
+      <Name>game\Eagle</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\game\Eagle.xnb</Output>
+      <Time>2013-06-25T01:59:18.8470452+02:00</Time>
+    </Item>
+    <Item>
+      <Source>game\Jumping.png</Source>
+      <Name>game\Jumping</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\game\Jumping.xnb</Output>
+      <Time>2013-06-25T01:59:27.8363438+02:00</Time>
+    </Item>
+    <Item>
+      <Source>game\Wind.png</Source>
+      <Name>game\Wind</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\game\Wind.xnb</Output>
+      <Time>2013-06-25T01:59:34.0954672+02:00</Time>
+    </Item>
+    <Item>
+      <Source>game\son\jump_guy.mp3</Source>
+      <Name>game\son\jump_guy</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\game\son\jump_guy.xnb</Output>
+      <Time>2013-06-25T04:12:47.2575892+02:00</Time>
+    </Item>
+    <Item>
+      <Source>game\son\jump_hetero.mp3</Source>
+      <Name>game\son\jump_hetero</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\game\son\jump_hetero.xnb</Output>
+      <Time>2013-06-25T04:37:19.5605608+02:00</Time>
+    </Item>
+    <Item>
+      <Source>game\son\hill.wav</Source>
+      <Name>game\son\hill</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SongProcessor</Processor>
+      <Options>None</Options>
+      <Output>D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\game\son\hill.xnb</Output>
+      <Extra>D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\game\son\hill.wma</Extra>
+      <Time>2013-06-25T04:58:03.8463456+02:00</Time>
+    </Item>
+    <Item>
+      <Source>game\throne.png</Source>
+      <Name>game\throne</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\bin\x86\Debug\Content\game\throne.xnb</Output>
+      <Time>2013-06-25T05:09:32.9964509+02:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

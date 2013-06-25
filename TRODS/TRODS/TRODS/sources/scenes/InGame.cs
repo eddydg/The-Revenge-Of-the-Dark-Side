@@ -87,7 +87,7 @@ namespace TRODS
             abstractMap3.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(2000, 50, 300, 233), windowSize, "map3/chandelier_sprite", 8, 4, 30, 1, 32, 1, true), 1f, 0.5f, false, true, false, true, false));
             abstractMap3.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(0, 500, 1042, 159), windowSize, "map3/ground", 1, 1, 30, 1, -1, -1, false), 1f, 0.5f, true, false, false, true, false));
             abstractMap3.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(250, 280, 320, 320), this._windowSize, "sprites/portal_6x6", 6, 6, 30, 1, 32, 1, true), 1f, 0.5f, false, false, true, false, false));
-            abstractMap3.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(2550, 280, 320, 320), this._windowSize, "sprites/portal_6x6", 6, 6, 30, 1, 32, 1, true), 1f, 0.5f, false, false, true, true, false));
+            abstractMap3.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(3050, 280, 320, 320), this._windowSize, "sprites/portal_6x6", 6, 6, 30, 1, 32, 1, true), 1f, 0.5f, false, false, true, true, false));
 
             AbstractMap abstractMap4 = new AbstractMap(this._windowSize);
             abstractMap4.AddVisitable(450, 450, 2000, 130);
@@ -98,7 +98,7 @@ namespace TRODS
             abstractMap4.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(1400, 50, 300, 233), windowSize, "map3/chandelier_sprite", 8, 4, 30, 1, 32, 1, true), 1f, 0.5f, false, true, false, true, false));
             abstractMap4.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(0, 500, 1042, 159), windowSize, "map3/ground", 1, 1, 30, 1, -1, -1, false), 1f, 0.5f, true, false, false, true, false));
             abstractMap4.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(250, 280, 320, 320), this._windowSize, "sprites/portal_6x6", 6, 6, 30, 1, 32, 1, true), 1f, 0.5f, false, false, true, false, false));
-            abstractMap4.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(1750, 280, 320, 320), this._windowSize, "sprites/portal_6x6", 6, 6, 30, 1, 32, 1, true), 1f, 0.5f, false, false, true, true, false));
+            abstractMap4.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(1750+500, 280, 320, 320), this._windowSize, "sprites/portal_6x6", 6, 6, 30, 1, 32, 1, true), 1f, 0.5f, false, false, true, true, false));
 
             AbstractMap abstractMap2 = new AbstractMap(this._windowSize);
             abstractMap2.AddVisitable(450, 450, 2800, 130);
@@ -107,37 +107,32 @@ namespace TRODS
             abstractMap2.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(0, 190, 960, 300), windowSize, "map2/mountain", 1, 1, 30, 1, -1, -1, false), 0.8f, 0.2f, true, false, false, true, false));
             abstractMap2.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(0, 415, 1082, 193), windowSize, "map2/sand", 1, 1, 30, 1, -1, -1, false), 1f, 0.5f, true, false, false, true, false));
             abstractMap2.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(0, 515, 1066, 92), windowSize, "map2/rock", 1, 1, 30, 1, -1, -1, false), 1f, 0.5f, true, true, false, true, false));
+            abstractMap2.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(500, 450, 150, 150), this._windowSize, "game/heal_font_6x6", 6, 6, 30, 1, 32, 1, true), 1f, 0.5f, false, false, false, false, true));
             abstractMap2.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(250, 280, 320, 320), this._windowSize, "sprites/portal_6x6", 6, 6, 30, 1, 32, 1, true), 1f, 0.5f, false, false, true, false, false));
-            abstractMap2.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(2800 + this._windowSize.Width / 2, 150, this._windowSize.Width / 2, this._windowSize.Height - 150), this._windowSize, "sprites/fireWall_11x6r23r44", 11, 6, 30, 23, 44, 1, true), 1f, 0.5f, false, false, false, true, false));
+            abstractMap2.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(2550 + this._windowSize.Width / 2, 280, 320, 320), this._windowSize, "sprites/portal_6x6", 6, 6, 30, 1, 32, 1, true), 1f, 0.5f, false, false, true, true, false));
+
+            AbstractMap abstractMap5 = new AbstractMap(this._windowSize);
+            abstractMap5.AddVisitable(450, 450, 2800, 130);
+            abstractMap5.VuePosition = new Vector2(460f, 579f);
+            abstractMap5.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(0, 0, 1040, 320), windowSize, "map2/sky", 1, 1, 30, 1, -1, -1, false), 0.2f, 0.0f, true, false, false, true, false));
+            abstractMap5.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(0, 190, 960, 300), windowSize, "map2/mountain", 1, 1, 30, 1, -1, -1, false), 0.8f, 0.2f, true, false, false, true, false));
+            abstractMap5.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(0, 415, 1082, 193), windowSize, "map2/sand", 1, 1, 30, 1, -1, -1, false), 1f, 0.5f, true, false, false, true, false));
+            abstractMap5.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(0, 515, 1066, 92), windowSize, "map2/rock", 1, 1, 30, 1, -1, -1, false), 1f, 0.5f, true, true, false, true, false));
+            abstractMap5.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(250, 280, 320, 320), this._windowSize, "sprites/portal_6x6", 6, 6, 30, 1, 32, 1, true), 1f, 0.5f, false, false, true, false, false));
+            abstractMap5.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(2800 + this._windowSize.Width / 2, 150, this._windowSize.Width / 2, this._windowSize.Height - 150), this._windowSize, "sprites/fireWall_11x6r23r44", 11, 6, 30, 23, 44, 1, true), 1f, 0.5f, false, false, false, true, false));
+            abstractMap5.Elements.Add(new AbstractMap.Element(new AnimatedSprite(new Rectangle(2800 + this._windowSize.Width / 2 -200, 300, 150,195), this._windowSize, "game/throne"), 1f, 0.5f, false, false, true, true, true));
 
             this._maps.Add(abstractMap1);
             this._maps.Add(abstractMap3);
             this._maps.Add(abstractMap4);
             this._maps.Add(abstractMap2);
+            this._maps.Add(abstractMap5);
             this._currentMap = 0;
             this.personnage = new Personnage(this._windowSize, abstractMap2.VuePosition);
             this._players = new Personnage(this._windowSize, abstractMap2.VuePosition);
             this._mobsTextures = new List<Texture2D>();
             this._mobs = new List<List<Mob>>();
-            this.rand = new Random();
-            for (int i = 0; i < _maps.Count; i++)
-            {
-                this._mobs.Add(new List<Mob>());
-            }
-            foreach (List<Mob> list in this._mobs)
-            {
-                foreach (Mob mob in list)
-                {
-                    mob.AddGraphicalBounds(CharacterActions.WalkRight, new Rectangle(6, 6, 10, 30));
-                    mob.AddGraphicalBounds(CharacterActions.WalkLeft, new Rectangle(1, 1, 5, 30));
-                    mob.AddGraphicalBounds(CharacterActions.StandLeft, new Rectangle(3, 3, 3, 30));
-                    mob.AddGraphicalBounds(CharacterActions.StandRight, new Rectangle(8, 8, 8, 30));
-                    mob.AddGraphicalBounds(CharacterActions.Attack1Left, new Rectangle(11, 11, 12, 4));
-                    mob.AddGraphicalBounds(CharacterActions.Attack1Right, new Rectangle(16, 16, 17, 4));
-                    mob.AddGraphicalBounds(CharacterActions.ReceiveAttackLeft, new Rectangle(13, 13, 13, 4));
-                    mob.AddGraphicalBounds(CharacterActions.ReceiveAttackRight, new Rectangle(18, 18, 18, 4));
-                }
-            }
+
             this._hud = new HUD(this._windowSize);
             foreach (Sprite sprite in this.personnage.GetSkillsTips())
                 this._hud.AddSprite(sprite);
@@ -248,13 +243,14 @@ namespace TRODS
             for (int index = 0; index < this._mobs[this._currentMap].Count; ++index)
             {
                 if (this.personnage.Attacks.ContainsKey(this.personnage.Action) && this.personnage.Attacks[this.personnage.Action].Position.Intersects(this._mobs[this._currentMap][index].DrawingRectangle) && this.personnage.Attacks[this.personnage.Action].Active)
-                    this._mobs[this._currentMap][index].ReceiveAttack(this.personnage.Attacks[this.personnage.Action].Damage * this.personnage.Damage(), this.personnage.Attacks[this.personnage.Action].BlockTime);
+                    this._mobs[this._currentMap][index].ReceiveAttack(this.personnage.GetDamage(), this.personnage.Attacks[this.personnage.Action].BlockTime);
                 if ((double)this._mobs[this._currentMap][index].Life <= 0.0)
                 {
                     int level = this.personnage.Experience.Level;
+                    this.personnage.Experience.Add(_mobs[this._currentMap][index].GivenExp);
                     this._mobs[this._currentMap].RemoveAt(index);
                     --index;
-                    this.personnage.Experience.Add(50);
+                    personnage.Armor += (float)(personnage.Experience.Level - level) * 0.2f;
                     if (level < this.personnage.Experience.Level && level == 13 && this.personnage.Weapons.Count >= 2)
                         this._hud.AddWeapon(this.personnage.Weapons[1].Tip);
                 }
@@ -264,7 +260,7 @@ namespace TRODS
                 foreach (Attack attack in character.Attacks.Values)
                 {
                     if (attack.Active && attack.Position.Intersects(this.personnage.DrawingRectangle))
-                        this.personnage.ReceiveAttack(attack.Damage, attack.BlockTime);
+                        this.personnage.ReceiveAttack(attack.Damage*character.Damage, attack.BlockTime);
                 }
             }
 
@@ -370,8 +366,6 @@ namespace TRODS
                     this._currentMap += this._maps[this._currentMap].GetTravelState(this.personnage.DrawingRectangle);
                 if (this._currentMap < 0)
                     this._currentMap = 0;
-                else if (this._currentMap >= this._maps.Count)
-                    this._currentMap = this._maps.Count - 1;
                 if (map != _currentMap)
                 {
                     _animDone = false;
@@ -421,7 +415,18 @@ namespace TRODS
                 {
                     _server.Connect(_ipep);
                     bool connected = false;
-                    connected = WaitConnection();
+                    if (_isServer)
+                    {
+                        if (Recieve() == "cln")
+                            connected = true;
+                        Send("srv");
+                    }
+                    else
+                    {
+                        Send("cln");
+                        if (Recieve() == "srv")
+                            connected = true;
+                    }
                     if (connected)
                     {
                         ((TextSprite)_menu.Elements[2]).Color = Color.Green;
@@ -433,7 +438,7 @@ namespace TRODS
                         _connected = true;
                     }
                     else
-                        System.Windows.Forms.MessageBox.Show(INFO.ENG ? "Fail establishing connection." : "Echec de la connexion.");
+                        StopAllConnections();
                 }
                 else
                     System.Windows.Forms.MessageBox.Show(INFO.ENG ? "Start network first." : "Demarrez le reseau d'abord.");
@@ -443,23 +448,6 @@ namespace TRODS
                 EugLib.IO.FileStream.toStdOut(e.ToString());
                 StopAllConnections();
             }
-        }
-        private bool WaitConnection()
-        {
-            bool connected = false;
-            if (_isServer)
-            {
-                if (Recieve() == "cln")
-                    connected = true;
-                Send("srv");
-            }
-            else
-            {
-                Send("cln");
-                if (Recieve() == "srv")
-                    connected = true;
-            }
-            return connected;
         }
         private void Send(String s)
         {
@@ -561,12 +549,17 @@ namespace TRODS
                     case 4:
                         parent.SwitchScene(Scene.LastFight);//combat contre Spark(re map dark sauf si on a le temps d'en faire une autre)
                         break;
+                    case 5:
+                        _currentMap = 0;
+                        parent.SwitchScene(Scene.Credit);
+                        break;
                 }
             }
             this._mouseState = Mouse.GetState();
             this._keyboardState = Keyboard.GetState();
             this._menu.Activation(parent);
             Load();
+            Game1.son.Play(Musiques.Jeu);
         }
         private void Load()
         {
@@ -595,28 +588,9 @@ namespace TRODS
                 abstractMap.Activation((Game1)null);
                 abstractMap.WindowResized(this._windowSize);
             }
-            this.rand = new Random();
-            foreach (List<Mob> list in this._mobs)
-                list.Clear();
-            foreach (List<Mob> list in this._mobs)
-            {
-                for (int index = 0; index < 40; ++index)
-                    list.Add(new Mob(this._windowSize, this.rand.Next(), new Vector2(1000f, 580f), 100, 200, "game/blitz", 5, 4, new Vector2(3f, 3f), new Vector2(1f, 0.5f), 300, 50, new Rectangle(900, 485, 2000, 100)));
-            }
-            foreach (List<Mob> list in this._mobs)
-            {
-                foreach (Mob mob in list)
-                {
-                    mob.AddGraphicalBounds(CharacterActions.WalkRight, new Rectangle(6, 6, 10, 30));
-                    mob.AddGraphicalBounds(CharacterActions.WalkLeft, new Rectangle(1, 1, 5, 30));
-                    mob.AddGraphicalBounds(CharacterActions.StandLeft, new Rectangle(3, 3, 3, 30));
-                    mob.AddGraphicalBounds(CharacterActions.StandRight, new Rectangle(8, 8, 8, 30));
-                    mob.AddGraphicalBounds(CharacterActions.Attack1Left, new Rectangle(11, 11, 12, 4));
-                    mob.AddGraphicalBounds(CharacterActions.Attack1Right, new Rectangle(16, 16, 17, 4));
-                    mob.AddGraphicalBounds(CharacterActions.ReceiveAttackLeft, new Rectangle(13, 13, 13, 4));
-                    mob.AddGraphicalBounds(CharacterActions.ReceiveAttackRight, new Rectangle(18, 18, 18, 4));
-                }
-            }
+
+            InitMobs();
+
             if (parent != null)
                 foreach (List<Mob> list in this._mobs)
                 {
@@ -627,6 +601,7 @@ namespace TRODS
                     }
                 }
             Reset();
+            Game1.son.Stop();
         }
         public void Reset(bool force = false)
         {
@@ -658,6 +633,194 @@ namespace TRODS
             }
             this._hud.WindowResized(rect);
             this._windowSize = rect;*/
+        }
+        private void InitMobs()
+        {
+            this.rand = new Random();
+            foreach (List<Mob> list in this._mobs)
+                list.Clear();
+            _mobs.Clear();
+
+            Mob m;
+            //map1
+            _mobs.Add(new List<Mob>());
+            for (int i = 0; i < 40; i++)
+            {
+                m = new Mob(this._windowSize, this.rand.Next(), new Vector2(1000f, 580f), 100, 200, "game/blitz", 5, 4, new Vector2(3f, 3f), new Vector2(1f, 0.5f), 300, 50, new Rectangle(900, 485, 2000, 100));
+                m.AddGraphicalBounds(CharacterActions.WalkRight, new Rectangle(6, 6, 10, 30));
+                m.AddGraphicalBounds(CharacterActions.WalkLeft, new Rectangle(1, 1, 5, 30));
+                m.AddGraphicalBounds(CharacterActions.StandLeft, new Rectangle(3, 3, 3, 30));
+                m.AddGraphicalBounds(CharacterActions.StandRight, new Rectangle(8, 8, 8, 30));
+                m.AddGraphicalBounds(CharacterActions.Attack1Left, new Rectangle(11, 11, 12, 4));
+                m.AddGraphicalBounds(CharacterActions.Attack1Right, new Rectangle(16, 16, 17, 4));
+                m.AddGraphicalBounds(CharacterActions.ReceiveAttackLeft, new Rectangle(13, 13, 13, 4));
+                m.AddGraphicalBounds(CharacterActions.ReceiveAttackRight, new Rectangle(18, 18, 18, 4));
+                _mobs.Last().Add(m);
+            }
+            //map2
+            _mobs.Add(new List<Mob>());
+            for (int i = 0; i < 20; i++)
+            {
+                m = new Mob(this._windowSize, this.rand.Next(), new Vector2(1000f, 580f), 100, 200, "game/blitz", 5, 4, new Vector2(3f, 3f), new Vector2(1f, 0.5f), 300, 50, new Rectangle(900, 485, 2000, 100));
+                m.AddGraphicalBounds(CharacterActions.WalkRight, new Rectangle(6, 6, 10, 30));
+                m.AddGraphicalBounds(CharacterActions.WalkLeft, new Rectangle(1, 1, 5, 30));
+                m.AddGraphicalBounds(CharacterActions.StandLeft, new Rectangle(3, 3, 3, 30));
+                m.AddGraphicalBounds(CharacterActions.StandRight, new Rectangle(8, 8, 8, 30));
+                m.AddGraphicalBounds(CharacterActions.Attack1Left, new Rectangle(11, 11, 12, 4));
+                m.AddGraphicalBounds(CharacterActions.Attack1Right, new Rectangle(16, 16, 17, 4));
+                m.AddGraphicalBounds(CharacterActions.ReceiveAttackLeft, new Rectangle(13, 13, 13, 4));
+                m.AddGraphicalBounds(CharacterActions.ReceiveAttackRight, new Rectangle(18, 18, 18, 4));
+                _mobs.Last().Add(m);
+            }
+            for (int i = 0; i < 20; i++)
+            {
+                m = new Mob(this._windowSize, this.rand.Next(), new Vector2(1000f, 580f), 150, 158, "game/Blob", 12, 7, new Vector2(3f, 3f), new Vector2(1f, 0.5f), 300, 50, new Rectangle(900, 485, 2000, 100));
+                m.AddGraphicalBounds(CharacterActions.WalkRight, new Rectangle(1, 1,24, 50));
+                m.AddGraphicalBounds(CharacterActions.WalkLeft, new Rectangle(25,25,48, 50));
+                m.AddGraphicalBounds(CharacterActions.StandLeft, new Rectangle(30, 30, 31, 30));
+                m.AddGraphicalBounds(CharacterActions.StandRight, new Rectangle(6, 6,7, 5));
+                m.AddGraphicalBounds(CharacterActions.Attack1Left, new Rectangle(55,55,60,15));
+                m.AddGraphicalBounds(CharacterActions.Attack1Right, new Rectangle(49, 49,54, 15));
+                m.AddGraphicalBounds(CharacterActions.ReceiveAttackLeft, new Rectangle(70, 70, 78,15));
+                m.AddGraphicalBounds(CharacterActions.ReceiveAttackRight, new Rectangle(61, 61,69, 15));
+                m.Armor = 2f;
+                m.GivenExp = 100;
+                m.Damage = 1.3f;
+                _mobs.Last().Add(m);
+            }
+            //map3
+            _mobs.Add(new List<Mob>());
+            for (int i = 0; i < 5; i++)
+            {
+                m = new Mob(this._windowSize, this.rand.Next(), new Vector2(1000f, 580f), 100, 200, "game/blitz", 5, 4, new Vector2(3f, 3f), new Vector2(1f, 0.5f), 300, 50, new Rectangle(900, 485, 1500, 100));
+                m.AddGraphicalBounds(CharacterActions.WalkRight, new Rectangle(6, 6, 10, 30));
+                m.AddGraphicalBounds(CharacterActions.WalkLeft, new Rectangle(1, 1, 5, 30));
+                m.AddGraphicalBounds(CharacterActions.StandLeft, new Rectangle(3, 3, 3, 30));
+                m.AddGraphicalBounds(CharacterActions.StandRight, new Rectangle(8, 8, 8, 30));
+                m.AddGraphicalBounds(CharacterActions.Attack1Left, new Rectangle(11, 11, 12, 4));
+                m.AddGraphicalBounds(CharacterActions.Attack1Right, new Rectangle(16, 16, 17, 4));
+                m.AddGraphicalBounds(CharacterActions.ReceiveAttackLeft, new Rectangle(13, 13, 13, 4));
+                m.AddGraphicalBounds(CharacterActions.ReceiveAttackRight, new Rectangle(18, 18, 18, 4));
+                _mobs.Last().Add(m);
+            }
+            for (int i = 0; i < 3; i++)
+            {
+                m = new Mob(this._windowSize, this.rand.Next(), new Vector2(1000f, 580f), 150, 158, "game/Blob", 12, 7, new Vector2(3f, 3f), new Vector2(1f, 0.5f), 300, 50, new Rectangle(900, 485, 1500, 100));
+                m.AddGraphicalBounds(CharacterActions.WalkRight, new Rectangle(1, 1, 24, 50));
+                m.AddGraphicalBounds(CharacterActions.WalkLeft, new Rectangle(25, 25, 48, 50));
+                m.AddGraphicalBounds(CharacterActions.StandLeft, new Rectangle(30, 30, 31, 30));
+                m.AddGraphicalBounds(CharacterActions.StandRight, new Rectangle(6, 6, 7, 5));
+                m.AddGraphicalBounds(CharacterActions.Attack1Left, new Rectangle(55, 55, 60, 15));
+                m.AddGraphicalBounds(CharacterActions.Attack1Right, new Rectangle(49, 49, 54, 15));
+                m.AddGraphicalBounds(CharacterActions.ReceiveAttackLeft, new Rectangle(70, 70, 78, 15));
+                m.AddGraphicalBounds(CharacterActions.ReceiveAttackRight, new Rectangle(61, 61, 69, 15));
+                m.Armor = 2f;
+                m.GivenExp = 100;
+                m.Damage = 1.3f;
+                _mobs.Last().Add(m);
+            }
+            for (int i = 0; i < 1; i++)
+            {
+                m = new Mob(this._windowSize, this.rand.Next(), new Vector2(1000f, 580f), 300, 316, "game/Jumping", 12, 7, new Vector2(3f, 3f), new Vector2(1f, 0.5f), 300, 50, new Rectangle(900, 485, 1500, 100));
+                m.AddGraphicalBounds(CharacterActions.WalkRight, new Rectangle(1, 1, 24, 50));
+                m.AddGraphicalBounds(CharacterActions.WalkLeft, new Rectangle(25, 25, 48, 50));
+                m.AddGraphicalBounds(CharacterActions.StandLeft, new Rectangle(30, 30, 31, 30));
+                m.AddGraphicalBounds(CharacterActions.StandRight, new Rectangle(6, 6, 7, 5));
+                m.AddGraphicalBounds(CharacterActions.Attack1Left, new Rectangle(55, 55, 60, 15));
+                m.AddGraphicalBounds(CharacterActions.Attack1Right, new Rectangle(49, 49, 54, 15));
+                m.AddGraphicalBounds(CharacterActions.ReceiveAttackLeft, new Rectangle(70, 70, 78, 15));
+                m.AddGraphicalBounds(CharacterActions.ReceiveAttackRight, new Rectangle(61, 61, 69, 15));
+                m.Armor = 20f;
+                m.GivenExp = 1000;
+                m.Damage = 3f;
+                m.CanBeStunned = false;
+                _mobs.Last().Add(m);
+            }
+            //map4
+            _mobs.Add(new List<Mob>());
+            for (int i = 0; i < 30; i++)
+            {
+                m = new Mob(this._windowSize, this.rand.Next(), new Vector2(1000f, 580f), 150, 158, "game/Eagle", 12, 7, new Vector2(3f, 3f), new Vector2(1f, 0.5f), 300, 50, new Rectangle(900, 485, 2000, 100));
+                m.AddGraphicalBounds(CharacterActions.WalkRight, new Rectangle(1, 1, 24, 50));
+                m.AddGraphicalBounds(CharacterActions.WalkLeft, new Rectangle(25, 25, 48, 50));
+                m.AddGraphicalBounds(CharacterActions.StandLeft, new Rectangle(30, 30, 31, 30));
+                m.AddGraphicalBounds(CharacterActions.StandRight, new Rectangle(6, 6, 7, 5));
+                m.AddGraphicalBounds(CharacterActions.Attack1Left, new Rectangle(55, 55, 60, 15));
+                m.AddGraphicalBounds(CharacterActions.Attack1Right, new Rectangle(49, 49, 54, 15));
+                m.AddGraphicalBounds(CharacterActions.ReceiveAttackLeft, new Rectangle(70, 70, 78, 15));
+                m.AddGraphicalBounds(CharacterActions.ReceiveAttackRight, new Rectangle(61, 61, 69, 15));
+                m.Armor = 5f;
+                m.GivenExp = 250;
+                m.Damage = 2f;
+                _mobs.Last().Add(m);
+            }
+            for (int i = 0; i < 10; i++)
+            {
+                m = new Mob(this._windowSize, this.rand.Next(), new Vector2(1000f, 580f), 150, 158, "game/Wind", 12, 7, new Vector2(3f, 3f), new Vector2(1f, 0.5f), 300, 50, new Rectangle(900, 485, 2000, 100));
+                m.AddGraphicalBounds(CharacterActions.WalkRight, new Rectangle(1, 1, 24, 50));
+                m.AddGraphicalBounds(CharacterActions.WalkLeft, new Rectangle(25, 25, 48, 50));
+                m.AddGraphicalBounds(CharacterActions.StandLeft, new Rectangle(30, 30, 31, 30));
+                m.AddGraphicalBounds(CharacterActions.StandRight, new Rectangle(6, 6, 7, 5));
+                m.AddGraphicalBounds(CharacterActions.Attack1Left, new Rectangle(55, 55, 60, 15));
+                m.AddGraphicalBounds(CharacterActions.Attack1Right, new Rectangle(49, 49, 54, 15));
+                m.AddGraphicalBounds(CharacterActions.ReceiveAttackLeft, new Rectangle(70, 70, 78, 15));
+                m.AddGraphicalBounds(CharacterActions.ReceiveAttackRight, new Rectangle(61, 61, 69, 15));
+                m.Armor = 10f;
+                m.GivenExp = 500;
+                m.Damage = 5f;
+                _mobs.Last().Add(m);
+            }
+            //map5
+            _mobs.Add(new List<Mob>());
+            for (int i = 0; i < 10; i++)
+            {
+                m = new Mob(this._windowSize, this.rand.Next(), new Vector2(1000f, 580f), 150, 158, "game/Eagle", 12, 7, new Vector2(3f, 3f), new Vector2(1f, 0.5f), 300, 50, new Rectangle(900, 485, 2000, 100));
+                m.AddGraphicalBounds(CharacterActions.WalkRight, new Rectangle(1, 1, 24, 50));
+                m.AddGraphicalBounds(CharacterActions.WalkLeft, new Rectangle(25, 25, 48, 50));
+                m.AddGraphicalBounds(CharacterActions.StandLeft, new Rectangle(30, 30, 31, 30));
+                m.AddGraphicalBounds(CharacterActions.StandRight, new Rectangle(6, 6, 7, 5));
+                m.AddGraphicalBounds(CharacterActions.Attack1Left, new Rectangle(55, 55, 60, 15));
+                m.AddGraphicalBounds(CharacterActions.Attack1Right, new Rectangle(49, 49, 54, 15));
+                m.AddGraphicalBounds(CharacterActions.ReceiveAttackLeft, new Rectangle(70, 70, 78, 15));
+                m.AddGraphicalBounds(CharacterActions.ReceiveAttackRight, new Rectangle(61, 61, 69, 15));
+                m.Armor = 5f;
+                m.GivenExp = 250;
+                m.Damage = 2f;
+                _mobs.Last().Add(m);
+            }
+            for (int i = 0; i < 5; i++)
+            {
+                m = new Mob(this._windowSize, this.rand.Next(), new Vector2(1000f, 580f), 150, 158, "game/Wind", 12, 7, new Vector2(3f, 3f), new Vector2(1f, 0.5f), 300, 50, new Rectangle(900, 485, 2000, 100));
+                m.AddGraphicalBounds(CharacterActions.WalkRight, new Rectangle(1, 1, 24, 50));
+                m.AddGraphicalBounds(CharacterActions.WalkLeft, new Rectangle(25, 25, 48, 50));
+                m.AddGraphicalBounds(CharacterActions.StandLeft, new Rectangle(30, 30, 31, 30));
+                m.AddGraphicalBounds(CharacterActions.StandRight, new Rectangle(6, 6, 7, 5));
+                m.AddGraphicalBounds(CharacterActions.Attack1Left, new Rectangle(55, 55, 60, 15));
+                m.AddGraphicalBounds(CharacterActions.Attack1Right, new Rectangle(49, 49, 54, 15));
+                m.AddGraphicalBounds(CharacterActions.ReceiveAttackLeft, new Rectangle(70, 70, 78, 15));
+                m.AddGraphicalBounds(CharacterActions.ReceiveAttackRight, new Rectangle(61, 61, 69, 15));
+                m.Armor = 10f;
+                m.GivenExp = 500;
+                m.Damage = 5f;
+                _mobs.Last().Add(m);
+            }
+            for (int i = 0; i < 1; i++)
+            {
+                m = new Mob(this._windowSize, this.rand.Next(), new Vector2(1000f, 580f), 400, 421, "game/Jumping", 12, 7, new Vector2(3f, 3f), new Vector2(1f, 0.5f), 300, 50, new Rectangle(900, 485, 2000, 100));
+                m.AddGraphicalBounds(CharacterActions.WalkRight, new Rectangle(1, 1, 24, 50));
+                m.AddGraphicalBounds(CharacterActions.WalkLeft, new Rectangle(25, 25, 48, 50));
+                m.AddGraphicalBounds(CharacterActions.StandLeft, new Rectangle(30, 30, 31, 30));
+                m.AddGraphicalBounds(CharacterActions.StandRight, new Rectangle(6, 6, 7, 5));
+                m.AddGraphicalBounds(CharacterActions.Attack1Left, new Rectangle(55, 55, 60, 15));
+                m.AddGraphicalBounds(CharacterActions.Attack1Right, new Rectangle(49, 49, 54, 15));
+                m.AddGraphicalBounds(CharacterActions.ReceiveAttackLeft, new Rectangle(70, 70, 78, 15));
+                m.AddGraphicalBounds(CharacterActions.ReceiveAttackRight, new Rectangle(61, 61, 69, 15));
+                m.Armor = 50f;
+                m.GivenExp = 50000;
+                m.Damage = 15f;
+                m.CanBeStunned = false;
+                _mobs.Last().Add(m);
+            }
         }
     }
 }

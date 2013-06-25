@@ -7,3 +7,168 @@ System.NullReferenceException: La référence d'objet n'est pas définie à une 
    à TRODS.InGame.StopAllConnections() dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\scenes\InGame.cs:ligne 490
 System.NullReferenceException: La référence d'objet n'est pas définie à une instance d'un objet.
    à TRODS.InGame.StopAllConnections() dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\scenes\InGame.cs:ligne 490
+System.NullReferenceException: La référence d'objet n'est pas définie à une instance d'un objet.
+   à TRODS.InGame.StopAllConnections() dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\scenes\InGame.cs:ligne 491
+System.Threading.ThreadAbortException: Le thread a été abandonné.
+   à System.Net.UnsafeNclNativeMethods.OSSOCK.recvfrom(IntPtr socketHandle, Byte* pinnedBuffer, Int32 len, SocketFlags socketFlags, Byte[] socketAddress, Int32& socketAddressSize)
+   à System.Net.Sockets.Socket.ReceiveFrom(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags, EndPoint& remoteEP)
+   à System.Net.Sockets.UdpClient.Receive(IPEndPoint& remoteEP)
+   à TRODS.InGame.Recieve() dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\scenes\InGame.cs:ligne 472
+   à TRODS.InGame.WaitConnection() dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\scenes\InGame.cs:ligne 453
+   à TRODS.InGame.Connect() dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\scenes\InGame.cs:ligne 425
+System.Threading.ThreadAbortException: Le thread a été abandonné.
+   à System.Net.UnsafeNclNativeMethods.OSSOCK.recvfrom(IntPtr socketHandle, Byte* pinnedBuffer, Int32 len, SocketFlags socketFlags, Byte[] socketAddress, Int32& socketAddressSize)
+   à System.Net.Sockets.Socket.ReceiveFrom(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags, EndPoint& remoteEP)
+   à System.Net.Sockets.UdpClient.Receive(IPEndPoint& remoteEP)
+   à TRODS.InGame.Recieve() dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\scenes\InGame.cs:ligne 472
+   à TRODS.InGame.WaitConnection() dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\scenes\InGame.cs:ligne 453
+   à TRODS.InGame.Connect() dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\scenes\InGame.cs:ligne 425
+System.Threading.ThreadAbortException: Le thread a été abandonné.
+   à System.Net.UnsafeNclNativeMethods.OSSOCK.recvfrom(IntPtr socketHandle, Byte* pinnedBuffer, Int32 len, SocketFlags socketFlags, Byte[] socketAddress, Int32& socketAddressSize)
+   à System.Net.Sockets.Socket.ReceiveFrom(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags, EndPoint& remoteEP)
+   à System.Net.Sockets.UdpClient.Receive(IPEndPoint& remoteEP)
+   à TRODS.InGame.Recieve() dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\scenes\InGame.cs:ligne 472
+   à TRODS.InGame.WaitConnection() dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\scenes\InGame.cs:ligne 453
+   à TRODS.InGame.Connect() dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\scenes\InGame.cs:ligne 425
+System.NullReferenceException: La référence d'objet n'est pas définie à une instance d'un objet.
+   à TRODS.InGame.StopAllConnections() dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\scenes\InGame.cs:ligne 491
+System.Threading.ThreadAbortException: Le thread a été abandonné.
+   à System.Net.UnsafeNclNativeMethods.OSSOCK.recvfrom(IntPtr socketHandle, Byte* pinnedBuffer, Int32 len, SocketFlags socketFlags, Byte[] socketAddress, Int32& socketAddressSize)
+   à System.Net.Sockets.Socket.ReceiveFrom(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags, EndPoint& remoteEP)
+   à System.Net.Sockets.UdpClient.Receive(IPEndPoint& remoteEP)
+   à TRODS.InGame.Recieve() dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\scenes\InGame.cs:ligne 472
+   à TRODS.InGame.WaitConnection() dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\scenes\InGame.cs:ligne 453
+   à TRODS.InGame.Connect() dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\scenes\InGame.cs:ligne 425
+System.Threading.ThreadAbortException: Le thread a été abandonné.
+   à System.Net.UnsafeNclNativeMethods.OSSOCK.recvfrom(IntPtr socketHandle, Byte* pinnedBuffer, Int32 len, SocketFlags socketFlags, Byte[] socketAddress, Int32& socketAddressSize)
+   à System.Net.Sockets.Socket.ReceiveFrom(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags, EndPoint& remoteEP)
+   à System.Net.Sockets.UdpClient.Receive(IPEndPoint& remoteEP)
+   à TRODS.InGame.Recieve() dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\scenes\InGame.cs:ligne 472
+   à TRODS.InGame.WaitConnection() dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\scenes\InGame.cs:ligne 460
+   à TRODS.InGame.Connect() dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\scenes\InGame.cs:ligne 425
+System.Threading.ThreadAbortException: Le thread a été abandonné.
+   à System.Net.UnsafeNclNativeMethods.OSSOCK.recvfrom(IntPtr socketHandle, Byte* pinnedBuffer, Int32 len, SocketFlags socketFlags, Byte[] socketAddress, Int32& socketAddressSize)
+   à System.Net.Sockets.Socket.ReceiveFrom(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags, EndPoint& remoteEP)
+   à System.Net.Sockets.UdpClient.Receive(IPEndPoint& remoteEP)
+   à TRODS.InGame.Recieve() dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\scenes\InGame.cs:ligne 472
+   à TRODS.InGame.WaitConnection() dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\scenes\InGame.cs:ligne 460
+   à TRODS.InGame.Connect() dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\scenes\InGame.cs:ligne 425
+System.Threading.ThreadAbortException: Le thread a été abandonné.
+   à System.Net.UnsafeNclNativeMethods.OSSOCK.recvfrom(IntPtr socketHandle, Byte* pinnedBuffer, Int32 len, SocketFlags socketFlags, Byte[] socketAddress, Int32& socketAddressSize)
+   à System.Net.Sockets.Socket.ReceiveFrom(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags, EndPoint& remoteEP)
+   à System.Net.Sockets.UdpClient.Receive(IPEndPoint& remoteEP)
+   à TRODS.InGame.Recieve() dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\scenes\InGame.cs:ligne 472
+   à TRODS.InGame.WaitConnection() dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\scenes\InGame.cs:ligne 460
+   à TRODS.InGame.Connect() dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\scenes\InGame.cs:ligne 425
+System.Threading.ThreadAbortException: Le thread a été abandonné.
+   à System.Net.UnsafeNclNativeMethods.OSSOCK.recvfrom(IntPtr socketHandle, Byte* pinnedBuffer, Int32 len, SocketFlags socketFlags, Byte[] socketAddress, Int32& socketAddressSize)
+   à System.Net.Sockets.Socket.ReceiveFrom(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags, EndPoint& remoteEP)
+   à System.Net.Sockets.UdpClient.Receive(IPEndPoint& remoteEP)
+   à TRODS.InGame.Recieve() dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\scenes\InGame.cs:ligne 472
+   à TRODS.InGame.WaitConnection() dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\scenes\InGame.cs:ligne 460
+   à TRODS.InGame.Connect() dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\scenes\InGame.cs:ligne 425
+System.Threading.ThreadAbortException: Le thread a été abandonné.
+   à System.Net.UnsafeNclNativeMethods.OSSOCK.recvfrom(IntPtr socketHandle, Byte* pinnedBuffer, Int32 len, SocketFlags socketFlags, Byte[] socketAddress, Int32& socketAddressSize)
+   à System.Net.Sockets.Socket.ReceiveFrom(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags, EndPoint& remoteEP)
+   à System.Net.Sockets.UdpClient.Receive(IPEndPoint& remoteEP)
+   à TRODS.InGame.Recieve() dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\scenes\InGame.cs:ligne 472
+   à TRODS.InGame.WaitConnection() dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\scenes\InGame.cs:ligne 453
+   à TRODS.InGame.Connect() dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\scenes\InGame.cs:ligne 425
+System.Threading.ThreadAbortException: Le thread a été abandonné.
+   à System.Net.UnsafeNclNativeMethods.OSSOCK.recvfrom(IntPtr socketHandle, Byte* pinnedBuffer, Int32 len, SocketFlags socketFlags, Byte[] socketAddress, Int32& socketAddressSize)
+   à System.Net.Sockets.Socket.ReceiveFrom(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags, EndPoint& remoteEP)
+   à System.Net.Sockets.UdpClient.Receive(IPEndPoint& remoteEP)
+   à TRODS.InGame.Recieve() dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\scenes\InGame.cs:ligne 472
+   à TRODS.InGame.WaitConnection() dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\scenes\InGame.cs:ligne 453
+   à TRODS.InGame.Connect() dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\scenes\InGame.cs:ligne 425
+System.NullReferenceException: La référence d'objet n'est pas définie à une instance d'un objet.
+   à TRODS.InGame.StopAllConnections() dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\scenes\InGame.cs:ligne 485
+System.Threading.ThreadAbortException: Le thread a été abandonné.
+   à Microsoft.Win32.SafeNativeMethods.FormatMessage(Int32 dwFlags, HandleRef lpSource, Int32 dwMessageId, Int32 dwLanguageId, StringBuilder lpBuffer, Int32 nSize, IntPtr arguments)
+   à System.ComponentModel.Win32Exception.GetErrorMessage(Int32 error)
+   à System.Net.Sockets.Socket.ReceiveFrom(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags, EndPoint& remoteEP)
+   à System.Net.Sockets.UdpClient.Receive(IPEndPoint& remoteEP)
+   à TRODS.InGame.Recieve() dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\scenes\InGame.cs:ligne 466
+   à TRODS.InGame.Connect() dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\scenes\InGame.cs:ligne 427
+System.NullReferenceException: La référence d'objet n'est pas définie à une instance d'un objet.
+   à TRODS.InGame.StopAllConnections() dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\scenes\InGame.cs:ligne 485
+System.NullReferenceException: La référence d'objet n'est pas définie à une instance d'un objet.
+   à TRODS.InGame.StopAllConnections() dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\scenes\InGame.cs:ligne 485
+System.NullReferenceException: La référence d'objet n'est pas définie à une instance d'un objet.
+   à TRODS.InGame.StopAllConnections() dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\scenes\InGame.cs:ligne 485
+System.Threading.ThreadAbortException: Le thread a été abandonné.
+   à System.Net.UnsafeNclNativeMethods.OSSOCK.recvfrom(IntPtr socketHandle, Byte* pinnedBuffer, Int32 len, SocketFlags socketFlags, Byte[] socketAddress, Int32& socketAddressSize)
+   à System.Net.Sockets.Socket.ReceiveFrom(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags, EndPoint& remoteEP)
+   à System.Net.Sockets.UdpClient.Receive(IPEndPoint& remoteEP)
+   à TRODS.InGame.Recieve() dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\scenes\InGame.cs:ligne 466
+   à TRODS.InGame.Connect() dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\scenes\InGame.cs:ligne 427
+System.Net.Sockets.SocketException (0x80004005): Une opération de blocage a été interrompue par un appel à WSACancelBlockingCall
+   à System.Net.Sockets.Socket.ReceiveFrom(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags, EndPoint& remoteEP)
+   à System.Net.Sockets.UdpClient.Receive(IPEndPoint& remoteEP)
+   à TRODS.InGame.Recieve() dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\scenes\InGame.cs:ligne 466
+   à TRODS.InGame.Connect() dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\scenes\InGame.cs:ligne 427
+System.NullReferenceException: La référence d'objet n'est pas définie à une instance d'un objet.
+   à TRODS.InGame.StopAllConnections() dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\scenes\InGame.cs:ligne 496
+System.NullReferenceException: La référence d'objet n'est pas définie à une instance d'un objet.
+   à TRODS.InGame.StopAllConnections() dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\scenes\InGame.cs:ligne 496
+System.NullReferenceException: La référence d'objet n'est pas définie à une instance d'un objet.
+   à TRODS.InGame.StopAllConnections() dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\scenes\InGame.cs:ligne 496
+System.NullReferenceException: La référence d'objet n'est pas définie à une instance d'un objet.
+   à TRODS.InGame.StopAllConnections() dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\scenes\InGame.cs:ligne 496
+System.NullReferenceException: La référence d'objet n'est pas définie à une instance d'un objet.
+   à TRODS.InGame.StopAllConnections() dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\scenes\InGame.cs:ligne 478
+Erreur d'affichage :
+System.ArgumentOutOfRangeException: L'index était hors limites. Il ne doit pas être négatif et doit être inférieur à la taille de la collection.
+Nom du paramètre : index
+   à System.ThrowHelper.ThrowArgumentOutOfRangeException()
+   à System.Collections.Generic.List`1.get_Item(Int32 index)
+   à TRODS.InGame.Draw(SpriteBatch spriteBatch) dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\scenes\InGame.cs:ligne 176
+   à TRODS.Game1.Draw(GameTime gameTime) dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\Game1.cs:ligne 216
+System.NullReferenceException: La référence d'objet n'est pas définie à une instance d'un objet.
+   à TRODS.InGame.StopAllConnections() dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\scenes\InGame.cs:ligne 478
+System.NullReferenceException: La référence d'objet n'est pas définie à une instance d'un objet.
+   à TRODS.InGame.StopAllConnections() dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\scenes\InGame.cs:ligne 478
+System.NullReferenceException: La référence d'objet n'est pas définie à une instance d'un objet.
+   à TRODS.InGame.StopAllConnections() dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\scenes\InGame.cs:ligne 478
+System.NullReferenceException: La référence d'objet n'est pas définie à une instance d'un objet.
+   à TRODS.InGame.StopAllConnections() dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\scenes\InGame.cs:ligne 478
+System.NullReferenceException: La référence d'objet n'est pas définie à une instance d'un objet.
+   à TRODS.InGame.StopAllConnections() dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\scenes\InGame.cs:ligne 479
+System.NullReferenceException: La référence d'objet n'est pas définie à une instance d'un objet.
+   à TRODS.InGame.StopAllConnections() dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\scenes\InGame.cs:ligne 479
+System.NullReferenceException: La référence d'objet n'est pas définie à une instance d'un objet.
+   à TRODS.InGame.StopAllConnections() dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\scenes\InGame.cs:ligne 479
+System.NullReferenceException: La référence d'objet n'est pas définie à une instance d'un objet.
+   à TRODS.InGame.StopAllConnections() dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\scenes\InGame.cs:ligne 479
+System.NullReferenceException: La référence d'objet n'est pas définie à une instance d'un objet.
+   à TRODS.InGame.StopAllConnections() dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\scenes\InGame.cs:ligne 479
+System.NullReferenceException: La référence d'objet n'est pas définie à une instance d'un objet.
+   à TRODS.InGame.StopAllConnections() dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\scenes\InGame.cs:ligne 479
+System.NullReferenceException: La référence d'objet n'est pas définie à une instance d'un objet.
+   à TRODS.InGame.StopAllConnections() dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\scenes\InGame.cs:ligne 479
+System.NullReferenceException: La référence d'objet n'est pas définie à une instance d'un objet.
+   à TRODS.InGame.StopAllConnections() dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\scenes\InGame.cs:ligne 479
+System.NullReferenceException: La référence d'objet n'est pas définie à une instance d'un objet.
+   à TRODS.InGame.StopAllConnections() dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\scenes\InGame.cs:ligne 479
+System.NullReferenceException: La référence d'objet n'est pas définie à une instance d'un objet.
+   à TRODS.InGame.StopAllConnections() dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\scenes\InGame.cs:ligne 479
+System.NullReferenceException: La référence d'objet n'est pas définie à une instance d'un objet.
+   à TRODS.InGame.StopAllConnections() dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\scenes\InGame.cs:ligne 479
+System.NullReferenceException: La référence d'objet n'est pas définie à une instance d'un objet.
+   à TRODS.InGame.StopAllConnections() dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\scenes\InGame.cs:ligne 479
+System.NullReferenceException: La référence d'objet n'est pas définie à une instance d'un objet.
+   à TRODS.InGame.StopAllConnections() dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\scenes\InGame.cs:ligne 479
+System.NullReferenceException: La référence d'objet n'est pas définie à une instance d'un objet.
+   à TRODS.InGame.StopAllConnections() dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\scenes\InGame.cs:ligne 479
+System.NullReferenceException: La référence d'objet n'est pas définie à une instance d'un objet.
+   à TRODS.InGame.StopAllConnections() dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\scenes\InGame.cs:ligne 480
+System.NullReferenceException: La référence d'objet n'est pas définie à une instance d'un objet.
+   à TRODS.InGame.StopAllConnections() dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\scenes\InGame.cs:ligne 480
+System.NullReferenceException: La référence d'objet n'est pas définie à une instance d'un objet.
+   à TRODS.InGame.StopAllConnections() dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\scenes\InGame.cs:ligne 480
+System.NullReferenceException: La référence d'objet n'est pas définie à une instance d'un objet.
+   à TRODS.InGame.StopAllConnections() dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\scenes\InGame.cs:ligne 478
+System.NullReferenceException: La référence d'objet n'est pas définie à une instance d'un objet.
+   à TRODS.InGame.StopAllConnections() dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\scenes\InGame.cs:ligne 478
+System.NullReferenceException: La référence d'objet n'est pas définie à une instance d'un objet.
+   à TRODS.InGame.StopAllConnections() dans D:\Nicolas\Documents\PROGRAMMATION\C#\Projets\TRODS\The-Revenge-Of-the-Dark-Side\TRODS\TRODS\TRODS\sources\scenes\InGame.cs:ligne 478

@@ -96,7 +96,7 @@ namespace TRODS
                 {
                 }
             }
-            parent.son.Play(Musiques.CreditMusic);
+            Game1.son.Play(Musiques.CreditMusic);
         }
 
         public void ResetAuthors()
@@ -106,7 +106,7 @@ namespace TRODS
 
         public override void EndScene(Game1 parent)
         {
-            parent.son.Stop();
+            Game1.son.Stop();
         }
 
         private void windowResized(Rectangle rect)
